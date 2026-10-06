@@ -411,6 +411,15 @@ html[data-fondo~="circuito"] .f-circuito { opacity: .2; }
 html[data-fondo~="jet"] .f-jet { opacity: .2; }
 .f-circuito { width: min(1200px, 180vw); }
 
+
+/* v11: circuito por fuera del texto, formación de Eurofighter y molino siempre presente en los menús */
+.fondo-art .f-circuito { left: 0; top: 0; width: 100%; height: 100%; transform: none; }
+.fondo-art .f-circuito svg { width: 100%; height: 100%; }
+html[data-fondo~="circuito"] .fondo-art .f.f-circuito { opacity: .32; }
+.fondo-art .f-jet { width: min(470px, 74vw); }
+html .fondo-art .f.f-molino { opacity: .07; }
+html[data-fondo~="molino"] .fondo-art .f.f-molino { opacity: .13; }
+
 /* Carta con fotos: secciones alternas, como en su web */
 .grupo-carta { margin-top: 44px; }
 .grupo-carta + .grupo-carta { padding-top: 44px; border-top: 1px solid var(--line); }
@@ -453,20 +462,13 @@ html[data-fondo~="jet"] .f-jet { opacity: .2; }
     <defs><g id="aspaF"><path d="M0 -4 V-156"/><path d="M5 -28 L36 -38 L36 -148 L5 -150"/><path d="M5 -56 L36 -66 M5 -84 L36 -93 M5 -112 L36 -120 M5 -28 L36 -148 M5 -150 L36 -66"/><path d="M20 -33 V-149"/></g></defs>
     <path d="M200 170 V394"/><path d="M200 170 L126 334"/><path d="M158 218 H242"/><path d="M200 296 L170 394 M200 296 L230 394"/>
     <g transform="translate(200 170)"><g>
-      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="150s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="70s" repeatCount="indefinite"/>
       <use href="#aspaF"/><use href="#aspaF" transform="rotate(90)"/><use href="#aspaF" transform="rotate(180)"/><use href="#aspaF" transform="rotate(270)"/><circle r="6"/>
     </g></g>
   </svg></div>
   <div class="f f-lodares"><svg viewBox="0 0 640 460" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M16 440 H624 M60 440 V196 H230 V440 M54 186 H236 M54 196 H236 M64 186 V176 M64 196 V186 M73 186 V176 M73 196 V186 M83 186 V176 M83 196 V186 M92 186 V176 M92 196 V186 M102 186 V176 M102 196 V186 M111 186 V176 M111 196 V186 M121 186 V176 M121 196 V186 M130 186 V176 M130 196 V186 M140 186 V176 M140 196 V186 M149 186 V176 M149 196 V186 M159 186 V176 M159 196 V186 M168 186 V176 M168 196 V186 M178 186 V176 M178 196 V186 M187 186 V176 M187 196 V186 M197 186 V176 M197 196 V186 M206 186 V176 M206 196 V186 M216 186 V176 M216 196 V186 M225 186 V176 M225 196 V186 M56 176 H234 M82 274 V222 A13 13 0 0 1 108 222 V274 Z M87 274 V230 A8 8 0 0 1 103 230 V274 Z M78 288 H112 M82 396 V340 A13 13 0 0 1 108 340 V396 Z M87 396 V348 A8 8 0 0 1 103 348 V396 Z M132 274 V222 A13 13 0 0 1 158 222 V274 Z M137 274 V230 A8 8 0 0 1 153 230 V274 Z M128 288 H162 M132 396 V340 A13 13 0 0 1 158 340 V396 Z M137 396 V348 A8 8 0 0 1 153 348 V396 Z M182 274 V222 A13 13 0 0 1 208 222 V274 Z M187 274 V230 A8 8 0 0 1 203 230 V274 Z M178 288 H212 M182 396 V340 A13 13 0 0 1 208 340 V396 Z M187 396 V348 A8 8 0 0 1 203 348 V396 Z M68 306 H222 M68 322 H222 M410 440 V196 H580 V440 M404 186 H586 M404 196 H586 M414 186 V176 M414 196 V186 M423 186 V176 M423 196 V186 M433 186 V176 M433 196 V186 M442 186 V176 M442 196 V186 M452 186 V176 M452 196 V186 M461 186 V176 M461 196 V186 M471 186 V176 M471 196 V186 M480 186 V176 M480 196 V186 M490 186 V176 M490 196 V186 M499 186 V176 M499 196 V186 M509 186 V176 M509 196 V186 M518 186 V176 M518 196 V186 M528 186 V176 M528 196 V186 M537 186 V176 M537 196 V186 M547 186 V176 M547 196 V186 M556 186 V176 M556 196 V186 M566 186 V176 M566 196 V186 M575 186 V176 M575 196 V186 M406 176 H584 M432 274 V222 A13 13 0 0 1 458 222 V274 Z M437 274 V230 A8 8 0 0 1 453 230 V274 Z M428 288 H462 M432 396 V340 A13 13 0 0 1 458 340 V396 Z M437 396 V348 A8 8 0 0 1 453 348 V396 Z M482 274 V222 A13 13 0 0 1 508 222 V274 Z M487 274 V230 A8 8 0 0 1 503 230 V274 Z M478 288 H512 M482 396 V340 A13 13 0 0 1 508 340 V396 Z M487 396 V348 A8 8 0 0 1 503 348 V396 Z M532 274 V222 A13 13 0 0 1 558 222 V274 Z M537 274 V230 A8 8 0 0 1 553 230 V274 Z M528 288 H562 M532 396 V340 A13 13 0 0 1 558 340 V396 Z M537 396 V348 A8 8 0 0 1 553 348 V396 Z M418 306 H572 M418 322 H572 M228 440 V150 H412 V440 M220 150 H420 M226 140 H414 M242 440 V160 M398 440 V160 M252 440 V160 M388 440 V160 M242 160 H252 M388 160 H398 M236 140 L320 84 L404 140 M254 140 L320 96 L386 140 M300 126 A20 20 0 1 1 340 126 A20 20 0 1 1 300 126 M308 126 A12 12 0 1 1 332 126 A12 12 0 1 1 308 126 M320 84 V66 M312 70 H328 M314 76 H326 M236 140 V122 M232 126 H240 M404 140 V122 M400 126 H408 M268 440 V336 A52 52 0 0 1 372 336 V440 M280 440 V338 A40 40 0 0 1 360 338 V440 M312 284 H328 L325 304 H315 Z M320 440 V320 M300 440 V340 M340 440 V340 M276 330 Q296 300 320 296 Q344 300 364 330 M274 262 H366 M274 252 H366 M278 262 V252 M286.6 262 V252 M295.2 262 V252 M303.8 262 V252 M312.4 262 V252 M321 262 V252 M329.6 262 V252 M338.2 262 V252 M346.8 262 V252 M355.4 262 V252 M364 262 V252 M284 250 V184 A36 36 0 0 1 356 184 V250 Z M294 250 V194 A26 26 0 0 1 346 194 V250 Z M320 184 V250 M294 222 H346 M260 232 m-6 0 a6 6 0 1 0 12 0 a6 6 0 1 0 -12 0 M260 232 m-2 0 a2 2 0 1 0 4 0 a2 2 0 1 0 -4 0 M380 232 m-6 0 a6 6 0 1 0 12 0 a6 6 0 1 0 -12 0 M380 232 m-2 0 a2 2 0 1 0 4 0 a2 2 0 1 0 -4 0 M260 300 m-6 0 a6 6 0 1 0 12 0 a6 6 0 1 0 -12 0 M260 300 m-2 0 a2 2 0 1 0 4 0 a2 2 0 1 0 -4 0 M380 300 m-6 0 a6 6 0 1 0 12 0 a6 6 0 1 0 -12 0 M380 300 m-2 0 a2 2 0 1 0 4 0 a2 2 0 1 0 -4 0 M64 176 Q145 120 226 176 M414 176 Q495 120 576 176 M91 150.222 L91 176 M118 139.556 L118 176 M145 136 L145 176 M172 139.556 L172 176 M199 150.222 L199 176 M226 168 L226 176"/></svg></div>
-  <div class="f f-circuito"><svg viewBox="0 0 600 400" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-    <path id="pistaF" d="M96 306 L96 126 Q96 84 138 84 L300 84 Q340 84 352 114 L372 162 Q384 192 416 192 L468 192 Q520 192 520 236 L520 290 Q520 334 478 334 L366 334 Q334 334 324 304 Q314 274 282 274 L196 274 Q166 300 136 330 Q104 346 96 306 Z" stroke-width="22" opacity=".35"/>
-    <path d="M96 306 L96 126 Q96 84 138 84 L300 84 Q340 84 352 114 L372 162 Q384 192 416 192 L468 192 Q520 192 520 236 L520 290 Q520 334 478 334 L366 334 Q334 334 324 304 Q314 274 282 274 L196 274 Q166 300 136 330 Q104 346 96 306 Z" stroke-dasharray="3 9" stroke-width="1.6"/>
-    <path d="M78 214 H114 M78 222 H114 M78 206 H114" stroke-width="1.4"/>
-    <path d="M100 540" />
-    <g><rect x="-9" y="-4.5" width="18" height="9" rx="3" fill="currentColor" stroke="none"/><path d="M-9 -4.5 L-13 -7 M-9 4.5 L-13 7 M9 -4.5 L13 -7 M9 4.5 L13 7" /><animateMotion dur="40s" repeatCount="indefinite" rotate="auto"><mpath href="#pistaF"/></animateMotion></g>
-    <path d="M520 100 V70 M520 70 H550 V86 H520" /><path d="M520 78 H550" stroke-dasharray="3 3"/>
-  </svg></div>
-  <div class="f f-jet"><svg viewBox="0 0 520 270" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><defs><symbol id="jetF" viewBox="0 0 210 100"><path d="M205 50 L160 44 L66 44 L44 50 L66 56 L160 56 Z"/><path d="M128 44 L74 6 L52 6 L84 44 M128 56 L74 94 L52 94 L84 56"/><path d="M172 45 L156 30 L146 30 L156 45 M172 55 L156 70 L146 70 L156 55"/><path d="M44 46 L26 47 L26 53 L44 54"/><path d="M172 50 H184 M150 50 H100"/><ellipse cx="164" cy="50" rx="13" ry="3.2"/></symbol></defs><use href="#jetF" x="380" y="105" width="126" height="60"/><use href="#jetF" x="290" y="62" width="126" height="60"/><use href="#jetF" x="290" y="148" width="126" height="60"/><use href="#jetF" x="200" y="19" width="126" height="60"/><use href="#jetF" x="200" y="191" width="126" height="60"/><path d="M20 135 H170 M60 80 H150 M60 190 H150" stroke-dasharray="3 9" opacity=".7"/></svg></div>
+  <div class="f f-circuito"><svg id="circ-svg" viewBox="0 0 1440 900" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path id="circ-asf" d="" stroke-width="26" opacity=".38"/><path id="circ-eje" d="" stroke-dasharray="3 10" stroke-width="1.6"/><path id="circ-meta" d="" stroke-width="3"/><g id="circ-coche"><animateMotion id="circ-mov" dur="16s" repeatCount="indefinite" rotate="auto" path="M0 0"/><path d="M-26 0 H-70" stroke-dasharray="4 8" stroke-width="2"/><rect x="-19" y="-7" width="38" height="14" rx="5" fill="currentColor" stroke="none"/><rect x="-3" y="-4.5" width="12" height="9" rx="2.5" fill="#fff" stroke="none"/><path d="M14 -10 V10 M-17 -10 V10" stroke-width="3"/><rect x="-12" y="-11" width="9" height="4" fill="currentColor" stroke="none"/><rect x="-12" y="7" width="9" height="4" fill="currentColor" stroke="none"/><rect x="7" y="-11" width="9" height="4" fill="currentColor" stroke="none"/><rect x="7" y="7" width="9" height="4" fill="currentColor" stroke="none"/></g></svg></div>
+  <div class="f f-jet"><svg viewBox="0 0 480 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><defs><symbol id="efF" viewBox="0 0 160 110"><g fill="currentColor" fill-opacity=".2" stroke-width="1.2"><path d="M160 55 L141 52.5 L121 49.5 L100 48 L40 47 L25 48.5 L23 55 L25 61.5 L40 63 L100 62 L121 60.5 L141 57.5 Z"/><path d="M112 48 L50 5 L40 6 L34 30 L30 47 Z"/><path d="M112 62 L50 105 L40 104 L34 80 L30 63 Z"/><path d="M130 51 L108 36 L102 37 L108 50 Z"/><path d="M130 59 L108 74 L102 73 L108 60 Z"/><path d="M146 55 Q132 51 118 52.5 Q115 55 118 57.5 Q132 59 146 55 Z" fill-opacity=".45"/><path d="M25 50 L15 50.5 L15 54 L25 54 Z M25 56 L15 56 L15 59.5 L25 60 Z" fill-opacity=".5"/></g><path d="M30 55 H100 M70 22 L66 29 M70 88 L66 81 M52 5 L44 5.5 M52 105 L44 104.5 M92 40 L74 28 M92 70 L74 82" stroke-width="1"/></symbol></defs><path d="M240 150 H332" stroke-dasharray="3 9" opacity=".6"/><path d="M160 100 H252" stroke-dasharray="3 9" opacity=".6"/><path d="M160 200 H252" stroke-dasharray="3 9" opacity=".6"/><path d="M80 50 H172" stroke-dasharray="3 9" opacity=".6"/><path d="M80 250 H172" stroke-dasharray="3 9" opacity=".6"/><use href="#efF" x="334" y="112" width="112" height="77"/><use href="#efF" x="254" y="62" width="112" height="77"/><use href="#efF" x="254" y="162" width="112" height="77"/><use href="#efF" x="174" y="12" width="112" height="77"/><use href="#efF" x="174" y="212" width="112" height="77"/></svg></div>
   <div class="f f-toros"><svg viewBox="0 0 640 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M10 282 H630 M56 282 V152 H584 V282 M80 214 V190 a8 8 0 0 1 16 0 V214 M88 190 v-6 M110 214 V190 a8 8 0 0 1 16 0 V214 M118 190 v-6 M140 214 V190 a8 8 0 0 1 16 0 V214 M148 190 v-6 M170 214 V190 a8 8 0 0 1 16 0 V214 M178 190 v-6 M200 214 V190 a8 8 0 0 1 16 0 V214 M208 190 v-6 M230 214 V190 a8 8 0 0 1 16 0 V214 M238 190 v-6 M260 214 V190 a8 8 0 0 1 16 0 V214 M268 190 v-6 M380 214 V190 a8 8 0 0 1 16 0 V214 M388 190 v-6 M410 214 V190 a8 8 0 0 1 16 0 V214 M418 190 v-6 M440 214 V190 a8 8 0 0 1 16 0 V214 M448 190 v-6 M470 214 V190 a8 8 0 0 1 16 0 V214 M478 190 v-6 M500 214 V190 a8 8 0 0 1 16 0 V214 M508 190 v-6 M530 214 V190 a8 8 0 0 1 16 0 V214 M538 190 v-6 M560 214 V190 a8 8 0 0 1 16 0 V214 M568 190 v-6 M56 222 H584 M56 232 H584 M56 244 H584 M55 152 V132 L62 120 L69 132 V152 M62 120 v-8 M99 152 V132 L106 120 L113 132 V152 M106 120 v-8 M143 152 V132 L150 120 L157 132 V152 M150 120 v-8 M187 152 V132 L194 120 L201 132 V152 M194 120 v-8 M231 152 V132 L238 120 L245 132 V152 M238 120 v-8 M407 152 V132 L414 120 L421 132 V152 M414 120 v-8 M451 152 V132 L458 120 L465 132 V152 M458 120 v-8 M495 152 V132 L502 120 L509 132 V152 M502 120 v-8 M539 152 V132 L546 120 L553 132 V152 M546 120 v-8 M583 152 V132 L590 120 L597 132 V152 M590 120 v-8 M262 282 V104 H378 V282 M254 104 H386 M262 96 H378 M256 96 V78 L262 66 L268 78 V96 M262 66 v-10 M279 96 V78 L285 66 L291 78 V96 M285 66 v-10 M314 96 V78 L320 66 L326 78 V96 M320 66 v-10 M349 96 V78 L355 66 L361 78 V96 M355 66 v-10 M372 96 V78 L378 66 L384 78 V96 M378 66 v-10 M300 282 V246 a20 20 0 0 1 40 0 V282 M308 282 V250 a12 12 0 0 1 24 0 V282 M320 282 V238 M280 122 H292 V206 L286 212 L280 206 Z M348 122 H360 V206 L354 212 L348 206 Z M290 130 a20 20 0 0 1 60 0 M296 130 a14 14 0 0 1 48 0 M96 282 V250 a10 10 0 0 1 20 0 V282 M524 282 V250 a10 10 0 0 1 20 0 V282"/></svg></div>
   <div class="f f-feria"><svg viewBox="0 0 640 360" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><g><path d="M470 262 L440 340 M470 262 L500 340 M430 340 H510"/><circle cx="470" cy="170" r="92"/><circle cx="470" cy="170" r="80"/><circle cx="470" cy="170" r="7"/><g><animateTransform attributeName="transform" type="rotate" from="0 470 170" to="360 470 170" dur="240s" repeatCount="indefinite"/><path d="M470 170 L562.0 170.0 M470 170 L549.7 216.0 M470 170 L516.0 249.7 M470 170 L470.0 262.0 M470 170 L424.0 249.7 M470 170 L390.3 216.0 M470 170 L378.0 170.0 M470 170 L390.3 124.0 M470 170 L424.0 90.3 M470 170 L470.0 78.0 M470 170 L516.0 90.3 M470 170 L549.7 124.0"/><circle cx="562.0" cy="170.0" r="5"/><circle cx="549.7" cy="216.0" r="5"/><circle cx="516.0" cy="249.7" r="5"/><circle cx="470.0" cy="262.0" r="5"/><circle cx="424.0" cy="249.7" r="5"/><circle cx="390.3" cy="216.0" r="5"/><circle cx="378.0" cy="170.0" r="5"/><circle cx="390.3" cy="124.0" r="5"/><circle cx="424.0" cy="90.3" r="5"/><circle cx="470.0" cy="78.0" r="5"/><circle cx="516.0" cy="90.3" r="5"/><circle cx="549.7" cy="124.0" r="5"/></g></g><path d="M16 340 H624"/><path d="M140 340 V226 H206 V340 M434 340 V226 H370 V340 M206 226 V196 H234 V340 M370 226 V196 H342 V340"/><path d="M206 340 V236 A82 82 0 0 1 370 236 V340" stroke-dasharray="1 9" stroke-width="3.2"/><path d="M220 340 V240 A68 68 0 0 1 356 240 V340"/><path d="M246 196 H330 V168 H246 Z M258 168 V148 H318 V168 M288 148 V126 M280 134 H296"/><path d="M152 226 V190 M152 190 l-6 -12 h12 z M422 226 V190 M422 190 l-6 -12 h12 z"/><path d="M154 338 V232 M170 338 V232 M184 338 V232" stroke-dasharray="1 9" stroke-width="3.2"/><path d="M560 340 V30 M556 30 L560 14 L564 30"/><path d="M560 36 Q470 110 300 126 M560 36 Q520 140 454 262 M560 36 Q590 130 612 300 M560 36 Q430 60 288 126" stroke-dasharray="1 9" stroke-width="3.2"/><path d="M40 300 Q96 252 150 300 M470 340 Q520 300 560 340" stroke-dasharray="1 9" stroke-width="3.2"/></svg></div>
 </div>
@@ -2137,7 +2139,7 @@ function pendiente() {
   avisoTimer = setTimeout(function () { e.hidden = true; }, 3500);
 }
 
-var ESCENAS = { inicio: "molino jet", vinos: "lodares", comida: "feria", detalle: "feria", llegar: "circuito jet", quienes: "toros jet", premio: "circuito", trabajamos: "toros", resena: "feria", carta: "feria" };
+var ESCENAS = { inicio: "molino jet", vinos: "lodares", comida: "feria", detalle: "feria", llegar: "circuito", quienes: "toros jet", premio: "circuito", trabajamos: "toros", resena: "feria", carta: "feria" };
 function fondoEscena(p) { document.documentElement.setAttribute("data-fondo", ESCENAS[p] || "suave"); }
 function pintar(ruta) {
   var partes = (ruta || "").split("/");
@@ -2198,6 +2200,31 @@ window.addEventListener("resize", function () { if (!document.querySelector("[da
 function platoImgG(f) {
   return imgSegura(fotoUrl(f), "Foto de " + f.n, null, function () { if (!this.getAttribute("data-f")) { this.setAttribute("data-f", "1"); this.src = fotoUrl(f, true); } else this.style.visibility = "hidden"; });
 }
+
+function dibujaCircuito() {
+  var sv = document.getElementById("circ-svg"); if (!sv) return;
+  var w = window.innerWidth, h = window.innerHeight;
+  var margen = Math.max(w >= 900 ? 48 : 20, (w - 1180) / 2), L = Math.max(w >= 900 ? 24 : 16, margen - 72), R = w - L;
+  var T = 92, B = h - 30, hh = B - T, f = function (n) { return Math.round(n); };
+  var d = "M" + f(L + 90) + " " + T + " H" + f(R - 110) +
+    " C" + f(R - 40) + " " + T + " " + f(R) + " " + f(T + 30) + " " + f(R) + " " + f(T + 110) +
+    " V" + f(T + hh * 0.3) +
+    " C" + f(R) + " " + f(T + hh * 0.36) + " " + f(R - 46) + " " + f(T + hh * 0.36) + " " + f(R - 46) + " " + f(T + hh * 0.43) +
+    " C" + f(R - 46) + " " + f(T + hh * 0.5) + " " + f(R) + " " + f(T + hh * 0.5) + " " + f(R) + " " + f(T + hh * 0.58) +
+    " V" + f(B - 110) +
+    " C" + f(R) + " " + f(B - 30) + " " + f(R - 40) + " " + B + " " + f(R - 110) + " " + B +
+    " H" + f(L + 120) +
+    " C" + f(L + 40) + " " + B + " " + f(L) + " " + f(B - 40) + " " + f(L) + " " + f(B - 110) +
+    " V" + f(T + 110) +
+    " C" + f(L) + " " + f(T + 30) + " " + f(L + 40) + " " + T + " " + f(L + 90) + " " + T + " Z";
+  sv.setAttribute("viewBox", "0 0 " + w + " " + h);
+  document.getElementById("circ-asf").setAttribute("d", d);
+  document.getElementById("circ-eje").setAttribute("d", d);
+  var ym = f(T + hh * 0.52);
+  document.getElementById("circ-meta").setAttribute("d", "M" + f(L - 16) + " " + (ym - 8) + " H" + f(L + 16) + " M" + f(L - 16) + " " + ym + " H" + f(L + 16) + " M" + f(L - 16) + " " + (ym + 8) + " H" + f(L + 16));
+  var mov = document.getElementById("circ-mov");
+  if (mov) mov.setAttribute("path", d); else document.getElementById("circ-coche").style.display = "none";
+}
 function construirInicio() {
   var ul = document.getElementById("esp-g"); if (!ul) return;
   ["Solomillo de vaca vieja", "Tataky de atún", "Tarta de manzana"].forEach(function (n, j) {
@@ -2215,6 +2242,8 @@ if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").m
 }
 construirBanner();
 construirInicio();
+dibujaCircuito();
+window.addEventListener("resize", dibujaCircuito);
 Array.prototype.forEach.call(document.querySelectorAll("img[data-oculta]"), function (im) { im.onerror = function () { if (this.parentNode) this.parentNode.hidden = true; }; im.src = im.getAttribute("data-oculta"); });
 listaPlatos();
 listaProveedores();
