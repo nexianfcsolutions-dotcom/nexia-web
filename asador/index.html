@@ -444,6 +444,8 @@ html[data-fondo~="molino"] .fondo-art .f.f-molino { opacity: .13; }
 }
 @media (prefers-reduced-motion: reduce) { .op-g figure, .op-g figure.on { transition: none; transform: none; } }
 
+/* Recortes puntuales: fotos con migas de pan o colines cortados en las esquinas */
+img[src*="Anchoas-sobre-tomate-natural"] { clip-path: polygon(0 27%, 27% 27%, 27% 0, 100% 0, 100% 76%, 70% 76%, 70% 100%, 0 100%); }
 /* Carta con fotos: secciones alternas, como en su web */
 .grupo-carta { margin-top: 44px; }
 .grupo-carta + .grupo-carta { padding-top: 44px; border-top: 1px solid var(--line); }
