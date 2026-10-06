@@ -422,6 +422,20 @@ html[data-fondo~="jet"] .f-jet { opacity: .22; }
   .topnav { padding-inline: 112px; gap: 2px 2px; }
   .topnav a { padding: 0 clamp(8px, 1.1vw, 16px); letter-spacing: .1em; white-space: nowrap; }
 }
+
+/* Brillo suave que recorre los títulos grandes (misma técnica que nexianfc.com) */
+@keyframes brillo { from { background-position: 0% 50%; } to { background-position: 200% 50%; } }
+.screen h2, .banda-h, .esp-h, .hero-foto h1, .sec, .cab-detalle h2 { background: linear-gradient(100deg, #333333 0%, #333333 34%, #8C6B45 43%, #C9A46A 50%, #8C6B45 57%, #333333 66%, #333333 100%); background-size: 200% 100%; }
+.opiniones .op-h, .hero-foto h1 { background: linear-gradient(100deg, #FFFFFF 0%, #FFFFFF 34%, #E9D2A8 43%, #D4AE6E 50%, #E9D2A8 57%, #FFFFFF 66%, #FFFFFF 100%); background-size: 200% 100%; }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .screen h2, .banda-h, .esp-h, .hero-foto h1, .sec, .cab-detalle h2, .opiniones .op-h {
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+    animation: brillo 7s linear infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .screen h2, .banda-h, .esp-h, .hero-foto h1, .sec, .cab-detalle h2, .opiniones .op-h { animation: none; background-position: 0% 50%; }
+}
 </style>
 
 <div class="fondo-art" aria-hidden="true">
