@@ -176,6 +176,49 @@ a { color: inherit; }
 .pie-aviso { margin: 14px 0 0; text-align: center; }
 .pie-aviso a { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; color: var(--text); }
 
+
+/* Carta, vinos y alérgenos */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.prov { grid-template-columns: 104px 1fr auto; }
+.prov .mono, .prov img.logo { width: 104px; height: 64px; }
+.prov img.logo, .cab-detalle img.logo { object-fit: contain; background: #fff; border: 1px solid var(--line); padding: 6px; display: block; }
+.cab-detalle { grid-template-columns: 1fr; gap: 14px; justify-items: start; }
+.cab-detalle .mono { width: 88px; height: 88px; }
+.cab-detalle img.logo { width: auto; max-width: 100%; height: 88px; }
+.logo-origen { display: block; height: 64px; max-width: 220px; width: auto; margin-top: 16px; object-fit: contain; object-position: left center; }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; margin-top: 18px; border: 1px solid var(--carbon); }
+.tabs a { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 8px; text-align: center; text-decoration: none; font: 700 14px/1.2 var(--sans); color: var(--carbon); background: #fff; }
+.tabs a[aria-current="page"] { background: var(--carbon); color: #fff; }
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+.filtros button { min-height: 44px; padding: 6px 14px; background: #fff; border: 1px solid var(--line); font: 600 14px/1.2 var(--sans); color: var(--carbon); cursor: pointer; }
+.filtros button[aria-pressed="true"] { background: var(--carbon); border-color: var(--carbon); color: #fff; }
+.sec { margin: 28px 0 0; font: 700 22px/1.2 var(--serif); color: var(--carbon); }
+.fotos { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.fotos a { display: block; height: 100%; text-decoration: none; color: var(--carbon); background: var(--paper); border: 1px solid var(--line); }
+.fotos img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #E9E5DD; }
+.fotos span { display: block; padding: 10px 10px 12px; font: 600 14px/1.3 var(--sans); }
+.foto-g { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; margin-top: 14px; background: #E9E5DD; border: 1px solid var(--line); }
+.carta-lista { list-style: none; margin: 12px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.carta-lista li { padding: 12px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; }
+.carta-lista .n { font: 600 15px/1.3 var(--sans); color: var(--carbon); }
+.carta-lista .p { font: 700 15px/1.3 var(--sans); color: var(--carbon); white-space: nowrap; }
+.carta-lista .d { grid-column: 1 / -1; font-size: 13px; line-height: 1.4; }
+.carta-lista .tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.carta-lista li.sub-vino { display: block; margin-top: 10px; padding: 8px 0; font: 700 12px/1.3 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ochre-ink); border-bottom: 1px solid var(--ochre); }
+.tag { padding: 3px 8px; background: var(--tint); border: 1px solid var(--ochre); font: 600 11px/1.3 var(--sans); color: var(--ochre-ink); }
+.tag.sel { background: var(--carbon); border-color: var(--carbon); color: #fff; }
+.tag.sin { background: #fff; border-color: var(--line); color: var(--text); }
+.buscador { display: block; width: 100%; min-height: 48px; margin-top: 16px; padding: 10px 14px; border: 1px solid var(--carbon); border-radius: 0; background: #fff; font: 400 16px/1.3 var(--sans); color: var(--carbon); }
+.aviso-al { margin: 22px 0 0; padding: 14px 16px; border: 1px solid var(--ochre); background: var(--tint); font-size: 14px; line-height: 1.5; }
+.aviso-al b { color: var(--carbon); }
+.sindatos { margin-top: 18px; }
+.sindatos summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; font-weight: 600; color: var(--carbon); }
+.bib { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: center; margin-top: 18px; padding: 14px; border: 1px solid var(--line); background: var(--paper); }
+.bib img { width: 84px; height: auto; display: block; }
+.bib p { margin: 0; font-size: 14px; line-height: 1.4; }
+.bib b { display: block; margin-bottom: 2px; font: 700 16px/1.25 var(--serif); color: var(--carbon); }
+.vez { margin-top: 14px; }
+
 /* Firma y aviso */
 .firma { margin-top: auto; padding-top: 36px; display: flex; align-items: center; justify-content: center; gap: 10px; }
 .firma img { height: 60px; width: auto; display: block; }
@@ -251,20 +294,20 @@ a { color: inherit; }
       <h2>Carta</h2>
       <p class="lead">Elige qué quieres ver.</p>
       <div class="lista">
-        <a class="btn principal" data-link="carta.comida" href="#">
+        <a class="btn principal" href="#comida" data-go="comida">
           <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></span>
-          <span class="txt"><span class="t">Carta de comida</span><span class="d">Tapas creativas y cocina mediterránea</span></span>
-          <span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
+          <span class="txt"><span class="t">Carta de comida</span><span class="d">Con foto de cada plato, precio y alérgenos</span></span>
+          <span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </a>
-        <a class="btn" data-link="carta.vinos" href="#">
+        <a class="btn" href="#vinos" data-go="vinos">
           <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8"/><path d="M12 15v7"/><path d="M5 3h14l-1 7a6 6 0 0 1-12 0z"/></svg></span>
-          <span class="txt"><span class="t">Carta de vinos</span><span class="d">Más de 200 referencias en bodega</span></span>
-          <span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
+          <span class="txt"><span class="t">Carta de vinos</span><span class="d">Con buscador por nombre, uva o denominación</span></span>
+          <span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </a>
-        <a class="btn" data-link="carta.alergenos" href="#">
+        <a class="btn" href="#alergenos" data-go="alergenos">
           <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span>
-          <span class="txt"><span class="t">Alérgenos</span><span class="d">Qué lleva cada plato</span></span>
-          <span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
+          <span class="txt"><span class="t">Alérgenos</span><span class="d">Qué platos contienen cada alérgeno</span></span>
+          <span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </a>
       </div>
       <p class="nota">¿Tienes alergias o intolerancias? Díselo también a nuestro equipo antes de pedir.</p>
@@ -280,6 +323,10 @@ a { color: inherit; }
       </div>
       <div class="lista" style="margin-top:18px">
         <a class="btn" href="#trabajamos" data-go="trabajamos"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span><span class="txt"><span class="t">Cómo trabajamos</span><span class="d">Materia prima y trato cercano</span></span><span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></a>
+      </div>
+      <div class="bib">
+        <img data-oculta="https://asadorconcepcion.com/wp-content/uploads/2021/06/Bib-Gourmand-MICHELIN.png" alt="Distintivo Bib Gourmand de la Guía MICHELIN" width="84" height="64">
+        <p><b>Bib Gourmand · Guía MICHELIN</b>Reconocimiento de la guía a la buena cocina a precio moderado.</p>
       </div>
       <div class="dato">
         <p class="eyebrow">Tercer premio · septiembre de 2026</p>
@@ -382,6 +429,9 @@ a { color: inherit; }
       <h2>Proveedores</h2>
       <p class="lead">Trabajamos con productores cercanos y de confianza. Toca uno para conocerlo.</p>
       <ul class="provs" id="provs"></ul>
+      <p class="subtitulo">También en nuestra carta</p>
+      <ul class="chips" id="otras"></ul>
+      <p class="nota">Logotipos y enlaces: de las webs de cada empresa. Nuestro equipo de sala te cuenta de dónde viene cada producto.</p>
     </section>
 
     <!-- DENOMINACIONES DE ORIGEN -->
@@ -403,6 +453,51 @@ a { color: inherit; }
       </div>
     </section>
 
+    <!-- CARTA DE COMIDA -->
+    <section class="screen" data-screen="comida" hidden>
+      <button class="volver" type="button" data-go="carta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Carta</button>
+      <h2>Carta de comida</h2>
+      <p class="lead">Nuestros platos, con su foto, su precio y lo que llevan.</p>
+      <nav class="tabs" aria-label="Vista de la carta">
+        <a id="tab-fotos" href="#comida" data-go="comida" aria-current="page">Con fotos</a>
+        <a id="tab-precios" href="#comida/precios" data-go="comida/precios" aria-current="false">Precios y alérgenos</a>
+      </nav>
+      <div class="filtros" id="filtros-fotos"></div>
+      <div id="comida-fotos"></div>
+      <div class="filtros" id="filtros-precios" hidden></div>
+      <div id="comida-precios" hidden></div>
+      <p class="aviso-al"><b>Importante.</b> Precios y alérgenos según la carta online del asador en octubre de 2026; pueden cambiar. Si tienes alguna alergia o intolerancia, díselo siempre a nuestro equipo antes de pedir.</p>
+      <div class="lista vez">
+        <a class="btn" data-link="carta.comida" href="#" data-opcional><span class="txt"><span class="t">Ver la carta oficial online</span><span class="d">Siempre al día</span></span><span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span></a>
+      </div>
+    </section>
+
+    <!-- CARTA DE VINOS -->
+    <section class="screen" data-screen="vinos" hidden>
+      <button class="volver" type="button" data-go="carta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Carta</button>
+      <h2>Carta de vinos</h2>
+      <p class="lead">Busca por nombre, uva o denominación de origen.</p>
+      <label class="sr" for="q-vino">Buscar vino</label>
+      <input id="q-vino" class="buscador" type="search" placeholder="Rioja, verdejo, Jumilla…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="filtros" id="f-vinos"></div>
+      <p class="nota" id="n-vinos" hidden></p>
+      <div id="l-vinos"></div>
+      <p class="nota">Precios en euros, según la carta online del asador en octubre de 2026.</p>
+      <div class="lista vez">
+        <a class="btn" data-link="carta.vinos" href="#" data-opcional><span class="txt"><span class="t">Ver la carta oficial online</span><span class="d">Siempre al día</span></span><span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span></a>
+      </div>
+    </section>
+
+    <!-- ALÉRGENOS -->
+    <section class="screen" data-screen="alergenos" hidden>
+      <button class="volver" type="button" data-go="carta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Carta</button>
+      <h2>Alérgenos</h2>
+      <p class="lead">Marca los alérgenos que quieres evitar y verás qué platos de la carta los contienen.</p>
+      <div class="filtros" id="al-filtros"></div>
+      <div id="al-res"></div>
+      <p class="aviso-al"><b>Importante.</b> Esta lista refleja lo que indica la carta online del asador. Que un plato no aparezca aquí no garantiza que sea seguro para ti: dínoslo siempre y nuestro equipo te confirmará cada plato.</p>
+    </section>
+
     <!-- DETALLE (proveedor, plato, denominación, parking) -->
     <section class="screen det" data-screen="detalle" hidden>
       <div id="detalle"></div>
@@ -415,7 +510,8 @@ a { color: inherit; }
       <div class="texto">
         <p>Esta página no usa cookies, no tiene formularios y no guarda datos personales.</p>
         <p>El mapa de «Cómo llegar» carga imágenes de OpenStreetMap, que, como cualquier web, recibe tu dirección IP para enviártelas. No instala cookies.</p>
-        <p>Los enlaces a Google Maps, Tripadvisor, la carta, la prensa y los proveedores te llevan a otros sitios, con sus propias condiciones.</p>
+        <p>Las fotos de los platos, el distintivo Michelin y los logotipos de los proveedores se cargan desde las webs del asador y de cada empresa, que reciben tu dirección IP para enviártelos. No instalan cookies a través de esta página.</p>
+        <p>Los enlaces a Google Maps, Tripadvisor, la carta online, la prensa y los proveedores te llevan a otros sitios, con sus propias condiciones.</p>
         <p>Página creada por NEXIA para el Asador Concepción.</p>
       </div>
     </section>
@@ -484,6 +580,405 @@ a { color: inherit; }
 <div id="aviso" role="status" aria-live="polite" hidden></div>
 
 <script>
+/* ===== Datos copiados de la web del asador y de su carta online (6 oct 2026) ===== */
+
+/* Carta de la web (asadorconcepcion.com/carta-comida): categoría, plato y foto. Las fotos se cargan de su propia web. */
+var FOTOS = "https://asadorconcepcion.com/wp-content/uploads/";
+var CARTA_WEB = [
+  { cat: "Entrantes", items: [
+    ["Pulpo a la brasa", "2020/12/pulpo-a-la-brasa-asador-concepcion-albacete"],
+    ["Forrete de cochinillo ibérico", "2020/12/forrete-cochinillo-iberico-asador-concepcion-albacete"],
+    ["Anchoas sobre tomate natural", "2017/03/Anchoas-sobre-tomate-natural"],
+    ["Jamón ibérico de bellota", "2017/03/jamon-iberico-de-bellota", "png"],
+    ["Tataki de presa", "2017/03/tataky-presa-iberica"],
+    ["Camarones con huevo", "2020/12/camarones-con-huevo-asador-concepcion-albacete"],
+    ["Mollejas de cordero", "2020/12/mollejas-de-cordero-asador-concepcion-albacete"] ] },
+  { cat: "Mariscos", items: [
+    ["Gamba blanca a la plancha", "2017/07/gamba-blanca-plancha"],
+    ["Almejas al ajillo con piñones", "2020/12/almejas-al-ajillo-pinones-asador-concepcion-albacete"],
+    ["Ostras", "2020/12/ostras-asador-concepcion-albacete"],
+    ["Zamburiña a la plancha", "2017/07/zamburina-plancha"] ] },
+  { cat: "Ensaladas", items: [
+    ["Tomate del terreno", "2017/03/tomate-del-terreno"] ] },
+  { cat: "Tapas", items: [
+    ["Ensaladilla rusa", "2021/01/ensaladilla-rusa-asador-concepcion-albacete"],
+    ["Mejillones thai", "2020/12/mejillones-thai-asador-concepcion-albacete"],
+    ["Wok de verduras", "2017/03/wok-de-verduras"] ] },
+  { cat: "Minis", items: [
+    ["Mini guarreta", "2017/03/mini-guarreta-1"],
+    ["Mini calamares", "2017/03/mini-calamares"],
+    ["Pepito de ternera", "2017/03/pepito-de-ternera"] ] },
+  { cat: "Cuchara", items: [
+    ["Judías con perdiz", "2020/12/judias-con-perdiz-asador-concepcion-albacete"],
+    ["Gazpachos manchegos", "2017/03/gazpachos-manchegos", "png"],
+    ["Arroz meloso", "2020/12/arroz-meloso-asador-concepcion-albacete"],
+    ["Arroz caldoso con pollo de corral", "2017/03/arroz-caldoso-con-pollo-de-corral"] ] },
+  { cat: "Pescados", items: [
+    ["Morrillo de atún", "2020/12/morrillo-de-atun-asador-concepcion-albacete"] ] },
+  { cat: "Carnes", items: [
+    ["Solomillo de vaca vieja", "2017/03/solomillo-3"],
+    ["Entrecot de ternera nacional", "2017/03/entrecot-ternera-nacional2"],
+    ["Chuletón de kilo", "2017/03/chuleton-de-kilo-1"],
+    ["Steak tartar", "2017/03/Steack-tartar-3"],
+    ["Cordero lechal", "2017/03/cordero-lechal"],
+    ["Chuletillas de cordero lechal", "2017/03/chuletillas-de-cordero-lechal"],
+    ["Entraña de angus", "2017/03/entrana-de-angus"] ] },
+  { cat: "Postres", items: [
+    ["Tarta de la casa", "2017/03/Tarta-de-la-casa-2"],
+    ["Tarta de manzana", "2017/03/Tarta-de-manzana-2"],
+    ["New York cheesecake", "2017/03/new-york-cheese-cake"],
+    ["Mini Montenevado", "2017/03/mini-montenevado-1"],
+    ["Milhojas de arroz con leche", "2020/12/milojas-arroz-con-leche-asador-concepcion-albacete"],
+    ["Falso coulant de chocolate", "2017/03/falso-coulant-de-chocolate-1"],
+    ["Tarta de chocolate", "2020/12/tarta-de-chocolate-asador-concepcion-albacete"] ] }
+];
+
+/* Carta con precios y alérgenos (qrcarta del asador). Formato: categoría | plato | descripción | precio € | alérgenos */
+var ALERGENOS = { "1": "Gluten", "2": "Crustáceos", "3": "Huevos", "4": "Pescado", "5": "Cacahuetes", "6": "Soja", "7": "Lácteos", "8": "Frutos de cáscara", "11": "Sésamo", "12": "Sulfitos", "13": "Moluscos" };
+var CATS_COMIDA = ["De nuestra despensa", "Entrantes", "Mariscos y moluscos", "Sugerencias de la casa", "Ensaladas", "Pescados", "Nuestra parrilla y asados", "Postres y dulces", "Maridaje para nuestros postres"];
+var COMIDA_TXT = [
+"0|Chicharrón de Cádiz (100 g)||9|15,16",
+"0|Jamón de bellota, 100 % ibérico. D.O. Los Pedroches (100 g)|D.O.P. Los Pedroches|28|15,16",
+"0|Jamón de bellota, 100 % ibérico. D.O. Los Pedroches (80 g)|D.O.P. Los Pedroches|22,50|15",
+"0|Cecina de Wagyu 100 % (Gold) (100 g)|Cecina con toque ahumado y una ternura equilibrada. · Selecciones Juan Navarro|30|",
+"0|Caña de lomito de bellota, 100 % ibérico, Juan Manuel (Selección) (100 g)||17|",
+"0|Panceta ibérica y su Pan Guapo (3 unidades, por persona)||3|1,5",
+"0|Nuestra selección, 100 % ibéricos (por persona)|Panceta ibérica, salchichón, chorizo y lomito de bellota. Selección hecha con total intención de agradar a los paladares más exigentes.|6,50|1",
+"0|Hueva de maruca||105|15",
+"0|Hueva de mújol (100 g)|Cortada a cuchillo con unas almendritas.|27|4",
+"0|Mojama (100 g)|Cortada a cuchillo cuidadosamente.|18|4",
+"0|Berberechos Los Peperetes al natural (60-70 piezas)|Posiblemente los mejores berberechos de España.|33|13",
+"0|Mejillones en escabeche gigantes (5-7 piezas)|Un aperitivo perfecto para empezar.|26|",
+"0|Mejillones Espinaler (12/16 piezas)||26|",
+"0|Navajas Los Peperetes (6-8 piezas)|De las mejores conservas que se puedan probar.|24|",
+"0|Ventresca de atún rojo en mantequilla (Los Peperetes)||26|",
+"1|Las «VRAVAS» del Asador|Tercer premio Campeonato Mundial de Patatas Bravas UDB7.|10,50|1,4,6",
+"1|Tosta de anguila ahumada, cremoso de unagi y guisante en dos texturas|De nuestros entrantes más sorprendentes: equilibrio y sensaciones en boca difíciles de encontrar.|6,90|1,4,6,7,8",
+"1|Revuelto de rebozuelo y setas de temporada||17,50|3,4,15,12",
+"1|Escabeche thai de atún (Gadira)||13,50|1,4,6,12",
+"1|Ensaladilla Asador Concepción||8,90|1,3,4,12,16",
+"1|Tataki de presa ibérica sobre pan soplado, mayo-wakame y sésamo|Pan de Pozo-Cañada y presa tierna macerada.|16|1,6,8,11,12",
+"1|Lomo de orza a 68 grados y alioli de ajo asado||14,50|3,15",
+"1|Croqueta de jamón ibérico (FECAM)||2,70|1,3,7,8",
+"1|Espárrago blanco a la parrilla sobre mousse de batata, guacamole y frutos tostados con ras el hanout||6,50|1,5,8",
+"1|Empanadilla criolla con salsa yasgua (2 unidades)||7,90|1,3,6,12,16",
+"1|Torta de patata, yema y corazón de atún rojo||14,50|3,4",
+"1|Alcachofas confitadas con salsa romescu, emulsión de yema trufada y papada ibérica|Cuatro unidades.|17,50|1,3,5,8",
+"1|Pulpo a la parrilla sobre hummus de pesto y dressing de sésamo||24|1,6,11,13",
+"1|Forrete de cochinillo, con puré de gachas de almortas|Plato estrella, mucho trabajo de elaboración, sorprendente.|24|1,4,5,7,8",
+"2|Quisquilla cocida|Cocida en casa, traída de Garrucha.|20|2,6,13",
+"2|Ostra Sorlut, nº 2||4,50|13",
+"2|Zamburiña del Pacífico, con toffee de miso y coco|Un detalle del mar acompañado con nuestra forma de cocinar.|3,90|7,15,13",
+"3|Milhoja de sardina ahumada con pimentón y gazpacho de fresas||9,50|1,4,7,12",
+"3|Huevas de choco cocinadas en su coral||12|4,15,13",
+"3|Gildas||2,90|4,7,15",
+"4|Tomate del terreno con ventresca de atún, bonito, pimiento asado y piparras|Tomate local, siempre seleccionado.|15,50|4,15",
+"4|Ensalada de perdiz escabechada con brotes tiernos, emulsión de piquillos y orejones|Perdiz con identidad manchega.|16|15,12",
+"5|Ventresca de atún rojo (Gadira) a la parrilla con su guarnición (kilo)|Precio por kilo.|105|4,15",
+"5|Rodaballo al horno con su bilbaína (2 personas), con guarnición de verduras|Precio por kilo.|55|4,15,12",
+"5|Lubina a la espalda (200 g) con su guarnición de verduras||21,50|4,15,12",
+"5|Bacalao El Barquero, al pil-pil o a la parrilla con verduras|Lomo de bacalao traído desde Gijón, Bacalaos El Barquero.|26|1,4,12,16",
+"6|Chuletón de vaca Sinmental Diamante (Suiza-Alemania), a la parrilla (kilo)|Selecciones Juan Navarro.|80|",
+"6|Chuletón de vaca gallega (1 kilo), Selección Juan Navarro|Selecciones Juan Navarro.|105|",
+"6|Chuletón de Angus añojo, criado con bellota (kilo)|Seleccionado y madurado por Juan Navarro.|78|1,16",
+"6|Lomo bajo de vaca Sinmental premium (500 g)||52|",
+"6|Solomillo de vaca Sinmental Diamante (Suiza-Alemania), a la parrilla|Solomillo tierno y jugoso en nuestra parrilla.|28|1",
+"6|1/4 de lechazo de cordero manchego asado, IGP Manchego, al horno (2 personas)||50|1,12,16",
+"6|Paletilla de cordero asado de lechal IGP|La pieza más noble del cordero manchego.|26|1,12,16",
+"6|Chuletillas de cordero lechal, IGP Manchego, a la parrilla|A la parrilla o salteadas con ajetes, expresión manchega.|23|1,16",
+"6|Rabo de toro estofado||22|1,12",
+"7|Suspiros de Ayna con gel de mango, coco y lima||6,50|1,3,7,8",
+"7|Miguelito (Gaymon) a la parrilla sobre crema de orujo y helado de café||8|1,3,6,7,12",
+"7|Cremoso de queso manchego||6,50|1,3,6,8",
+"7|Tarta de manzana Asador Concepción con helado de pistacho|Si buscan equilibrio en un postre, éste es el que están buscando.|8|1,3,7,8",
+"7|Tarta del Abuelo con helado de miel de romero|Banana cheesecake con base de galleta de almendra.|7|1,3,7,8",
+"7|Coulant de chocolate con helado de vainilla|Chocolate, tentación final.|8|1,3,7",
+"7|Sorbete de mojito||6|12",
+"7|Fruta de temporada||5|",
+"8|Tokaji Aszú, 5 puttonyos, Disznókő|Hungría. El vino dulce húngaro que enamoró a los reyes.|8,50|12",
+"8|Graham's 10 años (oporto)|Coupage. Recomendado para postres con notas a chocolate.|6,50|12",
+"8|Poley (palo cortado), D.O. Montilla-Moriles|Pedro Ximénez. Especial para acompañar nuestra tabla de quesos.|5,50|12",
+"8|Vino de hielo (Gewürztraminer) Gramona|Gewürztraminer. Extracción máxima al fruto de la uva blanca.|5|12",
+"8|Néctar de Farruche|Tempranillo. Un vino tinto, con matices dulces para postres con queso.|4|12",
+"8|Memorias blanco (mistela)|Moscatel. Mistela muy elegante que acompaña nuestros postres por su elegante acidez.|2,75|12",
+"8|Memorias tinto (Garnacha)|Garnacha. Mistela con uva tinta con infinidad de matices para acompañar postres de chocolate.|2,75|12"
+];
+/* Platos de la carta web que coinciden claramente con uno de la carta con precios (nombre en la web -> principio del nombre en la carta online) */
+var CRUCE = {
+  "Pulpo a la brasa": "Pulpo a la parrilla",
+  "Forrete de cochinillo ibérico": "Forrete de cochinillo",
+  "Jamón ibérico de bellota": "Jamón de bellota, 100 % ibérico. D.O. Los Pedroches (100 g)",
+  "Tataki de presa": "Tataki de presa",
+  "Ostras": "Ostra Sorlut",
+  "Tomate del terreno": "Tomate del terreno",
+  "Ensaladilla rusa": "Ensaladilla Asador",
+  "Cordero lechal": "1/4 de lechazo",
+  "Chuletillas de cordero lechal": "Chuletillas de cordero lechal",
+  "Tarta de manzana": "Tarta de manzana"
+};
+
+/* Carta de vinos (qrcarta del asador). Formato: categoría | vino | uva o detalle | zona | precio € */
+var CATS_VINOS = ["Rosados", "Blancos", "Tintos", "Tintos internacionales", "Blancos internacionales", "Cavas y espumosos", "Champagne", "Vinos dulces"];
+var VINOS_TXT = [
+"0|Classica Gran Reserva 2012|Garnacha Blanca y Viura|D.O.Rioja |60",
+"0|Miraval Rose ( Brat Pitt )|Cinsault, Garnacha Tinta y Syrah|D.O. Côtes de Provence |42",
+"0|Roselito ( Tempranillo)|Tempranillo|D.O.Duero |22",
+"0|Maravides (P. Noir)|Pinot Noir|D.O.Mancha |18",
+"1|Villamarta Fino 2015 ( Generoso Seco )|Palomino Fino|D.O. Jerez Xeres Sherry Manzanilla |170",
+"1|Caberrubia Saca IX n( Generoso Seco )|Palomino Fino|D.O. Jerez Xeres Sherry Manzanilla |40",
+"1|Alvear 3 Miradas ( Cepas Viejas )|Pedro Ximenez Seco|D.O. Montilla-Moriles |34",
+"1|Terroja ( Xarel-lo )|Xarel-lo|D.O. Penedés |42",
+"1|Oremus Mandolás ( Vega Sicilia )|Furmint Seco|Tokaji - hegyalja |40",
+"1|Los Loros ( Albillo Criollo )|Albillo Criollo|Valle del Güimar |34",
+"1|Sede e Fame (Palomino)|Palomino|D.O.Valdeorras |46",
+"1|Duas Quintas ( Rabigato y Vosinho )|Rabigato y Vosinho|Portugal. |24",
+"1|Malkoa ( Txakolí, Hondarrabi Zuri)|Txakolí|D.O. Txakolí de Álava |44",
+"1|Gorrondona Doniene ( Txakoli )|Txakolí|D.O. Bizkaiko Txakolina |28",
+"1|Itsasmendi ( Hondarribi Zuri )|Hondarribi Zuri|Zona Txakolina |20",
+"1|A Vilerma (Trexaidura )|Treixadura|D.O. Ribeiro |24",
+"1|La Trucha Arcoiris ( Viognier )|Viognier ( Lías y barrica )|D.O. Castilla y León |30",
+"1|Ourive 2022 ( Dona Blanca )|Godello|D.O. Bierzo |42",
+"1|Finca Emperatriz ( Viura )|Viura|D.O.Rioja |52",
+"1|Artadi Viñas de Gaín (Viura)|Viura|Álava |41",
+"1|Menade Adora Solera ( Coupage)|Verdejo y Palomino|D.O.Rueda |80",
+"1|Contino (Coupage)|Garnacha y Viura|D.O.Rioja |44",
+"1|El Pacto ( Coupage )|Coupage|D.O.Rioja |32",
+"1|Belondrade y Lurtón (Verdejo)|Verdejo|D.O. Rueda |70",
+"1|Aalto Fuente Hontanillas ( Verdejo )|Verdejo|D.O. Ribera del Duero |68",
+"1|Ossian (Verdejo)|Verdejo|D.O. Rueda |50",
+"1|Shaya Habis (Verdejo)|Verdejo|D.O. Rueda |44",
+"1|Belondrade Quinta Apolonia ( Verdejo )|Verdejo|D.O.Rueda |36",
+"1|El Chiviritero (Verdejo)|Verdejo|D.O. Rueda |32",
+"1|40 vendimias 2022 ( Verdejo Lías )|Verdejo|D.O.Rueda |22",
+"1|Shaya (Verdejo)|Verdejo|D.O.Rueda |20",
+"1|Basa (Verdejo) 2024|Verdejo|D.O. Rueda |18",
+"1|Montepedroso MAGNUM ( Verdejo )|Verdejo||38",
+"1|Abadia de Retuerta (La Domaine) (Sauvignon Blanc)|Ledomaine|Sardón del Duero (Valladolid) |62",
+"1|Improntum (Sauvignon Blanc)|Sauvignon Blanc|D.O. Utiel Requena |41",
+"1|Mar de Cervera ( Sauvignon Blanc )|Sauvignon Blanc|D.O. Campo de Calatrava |24",
+"1|Dehesa del Carrizal (Chardonay)|Chardonay (Colección privada)|D.O. Castilla La Mancha |36",
+"1|Illana Alma ( Chardonay )|Chardonay|D.O.Mancha |18",
+"1|La Comtesse (Albariño) 2020|Albariño|D.O. Rías Baixas |130",
+"1|Pazo Barrantes (Albariño)|D.O. Rías Baixas||58",
+"1|Sanamaro Seleccion ( Albariño )|Albariño|D.O.Rias Baixas |55",
+"1|Sálvora (Albariño)|Albariño|D.O. Rías Baixas |52",
+"1|Pazo Pegullal HERITAGE ( Albariño )|Albariño|D.O. Rías Baixas |45",
+"1|Nora da neve (Albariño)|Albariño|D.O.Rias Baixas |37",
+"1|Pazo Rubianes (Albariño)|Albariño|D.O.Rias Baixas |32",
+"1|Cíes (Albariño) 2024|Albariño|D.O. Rías Baixas |26",
+"1|Albamar ( Albariño )|Albariño|D.O. Rías Baixas |26",
+"1|Trotamundos (Granacha Blanca)|Garnacha Blanca|D.O. Mentrida |57",
+"1|Murviedro Loalto Álamos ( Garnacha Blanca ) )|Garnacha Blanca|D.O. Utiel-Requena |34",
+"1|Sangarida La Guiana ( Godello )|Godello|D.O. Bierzo |53",
+"1|Louro (Godello)|Godello|D.O. Valdeorras |37",
+"1|Mengoba (Viñas viejas) (Godello)|Godello|D.O.Bierzo |34",
+"1|O Luar do sil (Godello)|Godello|D.O.Rias Baixas |26",
+"1|Brezo ( Godello)|Godello|D.O. Bierzo |20",
+"1|Brezo (Magnum) ( Godello )|Godello|D.O.Valdeorras |40",
+"1|López Cristobal ( Albillo Real )|Albillo Mayor||30",
+"1|La Suerte de Arrayán (Albillo Real)|Albillo Real|D.O.Mancha |25",
+"1|Río Negro (Gewurztraminer)|Gewurztraminer|D.O.Mancha |26",
+"1|La Cuesta Blanca ( Airén )|Airén|D.O.Mancha |28",
+"1|Alejairén (Airén)|Airen|D.O. Castilla La Mancha |27",
+"1|Llámalo X ( Airén-Macabeo-Pardilla )|Airén, Macabeo y Pardilla|D.O.Mancha |16",
+"1|Garagewine ( Airén )|Airén|D.O. Manchuela |21",
+"1|Maravides Chardonay ( Magnum )|Chardonnay|D.O.Mancha |36",
+"1|Finca Villalobillos (Pie Franco) (Airén)|Airén|D.O.Mancha |16",
+"1|Juan Gil ( Moscatel Seco )|Moscatel Seco|D.O. Jumilla |16",
+"1|Valdelana ( Viura )|Viura|D.O.Rioja |16",
+"2|VINOS DE CASTILLA LA MANCHA ----||",
+"2|Hipperia ( C. Sauvignon - C. Franc - Merlot - P. Verdot )|C. Sauvignon - C. Franc - Merlot - P. Verdot|D.O. Tierra de Castilla |58",
+"2|La Plazuela ( Tempranillo - Garnacha )|Tempranillo - Garnacha|D.O. Tierra de Castilla |56",
+"2|Dehesa del Carrizal (Colección)Merlot, Syrah, Cabernet Sauvignon y Petit Verdot ) (|Merlot, Syrah, Cabernet Sauvignon y Petit Verdot.|Pago Dehesa del Carrizal |53",
+"2|José Manuel Corrales ( Tempranillo )|Tempranillo|D.O. Valdepeñas |45",
+"2|Finca Rio Negro (V año) ( Merlot, Syrah, Cabernet Sauvignon y Petit Verdot )|Merlot, Syrah, Cabernet Sauvignon y Petit Verdot|D.O. Tierra de Castilla |44",
+"2|Alaya Tierra ( Garnacha tintorera )|Garnacha tintorera|D.O. Almansa |44",
+"2|Mikaela (Bobal) 2021|Bobal|D.O. Manchuela |44",
+"2|Volver (Cuvee) ( Tempranillo - C. Sauvignon )|Tempranillo - C. Sauvignon|D.O. Tierra de Castilla |44",
+"2|Hoto de Vides ( Cencibel )|Cencibel|D.O.Mancha |42",
+"2|Finca Élez MIRACIELOS ( Cabernet Saubignon )|Cabernet Sauvignon|D.O. Vino de Pago Finca Élez |42",
+"2|El Imperio ( Las Calzadas )|Tempranillo|D.O.Mancha |42",
+"2|La Cueva Colorá ( Cencibel )|Tempranillo|D.O.Mancha |40",
+"2|Purgapecados ( Cabernet Sauvignon )|Cabernet Sauvignon|D.O.Mancha |40",
+"2|La Rebuscá ( Tinto Velasco )|Tinto Velasco|D.O Tierra de Castilla |40",
+"2|Pinuaga 200 Cepas ( Tempranillo )|Tempranillo|D.O.Mancha |37",
+"2|Cesar Lucendo 3º Año ( Cencibel y Tinto Velasco )|Tempranillo, Cabernet Sauvignon, Merlot|D.O. Tierra de Castilla |36",
+"2|Ildania ( Bobal )|Bobal|D.O. Manchuela |36",
+"2|Tórtola ( Cencibel y Tinto Velasco )|Cencibel y Tinto Velasco||32",
+"2|Los Aljibes Meninas ( C. Franc )|Cabernet Franc|D.O.Mancha |32",
+"2|Viña El Señorito de Ercavio 2021 ( Tempranillo )|Tempranillo|D.O.Mancha |31",
+"2|Petit Hipperia ( Coupage )|Merlot - C.Sauvignon - P. Verdot, C. Franc - Syrah|D.O. Tierra de Castilla |30",
+"2|Tintoralba ( La Alquería de la Graja )( Cencibel y Tinto Velasco )|Garnacha tintorera|D.O. Almansa |26",
+"2|Rubatos 2021 ( Tinaja de barro )|Bobal|D.O. Manchuela |26",
+"2|PF|Bobal|D.O.Manchuela |25",
+"2|Pago Florentino ( Cencibel )|Cencibel|D.O. Tiera de Castilla |24",
+"2|Poker de Tempranillo ( Cuatro Tempranillos )|Cuatro Tempranillos|D.O. Campo de Calatrava |24",
+"2|Atalaya del Camino ( Garnacha tintorera y Monastrel )|Garnacha tintorera y Monastrel|D.O. Almansa |24",
+"2|Quinta del 67 ( Garnacha tintorera )|Garnacha tintorera|D.O. Almansa |22",
+"2|El Vínculo ( Cencibel )|Cencibel|D.O.Mancha |20",
+"2|Finca la Sabina ( Cabernet Sauvignon )|Cabernet Sauvignon|D.O.Mancha |20",
+"2|Albahra ( Garnacha tintorera y Moravia Agria )|Garnacha tintorera y Moravia Agria|D.O.Mancha |20",
+"2|Tintoralba (Magnum) 2022|Garnacha tintorera|D.O. Almansa |34",
+"2|VINOS DE D.O. JUMILLA ----||",
+"2|El Nido|C. Sauvignon - Monastrel (Bodegas Juan Gil )|Vinos de Jumilla |205",
+"2|Casa Castillo (Pie Franco)|Monastrel (Bodega Casa Castillo)|Vinos de Jumilla |170",
+"2|La Calera del Escaramujo 2023|Monastrel, de las mejores monastreles de España.|D.O. Jumilla |112",
+"2|Clio|Monastrel - C. Sauvignon (Bodegas Juan Gil)|Vinos de Jumilla |66",
+"2|Las Gravas (Casa Castillo )|Monastrel - Syrah - Garnacha - C. Sauvignon|Vinos de Jumilla |65",
+"2|Los Yesares ( Bodegas Cerrón )|Monastrel y Moravia Agria|D.O. Jumilla |52",
+"2|Juan Gil ( Azul )|Monastrel - Cabernet Sauvignon y Syrah|Vinos de Jumilla |44",
+"2|La Servil ( Bodegas Cerrón )|Monastrel|D.O.Jumilla |42",
+"2|El Molar ( Casa Castillo )|Garnacha Tinta|D.O. Jumilla |34",
+"2|Alont|Monastrel|D.O.Jumilla |32",
+"2|El Sentido de la Vida (Monastrel) 2024|Monastrel|D.O. Jumilla |24",
+"2|Juan Gil - Etiqueta Plata ( Monastrel )|Monastrel|D.O. Jumilla |22",
+"2|VINOS DE ALICANTE - VALENCIA ----||",
+"2|Quincha Corral|Bobal|D.O. Utiel-Requena |110",
+"2|Triga|Monastrel - C. Sauvignon|D.O. Alicante |51",
+"2|El Sequé ( Monastrel )|Monastrel|D.O. Alicante |42",
+"2|Bassus (Pinot Noir)|Pinot Noir|D.O. Utiel-Requena |40",
+"2|Tarima Hill|Monastrel|D.O. Alicante |22",
+"2|VINOS DE RIBERA DEL DUERO ----||",
+"2|Pago de Carraovejas (CUESTA LAS LIEBRES)|Tempranillo|D.O. Ribera del Duero |210",
+"2|Llanos del Almendro 2017|Tempranillo|D.O.Duero |180",
+"2|Vega Sicilia 5º año|Tempranillo|D.O. Ribera del Duero |178",
+"2|Terreus|Tempranillo|D.O.Duero |155",
+"2|Dominio de Es ( Bodegas Antídoto )|Tempranillo|D.O.Duero |140",
+"2|Aalto PS|Tempranillo|D.O. Ribera del Duero |135",
+"2|Pago de Carraovejas ( ANEJÓN )|Tempranillo|D.O. Ribera del Duero |125",
+"2|Abadia Retuerta (Syrah)|Syrah|D.O. Castilla y León |110",
+"2|Regina Vides ( Viña Sastre )|Tempranillo|D.O. Ribera del Duero |110",
+"2|Francisco Barona ( FINCA LAS DUEÑAS )|Tempranillo, Garnacha y Albillo|D.O.Duero |105",
+"2|Mauro V.S|Tempranillo|D.O.Duero |105",
+"2|Tomás Postigo (5º Año)|Tempranillo (5º Año)|D.O. Ribera del Duero |90",
+"2|Pago Santa Cruz (Viña Sastre )|Tempranillo|D.O. Ribera del Duero |82",
+"2|PSI Pingus 2023|Tempranillo|D.O. Ribera del Duero |82",
+"2|Bosque de Matasnos (Tem-Malbec)|Tempranillo-Malbec|D.O. Ribera del Duero |74",
+"2|Dominio de Greda CUESTA BLANCA|Tempranillo|D.O.Duero |72",
+"2|Cote Luna|Tempranillo|D.O. Ribera del Duero |66",
+"2|Valcavados|Tinta Fina|D.O.Duero |60",
+"2|Hacienda Monasterio|Tempranillo|D.O. Ribera del Duero |59",
+"2|Malleolus|Tempranillo|D.O. Ribera del Duero |58",
+"2|Mauro|Tempranillo|D.O. Castilla y León |58",
+"2|Tomás Postigo 3ºAño|Tempranillo (3ª año)|D.O. Ribera del Duero |58",
+"2|Aalto|Tempranillo|D.O. Ribera del Duero |62",
+"2|Malabrigo|Tempranillo|D.O.Duero |58",
+"2|Francisco Barona|Tempranillo|D.O.Duero |55",
+"2|Bosque de Matasnos ( Syrah )|Syrah|D.O. Tierra de Castilla y León |52",
+"2|Abadia Retuerta (Selección)|Selección|D.O. Castilla y León |48",
+"2|Parcela Uno (Tempranillo)|Tinta del Pais|D.O.Duero |48",
+"2|La Hormiga|Tempranillo|D.O. Ribera del Duero |45",
+"2|Cote Granuja ( Cinco Tempranillos )|Tempranillo|D.O. Ribera del Duero |44",
+"2|El Espino ( Bodegas Áster )|Tempranillo|D.O. Ribera del Duero |44",
+"2|Preludio|Tempranillo|D.O. Ribera del Duero |42",
+"2|Carmelo Rodero ( CRIANZA )|Tempranillo|D.O. Ribera del Duero |42",
+"2|Septien Boticario de Silos|Tempranillo y Garnacha|D.O. Arlanza |42",
+"2|Arzuaga|Tempranillo|D.O. Ribera del Duero |42",
+"2|Valderiz|Tempranillo|D.O. Ribera del Duero |40",
+"2|Adaro|Tempranillo|D.O.Duero |40",
+"2|Dominio de Greda 2023|Tempranillo|D.O.Duero |40",
+"2|Montecastro|Tempranillo|D.O.Duero |33",
+"2|Traslascuestas|||32",
+"2|Antídoto|Tempranillo|D.O. Ribera del Duero |28",
+"2|Carmelo Rodero (Roble)|Tempranillo|D.O. Ribera del Duero |26",
+"2|Pruno|Tempranillo|D.O. Ribera del Duero |24",
+"2|DE CHIRIPA CRIANZA ( Doble Magnum )|Tempranillo|D.O.Duero |120",
+"2|Pago Capellanes (Roble)|Roble|D.O. Ribera del Duero |26",
+"2|El Mirón ( Prado Rey )|Tempranillo|D.O.Duero |22",
+"2|Sitio de Valdermoso 2023|Tempranillo|D.O.Duero |20",
+"2|La Planta ( Roble )|Tempranillo|D.O.Duero |18",
+"2|VINOS D.O. TORO ----||",
+"2|Cartago (Tinta de Toro)|Tinta de Toro|D.O. Toro |110",
+"2|Pintia 2021|Tinta Fina|D.O. Toro |103",
+"2|Numanthia 2013|Tinta de Toro|D.O. Toro |80",
+"2|San Román|Tinta de Toro|D.O. Toro |54",
+"2|Termes|Tinta de Toro|D.O.Toro |44",
+"2|Vetus|Tinta de Toro|D.O.Toro |28",
+"2|VINOS DEL PRIORAT ----||",
+"2|Camins del Priorat|D.O. Priorat||41",
+"2|VINOS DE LA RIOJA ----||",
+"2|Castillo de Ygay (2011)|2011|D.O. Rioja |290",
+"2|Artadi LA POZA DE BALLESTEROS (2018)|Tempranillo|D.O.Rioja |180",
+"2|Contino Viña el Olivo|Tempranillo|D.O.Rioja |160",
+"2|Macan 2020 (Vega Sicilia )|Tempranillo|D.O.Rioja |115",
+"2|Artadi VALDEGINES (2022)|Tempranillo|D.O.Rioja |95",
+"2|904|Tempranillo|D.O. Rioja |105",
+"2|San Vicente|Tempranillo|D.O.Rioja |70",
+"2|Baigorri de Garaje|Tempranillo|D.O.Rioja |58",
+"2|Viña Tondonia|Tempranillo|D.O. Rioja |61",
+"2|Cornelio Imperial 2017|Tempranillo|D.O.Rioja |54",
+"2|Imperial|D.O. Rioja||48",
+"2|Contino|Tempranillo|D.O. Rioja |50",
+"2|Remelluri|D.O. Rioja||47",
+"2|Finca Martelo (V. Ardanza)|Tempranillo|D.O.Rioja |45",
+"2|Artadi (Viñas de Gaín )|Tempranillo|D.O. Rioja |44",
+"2|Viña Bosconia (Tempranillo)|Tempranillo|D.O.Rioja |42",
+"2|Tarón Pantocrator 2011|Tempranillo|D.O.Rioja |42",
+"2|Marqués de Riscal ( F.Torrea )|Tempranillo|D.O.Rioja |42",
+"2|Lanzaga|Tempranillo|D.ORioja |40",
+"2|Baigorri (F. La Nava)|Tempranillo|D.O.Rioja |44",
+"2|Marqués de Murrieta|D.O. Rioja||42",
+"2|BIDEONA|Tempranillo|D.O.Rioja |35",
+"2|Anza|Tempranillo|D.O.Rioja |34",
+"2|La Montesa|Garnacha|D.O.Rioja |30",
+"2|Pies Negros|D.O. Rioja||23",
+"2|Baigorri|Tempranillo|D.O.Rioja |23",
+"2|Luis Cañas|Tempranillo|D.O.Rioja |20",
+"2|Piérola (Tempranillo )|Tempranillo|D.O.Rioja |20",
+"2|OTRAS DENOMINACIONES ----||",
+"2|Ultreia Valtuille ( Mencía )|Mencía|D.O.Bierzo |70",
+"2|Tebaida Nº5 ( Mencía )|Mencía|D.O.Bierzo |80",
+"2|Tebaida Nemesio 2021 ( Mencía )|Mencía|D.O. Bierzo |70",
+"2|Tebaida 2019 ( Mencía )|Mencía|D.O. Bierzo |44",
+"2|Mengoba (Mencía)|Mencía|D.O. Bierzo |44",
+"2|Botani ( Garnacha )|Granacha|D.O. Málaga - Sierra de Málaga |26",
+"3|Les Alexandrines ( Syrah )|Syrah|Francia ( St. Joseph ) |48",
+"3|Domaine de NIZAS (Syrah) ( Francia )|Syrah|D.O. Languedoc |24",
+"4|Bouley Bourgogne ( Aligoté )|Aligoté|FRANCIA ( Bourgogne ) |52",
+"4|Chambeyron Condrieu, Coteau Vernon ( Viognier )|Viognier|FRANCIA |74",
+"4|Albert Boxler (Pinot Gris)|Pinot Gris|D.O.Alsacia |72",
+"4|Sancerres Les Anges Lots Reverdy ( Sauvignon Blanc )|Sauvignon Blanc|Francia |55",
+"4|Mount Riley Marlborough (Sauvignon Blanc)|Sauvignon Blanc|FRANCIA |28",
+"4|Liger-Belair ( Bourgogne) (Aligoté)|Aligoté|D.O.BOURGOGNE |46",
+"4|Albert Bichot ( Aligoté )|Región Aligoté|FRANCIA |28",
+"4|Santorini ( Assyrtiko )|Assyrtiko|Santorini |45",
+"4|Regnard Chablis (Chardonay)|Chardonay|Francia |45",
+"4|Simonette (Chardonay)|Chardonay|FRANCIA |28",
+"4|Mark Bredif (Chenin blanc)|Chenin blanc|Francia |31",
+"5|Pandemonium ( Viura )|Viura|D.O.Rioja |62",
+"5|Sabaté i Coca Reserva Familiar 2013|||60",
+"5|Recaredo Intens, ( Rosado ) (Brut Nature)|Monastrell / Garnacha|D.O. CORPINNAT |58",
+"5|Milesime Juve & Camps ( Brut )|Chardonnay|D.O. Cava |44",
+"5|Tantum Ergo ( Rosado ) ( Brut Nature )|Pinot Noir|D.O. Utiel-Requena |42",
+"5|Pago de Tharsys ( Brut Nature )|Chardonay|D.O. Cava (Valencia) |40",
+"5|Sabaté i Coca ( Brut Nature )|Macabeo, Perellada y Xarel-lo|D.O. Corpinnat |34",
+"5|Perlas de Otoño ( Brut Nature ) Toledo|Rosse|D.O.Mancha |30",
+"5|Edoné (Brut Nature)|Chardonay Pinot Noir|Viñedos Balmoral |30",
+"5|Edone Gran Cuvee ( Brut )|Chardonay / Pinot Noir|D.O. Mancha |28",
+"5|Paloma Mínguez ( Brut )|Macabeo / Chardonnay|D.O. Cava (Valencia) |22",
+"5|Celler Kripta ( Brut )|Macabeo, Perellada y Xarel-lo|D.O. Corpinnat |20",
+"6|David Léclapart L'Astre 2020|FRANCIA||220",
+"6|David Léclapart L'Amateur ( Brut Nature )|Chardonnay, Blanc de Blancs|FRANCIA |160",
+"6|Tarlant Zero Non Dosé ( Brut Nature )|Chardonnay|Selecciones Sánchez Polo |90",
+"6|Gosset G. Reserve ( Brut )|Coupage|FRANCIA |86",
+"6|Pol Roger ( Brut ) ( Reserva)|Pinot Noir, Chardonnay, Meunier|D.O. Champagne |80",
+"6|Laurent Perrier ( Brut ) (La Cuvee)|Chardonay - Pinot Noir - Pinot Meunier|D.O. Champagne |75",
+"6|Ayala ( Brut Majeur )|Chardonay - Pinot Noir - Meunier|D.O. Champagne |70",
+"6|André Clouet G.Reserva|Gran Cru|100% Pinot Noir |60",
+"6|Veuve Clicquot 37.5cl|||52",
+"6|Simonnet Cremant (Rosse) (Brut )|Pinot Noir 100%|Cremant (Francia) ( Borgoña ) |38",
+"6|Chateau de Mauny Sinmonet|||24",
+"6|Eric Bordelet (Sidra de Hielo)|FRANCIA (Normandía)||24",
+"7|Graham`s 10 años ( OPORTO )|Coupage|D.O. Oporto |6,50",
+"7|Quinta Vale D.María OPORTO|OPORTO4||4,75",
+"7|Poley ( Palo Cortado en rama )|De Pedro Ximénez|D.O. Montilla-Moriles |5,50",
+"7|Ruta de las Especies|Monastrel Pie Franco|D.O. Jumilla |5",
+"7|Néctar de Farruche|Bobal|D.O. Valdepeñas |4",
+"7|Sauternes Cuveé Jeanne 2022|Sauvignon Blanc|D.O. Bourdeos |5,50",
+"7|Vino de Hielo ( Gewurztraminer ) GRAMONA|Gewurztraminer|D.O. Penedés |7",
+"7|Casta Diva ( Moscatel )|Moscatel||6"
+];
+
 /* Datos del cliente: lo único que cambia entre páginas NEXIA. */
 var CLIENTE = {
   carta: {
@@ -502,21 +997,21 @@ var CLIENTE = {
 
 var ASADOR = { nombre: "Asador Concepción", lat: 38.99441, lng: -1.85519, placeId: "ChIJ9a4DXr9fZg0RWnS2pzGDDwk" };
 
-/* Proveedores. logo: dirección de la imagen (cuando la tengamos); sin logo se muestran las iniciales. */
+/* Proveedores oficiales: los que nombra la carta del asador (más los de la reunión). logo: imagen de su propia web; sin logo, iniciales.
+   buscaCarta: expresión que localiza sus productos en la carta con precios. */
 var PROVEEDORES = [
-  { id: "juan-navarro", nombre: "Juan Navarro Selección", siglas: "JN", logo: "",
+  { id: "juan-navarro", nombre: "Juan Navarro Selección", siglas: "JN", logo: "https://juannavarroseleccion.es/wp-content/uploads/2020/02/logo1200-e1586773187120.png",
     origen: "Albacete", producto: "Carnes selectas y maduradas",
     texto: [
       "Empresa albaceteña dedicada a seleccionar y madurar carnes de calidad. Controlan el producto de principio a fin: eligen cada proyecto ganadero, cuidan la maduración y lo sirven en su punto.",
       "Su filosofía es buscar lejos para saber quedarse cerca: criterio, conocimiento y respeto por el origen."
     ],
     logros: ["Según su web: medalla de oro en el World Steak Challenge 2024 (Acorn-Fed Cow) y de plata en su estreno (Angus de Bellota)."],
-    web: "https://juannavarroseleccion.es", platos: ["chuleton"] },
+    web: "https://juannavarroseleccion.es", buscaCarta: /Juan Navarro/i, platos: ["chuleton"] },
   { id: "tobarra", nombre: "Tomates de Tobarra", siglas: "TT", logo: "",
     origen: "Tobarra, Albacete", producto: "Tomate de proximidad",
     texto: [
-      "Tobarra está al sureste de la provincia de Albacete. De allí nos llega el tomate, de temporada y de cercanía.",
-      "Producto de temporada y de cercanía."
+      "Tobarra está al sureste de la provincia de Albacete. De allí nos llega el tomate, de temporada y de cercanía."
     ],
     logros: [], web: "", platos: [] },
   { id: "salobral", nombre: "Patatas de El Salobral", siglas: "PS", logo: "",
@@ -526,31 +1021,71 @@ var PROVEEDORES = [
       "Es producto de casa: de la huerta albaceteña a nuestra cocina."
     ],
     logros: [], web: "https://www.eldigitaldealbacete.com/2026/05/30/el-lugar-de-albacete-donde-la-patata-es-toda-una-religion-y-hasta-tiene-sus-propias-fiestas/",
-    webTexto: "Leer sobre El Salobral", platos: [] }
+    webTexto: "Leer sobre El Salobral", platos: [] },
+  { id: "peperetes", nombre: "Los Peperetes", siglas: "LP", logo: "https://peperetes.com/wp-content/uploads/2022/04/Logo-Peperetes-Rojo.png",
+    origen: "Carril, Galicia", producto: "Conservas artesanas",
+    texto: [
+      "Empresa gallega de Carril que elabora conservas artesanales de pescado y marisco desde 1993, con producto de la ría de Arousa."
+    ],
+    logros: [], web: "https://peperetes.com", buscaCarta: /Peperetes/i, platos: [] },
+  { id: "gadira", nombre: "Gadira", siglas: "GA", logo: "https://www.gadira.com/wp-content/uploads/logo-gadira-nav.png",
+    origen: "Barbate, Cádiz", producto: "Atún rojo de almadraba",
+    texto: [
+      "Comercializa atún rojo salvaje de las almadrabas de Zahara de los Atunes, Tarifa y Conil. Trabaja el atún fresco en temporada, las salazones y las conservas de almadraba."
+    ],
+    logros: [], web: "https://www.gadira.com", buscaCarta: /Gadira/i, platos: [] },
+  { id: "barquero", nombre: "Bacalaos El Barquero", siglas: "EB", logo: "",
+    origen: "Gijón, Asturias", producto: "Bacalao",
+    texto: [
+      "Nuestra carta indica que el lomo de bacalao llega desde Gijón, de Bacalaos El Barquero."
+    ],
+    logros: [], web: "", buscaCarta: /Barquero/i, platos: [] },
+  { id: "espinaler", nombre: "Espinaler", siglas: "ES", logo: "https://tienda.espinaler.com/wp-content/uploads/2025/07/logo_blau-scaled.png",
+    origen: "Vilassar de Mar, Barcelona", producto: "Conservas y aperitivos",
+    texto: [
+      "Marca de productos gourmet (conservas, aperitivos, bebidas y salsas) con una larga tradición familiar y raíces en una taberna de Vilassar de Mar."
+    ],
+    logros: [], web: "https://tienda.espinaler.com", buscaCarta: /Espinaler/i, platos: [] },
+  { id: "gaymon", nombre: "Confitería Gaymon", siglas: "GM", logo: "https://confiteriagaymon.com/wp-content/uploads/2025/06/logo-gaymon.webp",
+    origen: "La Roda, Albacete", producto: "Miguelitos",
+    texto: [
+      "Confitería de La Roda, en la provincia de Albacete, conocida por sus miguelitos. En nuestra carta, el miguelito se sirve a la parrilla."
+    ],
+    logros: [], web: "https://confiteriagaymon.com", buscaCarta: /Gaymon/i, platos: [] },
+  { id: "sorlut", nombre: "Ostras Sorlut", siglas: "OS", logo: "https://ostrasorlut.com/wp-content/uploads/2023/06/cropped-logoSorlut_Positivo__1_.ai-removebg-preview.png",
+    origen: "Marennes-Oléron, Francia", producto: "Ostras",
+    texto: [
+      "Empresa familiar dedicada al cultivo, cría y distribución de ostras desde 1927. Cultiva en la costa de Charente-Maritime, en la zona de Marennes-Oléron."
+    ],
+    logros: [], web: "https://ostrasorlut.com", buscaCarta: /Sorlut/i, platos: [] }
 ];
 
-/* Denominaciones de origen que aparecen en la carta. */
+/* Otras marcas y productos que cita la carta (sin ficha propia) */
+var OTRAS = ["FECAM · croqueta de jamón ibérico", "Juan Manuel · lomito de bellota", "Pan de Pozo-Cañada", "Quisquilla de Garrucha", "Suspiros de Ayna", "Chicharrón de Cádiz"];
+
+/* Denominaciones de origen que aparecen en la carta. pendiente: true = no se muestra hasta tener los datos del asador. */
 var ORIGENES = [
   { id: "pedroches", nombre: "D.O.P. Los Pedroches", tipo: "Jamón y paleta ibéricos · Córdoba", siglas: "DOP",
+    logo: "https://www.jamondolospedroches.es/wp-content/themes/composer/_images/logo.png",
     texto: [
-      "Jamones y paletas de cerdo ibérico criado en la dehesa del valle de Los Pedroches, al norte de la provincia de Córdoba.",
-      "En nuestra carta: jamón de bellota 100 % ibérico."
-    ], web: "https://www.jamondolospedroches.es", webTexto: "Web de la denominación", platos: ["jamon"] },
+      "Jamones y paletas de cerdo ibérico criado en la dehesa del valle de Los Pedroches, al norte de la provincia de Córdoba."
+    ], web: "https://www.jamondolospedroches.es", webTexto: "Web de la denominación", buscaCarta: /Pedroches/i, platos: ["jamon"] },
   { id: "cordero", nombre: "I.G.P. Cordero Manchego", tipo: "Cordero lechal · Castilla-La Mancha", siglas: "IGP",
     texto: [
-      "Cordero de raza manchega criado en Castilla-La Mancha. Su pliego de condiciones oficial fija la raza, la cría y la alimentación.",
-      "En nuestra carta: lechazo asado, chuletillas de cordero lechal y paletilla."
-    ], web: "", platos: ["cordero"] },
+      "Cordero de raza manchega criado en Castilla-La Mancha. Su pliego de condiciones oficial fija la raza, la cría y la alimentación."
+    ], web: "", buscaCarta: /IGP/i, platos: ["cordero"] },
+  { id: "quesos", nombre: "Quesos", tipo: "Nuestra tabla de quesos", siglas: "Q", pendiente: true,
+    texto: ["Pendiente: lista de quesos y su denominación de origen, que nos facilita el asador."], web: "", platos: [] },
   { id: "vinos", nombre: "Vinos y sus denominaciones", tipo: "Nuestra bodega", siglas: "D.O.",
-    texto: ["Más de 200 referencias, ordenadas por su origen. Estas son las zonas que verás en la bodega:"],
-    vinos: [
-      { n: "D.O. La Mancha", d: "Viñedo de meseta, en el corazón de Castilla-La Mancha.", web: "https://asadorconcepcion.com/castilla-la-mancha/" },
-      { n: "D.O. Ribera del Duero", d: "Tinto de la cuenca del Duero, de uva tempranillo (tinta fina).", web: "https://asadorconcepcion.com/ribera-del-duero/" },
-      { n: "D.O.Ca. Rioja", d: "Denominación de Origen Calificada: La Rioja, con zonas de Álava y Navarra.", web: "https://asadorconcepcion.com/rioja/" },
-      { n: "Vinos internacionales", d: "Selección de otras zonas del mundo.", web: "https://asadorconcepcion.com/vinos-internacionales/" },
-      { n: "D.O. Jerez-Xérès-Sherry", d: "Vinos de Jerez, en la provincia de Cádiz." },
-      { n: "Tokaji, Hungría", d: "Vinos dulces de la región de Tokaj." },
-      { n: "Sauternes, Francia", d: "Vinos dulces de la zona de Burdeos." }
+    texto: ["Nuestra bodega está ordenada por tipo de vino y por su origen. Estas son algunas de las denominaciones que encontrarás en ella; toca una para ver sus vinos."],
+    zonas: [
+      { n: "D.O. Ribera del Duero", q: "duero" }, { n: "D.O.Ca. Rioja", q: "rioja" }, { n: "D.O. La Mancha", q: "mancha" },
+      { n: "D.O. Manchuela", q: "manchuela" }, { n: "D.O. Almansa", q: "almansa" }, { n: "D.O. Jumilla", q: "jumilla" },
+      { n: "D.O. Tierra de Castilla", q: "tierra de castilla" }, { n: "D.O. Valdepeñas", q: "valdepenas" },
+      { n: "D.O. Utiel-Requena", q: "utiel" }, { n: "D.O. Alicante", q: "alicante" }, { n: "D.O. Bierzo", q: "bierzo" },
+      { n: "D.O. Rueda", q: "rueda" }, { n: "D.O. Rías Baixas", q: "rias baixas" }, { n: "D.O. Toro", q: "toro" },
+      { n: "D.O. Penedés", q: "penedes" }, { n: "D.O. Jerez-Xérès-Sherry", q: "jerez" }, { n: "D.O. Montilla-Moriles", q: "montilla" },
+      { n: "Champagne", q: "champagne" }, { n: "Vinos de Francia", q: "francia" }
     ], web: "", platos: [] }
 ];
 
@@ -586,8 +1121,8 @@ var PARKINGS = [
     nota: "Bajo el centro comercial Calle Ancha." }
 ];
 
-var PANTALLAS = ["inicio", "carta", "quienes", "premio", "trabajamos", "platos", "proveedores", "origenes", "llegar", "resena", "aviso"];
-var DETALLES = ["proveedor", "plato", "origen", "parking"];
+var PANTALLAS = ["inicio", "carta", "comida", "vinos", "alergenos", "quienes", "premio", "trabajamos", "platos", "proveedores", "origenes", "llegar", "resena", "aviso"];
+var DETALLES = ["proveedor", "plato", "origen", "parking", "foto"];
 var avisoTimer;
 
 /* ---------- utilidades ---------- */
@@ -643,10 +1178,67 @@ function parrafos(contenedor, lista) {
   (lista || []).forEach(function (x) { d.appendChild(el("p", null, x)); });
   contenedor.appendChild(d);
 }
-function logoCaja(p, clase) {
-  if (p.logo) { var im = el("img"); im.src = p.logo; im.alt = "Logotipo de " + p.nombre; im.width = 64; im.height = 64; return im; }
-  var m = el("span", "mono", p.siglas); m.setAttribute("aria-hidden", "true"); return m;
+function logoCaja(p) {
+  var m = el("span", "mono", p.siglas); m.setAttribute("aria-hidden", "true");
+  if (!p.logo) return m;
+  var im = el("img", "logo"); im.alt = "Logotipo de " + p.nombre; im.loading = "lazy"; im.decoding = "async"; im.referrerPolicy = "origin";
+  im.onerror = function () { if (this.parentNode) this.parentNode.replaceChild(m, this); };
+  im.src = p.logo;
+  return im;
 }
+function imgSegura(src, alt, cls, alFallar) {
+  var im = el("img", cls); im.alt = alt || ""; im.loading = "lazy"; im.decoding = "async"; im.referrerPolicy = "origin";
+  im.onerror = alFallar || function () { this.style.visibility = "hidden"; };
+  im.src = src;
+  return im;
+}
+
+/* ---------- carta con precios y alérgenos (datos copiados de su carta online) ---------- */
+var SIN = { "15": "Sin gluten", "16": "Sin lactosa" };
+var COMIDA = COMIDA_TXT.map(function (r) { var p = r.split("|"); return { c: +p[0], n: p[1], d: p[2] || "", p: p[3] || "", a: p[4] ? p[4].split(",") : [] }; });
+var VINOS = VINOS_TXT.map(function (r) { var p = r.split("|"); return { c: +p[0], n: p[1].replace(/\s*-+\s*$/, "").trim(), sub: p[1].indexOf("----") >= 0, d: (p[2] || "").trim(), z: (p[3] || "").trim().replace(/\s+/g, " "), p: (p[4] || "").trim() }; });
+var FLAT = [];
+CARTA_WEB.forEach(function (c) { c.items.forEach(function (it) { FLAT.push({ cat: c.cat, n: it[0], path: it[1], ext: it[2] || "jpg" }); }); });
+function fotoUrl(f, mini) { return FOTOS + f.path + (mini ? "-300x300" : "") + "." + f.ext; }
+function datosCarta(f) {
+  var k = CRUCE[f.n]; if (!k) return null;
+  for (var i = 0; i < COMIDA.length; i++) if (COMIDA[i].n.indexOf(k) === 0) return COMIDA[i];
+  return null;
+}
+function precio(p) { return p ? p + " €" : ""; }
+function etiquetas(r, soloEstos) {
+  var t = el("div", "tags");
+  r.a.forEach(function (c) { if (ALERGENOS[c]) { var g = el("span", "tag" + (soloEstos && soloEstos[c] ? " sel" : ""), ALERGENOS[c]); t.appendChild(g); } });
+  r.a.forEach(function (c) { if (SIN[c]) t.appendChild(el("span", "tag sin", SIN[c])); });
+  return t.firstChild ? t : null;
+}
+function itemCarta(r, soloEstos) {
+  var li = el("li");
+  li.appendChild(el("span", "n", r.n));
+  li.appendChild(el("span", "p", precio(r.p)));
+  if (r.d) li.appendChild(el("span", "d", r.d));
+  var t = etiquetas(r, soloEstos); if (t) li.appendChild(t);
+  return li;
+}
+function filasCarta(cont, rx) {
+  var rs = COMIDA.filter(function (r) { return rx.test(r.n) || rx.test(r.d); });
+  if (!rs.length) return;
+  cont.appendChild(el("p", "subtitulo", "En nuestra carta"));
+  var ul = el("ul", "carta-lista");
+  rs.forEach(function (r) { ul.appendChild(itemCarta(r)); });
+  cont.appendChild(ul);
+  cont.appendChild(el("p", "nota", "Precios y alérgenos según nuestra carta online. Pregunta siempre a nuestro equipo."));
+}
+
+/* ---------- normalizar texto para buscar ---------- */
+function norm(s) { return (" " + String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim() + " "); }
+function coincide(hay, q) {
+  var t = norm(q).trim(); if (!t) return true;
+  var ps = t.split(" ");
+  for (var i = 0; i < ps.length; i++) if (hay.indexOf(" " + ps[i]) < 0) return false;
+  return true;
+}
+VINOS.forEach(function (v) { v.h = norm(v.n + " " + v.d + " " + v.z); });
 
 /* Distancia en línea recta (m) y minutos andando aproximados. */
 function metros(a, b) {
@@ -683,10 +1275,13 @@ function listaProveedores() {
     a.appendChild(fin);
     li.appendChild(a); ul.appendChild(li);
   });
+  var ot = document.getElementById("otras"); vaciar(ot);
+  OTRAS.forEach(function (x) { ot.appendChild(el("li", null, x)); });
 }
 function listaOrigenes() {
   var cont = document.getElementById("lista-origenes"); vaciar(cont);
   ORIGENES.forEach(function (o) {
+    if (o.pendiente) return;
     cont.appendChild(fila({ go: "origen/" + o.id, sigla: o.siglas, titulo: o.nombre, desc: o.tipo }));
   });
   var b = document.getElementById("sellos");
@@ -712,12 +1307,13 @@ function detalle(tipo, id) {
     var h = el("div"); h.appendChild(el("p", "eyebrow", [o.producto, o.origen].filter(Boolean).join(" · "))); h.appendChild(el("h2", null, o.nombre));
     cab.appendChild(h); cont.appendChild(cab);
     parrafos(cont, o.texto);
+    if (o.buscaCarta) filasCarta(cont, o.buscaCarta);
     if (o.logros && o.logros.length) {
       cont.appendChild(el("p", "subtitulo", "Reconocimientos"));
       var ul = el("ul", "oferta"); o.logros.forEach(function (l) { ul.appendChild(el("li", null, l)); }); cont.appendChild(ul);
     }
     if (o.platos && o.platos.length) {
-      cont.appendChild(el("p", "subtitulo", "En nuestra carta"));
+      cont.appendChild(el("p", "subtitulo", "Ficha del plato"));
       var l1 = el("div", "lista");
       o.platos.forEach(function (pid) { var p = buscar(PLATOS, pid); if (p) l1.appendChild(fila({ go: "plato/" + p.id, icono: ICO.plato, titulo: p.nombre, desc: p.corto })); });
       cont.appendChild(l1);
@@ -732,23 +1328,53 @@ function detalle(tipo, id) {
     cont.appendChild(el("h2", null, o.nombre));
     cont.appendChild(el("p", "lead", o.tipo));
     parrafos(cont, o.texto);
-    if (o.vinos) {
-      var vu = el("ul", "vinos");
-      o.vinos.forEach(function (v) {
-        var li = el("li"); li.appendChild(el("b", null, v.n)); li.appendChild(el("span", null, v.d));
-        if (v.web) { var a = el("a", null, "Ver estos vinos"); a.href = v.web; a.target = "_blank"; a.rel = "noopener"; li.appendChild(a); }
-        vu.appendChild(li);
+    if (o.logo) { var lg = imgSegura(o.logo, "Logotipo de " + o.nombre, "logo-origen"); cont.appendChild(lg); }
+    if (o.buscaCarta) filasCarta(cont, o.buscaCarta);
+    if (o.zonas) {
+      cont.appendChild(el("p", "subtitulo", "En nuestra bodega"));
+      var zl = el("div", "lista");
+      o.zonas.forEach(function (z) {
+        var n = VINOS.filter(function (v) { return !v.sub && coincide(v.h, z.q); }).length;
+        if (n) zl.appendChild(fila({ go: "vinos/" + z.q, sigla: "D.O.", titulo: z.n, desc: n + (n === 1 ? " vino" : " vinos") }));
       });
-      cont.appendChild(vu);
-      if (CLIENTE.carta.vinos) { var lv = el("div", "lista"); lv.style.marginTop = "14px"; lv.appendChild(fila({ href: CLIENTE.carta.vinos, icono: ICO.carta, titulo: "Carta de vinos", desc: "Abrir la carta completa" })); cont.appendChild(lv); }
+      cont.appendChild(zl);
+      var lv = el("div", "lista"); lv.style.marginTop = "14px";
+      lv.appendChild(fila({ go: "vinos", icono: ICO.carta, titulo: "Carta de vinos completa", desc: "Todos los vinos, con precio", principal: true }));
+      cont.appendChild(lv);
     }
     if (o.platos && o.platos.length) {
-      cont.appendChild(el("p", "subtitulo", "En nuestra carta"));
+      cont.appendChild(el("p", "subtitulo", "Más sobre el plato"));
       var l3 = el("div", "lista");
       o.platos.forEach(function (pid) { var p = buscar(PLATOS, pid); if (p) l3.appendChild(fila({ go: "plato/" + p.id, icono: ICO.plato, titulo: p.nombre, desc: p.corto })); });
       cont.appendChild(l3);
     }
     if (o.web) { var l4 = el("div", "lista"); l4.style.marginTop = "14px"; l4.appendChild(fila({ href: o.web, icono: ICO.ext, titulo: o.webTexto || "Visitar su web", desc: o.web.replace(/^https?:\/\/(www\.)?/, "").split("/")[0] })); cont.appendChild(l4); }
+    return true;
+  }
+  if (tipo === "foto") {
+    var k = parseInt(id, 10); o = FLAT[k]; if (!o) return false;
+    cont.appendChild(volverA("comida", "Carta de comida"));
+    cont.appendChild(el("span", "etiqueta", o.cat));
+    cont.appendChild(el("h2", null, o.n));
+    var g = el("img", "foto-g"); g.alt = "Foto de " + o.n; g.referrerPolicy = "origin"; g.decoding = "async";
+    var fallo = 0;
+    g.onerror = function () { fallo++; if (fallo === 1) this.src = fotoUrl(o, true); else this.style.visibility = "hidden"; };
+    g.src = fotoUrl(o);
+    cont.appendChild(g);
+    var dc = datosCarta(o);
+    if (dc) {
+      var ul2 = el("ul", "carta-lista"); ul2.appendChild(itemCarta(dc)); cont.appendChild(ul2);
+    } else {
+      cont.appendChild(el("p", "nota", "Pregunta a nuestro equipo por el precio y los alérgenos de este plato, o consúltalos en «Precios y alérgenos»."));
+    }
+    cont.appendChild(el("p", "nota", "Foto de la web del asador. La presentación y la oferta pueden variar según la temporada."));
+    var nav = el("div", "lista");
+    if (k > 0) nav.appendChild(fila({ go: "foto/" + (k - 1), icono: '<path d="m15 18-6-6 6-6"/>', titulo: "Anterior", desc: FLAT[k - 1].n }));
+    if (k < FLAT.length - 1) nav.appendChild(fila({ go: "foto/" + (k + 1), titulo: "Siguiente", desc: FLAT[k + 1].n }));
+    cont.appendChild(nav);
+    var l5 = el("div", "lista"); l5.style.marginTop = "10px";
+    l5.appendChild(fila({ go: "comida/precios", icono: ICO.escudo, titulo: "Precios y alérgenos", desc: "Toda la carta, con lo que lleva cada plato" }));
+    cont.appendChild(l5);
     return true;
   }
   if (tipo === "plato") {
@@ -768,8 +1394,7 @@ function detalle(tipo, id) {
     if (o.premio) rel.appendChild(fila({ go: "premio", icono: ICO.medalla, titulo: "El premio y la noticia", desc: "VII Concurso Internacional de Patatas Bravas" }));
     if (rel.firstChild) { cont.appendChild(el("p", "subtitulo", "Producto y reconocimientos")); cont.appendChild(rel); }
     var al = el("div", "lista"); al.style.marginTop = "14px";
-    var enlaceAl = CLIENTE.carta.alergenos || CLIENTE.carta.comida;
-    al.appendChild(fila({ href: enlaceAl, icono: ICO.escudo, titulo: "Alérgenos y precio", desc: "Consúltalos en la carta o pregunta al equipo" }));
+    al.appendChild(fila({ go: "comida/precios", icono: ICO.escudo, titulo: "Alérgenos y precio", desc: "Consúltalos en la carta o pregunta al equipo" }));
     cont.appendChild(al);
     return true;
   }
@@ -788,6 +1413,130 @@ function detalle(tipo, id) {
     return true;
   }
   return false;
+}
+
+/* ---------- carta de comida: fotos y precios ---------- */
+var comidaListo = false;
+function chipsFiltro(cont, nombres, secciones) {
+  var bs = [];
+  function marcar(k) {
+    bs.forEach(function (b, n) { b.setAttribute("aria-pressed", n === k ? "true" : "false"); });
+    secciones.forEach(function (s, n) { s.hidden = k > 0 && n !== k - 1; });
+  }
+  ["Todo"].concat(nombres).forEach(function (t, k) {
+    var b = el("button", null, t); b.type = "button"; b.addEventListener("click", function () { marcar(k); }); bs.push(b); cont.appendChild(b);
+  });
+  marcar(0);
+}
+function construirComida() {
+  var fo = document.getElementById("comida-fotos"), pr = document.getElementById("comida-precios");
+  var ff = document.getElementById("filtros-fotos"), fp = document.getElementById("filtros-precios");
+  var idx = 0, secF = [], secP = [];
+  CARTA_WEB.forEach(function (c) {
+    var s = el("div"); s.appendChild(el("h3", "sec", c.cat));
+    var ul = el("ul", "fotos");
+    c.items.forEach(function (it) {
+      var f = FLAT[idx];
+      var li = el("li"), a = el("a"); a.href = "#foto/" + idx; a.setAttribute("data-go", "foto/" + idx);
+      a.appendChild(imgSegura(fotoUrl(f, true), "Foto de " + f.n));
+      a.appendChild(el("span", null, f.n));
+      li.appendChild(a); ul.appendChild(li); idx++;
+    });
+    s.appendChild(ul); fo.appendChild(s); secF.push(s);
+  });
+  chipsFiltro(ff, CARTA_WEB.map(function (c) { return c.cat; }), secF);
+  CATS_COMIDA.forEach(function (nombre, k) {
+    var s = el("div"); s.appendChild(el("h3", "sec", nombre));
+    var ul = el("ul", "carta-lista");
+    COMIDA.forEach(function (r) { if (r.c === k) ul.appendChild(itemCarta(r)); });
+    s.appendChild(ul); pr.appendChild(s); secP.push(s);
+  });
+  chipsFiltro(fp, CATS_COMIDA, secP);
+  comidaListo = true;
+}
+function renderComida(tab) {
+  if (!comidaListo) construirComida();
+  var precios = tab === "precios";
+  document.getElementById("comida-fotos").hidden = precios; document.getElementById("filtros-fotos").hidden = precios;
+  document.getElementById("comida-precios").hidden = !precios; document.getElementById("filtros-precios").hidden = !precios;
+  document.getElementById("tab-fotos").setAttribute("aria-current", precios ? "false" : "page");
+  document.getElementById("tab-precios").setAttribute("aria-current", precios ? "page" : "false");
+}
+
+/* ---------- carta de vinos con buscador ---------- */
+var vinoEstado = { c: -1, q: "" }, vinosListo = false;
+function renderVinos(q) {
+  var inp = document.getElementById("q-vino"), fc = document.getElementById("f-vinos");
+  if (!vinosListo) {
+    ["Todos"].concat(CATS_VINOS).forEach(function (t, k) {
+      var b = el("button", null, t); b.type = "button";
+      b.addEventListener("click", function () { vinoEstado.c = k - 1; listaVinos(); });
+      fc.appendChild(b);
+    });
+    inp.addEventListener("input", function () { vinoEstado.q = inp.value; listaVinos(); });
+    vinosListo = true;
+  }
+  vinoEstado.q = q || ""; vinoEstado.c = -1; inp.value = vinoEstado.q;
+  listaVinos();
+}
+function listaVinos() {
+  var fc = document.getElementById("f-vinos").children;
+  for (var i = 0; i < fc.length; i++) fc[i].setAttribute("aria-pressed", (i - 1) === vinoEstado.c ? "true" : "false");
+  var out = document.getElementById("l-vinos"); vaciar(out);
+  var buscando = !!norm(vinoEstado.q).trim(), total = 0;
+  CATS_VINOS.forEach(function (nombre, k) {
+    if (vinoEstado.c >= 0 && vinoEstado.c !== k) return;
+    var ul = el("ul", "carta-lista"), n = 0, pendienteSub = null;
+    VINOS.forEach(function (v) {
+      if (v.c !== k) return;
+      if (v.sub) { pendienteSub = v; return; }
+      if (!coincide(v.h, vinoEstado.q)) return;
+      if (pendienteSub && !buscando) { var s = el("li", "sub-vino", pendienteSub.n); ul.appendChild(s); }
+      pendienteSub = null;
+      var li = el("li");
+      li.appendChild(el("span", "n", v.n)); li.appendChild(el("span", "p", precio(v.p)));
+      var det = [v.d, v.z].filter(Boolean).join(" · "); if (det) li.appendChild(el("span", "d", det));
+      ul.appendChild(li); n++;
+    });
+    if (n) { out.appendChild(el("h3", "sec", nombre)); out.appendChild(ul); total += n; }
+  });
+  var inf = document.getElementById("n-vinos");
+  inf.textContent = buscando ? (total ? total + (total === 1 ? " vino encontrado" : " vinos encontrados") : "No hemos encontrado ningún vino con esa búsqueda.") : "";
+  inf.hidden = !buscando;
+}
+
+/* ---------- alérgenos ---------- */
+var alMarcados = {}, alListo = false;
+function renderAlergenos() {
+  var f = document.getElementById("al-filtros");
+  if (!alListo) {
+    Object.keys(ALERGENOS).forEach(function (c) {
+      var b = el("button", null, ALERGENOS[c]); b.type = "button"; b.setAttribute("aria-pressed", "false");
+      b.addEventListener("click", function () { alMarcados[c] = !alMarcados[c]; b.setAttribute("aria-pressed", alMarcados[c] ? "true" : "false"); resultadoAlergenos(); });
+      f.appendChild(b);
+    });
+    alListo = true;
+  }
+  resultadoAlergenos();
+}
+function resultadoAlergenos() {
+  var out = document.getElementById("al-res"); vaciar(out);
+  var sel = Object.keys(alMarcados).filter(function (c) { return alMarcados[c]; });
+  if (!sel.length) { out.appendChild(el("p", "nota", "Marca uno o varios alérgenos para ver qué platos de la carta los contienen.")); return; }
+  var contienen = COMIDA.filter(function (r) { return sel.some(function (c) { return r.a.indexOf(c) >= 0; }); });
+  out.appendChild(el("p", "subtitulo", "Contienen " + sel.map(function (c) { return ALERGENOS[c].toLowerCase(); }).join(" o ") + " (" + contienen.length + ")"));
+  if (contienen.length) {
+    var ul = el("ul", "carta-lista");
+    contienen.forEach(function (r) { ul.appendChild(itemCarta(r, alMarcados)); });
+    out.appendChild(ul);
+  } else out.appendChild(el("p", "nota", "Ningún plato de la carta online indica estos alérgenos."));
+  var sin = COMIDA.filter(function (r) { return !r.a.length; });
+  if (sin.length) {
+    var d = el("details", "sindatos"); d.appendChild(el("summary", null, "Platos sin alérgenos indicados en la carta online (" + sin.length + ")"));
+    var u2 = el("ul", "carta-lista"); sin.forEach(function (r) { var li = el("li"); li.appendChild(el("span", "n", r.n)); u2.appendChild(li); });
+    d.appendChild(u2); d.appendChild(el("p", "nota", "La carta online no indica alérgenos en estos platos. Pregunta siempre a nuestro equipo."));
+    out.appendChild(d);
+  }
 }
 
 /* ---------- mapa (teselas de OpenStreetMap, sin librerías ni cookies) ---------- */
@@ -857,6 +1606,9 @@ function pintar(ruta) {
     secciones[i].hidden = secciones[i].getAttribute("data-screen") !== pantalla;
   }
   if (pantalla === "llegar") mapa();
+  if (pantalla === "comida") renderComida(partes[1]);
+  if (pantalla === "vinos") { var qv = partes[1] || ""; try { qv = decodeURIComponent(qv); } catch (e) {} renderVinos(qv); }
+  if (pantalla === "alergenos") renderAlergenos();
   window.scrollTo(0, 0);
 }
 
@@ -894,6 +1646,7 @@ window.addEventListener("hashchange", function () { pintar(location.hash.replace
 window.addEventListener("resize", function () { if (!document.querySelector("[data-screen='llegar']").hidden) mapa(); });
 
 enlaces();
+Array.prototype.forEach.call(document.querySelectorAll("img[data-oculta]"), function (im) { im.onerror = function () { if (this.parentNode) this.parentNode.hidden = true; }; im.src = im.getAttribute("data-oculta"); });
 listaPlatos();
 listaProveedores();
 listaOrigenes();
