@@ -193,11 +193,12 @@ a { color: inherit; }
 .filtros button { min-height: 44px; padding: 6px 14px; background: #fff; border: 1px solid var(--line); font: 600 14px/1.2 var(--sans); color: var(--carbon); cursor: pointer; }
 .filtros button[aria-pressed="true"] { background: var(--carbon); border-color: var(--carbon); color: #fff; }
 .sec { margin: 28px 0 0; font: 700 22px/1.2 var(--serif); color: var(--carbon); }
-.fotos { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.fotos a { display: block; height: 100%; text-decoration: none; color: var(--carbon); background: var(--paper); border: 1px solid var(--line); }
-.fotos img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #E9E5DD; }
-.fotos span { display: block; padding: 10px 10px 12px; font: 600 14px/1.3 var(--sans); }
-.foto-g { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; margin-top: 14px; background: #E9E5DD; border: 1px solid var(--line); }
+.fotos { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 8px; }
+.fotos a { display: block; text-align: center; text-decoration: none; color: var(--carbon); padding: 10px 0 22px; }
+.fotos img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: contain; mix-blend-mode: multiply; background: transparent; }
+.fotos .nm { display: block; margin-top: 4px; font: 700 22px/1.2 var(--serif); text-wrap: balance; }
+.fotos .pr { display: block; margin-top: 6px; font: 600 14px/1.3 var(--sans); color: var(--ochre-ink); }
+.foto-g { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: contain; mix-blend-mode: multiply; margin-top: 10px; background: transparent; border: 0; }
 .carta-lista { list-style: none; margin: 12px 0 0; padding: 0; border-top: 1px solid var(--line); }
 .carta-lista li { padding: 12px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; }
 .carta-lista .n { font: 600 15px/1.3 var(--sans); color: var(--carbon); }
@@ -1438,8 +1439,9 @@ function construirComida() {
     c.items.forEach(function (it) {
       var f = FLAT[idx];
       var li = el("li"), a = el("a"); a.href = "#foto/" + idx; a.setAttribute("data-go", "foto/" + idx);
-      a.appendChild(imgSegura(fotoUrl(f, true), "Foto de " + f.n));
-      a.appendChild(el("span", null, f.n));
+      a.appendChild(imgSegura(fotoUrl(f), "Foto de " + f.n, null, function () { if (!this.getAttribute("data-f")) { this.setAttribute("data-f", "1"); this.src = fotoUrl(f, true); } else this.style.visibility = "hidden"; }));
+      a.appendChild(el("span", "nm", f.n));
+      var dcl = datosCarta(f); if (dcl && dcl.p) a.appendChild(el("span", "pr", precio(dcl.p)));
       li.appendChild(a); ul.appendChild(li); idx++;
     });
     s.appendChild(ul); fo.appendChild(s); secF.push(s);
