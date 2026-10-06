@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Política de privacidad de NEXIA.">
+<meta name="theme-color" content="#10172A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237B79E2'/%3E%3Cstop offset='.55' stop-color='%2300C1CA'/%3E%3Cstop offset='1' stop-color='%23007EC2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
+<style>a{overflow-wrap:anywhere}html,body{overflow-x:clip}</style>
+<title>NEXIA · Política de privacidad</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:inherit}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+details[open] .nx-plus{transform:rotate(45deg)}
+.nx-plus{transition:transform .25s ease}
+section[id]{scroll-margin-top:84px}
+@property --nx-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes nxSpin{to{--nx-a:90deg}}
+@keyframes nxDrift{0%{transform:translate3d(-12%,-6%,0) scale(1) rotate(0deg)}50%{transform:translate3d(12%,8%,0) scale(1.22) rotate(8deg)}100%{transform:translate3d(-12%,-6%,0) scale(1) rotate(0deg)}}
+@keyframes nxPulse{0%{transform:scale(.7);opacity:.75}100%{transform:scale(2.5);opacity:0}}
+@keyframes nxRing{0%{transform:scale(.3);opacity:.75}100%{transform:scale(1.7);opacity:0}}
+@keyframes nxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes nxUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes nxSheen{from{background-position:0% 50%}to{background-position:200% 50%}}
+@keyframes nxTap{0%,100%{transform:translateX(0) rotate(-9deg)}45%,62%{transform:translateX(46px) rotate(-4deg)}}
+@keyframes nxTravel{0%{left:0%;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:100%;opacity:0}}
+@keyframes nxReveal{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
+@supports (animation-timeline: view()){.nx-reveal{animation:nxReveal linear both;animation-timeline:view();animation-range:entry 0% cover 28%}}
+
+.nx-page{font-family:'DM Sans',system-ui,sans-serif;color:#2A3347;background:#F4F6F9;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.nx-wrap{max-width:1240px;margin:0 auto;padding-left:28px;padding-right:28px;box-sizing:border-box}
+.nx-mono{font-family:'DM Mono',ui-monospace,Menlo,monospace;font-size:12px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:#55627A}
+.nx-h{font-family:'Archivo',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.06;color:#10172A;margin:0}
+.nx-sphere{display:block;flex-shrink:0;border-radius:50%;background:radial-gradient(circle at 32% 30%,#FFFFFF 0%,#A9C2FF 28%,#3F63F5 62%,#1A2F9A 100%)}
+
+.nx-nav{text-decoration:none;color:#2A3347;padding:6px 0;border-bottom:2px solid transparent;transition:color .2s ease}
+.nx-nav:hover{color:#2347DC}
+.nx-nav[aria-current="page"]{color:#10172A;border-bottom-color:#2347DC}
+.nx-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;background:#10172A;color:#FFFFFF;text-decoration:none;font-weight:700;font-size:16px;transition:transform .2s ease,box-shadow .2s ease}
+.nx-btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(35,71,220,.30)}
+.nx-btn-light{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;background:#FFFFFF;color:#10172A;text-decoration:none;font-weight:700;font-size:16px;transition:transform .2s ease,box-shadow .2s ease}
+.nx-btn-light:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.25)}
+.nx-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:#10172A;text-decoration:none;border-bottom:2px solid #2347DC;transition:gap .2s ease}
+.nx-link:hover{gap:14px}
+.nx-link-dark{color:#FFFFFF;border-bottom-color:#7C9FFF}
+
+/* metal cepillado: reflejos cónicos que giran despacio */
+.nx-metal{background:repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,rgba(0,0,0,.045) 1px,rgba(0,0,0,.045) 2px),repeating-conic-gradient(from var(--nx-a) at 50% 50%,#2347DC 0deg,#4F7BFF 30deg,#86A8FF 45deg,#4F7BFF 60deg,#2347DC 90deg);animation:nxSpin 14s linear infinite}
+.nx-metal-plat{background:repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,rgba(0,0,0,.045) 1px,rgba(0,0,0,.045) 2px),repeating-conic-gradient(from var(--nx-a) at 50% 50%,#9CCBE8 0deg,#CDE8F7 30deg,#F4FBFF 45deg,#CDE8F7 60deg,#9CCBE8 90deg);animation:nxSpin 14s linear infinite}
+.nx-metal-text{background:linear-gradient(100deg,#2347DC 0%,#4F7BFF 30%,#86A8FF 45%,#4F7BFF 60%,#2347DC 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nxSheen 6s linear infinite}
+.nx-metal-text-light{background:linear-gradient(100deg,#2347DC 0%,#86A8FF 24%,#FFFFFF 38%,#86A8FF 50%,#2347DC 70%,#2347DC 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nxSheen 6s linear infinite}
+
+/* filas editoriales (índice de usos) */
+.nx-row{display:grid;grid-template-columns:72px minmax(0,1.1fr) minmax(0,1fr) 56px;gap:24px;align-items:center;padding:34px 12px;border-top:1px solid #C9D0DB;text-decoration:none;transition:background .25s ease}
+.nx-row:hover{background:#FFFFFF}
+.nx-ar{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid #10172A;color:#10172A;transition:transform .25s ease,background .25s ease,color .25s ease}
+.nx-row:hover .nx-ar{transform:translateX(6px);background:#10172A;color:#FFFFFF}
+@media (max-width:760px){.nx-row{grid-template-columns:44px minmax(0,1fr) 44px;gap:12px 16px}.nx-row .nx-ar{grid-column:3;grid-row:1;width:40px;height:40px}.nx-row-d{grid-column:2 / 4;grid-row:2}}
+
+/* demo del toque */
+.nx-d-in{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.nx-d-scr{display:none;position:absolute;top:0;left:0;right:0;bottom:0}
+.nx-d-scr1{display:block}
+#nxd2:checked ~ .nx-demo .nx-d-scr1,#nxd3:checked ~ .nx-demo .nx-d-scr1{display:none}
+#nxd2:checked ~ .nx-demo .nx-d-scr2{display:block}
+#nxd3:checked ~ .nx-demo .nx-d-scr3{display:block}
+.nx-chip{cursor:pointer;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;border:1px solid #AEB8C7;background:#FFFFFF;color:#10172A;font-weight:700;font-size:15px;transition:background .2s ease,color .2s ease}
+.nx-chip:hover{border-color:#10172A}
+.nx-chips label[for="nxd1"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
+#nxd2:checked ~ .nx-chips label[for="nxd1"],#nxd3:checked ~ .nx-chips label[for="nxd1"]{background:#FFFFFF;border-color:#AEB8C7;color:#10172A}
+#nxd2:checked ~ .nx-chips label[for="nxd2"],#nxd3:checked ~ .nx-chips label[for="nxd3"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
+#nxd1:focus-visible ~ .nx-chips label[for="nxd1"],#nxd2:focus-visible ~ .nx-chips label[for="nxd2"],#nxd3:focus-visible ~ .nx-chips label[for="nxd3"]{outline:3px solid #2347DC;outline-offset:3px}
+@media (max-width:560px){.nx-demo{height:520px !important}.nx-c-plat{display:none !important}.nx-c-blue{left:-8px !important;top:310px !important;scale:.78}.nx-phone{right:0 !important}}
+
+/* pestañas de precios */
+.nx-tabin{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.nx-tab{cursor:pointer;display:flex;flex-direction:column;gap:6px;box-sizing:border-box;min-height:44px;padding:20px 22px;border-radius:8px;background:#FFFFFF;border:1px solid #C9D0DB;color:#10172A;transition:box-shadow .2s ease,background .2s ease,color .2s ease}
+.nx-tab:hover{box-shadow:0 14px 30px rgba(16,23,42,.10)}
+.nx-tab-sub{color:#2347DC}
+.nx-chev{transition:transform .25s ease;flex-shrink:0}
+.nx-panel{display:none}
+.nx-panel1{display:grid}
+.nx-tablist label[for="nxp1"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
+.nx-tablist label[for="nxp1"] .nx-tab-sub{color:#9DB8FF}
+.nx-tablist label[for="nxp1"] .nx-chev{transform:rotate(180deg)}
+#nxp2:checked ~ .nx-tablist label[for="nxp1"],#nxp3:checked ~ .nx-tablist label[for="nxp1"]{background:#FFFFFF;border-color:#C9D0DB;color:#10172A}
+#nxp2:checked ~ .nx-tablist label[for="nxp1"] .nx-tab-sub,#nxp3:checked ~ .nx-tablist label[for="nxp1"] .nx-tab-sub{color:#2347DC}
+#nxp2:checked ~ .nx-tablist label[for="nxp1"] .nx-chev,#nxp3:checked ~ .nx-tablist label[for="nxp1"] .nx-chev{transform:none}
+#nxp2:checked ~ .nx-panels .nx-panel1,#nxp3:checked ~ .nx-panels .nx-panel1{display:none}
+#nxp2:checked ~ .nx-tablist label[for="nxp2"],#nxp3:checked ~ .nx-tablist label[for="nxp3"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
+#nxp2:checked ~ .nx-tablist label[for="nxp2"] .nx-tab-sub,#nxp3:checked ~ .nx-tablist label[for="nxp3"] .nx-tab-sub{color:#9DB8FF}
+#nxp2:checked ~ .nx-tablist label[for="nxp2"] .nx-chev,#nxp3:checked ~ .nx-tablist label[for="nxp3"] .nx-chev{transform:rotate(180deg)}
+#nxp2:checked ~ .nx-panels .nx-panel2{display:grid}
+#nxp3:checked ~ .nx-panels .nx-panel3{display:grid}
+#nxp1:focus-visible ~ .nx-tablist label[for="nxp1"],#nxp2:focus-visible ~ .nx-tablist label[for="nxp2"],#nxp3:focus-visible ~ .nx-tablist label[for="nxp3"]{outline:3px solid #2347DC;outline-offset:3px}
+
+/* estrellas del formulario */
+.nx-stars{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:2px}
+.nx-stars input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.nx-stars label{cursor:pointer;display:flex;align-items:center;justify-content:center;width:52px;height:52px;font-size:40px;line-height:1;color:#C5CCD8;transition:color .15s ease,transform .15s ease}
+.nx-stars label:hover,.nx-stars label:hover ~ label,.nx-stars input:checked ~ label{color:#F5B301}
+.nx-stars label:hover{transform:scale(1.12)}
+.nx-stars input:focus-visible + label{outline:3px solid #2347DC;outline-offset:2px;border-radius:8px}
+.nx-field{width:100%;box-sizing:border-box;min-height:52px;padding:12px 16px;border:1px solid #AEB8C7;border-radius:8px;background:#FFFFFF;color:#10172A;font-family:'DM Sans',system-ui,sans-serif;font-size:17px}
+.nx-field:focus{outline:3px solid #2347DC;outline-offset:1px;border-color:#2347DC}
+
+.nx-marq:hover .nx-trk{animation-play-state:paused}
+@media (max-width:700px){.nx-travel{display:none}}
+@media (prefers-reduced-motion: reduce){.nx-reveal,[style*="nxFloat"],[style*="nxPulse"],[style*="nxUp"],[style*="nxTap"],[style*="nxRing"],[style*="nxTravel"],.nx-travel{animation:none !important}.nx-btn-primary,.nx-btn-light,.nx-row,.nx-ar,.nx-link,.nx-tab,.nx-chip{transition:none !important}.nx-btn-primary:hover,.nx-btn-light:hover{transform:none !important}}
+
+@keyframes nxMarq{to{transform:translateX(-50%)}}
+.nx-trk{display:flex;width:max-content;animation:nxMarq 34s linear infinite}
+@media (min-width:900px){.nx-flip .nx-t{order:2}}
+.nx-spec{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;padding:18px 0;border-top:1px solid #C9D0DB;align-items:start}
+
+@keyframes nxWave{0%{transform:translate(-50%,-50%) scale(.12);opacity:0}12%{opacity:.7}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
+@keyframes nxGlint{0%,55%{left:-60%}100%{left:130%}}
+@keyframes nxBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes nxTwinkle{0%,100%{opacity:.35;transform:scale(.9) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(12deg)}}
+.nx-h,.nx-flow{background:linear-gradient(100deg,#2347DC 0%,#4F7BFF 30%,#86A8FF 45%,#4F7BFF 60%,#2347DC 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent !important;animation:nxSheen 6s linear infinite}
+.nx-h-l,.nx-flow-l{background:linear-gradient(100deg,#9DB8FF 0%,#FFFFFF 30%,#FFFFFF 45%,#9DB8FF 60%,#9DB8FF 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent !important;animation:nxSheen 5s linear infinite}
+.nx-h-dark{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#10172A !important}
+.nx-tile{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.nx-tile:hover{transform:translateX(8px);box-shadow:0 18px 40px rgba(35,71,220,.16);border-color:#2347DC}
+.nx-ico{transition:transform .3s ease}
+.nx-tile:hover .nx-ico,.nx-glass:hover .nx-ico{transform:scale(1.1) rotate(-6deg)}
+.nx-glass{transition:transform .25s ease,background .25s ease,border-color .25s ease}
+.nx-glass:hover{transform:translateY(-8px);background:rgba(255,255,255,.12);border-color:rgba(157,184,255,.6)}
+.nx-dbox{transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.nx-dbox:hover{transform:translateY(-4px);border-color:#9DB8FF}
+.nx-rev{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.nx-rev:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 22px 44px rgba(16,23,42,.14);border-color:#2347DC}
+.nx-plan{position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+.nx-plan:hover{transform:translateY(-8px);box-shadow:0 26px 52px rgba(16,23,42,.18)}
+.nx-plan-dark::after{content:'';position:absolute;top:0;left:-60%;width:36%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.16),rgba(255,255,255,0));transform:skewX(-20deg);animation:nxGlint 5s ease-in-out infinite;pointer-events:none}
+.nx-panel > *{animation:nxUp .5s ease backwards}
+.nx-panel > *:nth-child(2){animation-delay:.07s}.nx-panel > *:nth-child(3){animation-delay:.14s}.nx-panel > *:nth-child(4){animation-delay:.21s}.nx-panel > *:nth-child(5){animation-delay:.28s}
+
+@keyframes nxLiquid{to{background-position:220px 0}}
+@keyframes nxPush{0%,100%{box-shadow:0 3px 8px rgba(35,71,220,.25)}50%{box-shadow:8px 0 18px rgba(79,123,255,.70),0 3px 8px rgba(35,71,220,.25)}}
+.nx-liquid{position:relative;overflow:hidden;border-radius:14px;background:linear-gradient(180deg,#6D93FF 0%,#2F56F0 45%,#1B38B8 100%);animation:nxPush 1.6s ease-in-out infinite}
+.nx-liquid::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.50) 22%,rgba(255,255,255,0) 44%) 0 0/220px 100% repeat-x;animation:nxLiquid 2.2s linear infinite}
+.nx-liquid::after{content:'';position:absolute;top:3px;left:10px;right:10px;height:6px;border-radius:3px;background:rgba(255,255,255,.38)}
+@media (prefers-reduced-motion: reduce){.nx-liquid,.nx-liquid::before{animation:none !important}}
+.nx-bar{transform-origin:left center}
+@supports (animation-timeline: view()){.nx-bar{animation:nxBar linear both;animation-timeline:view();animation-range:entry 0% entry 75%}}
+.nx-star{animation:nxTwinkle 3.5s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.nx-h,.nx-flow,.nx-h-l,.nx-flow-l,.nx-panel > *,.nx-star,.nx-plan-dark::after{animation:none !important}}
+</style>
+</helmet>
+<div class="nx-page">
+<header style="position:sticky;top:0;z-index:20;background:rgba(244,246,249,0.9);backdrop-filter:blur(12px);border-bottom:1px solid #DDE2EA">
+<div class="nx-wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 28px;padding-top:12px;padding-bottom:12px">
+<a href="index.html" aria-label="NEXIA, ir al inicio" style="display:flex;align-items:center;gap:9px;text-decoration:none">
+<span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;line-height:1;letter-spacing:0.02em;color:#10172A">NEXIA</span>
+<span class="nx-sphere" style="width:11px;height:11px"></span>
+</a>
+<nav aria-label="Principal" style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 26px;font-size:15px;font-weight:600">
+<a class="nx-nav" href="soluciones.html">Soluciones</a><a class="nx-nav" href="como-funciona.html">Cómo funciona</a><a class="nx-nav" href="precios.html">Precios</a><a class="nx-nav" href="opiniones.html">Opiniones</a><a class="nx-btn-primary" href="#contacto" style="min-height:44px;padding:0 20px;font-size:15px">Pide una demo</a>
+</nav>
+</div>
+</header>
+<section style="position:relative;overflow:hidden;border-bottom:1px solid #C9D0DB">
+<div aria-hidden="true" style="position:absolute;top:-60%;left:-20%;right:-20%;bottom:-60%;background:radial-gradient(28% 36% at 15% 40%,rgba(0,193,202,0.20),rgba(0,193,202,0) 70%),radial-gradient(28% 36% at 85% 60%,rgba(123,121,226,0.20),rgba(123,121,226,0) 70%);animation:nxDrift 11s ease-in-out infinite"></div>
+<div aria-hidden="true" style="position:absolute;top:50%;right:-60px;width:720px;height:720px;margin-top:-360px;pointer-events:none"><span style="position:absolute;left:50%;top:50%;width:100%;height:100%;border-radius:50%;border:1.5px solid rgba(35,71,220,0.38);animation:nxWave 8s ease-out infinite;animation-delay:-0s"></span><span style="position:absolute;left:50%;top:50%;width:100%;height:100%;border-radius:50%;border:1.5px solid rgba(35,71,220,0.38);animation:nxWave 8s ease-out infinite;animation-delay:-2s"></span><span style="position:absolute;left:50%;top:50%;width:100%;height:100%;border-radius:50%;border:1.5px solid rgba(35,71,220,0.38);animation:nxWave 8s ease-out infinite;animation-delay:-4s"></span><span style="position:absolute;left:50%;top:50%;width:100%;height:100%;border-radius:50%;border:1.5px solid rgba(35,71,220,0.38);animation:nxWave 8s ease-out infinite;animation-delay:-6s"></span></div>
+
+<div class="nx-wrap" style="position:relative;padding-top:80px;padding-bottom:80px;display:flex;flex-direction:column;gap:20px">
+<p class="nx-mono" style="margin:0">Legal</p>
+<h1 class="nx-h" style="font-size:clamp(40px,5.4vw,72px);max-width:900px;animation:nxUp 0.7s ease both,nxSheen 6s linear infinite">Política de privacidad</h1>
+<p style="margin:0;font-size:20px;max-width:620px;color:#3A4458;animation:nxUp 0.7s ease 0.1s both">Qué datos tratamos, para qué, durante cuánto tiempo y cómo puedes controlarlos.</p>
+</div>
+</section>
+<section class="nx-wrap" style="padding-top:48px;padding-bottom:88px;max-width:920px;display:flex;flex-direction:column;gap:32px"><div style="display:flex;flex-wrap:wrap;gap:8px" aria-label="En esta página"><a href="#responsable" class="nx-chip" style="text-decoration:none">1. Responsable del tratamiento</a><a href="#datos" class="nx-chip" style="text-decoration:none">2. Qué datos tratamos y para qué</a><a href="#destinatarios" class="nx-chip" style="text-decoration:none">3. Destinatarios y proveedores</a><a href="#transferencias" class="nx-chip" style="text-decoration:none">4. Transferencias internacionales</a><a href="#derechos" class="nx-chip" style="text-decoration:none">5. Tus derechos</a><a href="#menores" class="nx-chip" style="text-decoration:none">6. Menores de edad</a><a href="#seguridad" class="nx-chip" style="text-decoration:none">7. Seguridad y decisiones automatizadas</a><a href="#cambios" class="nx-chip" style="text-decoration:none">8. Cambios en esta política</a></div><p class="nx-mono" style="margin:0">Última actualización: 5 de octubre de 2026</p><div><section id="responsable" style="scroll-margin-top:96px;display:flex;flex-direction:column;gap:16px;padding:36px 0 40px;border-top:1px solid #C9D0DB"><h2 class="nx-h" style="font-size:clamp(24px,2.6vw,32px);line-height:1.15">1. Responsable del tratamiento</h2><p style="margin:0;font-size:17px;color:#2A3347">Esta política explica cómo tratamos tus datos personales, de acuerdo con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).</p><div style="border-bottom:1px solid #C9D0DB"><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Responsable</span><span style="font-size:17px;color:#2A3347">Carlos Sánchez Cifuentes (empresario autónomo), nombre comercial NEXIA</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">NIF</span><span style="font-size:17px;color:#2A3347"><mark style="background:#FFE9A8;color:#10172A;padding:0 4px;border-radius:3px">[NIF]</mark></span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Domicilio</span><span style="font-size:17px;color:#2A3347">Carretera de Jaén N322 144 (ILMASA), Albacete</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Correo electrónico</span><span style="font-size:17px;color:#2A3347"><a href="mailto:nexianfcsolutions@gmail.com" style="color:#2347DC">nexianfcsolutions@gmail.com</a></span></div></div></section><section id="datos" style="scroll-margin-top:96px;display:flex;flex-direction:column;gap:16px;padding:36px 0 40px;border-top:1px solid #C9D0DB"><h2 class="nx-h" style="font-size:clamp(24px,2.6vw,32px);line-height:1.15">2. Qué datos tratamos y para qué</h2><div style="display:flex;flex-direction:column;gap:16px"><div style="background:#FFFFFF;border:1px solid #C9D0DB;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:12px"><h3 class="nx-h" style="font-size:22px;line-height:1.2">Cuando nos escribes (WhatsApp o correo)</h3><div style="border-bottom:1px solid #C9D0DB"><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Datos</span><span style="font-size:17px;color:#2A3347">Tu nombre, tu número de teléfono o correo y el contenido de tu mensaje.</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Para qué</span><span style="font-size:17px;color:#2A3347">Responder a tu consulta y enviarte un presupuesto o una demo si lo pides.</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Base jurídica</span><span style="font-size:17px;color:#2A3347">Tu consentimiento y la aplicación de medidas precontractuales a petición tuya (art. 6.1.a y 6.1.b RGPD).</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Conservación</span><span style="font-size:17px;color:#2A3347">El tiempo necesario para atender tu consulta y, si se convierte en un encargo, durante la relación contractual.</span></div></div></div><div style="background:#FFFFFF;border:1px solid #C9D0DB;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:12px"><h3 class="nx-h" style="font-size:22px;line-height:1.2">Cuando dejas una opinión</h3><div style="border-bottom:1px solid #C9D0DB"><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Datos</span><span style="font-size:17px;color:#2A3347">Tu valoración, el texto de tu opinión, tu nombre y, si quieres, el nombre de tu negocio.</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Para qué</span><span style="font-size:17px;color:#2A3347">Revisarla y publicarla en la web, junto a tu nombre.</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Base jurídica</span><span style="font-size:17px;color:#2A3347">Tu consentimiento, que das marcando la casilla del formulario (art. 6.1.a RGPD). Puedes retirarlo cuando quieras.</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Conservación</span><span style="font-size:17px;color:#2A3347">Mientras esté publicada. Si no se publica, solo el tiempo necesario para gestionarla y después se elimina.</span></div></div></div><div style="background:#FFFFFF;border:1px solid #C9D0DB;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:12px"><h3 class="nx-h" style="font-size:22px;line-height:1.2">Cuando eres cliente</h3><div style="border-bottom:1px solid #C9D0DB"><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Datos</span><span style="font-size:17px;color:#2A3347">Datos identificativos y de contacto, NIF y dirección de facturación, y los datos del encargo.</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Para qué</span><span style="font-size:17px;color:#2A3347">Prestar el servicio, facturar y atender el mantenimiento.</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Base jurídica</span><span style="font-size:17px;color:#2A3347">Ejecución del contrato y cumplimiento de obligaciones legales fiscales y contables (art. 6.1.b y 6.1.c RGPD).</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Conservación</span><span style="font-size:17px;color:#2A3347">Durante la relación y después durante los plazos legales aplicables (con carácter general, entre 4 y 6 años).</span></div></div></div><div style="background:#FFFFFF;border:1px solid #C9D0DB;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:12px"><h3 class="nx-h" style="font-size:22px;line-height:1.2">Cuando visitas la web</h3><div style="border-bottom:1px solid #C9D0DB"><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Datos</span><span style="font-size:17px;color:#2A3347">Datos técnicos de la conexión (dirección IP, fecha y hora, página visitada) que registra el servidor donde se aloja la web.</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Para qué</span><span style="font-size:17px;color:#2A3347">Que la web funcione y sea segura.</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Base jurídica</span><span style="font-size:17px;color:#2A3347">Interés legítimo en mantener la web operativa y segura (art. 6.1.f RGPD).</span></div><div style="display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr);gap:8px 20px;padding:14px 0;border-top:1px solid #C9D0DB"><span class="nx-mono" style="padding-top:4px">Conservación</span><span style="font-size:17px;color:#2A3347">Según las políticas del proveedor de alojamiento.</span></div></div></div></div><p style="margin:0;font-size:17px;color:#2A3347">Esta web no tiene registro de usuarios, no usa analítica ni publicidad y no vende ni cede tus datos a terceros para sus propios fines.</p></section><section id="destinatarios" style="scroll-margin-top:96px;display:flex;flex-direction:column;gap:16px;padding:36px 0 40px;border-top:1px solid #C9D0DB"><h2 class="nx-h" style="font-size:clamp(24px,2.6vw,32px);line-height:1.15">3. Destinatarios y proveedores</h2><p style="margin:0;font-size:17px;color:#2A3347">Para poder ofrecerte el servicio usamos proveedores que acceden a datos personales en nuestro nombre:</p><ul style="margin:0;padding:0 0 0 22px;display:flex;flex-direction:column;gap:8px;font-size:17px;color:#2A3347"><li><strong>Alojamiento de la web:</strong> GitHub Pages (GitHub, Inc., filial de Microsoft).</li><li><strong>Tipografías:</strong> la web carga sus tipos de letra desde Google Fonts, por lo que tu navegador se conecta a servidores de Google y Google recibe tu dirección IP.</li><li><strong>Correo:</strong> Google (Gmail), para recibir y responder los mensajes que envías a nexianfcsolutions@gmail.com.</li><li><strong>WhatsApp:</strong> al pulsar el botón saldrás de esta web hacia WhatsApp (Meta), que trata tus datos según su propia política.</li><li><strong>Formulario de opiniones:</strong> <mark style="background:#FFE9A8;color:#10172A;padding:0 4px;border-radius:3px">[SERVICIO DE FORMULARIOS, solo si se activa; si no, se envía por correo]</mark>.</li><li><strong>Dominio y DNS:</strong> Hostinger. No recibe datos de quienes visitan la web.</li></ul><p style="margin:0;font-size:17px;color:#2A3347">Si lo exige una ley, comunicaremos datos a las administraciones públicas competentes (por ejemplo, la Agencia Tributaria).</p></section><section id="transferencias" style="scroll-margin-top:96px;display:flex;flex-direction:column;gap:16px;padding:36px 0 40px;border-top:1px solid #C9D0DB"><h2 class="nx-h" style="font-size:clamp(24px,2.6vw,32px);line-height:1.15">4. Transferencias internacionales</h2><p style="margin:0;font-size:17px;color:#2A3347">Algunos de estos proveedores están en Estados Unidos. Las transferencias se amparan en la decisión de adecuación del Marco de Privacidad de Datos UE-EE. UU. o, en su defecto, en las cláusulas contractuales tipo de la Comisión Europea.</p></section><section id="derechos" style="scroll-margin-top:96px;display:flex;flex-direction:column;gap:16px;padding:36px 0 40px;border-top:1px solid #C9D0DB"><h2 class="nx-h" style="font-size:clamp(24px,2.6vw,32px);line-height:1.15">5. Tus derechos</h2><p style="margin:0;font-size:17px;color:#2A3347">Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad, y retirar tu consentimiento cuando quieras, escribiendo a <a href="mailto:nexianfcsolutions@gmail.com" style="color:#2347DC">nexianfcsolutions@gmail.com</a> e indicando qué derecho quieres ejercer. Te responderemos en el plazo máximo de un mes.</p><p style="margin:0;font-size:17px;color:#2A3347">Si crees que no tratamos bien tus datos, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" style="color:#2347DC">www.aepd.es</a>).</p></section><section id="menores" style="scroll-margin-top:96px;display:flex;flex-direction:column;gap:16px;padding:36px 0 40px;border-top:1px solid #C9D0DB"><h2 class="nx-h" style="font-size:clamp(24px,2.6vw,32px);line-height:1.15">6. Menores de edad</h2><p style="margin:0;font-size:17px;color:#2A3347">La web no está dirigida a menores de 14 años. Si eres menor de esa edad, no nos envíes datos personales sin la autorización de tus padres o tutores.</p></section><section id="seguridad" style="scroll-margin-top:96px;display:flex;flex-direction:column;gap:16px;padding:36px 0 40px;border-top:1px solid #C9D0DB"><h2 class="nx-h" style="font-size:clamp(24px,2.6vw,32px);line-height:1.15">7. Seguridad y decisiones automatizadas</h2><p style="margin:0;font-size:17px;color:#2A3347">Aplicamos medidas técnicas y organizativas razonables para proteger tus datos. No tomamos decisiones automatizadas ni elaboramos perfiles con ellos.</p></section><section id="cambios" style="scroll-margin-top:96px;display:flex;flex-direction:column;gap:16px;padding:36px 0 40px;border-top:1px solid #C9D0DB"><h2 class="nx-h" style="font-size:clamp(24px,2.6vw,32px);line-height:1.15">8. Cambios en esta política</h2><p style="margin:0;font-size:17px;color:#2A3347">Si cambia la forma en la que tratamos datos (por ejemplo, si añadimos una herramienta de analítica), actualizaremos esta página e indicaremos la fecha de la última revisión.</p></section></div></section>
+<footer style="background:#10172A;color:#C9D2E0;overflow:hidden">
+<div class="nx-wrap" style="padding-top:72px;padding-bottom:0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:40px 32px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<span class="nx-mono" style="color:#9DB8FF">Smart NFC Solutions</span>
+<p style="margin:0;font-size:16px;max-width:300px">Diseñamos, instalamos y mantenemos soluciones NFC para los comercios de Albacete.</p>
+<p class="nx-mono" style="margin:0;color:#9FB0CB">Albacete · 38.9943° N, 1.8585° W</p>
+</div>
+<nav aria-label="Páginas" style="display:flex;flex-direction:column;gap:2px;font-size:16px">
+<span class="nx-mono" style="color:#9DB8FF;margin-bottom:6px">Páginas</span>
+<a href="index.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Inicio</a><a href="soluciones.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Soluciones</a><a href="como-funciona.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Cómo funciona</a><a href="precios.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Precios</a><a href="opiniones.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Opiniones</a><a href="opina.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Deja tu opinión</a>
+</nav>
+<div style="display:flex;flex-direction:column;gap:2px;font-size:16px">
+<span class="nx-mono" style="color:#9DB8FF;margin-bottom:6px">Contacto y legal</span>
+<a href="mailto:nexianfcsolutions@gmail.com" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">nexianfcsolutions@gmail.com</a>
+<a href="aviso-legal.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Aviso legal</a>
+<a href="privacidad.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Privacidad</a>
+<a href="cookies.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Cookies</a>
+</div>
+</div>
+<p aria-hidden="true" class="nx-metal-text-light" style="margin:48px 0 0;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(96px,23vw,330px);line-height:0.74;letter-spacing:0.02em;white-space:nowrap;margin-bottom:-0.06em;user-select:none">NEXIA</p>
+</div>
+</footer>
+
+<a class="nx-btn-primary" href="https://wa.me/" aria-label="Escríbenos por WhatsApp" style="position:fixed;right:20px;bottom:20px;z-index:30;width:60px;height:60px;padding:0;border-radius:50%;box-shadow:0 12px 28px rgba(16,23,42,0.3)">
+<span aria-hidden="true" style="position:absolute;top:0;left:0;width:60px;height:60px;border-radius:50%;border:2px solid #00C1CA;animation:nxPulse 2.8s ease-out infinite"></span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"></path></svg>
+</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4300}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -3,457 +3,331 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NEXIA · Tecnología NFC para comercios de Albacete</title>
 <meta name="description" content="Diseñamos, instalamos y mantenemos tarjetas y soportes NFC con tu marca en Albacete: reseñas en Google, carta digital, WhatsApp y citas. Sin apps.">
-<meta property="og:title" content="NEXIA · Tu negocio, a un toque del móvil">
-<meta property="og:description" content="Tarjetas y soportes NFC personalizados para comercios de Albacete: reseñas, carta digital, contacto.">
-<meta property="og:type" content="website">
 <meta name="theme-color" content="#10172A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237B79E2'/%3E%3Cstop offset='.55' stop-color='%2300C1CA'/%3E%3Cstop offset='1' stop-color='%23007EC2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#FFFFFF}
-a{color:#10172A}a:hover{color:#007EC2}
-summary{cursor:pointer;list-style:none}
-summary::-webkit-details-marker{display:none}
-details[open] .faq-plus{transform:rotate(45deg)}
-.faq-plus{transition:transform .25s ease}
-@keyframes nxDrift{0%{transform:translate3d(-12%,-6%,0) scale(1) rotate(0deg)}50%{transform:translate3d(12%,8%,0) scale(1.22) rotate(8deg)}100%{transform:translate3d(-12%,-6%,0) scale(1) rotate(0deg)}}
-@keyframes nxWave{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes nxBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-@keyframes nxFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-28px) rotate(2deg)}}
-@keyframes nxPulse{0%{transform:scale(.7);opacity:.75}100%{transform:scale(2.5);opacity:0}}
-@keyframes nxMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes nxUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
-@keyframes nxShine{from{background-position:0% 50%}to{background-position:300% 50%}}
-.nx-lift{transition:transform .3s cubic-bezier(.2,.8,.2,1.2),box-shadow .3s ease,border-color .3s ease}
-.nx-lift:hover{transform:translateY(-12px) scale(1.03);box-shadow:0 28px 60px rgba(16,23,42,.18);border-color:#7FC4DD}
-.nx-btn{transition:transform .2s ease,box-shadow .2s ease}
-.nx-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 30px rgba(0,126,194,.35)}
-@keyframes nxReveal{from{opacity:0;translate:0 48px}to{opacity:1;translate:0 0}}
-@supports (animation-timeline: view()){.nx-reveal{animation:nxReveal linear both;animation-timeline:view();animation-range:entry 0% cover 30%}}
-.nx-marquee:hover .nx-track{animation-play-state:paused}
-.nx-tabin{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
-.nx-tab{cursor:pointer;display:flex;flex-direction:column;gap:6px;box-sizing:border-box;min-height:44px;padding:20px 22px;border-radius:18px;background:#FFFFFF;border:1px solid #E1E6EE;color:#10172A;transition:box-shadow .2s ease,background .2s ease,color .2s ease}
-.nx-tab:hover{box-shadow:0 14px 30px rgba(16,23,42,.10)}
-.nx-tab-sub{color:#007EC2}
-.nx-chev{transition:transform .25s ease;flex-shrink:0}
-.nx-panel{display:none}
-#nxp1:checked ~ .nx-tablist label[for="nxp1"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
-#nxp1:checked ~ .nx-tablist label[for="nxp1"] .nx-tab-sub{color:#7FC4DD}
-#nxp1:checked ~ .nx-tablist label[for="nxp1"] .nx-chev{transform:rotate(180deg)}
-#nxp1:checked ~ .nx-panels .nx-panel1{display:grid}
-#nxp1:focus-visible ~ .nx-tablist label[for="nxp1"]{outline:3px solid #007EC2;outline-offset:3px}
-#nxp2:checked ~ .nx-tablist label[for="nxp2"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
-#nxp2:checked ~ .nx-tablist label[for="nxp2"] .nx-tab-sub{color:#7FC4DD}
-#nxp2:checked ~ .nx-tablist label[for="nxp2"] .nx-chev{transform:rotate(180deg)}
-#nxp2:checked ~ .nx-panels .nx-panel2{display:grid}
-#nxp2:focus-visible ~ .nx-tablist label[for="nxp2"]{outline:3px solid #007EC2;outline-offset:3px}
-#nxp3:checked ~ .nx-tablist label[for="nxp3"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
-#nxp3:checked ~ .nx-tablist label[for="nxp3"] .nx-tab-sub{color:#7FC4DD}
-#nxp3:checked ~ .nx-tablist label[for="nxp3"] .nx-chev{transform:rotate(180deg)}
-#nxp3:checked ~ .nx-panels .nx-panel3{display:grid}
-#nxp3:focus-visible ~ .nx-tablist label[for="nxp3"]{outline:3px solid #007EC2;outline-offset:3px}
-@media (max-width: 760px){.nx-navlink{display:none}}
-@media (prefers-reduced-motion: reduce){.nx-reveal,.nx-track,[style*="nxFloat"],[style*="nxPulse"],[style*="nxUp"]{animation:none !important}.nx-lift,.nx-btn{transition:none !important}.nx-lift:hover,.nx-btn:hover{transform:none !important}}
-</style>
-<style>html{scroll-behavior:smooth}section[id]{scroll-margin-top:84px}</style>
+<meta property="og:title" content="NEXIA · Tu negocio, a un toque del móvil">
+<meta property="og:description" content="Diseñamos, instalamos y mantenemos tarjetas y soportes NFC con tu marca en Albacete: reseñas en Google, carta digital, WhatsApp y citas. Sin apps.">
+<meta property="og:type" content="website">
+<title>NEXIA · Tecnología NFC para comercios de Albacete</title>
+<script src="./support.js"></script>
 </head>
 <body>
-<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2A3347; background: #FFFFFF; font-size: 17px; line-height: 1.6">
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F6F9}
+a{color:inherit}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+details[open] .nx-plus{transform:rotate(45deg)}
+.nx-plus{transition:transform .25s ease}
+section[id]{scroll-margin-top:84px}
+@property --nx-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes nxSpin{to{--nx-a:90deg}}
+@keyframes nxDrift{0%{transform:translate3d(-12%,-6%,0) scale(1) rotate(0deg)}50%{transform:translate3d(12%,8%,0) scale(1.22) rotate(8deg)}100%{transform:translate3d(-12%,-6%,0) scale(1) rotate(0deg)}}
+@keyframes nxPulse{0%{transform:scale(.7);opacity:.75}100%{transform:scale(2.5);opacity:0}}
+@keyframes nxRing{0%{transform:scale(.3);opacity:.75}100%{transform:scale(1.7);opacity:0}}
+@keyframes nxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes nxUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes nxSheen{from{background-position:0% 50%}to{background-position:200% 50%}}
+@keyframes nxTap{0%,100%{transform:translateX(0) rotate(-9deg)}45%,62%{transform:translateX(46px) rotate(-4deg)}}
+@keyframes nxTravel{0%{left:0%;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:100%;opacity:0}}
+@keyframes nxReveal{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
+@supports (animation-timeline: view()){.nx-reveal{animation:nxReveal linear both;animation-timeline:view();animation-range:entry 0% cover 28%}}
 
-<header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid #E6E9EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<a href="#inicio" style="display: flex; align-items: center; gap: 10px; text-decoration: none" aria-label="NEXIA, ir al inicio">
-<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: 0.02em; color: #10172A">NEXIA</span>
-<span style="display: block; width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle at 32% 30%, #FFFFFF 0%, #A9C2FF 28%, #3F63F5 62%, #1A2F9A 100%)"></span>
+.nx-page{font-family:'DM Sans',system-ui,sans-serif;color:#2A3347;background:#F4F6F9;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.nx-wrap{max-width:1240px;margin:0 auto;padding-left:28px;padding-right:28px;box-sizing:border-box}
+.nx-mono{font-family:'DM Mono',ui-monospace,Menlo,monospace;font-size:12px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:#55627A}
+.nx-h{font-family:'Archivo',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.06;color:#10172A;margin:0}
+.nx-sphere{display:block;flex-shrink:0;border-radius:50%;background:radial-gradient(circle at 32% 30%,#FFFFFF 0%,#A9C2FF 28%,#3F63F5 62%,#1A2F9A 100%)}
+
+.nx-nav{text-decoration:none;color:#2A3347;padding:6px 0;border-bottom:2px solid transparent;transition:color .2s ease}
+.nx-nav:hover{color:#2347DC}
+.nx-nav[aria-current="page"]{color:#10172A;border-bottom-color:#2347DC}
+.nx-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;background:#10172A;color:#FFFFFF;text-decoration:none;font-weight:700;font-size:16px;transition:transform .2s ease,box-shadow .2s ease}
+.nx-btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(35,71,220,.30)}
+.nx-btn-light{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;background:#FFFFFF;color:#10172A;text-decoration:none;font-weight:700;font-size:16px;transition:transform .2s ease,box-shadow .2s ease}
+.nx-btn-light:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.25)}
+.nx-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:#10172A;text-decoration:none;border-bottom:2px solid #2347DC;transition:gap .2s ease}
+.nx-link:hover{gap:14px}
+.nx-link-dark{color:#FFFFFF;border-bottom-color:#7C9FFF}
+
+/* metal cepillado: reflejos cónicos que giran despacio */
+.nx-metal{background:repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,rgba(0,0,0,.045) 1px,rgba(0,0,0,.045) 2px),repeating-conic-gradient(from var(--nx-a) at 50% 50%,#2347DC 0deg,#4F7BFF 30deg,#86A8FF 45deg,#4F7BFF 60deg,#2347DC 90deg);animation:nxSpin 14s linear infinite}
+.nx-metal-plat{background:repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,rgba(0,0,0,.045) 1px,rgba(0,0,0,.045) 2px),repeating-conic-gradient(from var(--nx-a) at 50% 50%,#9CCBE8 0deg,#CDE8F7 30deg,#F4FBFF 45deg,#CDE8F7 60deg,#9CCBE8 90deg);animation:nxSpin 14s linear infinite}
+.nx-metal-text{background:linear-gradient(100deg,#2347DC 0%,#4F7BFF 30%,#86A8FF 45%,#4F7BFF 60%,#2347DC 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nxSheen 6s linear infinite}
+.nx-metal-text-light{background:linear-gradient(100deg,#2347DC 0%,#86A8FF 24%,#FFFFFF 38%,#86A8FF 50%,#2347DC 70%,#2347DC 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nxSheen 6s linear infinite}
+
+/* filas editoriales (índice de usos) */
+.nx-row{display:grid;grid-template-columns:72px minmax(0,1.1fr) minmax(0,1fr) 56px;gap:24px;align-items:center;padding:34px 12px;border-top:1px solid #C9D0DB;text-decoration:none;transition:background .25s ease}
+.nx-row:hover{background:#FFFFFF}
+.nx-ar{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid #10172A;color:#10172A;transition:transform .25s ease,background .25s ease,color .25s ease}
+.nx-row:hover .nx-ar{transform:translateX(6px);background:#10172A;color:#FFFFFF}
+@media (max-width:760px){.nx-row{grid-template-columns:44px minmax(0,1fr) 44px;gap:12px 16px}.nx-row .nx-ar{grid-column:3;grid-row:1;width:40px;height:40px}.nx-row-d{grid-column:2 / 4;grid-row:2}}
+
+/* demo del toque */
+.nx-d-in{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.nx-d-scr{display:none;position:absolute;top:0;left:0;right:0;bottom:0}
+.nx-d-scr1{display:block}
+#nxd2:checked ~ .nx-demo .nx-d-scr1,#nxd3:checked ~ .nx-demo .nx-d-scr1{display:none}
+#nxd2:checked ~ .nx-demo .nx-d-scr2{display:block}
+#nxd3:checked ~ .nx-demo .nx-d-scr3{display:block}
+.nx-chip{cursor:pointer;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;border:1px solid #AEB8C7;background:#FFFFFF;color:#10172A;font-weight:700;font-size:15px;transition:background .2s ease,color .2s ease}
+.nx-chip:hover{border-color:#10172A}
+.nx-chips label[for="nxd1"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
+#nxd2:checked ~ .nx-chips label[for="nxd1"],#nxd3:checked ~ .nx-chips label[for="nxd1"]{background:#FFFFFF;border-color:#AEB8C7;color:#10172A}
+#nxd2:checked ~ .nx-chips label[for="nxd2"],#nxd3:checked ~ .nx-chips label[for="nxd3"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
+#nxd1:focus-visible ~ .nx-chips label[for="nxd1"],#nxd2:focus-visible ~ .nx-chips label[for="nxd2"],#nxd3:focus-visible ~ .nx-chips label[for="nxd3"]{outline:3px solid #2347DC;outline-offset:3px}
+@media (max-width:560px){.nx-demo{height:520px !important}.nx-c-plat{display:none !important}.nx-c-blue{left:-8px !important;top:310px !important;scale:.78}.nx-phone{right:0 !important}}
+
+/* pestañas de precios */
+.nx-tabin{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.nx-tab{cursor:pointer;display:flex;flex-direction:column;gap:6px;box-sizing:border-box;min-height:44px;padding:20px 22px;border-radius:8px;background:#FFFFFF;border:1px solid #C9D0DB;color:#10172A;transition:box-shadow .2s ease,background .2s ease,color .2s ease}
+.nx-tab:hover{box-shadow:0 14px 30px rgba(16,23,42,.10)}
+.nx-tab-sub{color:#2347DC}
+.nx-chev{transition:transform .25s ease;flex-shrink:0}
+.nx-panel{display:none}
+.nx-panel1{display:grid}
+.nx-tablist label[for="nxp1"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
+.nx-tablist label[for="nxp1"] .nx-tab-sub{color:#9DB8FF}
+.nx-tablist label[for="nxp1"] .nx-chev{transform:rotate(180deg)}
+#nxp2:checked ~ .nx-tablist label[for="nxp1"],#nxp3:checked ~ .nx-tablist label[for="nxp1"]{background:#FFFFFF;border-color:#C9D0DB;color:#10172A}
+#nxp2:checked ~ .nx-tablist label[for="nxp1"] .nx-tab-sub,#nxp3:checked ~ .nx-tablist label[for="nxp1"] .nx-tab-sub{color:#2347DC}
+#nxp2:checked ~ .nx-tablist label[for="nxp1"] .nx-chev,#nxp3:checked ~ .nx-tablist label[for="nxp1"] .nx-chev{transform:none}
+#nxp2:checked ~ .nx-panels .nx-panel1,#nxp3:checked ~ .nx-panels .nx-panel1{display:none}
+#nxp2:checked ~ .nx-tablist label[for="nxp2"],#nxp3:checked ~ .nx-tablist label[for="nxp3"]{background:#10172A;border-color:#10172A;color:#FFFFFF}
+#nxp2:checked ~ .nx-tablist label[for="nxp2"] .nx-tab-sub,#nxp3:checked ~ .nx-tablist label[for="nxp3"] .nx-tab-sub{color:#9DB8FF}
+#nxp2:checked ~ .nx-tablist label[for="nxp2"] .nx-chev,#nxp3:checked ~ .nx-tablist label[for="nxp3"] .nx-chev{transform:rotate(180deg)}
+#nxp2:checked ~ .nx-panels .nx-panel2{display:grid}
+#nxp3:checked ~ .nx-panels .nx-panel3{display:grid}
+#nxp1:focus-visible ~ .nx-tablist label[for="nxp1"],#nxp2:focus-visible ~ .nx-tablist label[for="nxp2"],#nxp3:focus-visible ~ .nx-tablist label[for="nxp3"]{outline:3px solid #2347DC;outline-offset:3px}
+
+/* estrellas del formulario */
+.nx-stars{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:2px}
+.nx-stars input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.nx-stars label{cursor:pointer;display:flex;align-items:center;justify-content:center;width:52px;height:52px;font-size:40px;line-height:1;color:#C5CCD8;transition:color .15s ease,transform .15s ease}
+.nx-stars label:hover,.nx-stars label:hover ~ label,.nx-stars input:checked ~ label{color:#F5B301}
+.nx-stars label:hover{transform:scale(1.12)}
+.nx-stars input:focus-visible + label{outline:3px solid #2347DC;outline-offset:2px;border-radius:8px}
+.nx-field{width:100%;box-sizing:border-box;min-height:52px;padding:12px 16px;border:1px solid #AEB8C7;border-radius:8px;background:#FFFFFF;color:#10172A;font-family:'DM Sans',system-ui,sans-serif;font-size:17px}
+.nx-field:focus{outline:3px solid #2347DC;outline-offset:1px;border-color:#2347DC}
+
+.nx-marq:hover .nx-trk{animation-play-state:paused}
+@media (max-width:700px){.nx-travel{display:none}}
+@media (prefers-reduced-motion: reduce){.nx-reveal,[style*="nxFloat"],[style*="nxPulse"],[style*="nxUp"],[style*="nxTap"],[style*="nxRing"],[style*="nxTravel"],.nx-travel{animation:none !important}.nx-btn-primary,.nx-btn-light,.nx-row,.nx-ar,.nx-link,.nx-tab,.nx-chip{transition:none !important}.nx-btn-primary:hover,.nx-btn-light:hover{transform:none !important}}
+
+@keyframes nxMarq{to{transform:translateX(-50%)}}
+.nx-trk{display:flex;width:max-content;animation:nxMarq 34s linear infinite}
+@media (min-width:900px){.nx-flip .nx-t{order:2}}
+.nx-spec{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;padding:18px 0;border-top:1px solid #C9D0DB;align-items:start}
+
+@keyframes nxWave{0%{transform:translate(-50%,-50%) scale(.12);opacity:0}12%{opacity:.7}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
+@keyframes nxGlint{0%,55%{left:-60%}100%{left:130%}}
+@keyframes nxBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes nxTwinkle{0%,100%{opacity:.35;transform:scale(.9) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(12deg)}}
+.nx-h,.nx-flow{background:linear-gradient(100deg,#2347DC 0%,#4F7BFF 30%,#86A8FF 45%,#4F7BFF 60%,#2347DC 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent !important;animation:nxSheen 6s linear infinite}
+.nx-h-l,.nx-flow-l{background:linear-gradient(100deg,#9DB8FF 0%,#FFFFFF 30%,#FFFFFF 45%,#9DB8FF 60%,#9DB8FF 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent !important;animation:nxSheen 5s linear infinite}
+.nx-h-dark{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#10172A !important}
+.nx-tile{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.nx-tile:hover{transform:translateX(8px);box-shadow:0 18px 40px rgba(35,71,220,.16);border-color:#2347DC}
+.nx-ico{transition:transform .3s ease}
+.nx-tile:hover .nx-ico,.nx-glass:hover .nx-ico{transform:scale(1.1) rotate(-6deg)}
+.nx-glass{transition:transform .25s ease,background .25s ease,border-color .25s ease}
+.nx-glass:hover{transform:translateY(-8px);background:rgba(255,255,255,.12);border-color:rgba(157,184,255,.6)}
+.nx-dbox{transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.nx-dbox:hover{transform:translateY(-4px);border-color:#9DB8FF}
+.nx-rev{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.nx-rev:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 22px 44px rgba(16,23,42,.14);border-color:#2347DC}
+.nx-plan{position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+.nx-plan:hover{transform:translateY(-8px);box-shadow:0 26px 52px rgba(16,23,42,.18)}
+.nx-plan-dark::after{content:'';position:absolute;top:0;left:-60%;width:36%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.16),rgba(255,255,255,0));transform:skewX(-20deg);animation:nxGlint 5s ease-in-out infinite;pointer-events:none}
+.nx-panel > *{animation:nxUp .5s ease backwards}
+.nx-panel > *:nth-child(2){animation-delay:.07s}.nx-panel > *:nth-child(3){animation-delay:.14s}.nx-panel > *:nth-child(4){animation-delay:.21s}.nx-panel > *:nth-child(5){animation-delay:.28s}
+
+@keyframes nxLiquid{to{background-position:220px 0}}
+@keyframes nxPush{0%,100%{box-shadow:0 3px 8px rgba(35,71,220,.25)}50%{box-shadow:8px 0 18px rgba(79,123,255,.70),0 3px 8px rgba(35,71,220,.25)}}
+.nx-liquid{position:relative;overflow:hidden;border-radius:14px;background:linear-gradient(180deg,#6D93FF 0%,#2F56F0 45%,#1B38B8 100%);animation:nxPush 1.6s ease-in-out infinite}
+.nx-liquid::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.50) 22%,rgba(255,255,255,0) 44%) 0 0/220px 100% repeat-x;animation:nxLiquid 2.2s linear infinite}
+.nx-liquid::after{content:'';position:absolute;top:3px;left:10px;right:10px;height:6px;border-radius:3px;background:rgba(255,255,255,.38)}
+@media (prefers-reduced-motion: reduce){.nx-liquid,.nx-liquid::before{animation:none !important}}
+.nx-bar{transform-origin:left center}
+@supports (animation-timeline: view()){.nx-bar{animation:nxBar linear both;animation-timeline:view();animation-range:entry 0% entry 75%}}
+.nx-star{animation:nxTwinkle 3.5s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.nx-h,.nx-flow,.nx-h-l,.nx-flow-l,.nx-panel > *,.nx-star,.nx-plan-dark::after{animation:none !important}}
+</style>
+</helmet>
+<div class="nx-page">
+<header style="position:sticky;top:0;z-index:20;background:rgba(244,246,249,0.9);backdrop-filter:blur(12px);border-bottom:1px solid #DDE2EA">
+<div class="nx-wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 28px;padding-top:12px;padding-bottom:12px">
+<a href="index.html" aria-label="NEXIA, ir al inicio" style="display:flex;align-items:center;gap:9px;text-decoration:none">
+<span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;line-height:1;letter-spacing:0.02em;color:#10172A">NEXIA</span>
+<span class="nx-sphere" style="width:11px;height:11px"></span>
 </a>
-<nav aria-label="Principal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; font-size: 15px; font-weight: 500">
-<a class="nx-navlink" href="#soluciones" style="text-decoration: none">Soluciones</a>
-<a class="nx-navlink" href="#como-funciona" style="text-decoration: none">Cómo funciona</a>
-<a class="nx-navlink" href="#sectores" style="text-decoration: none">Por qué NEXIA</a>
-<a class="nx-navlink" href="#precios" style="text-decoration: none">Precios</a>
-<a class="nx-navlink" href="#preguntas" style="text-decoration: none">Preguntas</a>
-<a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #10172A; color: #FFFFFF; text-decoration: none; font-weight: 700">Pide una demo</a>
+<nav aria-label="Principal" style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 26px;font-size:15px;font-weight:600">
+<a class="nx-nav" href="soluciones.html">Soluciones</a><a class="nx-nav" href="como-funciona.html">Cómo funciona</a><a class="nx-nav" href="precios.html">Precios</a><a class="nx-nav" href="opiniones.html">Opiniones</a><a class="nx-btn-primary" href="#contacto" style="min-height:44px;padding:0 20px;font-size:15px">Pide una demo</a>
 </nav>
 </div>
 </header>
-
-<div style="position: relative; overflow: hidden; background: #FFFFFF">
-<div aria-hidden="true" style="position: absolute; top: -25%; left: -25%; right: -25%; bottom: -25%; background: radial-gradient(36% 46% at 18% 30%, rgba(0,193,202,0.34), rgba(0,193,202,0) 70%), radial-gradient(32% 42% at 82% 22%, rgba(123,121,226,0.30), rgba(123,121,226,0) 70%), radial-gradient(38% 38% at 62% 84%, rgba(0,126,194,0.24), rgba(0,126,194,0) 70%); animation: nxDrift 11s ease-in-out infinite"></div>
-<div aria-hidden="true" style="position: absolute; top: -25%; left: -25%; right: -25%; bottom: -25%; background: radial-gradient(28% 36% at 70% 60%, rgba(0,193,202,0.22), rgba(0,193,202,0) 70%), radial-gradient(26% 34% at 30% 75%, rgba(123,121,226,0.20), rgba(123,121,226,0) 70%); animation: nxDrift 14s ease-in-out infinite reverse"></div>
-
-<section id="inicio" style="position: relative; max-width: 1200px; margin: 0 auto; padding: 88px 24px 140px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: center">
-<div style="display: flex; flex-direction: column; gap: 24px">
-<p style="margin: 0; display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,0.8); border: 1px solid #DDE6EF; color: #10172A; font-size: 14px; font-weight: 700; animation: nxUp 0.7s ease both">
-<span style="display: block; width: 8px; height: 8px; border-radius: 50%; background: #00C1CA"></span>
-Hecho en Albacete, para negocios de Albacete
-</p>
-<h1 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: clamp(40px, 5.6vw, 68px); line-height: 1.02; letter-spacing: -0.02em; color: #10172A; animation: nxUp 0.7s ease 0.1s both">Tu negocio, <span style="background: linear-gradient(90deg, #10172A, #007EC2, #0096A0, #5B57D6, #10172A); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: nxShine 6s linear infinite">a un toque del móvil.</span></h1>
-<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #3A4458; max-width: 540px; animation: nxUp 0.7s ease 0.2s both">Diseñamos, instalamos y mantenemos tarjetas y soportes NFC con tu marca. Tus clientes acercan el móvil y dejan una reseña, ven tu carta o te escriben por WhatsApp. Sin apps y sin complicaciones.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; animation: nxUp 0.7s ease 0.3s both">
-<a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #10172A; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px">Pide una demo gratis</a>
-<a class="nx-btn" href="#soluciones" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 2px solid #10172A; background: rgba(255,255,255,0.7); color: #10172A; text-decoration: none; font-weight: 700; font-size: 17px">Ver soluciones</a>
+<section style="position:relative;overflow:hidden;border-bottom:1px solid #C9D0DB">
+<div aria-hidden="true" style="position:absolute;top:-30%;left:-20%;right:-20%;bottom:-30%;background:radial-gradient(30% 40% at 12% 30%,rgba(0,193,202,0.20),rgba(0,193,202,0) 70%),radial-gradient(30% 40% at 88% 80%,rgba(123,121,226,0.20),rgba(123,121,226,0) 70%);animation:nxDrift 11s ease-in-out infinite"></div>
+<div class="nx-wrap" style="position:relative;padding-top:56px;padding-bottom:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));gap:48px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:26px">
+<p class="nx-mono" style="margin:0;animation:nxUp 0.7s ease both">Smart NFC Solutions · Albacete</p>
+<h1 class="nx-h nx-h-dark" style="font-size:clamp(42px,5.6vw,76px);animation:nxUp 0.7s ease 0.1s both">Tu negocio, <span class="nx-metal-text">a un toque</span> del móvil.</h1>
+<p style="margin:0;font-size:20px;max-width:540px;color:#3A4458;animation:nxUp 0.7s ease 0.2s both">Diseñamos, instalamos y mantenemos tarjetas y soportes NFC con tu marca. Tus clientes acercan el móvil y dejan una reseña, ven tu carta o te escriben por WhatsApp. Sin apps y sin complicaciones.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;animation:nxUp 0.7s ease 0.3s both">
+<a class="nx-btn-primary" href="#contacto">Pide una demo gratis</a>
+<a class="nx-link" href="precios.html" style="padding:0 6px">Ver precios <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 </div>
-<ul style="margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; color: #3A4458; animation: nxUp 0.7s ease 0.4s both">
-<li style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>iPhone y Android</li>
-<li style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>NFC y QR en el mismo soporte</li>
-<li style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Cambias el destino sin reimprimir</li>
-</ul>
+<p class="nx-mono" style="margin:0;animation:nxUp 0.7s ease 0.4s both">Funciona en iPhone y Android · Sin apps</p>
 </div>
-
-<div style="position: relative; min-height: 560px; display: flex; align-items: flex-end; justify-content: center">
-<div style="position: absolute; top: 0; right: 2%; animation: nxFloat 4.5s ease-in-out infinite">
-<div style="position: relative; overflow: hidden; width: 280px; height: 176px; border-radius: 16px; transform: rotate(7deg); background: repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, rgba(0,0,0,0.045) 1px, rgba(0,0,0,0.045) 2px), repeating-conic-gradient(from 30deg at 50% 50%, #2347DC 0deg, #4F7BFF 30deg, #86A8FF 45deg, #4F7BFF 60deg, #2347DC 90deg); box-shadow: 0 30px 60px rgba(44,87,240,0.38), inset 0 0 0 1px rgba(255,255,255,0.45), inset 0 1px 0 rgba(255,255,255,0.7); box-sizing: border-box; padding: 20px 22px; display: flex; flex-direction: column; justify-content: space-between">
-<div style="position: relative; display: flex; align-items: center; gap: 7px">
-<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 28px; line-height: 1; letter-spacing: 0.02em; color: #FFFFFF; text-shadow: 0 1px 2px rgba(10,25,120,0.55)">NEXIA</span>
-<span style="display: block; width: 8px; height: 8px; border-radius: 50%; background: #FFFFFF"></span>
-</div>
-<div style="position: relative; display: flex; align-items: flex-end; justify-content: space-between">
-<span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 10px; line-height: 1; letter-spacing: 0.2em; text-transform: uppercase; color: #FFFFFF; text-shadow: 0 1px 2px rgba(10,25,120,0.55)">Smart NFC Solutions</span>
-<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 8.5a5 5 0 0 1 0 7"></path><path d="M9.5 6a9 9 0 0 1 0 12"></path><path d="M13 3.5a13 13 0 0 1 0 17"></path></svg>
-</div>
-</div>
-</div>
-<div style="position: absolute; top: 84px; left: 4%; animation: nxFloat 4s ease-in-out 0.8s infinite">
-<div style="position: relative; overflow: hidden; width: 280px; height: 176px; border-radius: 16px; transform: rotate(-6deg); background: repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, rgba(0,0,0,0.045) 1px, rgba(0,0,0,0.045) 2px), repeating-conic-gradient(from 30deg at 50% 50%, #9CCBE8 0deg, #CDE8F7 30deg, #F4FBFF 45deg, #CDE8F7 60deg, #9CCBE8 90deg); box-shadow: 0 30px 60px rgba(60,140,190,0.30), inset 0 0 0 1px rgba(255,255,255,0.8), inset 0 1px 0 rgba(255,255,255,0.9); box-sizing: border-box; padding: 20px 22px; display: flex; flex-direction: column; justify-content: space-between">
-<div style="position: relative; display: flex; align-items: center; gap: 7px">
-<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 28px; line-height: 1; letter-spacing: 0.02em; color: #0B1020">NEXIA</span>
-<span style="display: block; width: 8px; height: 8px; border-radius: 50%; background: #0B1020"></span>
-</div>
-<div style="position: relative; display: flex; align-items: flex-end; justify-content: space-between">
-<span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 10px; line-height: 1; letter-spacing: 0.2em; text-transform: uppercase; color: #0B1020">Smart NFC Solutions</span>
-<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B1020" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 8.5a5 5 0 0 1 0 7"></path><path d="M9.5 6a9 9 0 0 1 0 12"></path><path d="M13 3.5a13 13 0 0 1 0 17"></path></svg>
-</div>
-</div>
-</div>
-<div style="position: relative; margin-right: 18%; animation: nxFloat 4s ease-in-out 0.8s infinite">
-<div style="width: 300px; height: 300px; border-radius: 28px; background: #FFFFFF; border: 1px solid #DDE3EC; box-shadow: 0 40px 80px rgba(16,23,42,0.18); transform: rotate(-4deg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 28px; box-sizing: border-box; text-align: center">
-<div style="position: relative; width: 76px; height: 76px; display: flex; align-items: center; justify-content: center">
-<span aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 76px; height: 76px; border-radius: 50%; border: 2px solid #00C1CA; animation: nxPulse 2.4s ease-out infinite"></span>
-<span aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 76px; height: 76px; border-radius: 50%; border: 2px solid #00C1CA; animation: nxPulse 2.4s ease-out 1.2s infinite"></span>
-<div style="position: relative; width: 76px; height: 76px; border-radius: 50%; background: #10172A; display: flex; align-items: center; justify-content: center">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 8.5a5 5 0 0 1 0 7"></path><path d="M9.5 6a9 9 0 0 1 0 12"></path><path d="M13 3.5a13 13 0 0 1 0 17"></path></svg>
-</div>
-</div>
-<p style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1; color: #10172A">Acerca tu móvil</p>
-<p style="margin: 0; font-size: 15px; color: #3A4458">y déjanos tu reseña</p>
-<div style="display: flex; gap: 4px" aria-hidden="true">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="#F5B301" stroke="none"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg>
-<svg width="20" height="20" viewBox="0 0 24 24" fill="#F5B301" stroke="none"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg>
-<svg width="20" height="20" viewBox="0 0 24 24" fill="#F5B301" stroke="none"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg>
-<svg width="20" height="20" viewBox="0 0 24 24" fill="#F5B301" stroke="none"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg>
-<svg width="20" height="20" viewBox="0 0 24 24" fill="#F5B301" stroke="none"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg>
-</div>
-<p style="margin: 0; font-size: 12px; color: #65738D">Soporte de mesa 8,5 × 8,5 cm</p>
-</div>
-</div>
+<div style="position:relative"><input class="nx-d-in" type="radio" name="nxd" id="nxd1" aria-label="Reseñas"><input class="nx-d-in" type="radio" name="nxd" id="nxd2" aria-label="Carta"><input class="nx-d-in" type="radio" name="nxd" id="nxd3" aria-label="Wifi del hotel"><div class="nx-chips" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px"><label class="nx-chip" for="nxd1">Reseñas</label><label class="nx-chip" for="nxd2">Carta en mesa</label><label class="nx-chip" for="nxd3">Wifi del hotel</label></div><div class="nx-demo" style="position:relative;overflow:hidden;height:600px;border-radius:8px;background:#E6EBF2"><svg aria-hidden="true" viewBox="0 0 400 400" fill="none" stroke="rgba(16,23,42,0.10)" stroke-width="1.2" style="position:absolute;top:50%;left:50%;width:150%;height:auto;transform:translate(-50%,-50%)"><circle cx="200" cy="200" r="50"></circle><circle cx="200" cy="200" r="90"></circle><circle cx="200" cy="200" r="130"></circle><circle cx="200" cy="200" r="170"></circle><circle cx="200" cy="200" r="210"></circle></svg><div class="nx-metal nx-c-blue" style="position:relative;overflow:hidden;width:250px;height:157px;border-radius:13px;box-shadow:0 30px 60px rgba(44,87,240,0.38),inset 0 0 0 1px rgba(255,255,255,0.45),inset 0 1px 0 rgba(255,255,255,0.7);box-sizing:border-box;padding:17px 19px;display:flex;flex-direction:column;justify-content:space-between;position:absolute;left:28px;top:210px;z-index:1;animation:nxTap 4s ease-in-out infinite"><div style="position:relative;display:flex;align-items:center;gap:7px"><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:23px;line-height:1;letter-spacing:0.02em;color:#FFFFFF;text-shadow:0 1px 2px rgba(10,25,120,0.55)">NEXIA</span><span style="display:block;width:8px;height:8px;border-radius:50%;background:#FFFFFF"></span></div><div style="position:relative;display:flex;align-items:flex-end;justify-content:space-between"><span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:10px;line-height:1;letter-spacing:0.2em;text-transform:uppercase;color:#FFFFFF;text-shadow:0 1px 2px rgba(10,25,120,0.55)">Smart NFC Solutions</span><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 8.5a5 5 0 0 1 0 7"></path><path d="M9.5 6a9 9 0 0 1 0 12"></path><path d="M13 3.5a13 13 0 0 1 0 17"></path></svg></div></div><div class="nx-metal-plat nx-c-plat" style="position:relative;overflow:hidden;width:250px;height:157px;border-radius:13px;box-shadow:0 30px 60px rgba(60,140,190,0.30),inset 0 0 0 1px rgba(255,255,255,0.8),inset 0 1px 0 rgba(255,255,255,0.9);box-sizing:border-box;padding:17px 19px;display:flex;flex-direction:column;justify-content:space-between;position:absolute;left:40px;top:392px;transform:rotate(5deg)"><div style="position:relative;display:flex;align-items:center;gap:7px"><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:23px;line-height:1;letter-spacing:0.02em;color:#0B1020">NEXIA</span><span style="display:block;width:8px;height:8px;border-radius:50%;background:#0B1020"></span></div><div style="position:relative;display:flex;align-items:flex-end;justify-content:space-between"><span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:10px;line-height:1;letter-spacing:0.2em;text-transform:uppercase;color:#0B1020">Smart NFC Solutions</span><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B1020" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 8.5a5 5 0 0 1 0 7"></path><path d="M9.5 6a9 9 0 0 1 0 12"></path><path d="M13 3.5a13 13 0 0 1 0 17"></path></svg></div></div><div style="position:absolute;right:36px;top:48px;z-index:2"><div class=" nx-phone" style="position:relative;width:250px;height:510px;border-radius:42px;background:#10172A;padding:10px;box-sizing:border-box;box-shadow:0 40px 80px rgba(16,23,42,0.28);"><div style="position:relative;width:100%;height:100%;border-radius:32px;background:#FFFFFF;overflow:hidden"><div class="nx-d-scr nx-d-scr1"><div style="display:flex;flex-direction:column;gap:14px;height:100%;padding:34px 20px 24px;box-sizing:border-box"><span class="nx-mono" style="font-size:10px">Tu negocio</span><span class="nx-h" style="font-size:26px;line-height:1.05">¿Qué tal ha ido tu visita?</span><span aria-hidden="true" style="display:flex;gap:4px;color:#F5B301;font-size:28px;line-height:1">★★★★★</span><span style="display:block;height:92px;border:1px solid #D5DBE5;border-radius:8px;background:#F4F6F9"></span><span style="margin-top:auto;display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;background:#10172A;color:#FFFFFF;font-weight:700;font-size:15px">Enviar reseña</span></div></div><div class="nx-d-scr nx-d-scr2"><div style="display:flex;flex-direction:column;gap:12px;height:100%;padding:34px 20px 24px;box-sizing:border-box"><span class="nx-h" style="font-size:28px">Carta</span><span style="display:flex;flex-wrap:wrap;gap:6px"><span style="padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;background:#10172A;color:#FFFFFF">Entrantes</span><span style="padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;background:#EDF0F5;color:#2A3347">Principales</span><span style="padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;background:#EDF0F5;color:#2A3347">Postres</span></span><span style="display:flex;flex-direction:column"><span style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #E3E8EF"><span style="display:block;height:10px;width:62%;border-radius:5px;background:#CBD3DF"></span><span style="display:block;height:10px;width:14%;border-radius:5px;background:#E3E8EF"></span></span><span style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #E3E8EF"><span style="display:block;height:10px;width:48%;border-radius:5px;background:#CBD3DF"></span><span style="display:block;height:10px;width:14%;border-radius:5px;background:#E3E8EF"></span></span><span style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #E3E8EF"><span style="display:block;height:10px;width:70%;border-radius:5px;background:#CBD3DF"></span><span style="display:block;height:10px;width:14%;border-radius:5px;background:#E3E8EF"></span></span><span style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #E3E8EF"><span style="display:block;height:10px;width:54%;border-radius:5px;background:#CBD3DF"></span><span style="display:block;height:10px;width:14%;border-radius:5px;background:#E3E8EF"></span></span></span><span style="margin-top:auto;display:flex;align-items:center;gap:8px"><span class="nx-mono" style="font-size:10px">Alérgenos</span><span style="display:block;width:14px;height:14px;border-radius:50%;background:#F5B301"></span><span style="display:block;width:14px;height:14px;border-radius:50%;background:#2347DC"></span><span style="display:block;width:14px;height:14px;border-radius:50%;background:#00C1CA"></span></span></div></div><div class="nx-d-scr nx-d-scr3"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;height:100%;padding:30px 20px;box-sizing:border-box;text-align:center"><span style="display:flex;align-items:center;justify-content:center;width:104px;height:104px;border-radius:50%;background:#EDF3FF;border:1px solid #C9D7FF"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#2347DC" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0"></path><path d="M5 12.5a10 10 0 0 1 14 0"></path><path d="M8.5 16a5 5 0 0 1 7 0"></path><circle cx="12" cy="19.5" r="1.2" fill="#2347DC"></circle></svg></span><span class="nx-h" style="font-size:24px">Wifi del hotel</span><span style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:#E6F6EF;color:#14633F;font-weight:700;font-size:14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14633F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:0"><path d="M20 6 9 17l-5-5"></path></svg>Conectado</span><span class="nx-mono" style="font-size:10px">Sin escribir la contraseña</span></div></div></div></div></div></div></div>
 </div>
 </section>
-
-<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: -1px; height: 160px; overflow: hidden">
-<svg viewBox="0 0 2880 120" preserveAspectRatio="none" style="position: absolute; left: 0; bottom: 0; width: 200%; height: 160px; opacity: 0.6; animation: nxWave 16s linear infinite reverse"><path d="M0,40 C240,95 480,5 720,40 C960,95 1200,5 1440,40 C1680,95 1920,5 2160,40 C2400,95 2640,5 2880,40 L2880,120 L0,120 Z" fill="#B9E3EE"></path></svg>
-<svg viewBox="0 0 2880 120" preserveAspectRatio="none" style="position: absolute; left: 0; bottom: 0; width: 200%; height: 130px; opacity: 0.85; animation: nxWave 11s linear infinite"><path d="M0,50 C240,95 480,10 720,50 C960,95 1200,10 1440,50 C1680,95 1920,10 2160,50 C2400,95 2640,10 2880,50 L2880,120 L0,120 Z" fill="#D6EEF4"></path></svg>
-<svg viewBox="0 0 2880 120" preserveAspectRatio="none" style="position: absolute; left: 0; bottom: 0; width: 200%; height: 95px; animation: nxWave 7s linear infinite"><path d="M0,60 C240,20 480,100 720,60 C960,20 1200,100 1440,60 C1680,20 1920,100 2160,60 C2400,20 2640,100 2880,60 L2880,120 L0,120 Z" fill="#F3F5F8"></path></svg>
+<section class="nx-marq" aria-label="Qué hacemos y para quién" style="overflow:hidden;border-bottom:1px solid #C9D0DB;background:#FFFFFF"><div class="nx-trk" style="padding:22px 0"><div style="display:flex;gap:36px;padding-right:36px"><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Reseñas<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Barberías<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Carta digital en mesa<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Clínicas dentales<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">WhatsApp y citas<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Peluquerías<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Tarjetas de visita inteligentes<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Hostelería<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Hoteles<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Hecho en Albacete<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span></div><div aria-hidden="true" style="display:flex;gap:36px;padding-right:36px"><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Reseñas<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Barberías<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Carta digital en mesa<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Clínicas dentales<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">WhatsApp y citas<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Peluquerías<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Tarjetas de visita inteligentes<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Hostelería<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Hoteles<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span><span style="display:inline-flex;align-items:center;gap:36px;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;color:#10172A">Hecho en Albacete<span aria-hidden="true" class="nx-sphere" style="width:9px;height:9px"></span></span></div></div></section>
+<section class="nx-wrap" style="padding-top:104px;padding-bottom:104px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;align-items:end;margin-bottom:48px">
+<div class="nx-reveal" style="display:flex;flex-direction:column;gap:16px"><p class="nx-mono" style="margin:0">Qué hacemos</p><h2 class="nx-h" style="font-size:clamp(32px,4vw,52px);color:#10172A">Un toque para lo que tu negocio necesite</h2></div>
+<p style="margin:0;font-size:18px;color:#3A4458;max-width:460px">No vendemos tarjetas sueltas. Montamos la solución que encaja con tu local y nos ocupamos de que siga funcionando.</p>
 </div>
-</div>
-
-<section class="nx-marquee" aria-label="Qué hacemos y para quién" style="background: #F3F5F8; border-bottom: 1px solid #E6E9EF; overflow: hidden">
-<div class="nx-track" style="display: flex; width: max-content; animation: nxMarquee 20s linear infinite">
-<div style="display: flex; align-items: center; gap: 40px; padding: 22px 20px; font-size: 15px; font-weight: 500; color: #3A4458; white-space: nowrap">
-<span style="font-weight: 700; color: #10172A">Reseñas</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Barberías</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span style="font-weight: 700; color: #10172A">Carta digital en mesa</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Clínicas dentales</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span style="font-weight: 700; color: #10172A">WhatsApp y citas</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Peluquerías</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span style="font-weight: 700; color: #10172A">Tarjetas de visita inteligentes</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Hostelería</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span style="font-weight: 700; color: #10172A">Hoteles</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Hecho en Albacete</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-</div>
-<div aria-hidden="true" style="display: flex; align-items: center; gap: 40px; padding: 22px 20px; font-size: 15px; font-weight: 500; color: #3A4458; white-space: nowrap">
-<span style="font-weight: 700; color: #10172A">Reseñas</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Barberías</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span style="font-weight: 700; color: #10172A">Carta digital en mesa</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Clínicas dentales</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span style="font-weight: 700; color: #10172A">WhatsApp y citas</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Peluquerías</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span style="font-weight: 700; color: #10172A">Tarjetas de visita inteligentes</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Hostelería</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span style="font-weight: 700; color: #10172A">Hoteles</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-<span>Hecho en Albacete</span><span style="display: block; width: 6px; height: 6px; border-radius: 50%; background: #007EC2"></span>
-</div>
+<div style="border-bottom:1px solid #C9D0DB"><a class="nx-row nx-reveal" href="soluciones.html#resenas"><span class="nx-mono">01</span><span class="nx-h" style="font-size:clamp(24px,2.6vw,34px)">Reseñas</span><span class="nx-row-d" style="font-size:17px;color:#3A4458">Más reseñas reales, sin pedirlas una a una. El cliente acerca el móvil y valora.</span><span class="nx-ar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></a><a class="nx-row nx-reveal" href="soluciones.html#carta"><span class="nx-mono">02</span><span class="nx-h" style="font-size:clamp(24px,2.6vw,34px)">Carta digital en mesa</span><span class="nx-row-d" style="font-size:17px;color:#3A4458">Acercas el móvil y aparece la carta con alérgenos, siempre actualizada.</span><span class="nx-ar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></a><a class="nx-row nx-reveal" href="soluciones.html#tarjeta-visita"><span class="nx-mono">03</span><span class="nx-h" style="font-size:clamp(24px,2.6vw,34px)">Tarjeta de visita inteligente</span><span class="nx-row-d" style="font-size:17px;color:#3A4458">Tu tarjeta abre una página con WhatsApp, cita, web, cómo llegar y reseña.</span><span class="nx-ar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></a><a class="nx-row nx-reveal" href="soluciones.html#hoteles"><span class="nx-mono">04</span><span class="nx-h" style="font-size:clamp(24px,2.6vw,34px)">Hoteles y alojamientos</span><span class="nx-row-d" style="font-size:17px;color:#3A4458">El huésped acerca el móvil a la tarjeta de la habitación y ya tiene el wifi.</span><span class="nx-ar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></a><a class="nx-row nx-reveal" href="soluciones.html#medida"><span class="nx-mono">05</span><span class="nx-h" style="font-size:clamp(24px,2.6vw,34px)">A medida</span><span class="nx-row-d" style="font-size:17px;color:#3A4458">Cuéntanos tu idea y la convertimos en un toque. Presupuesto cerrado.</span><span class="nx-ar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></a></div>
+</section>
+<section style="background:#10172A;color:#FFFFFF;position:relative;overflow:hidden">
+<div aria-hidden="true" style="position:absolute;top:-40%;left:-20%;right:-20%;bottom:-40%;background:radial-gradient(30% 40% at 90% 10%,rgba(0,193,202,0.22),rgba(0,193,202,0) 70%);animation:nxDrift 12s ease-in-out infinite"></div>
+<div class="nx-wrap" style="position:relative;padding-top:104px;padding-bottom:104px;display:flex;flex-direction:column;gap:56px">
+<div class="nx-reveal" style="display:flex;flex-direction:column;gap:16px"><p class="nx-mono" style="color:#9DB8FF;margin:0">Cómo funciona</p><h2 class="nx-h nx-h-l" style="font-size:clamp(32px,4vw,52px);color:#FFFFFF">Tú atiendes tu negocio. Nosotros, el resto.</h2></div>
+<ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:32px"><li class="nx-reveal" style="display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid #2B3550"><span aria-hidden="true" class="nx-flow-l" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:56px;line-height:1;width:fit-content">01</span><h3 class="nx-h nx-h-l" style="font-size:24px;color:#FFFFFF;line-height:1.1">Te visitamos</h3><p style="margin:0;font-size:16px;color:#C9D2E0">Vemos tu local y qué quieres conseguir: más reseñas, menos papel, más contactos. Te lo enseñamos en tu propio móvil.</p></li><li class="nx-reveal" style="display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid #2B3550"><span aria-hidden="true" class="nx-flow-l" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:56px;line-height:1;width:fit-content">02</span><h3 class="nx-h nx-h-l" style="font-size:24px;color:#FFFFFF;line-height:1.1">Diseñamos con tu marca</h3><p style="margin:0;font-size:16px;color:#C9D2E0">Tarjeta, pegatina o soporte de mesa, con tus colores y tu logo. Apruebas la maqueta antes de fabricar.</p></li><li class="nx-reveal" style="display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid #2B3550"><span aria-hidden="true" class="nx-flow-l" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:56px;line-height:1;width:fit-content">03</span><h3 class="nx-h nx-h-l" style="font-size:24px;color:#FFFFFF;line-height:1.1">Lo instalamos y probamos</h3><p style="margin:0;font-size:16px;color:#C9D2E0">Programamos cada chip, lo probamos con iPhone y Android y lo dejamos colocado y funcionando.</p></li><li class="nx-reveal" style="display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid #2B3550"><span aria-hidden="true" class="nx-flow-l" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:56px;line-height:1;width:fit-content">04</span><h3 class="nx-h nx-h-l" style="font-size:24px;color:#FFFFFF;line-height:1.1">Lo mantenemos</h3><p style="margin:0;font-size:16px;color:#C9D2E0">Si cambias tu carta, tu web o tu teléfono, cambiamos el destino del enlace. Tus tarjetas siguen funcionando sin reimprimir.</p></li></ol>
+<a class="nx-link nx-link-dark" href="como-funciona.html" style="align-self:flex-start">Ver el proceso completo <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 </div>
 </section>
-
-<section id="soluciones" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
-<div class="nx-reveal" style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
-<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #007EC2">Soluciones</p>
-<h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.015em; color: #10172A">Un toque para lo que tu negocio necesite</h2>
-<p style="margin: 0; font-size: 18px; color: #3A4458">No vendemos tarjetas sueltas: montamos la solución que encaja con tu local, con tu diseño, y nos ocupamos de que siga funcionando.</p>
+<section class="nx-wrap" style="padding-top:104px;padding-bottom:104px;display:flex;flex-direction:column;gap:48px">
+<div class="nx-reveal" style="display:flex;flex-direction:column;gap:16px"><p class="nx-mono" style="margin:0">Precios</p><h2 class="nx-h" style="font-size:clamp(32px,4vw,52px);color:#10172A">Precios claros, desde el primer día</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:32px"><div class="nx-reveal" style="display:flex;flex-direction:column;gap:10px;padding:8px 0 8px 28px;border-left:2px solid #10172A"><span class="nx-mono">1 tarjeta con tu diseño</span><span class="nx-h" style="font-size:clamp(40px,5vw,68px)">24,99 €</span><span style="font-size:16px;color:#3A4458">Para probarlo en tu local.</span></div><div class="nx-reveal" style="display:flex;flex-direction:column;gap:10px;padding:8px 0 8px 28px;border-left:2px solid #10172A"><span class="nx-mono">Lote de 50 tarjetas</span><span class="nx-h" style="font-size:clamp(40px,5vw,68px)">3,20 € <span style="font-size:20px;font-weight:600;color:#55627A">/ tarjeta</span></span><span style="font-size:16px;color:#3A4458">159,99 € por 50 tarjetas con tu diseño.</span></div><div class="nx-reveal" style="display:flex;flex-direction:column;gap:10px;padding:8px 0 8px 28px;border-left:2px solid #10172A"><span class="nx-mono">Mantenimiento</span><span class="nx-h" style="font-size:clamp(40px,5vw,68px)">9,99 € <span style="font-size:20px;font-weight:600;color:#55627A">/ mes</span></span><span style="font-size:16px;color:#3A4458">Revisión mensual presencial de tus chips.</span></div></div>
+<a class="nx-link" href="precios.html" style="align-self:flex-start">Ver todos los precios <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+</section>
+<section style="background:#EAEEF4;border-top:1px solid #C9D0DB;border-bottom:1px solid #C9D0DB">
+<div class="nx-wrap" style="padding-top:104px;padding-bottom:104px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+<div class="nx-reveal" style="display:flex;flex-direction:column;gap:16px"><p class="nx-mono" style="margin:0">Opiniones</p><h2 class="nx-h" style="font-size:clamp(32px,4vw,52px);color:#10172A">Lo que dicen los comercios que ya lo usan</h2></div>
+<a class="nx-link" href="opiniones.html">Ver todas las opiniones <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px">
-<article class="nx-lift nx-reveal"style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<div style="width: 52px; height: 52px; border-radius: 14px; background: repeating-conic-gradient(from 30deg at 50% 50%, #D3DEEC 0deg, #F7FAFF 45deg, #D3DEEC 90deg); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.85), 0 1px 2px rgba(16,23,42,0.12); display: flex; align-items: center; justify-content: center">
-<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg>
+<sc-if value="{{ hasReviews }}" hint-placeholder-val="{{ false }}">
+<div style="columns:3 300px;column-gap:20px">
+<sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+<figure class="nx-rev" style="margin:0 0 20px;break-inside:avoid;background:#FFFFFF;border:1px solid #C9D0DB;border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px">
+<div role="img" aria-label="{{ r.label }}" style="font-size:22px;letter-spacing:2px;line-height:1"><span style="color:#F5B301">{{ r.on }}</span><span style="color:#C5CCD8">{{ r.off }}</span></div>
+<blockquote style="margin:0;font-family:'Archivo',sans-serif;font-weight:500;font-size:20px;line-height:1.4;color:#10172A">“{{ r.text }}”</blockquote>
+<figcaption style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;color:#10172A">{{ r.name }}</span><span class="nx-mono">{{ r.meta }}</span></figcaption>
+</figure>
+</sc-for>
 </div>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Reseñas</h3>
-<p style="margin: 0; color: #3A4458">Tarjeta o placa que abre directamente la pantalla para valorar tu negocio. Más reseñas reales de tus clientes, sin pedirlas una a una.</p>
-</article>
-<article class="nx-lift nx-reveal"style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<div style="width: 52px; height: 52px; border-radius: 14px; background: repeating-conic-gradient(from 30deg at 50% 50%, #D3DEEC 0deg, #F7FAFF 45deg, #D3DEEC 90deg); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.85), 0 1px 2px rgba(16,23,42,0.12); display: flex; align-items: center; justify-content: center">
-<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg>
+</sc-if>
+<sc-if value="{{ noReviews }}" hint-placeholder-val="{{ true }}">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px">
+<div style="border:1.5px dashed #AEB8C7;border-radius:8px;padding:32px;display:flex;flex-direction:column;gap:14px;min-height:220px;justify-content:center;background:rgba(255,255,255,0.5)">
+<span aria-hidden="true" style="font-size:22px;letter-spacing:2px;line-height:1;color:#C5CCD8">★★★★★</span>
+<p style="margin:0;font-family:'Archivo',sans-serif;font-weight:500;font-size:20px;line-height:1.4;color:#3A4458">Aquí aparecerá la opinión de tu negocio.</p>
+<p class="nx-mono" style="margin:0">Nombre · Negocio</p>
 </div>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Carta digital en mesa</h3>
-<p style="margin: 0; color: #3A4458">Soportes de mesa con NFC y QR que abren tu carta con alérgenos. Si cambias un plato o un precio, se actualiza sin reimprimir.</p>
-</article>
-<article class="nx-lift nx-reveal"style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<div style="width: 52px; height: 52px; border-radius: 14px; background: repeating-conic-gradient(from 30deg at 50% 50%, #D3DEEC 0deg, #F7FAFF 45deg, #D3DEEC 90deg); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.85), 0 1px 2px rgba(16,23,42,0.12); display: flex; align-items: center; justify-content: center">
-<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"></path></svg>
+<div style="border:1.5px dashed #AEB8C7;border-radius:8px;padding:32px;display:flex;flex-direction:column;gap:14px;justify-content:center">
+<p class="nx-mono" style="margin:0;color:#2347DC">Estamos arrancando</p>
+<p style="margin:0;font-size:18px;color:#2A3347">Las primeras opiniones de los comercios de Albacete que ya trabajan con NEXIA se publicarán aquí, tal y como nos las envíen.</p>
+<a class="nx-link" href="opina.html" style="align-self:flex-start">Deja la tuya <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 </div>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Tarjetas de visita inteligentes</h3>
-<p style="margin: 0; color: #3A4458">Tu tarjeta de visita abre una página con tus botones: WhatsApp, cita, web, cómo llegar y reseña. Ideal para clínicas, peluquerías y comercios.</p>
-</article>
-<article class="nx-lift nx-reveal"style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<div style="width: 52px; height: 52px; border-radius: 14px; background: repeating-conic-gradient(from 30deg at 50% 50%, #D3DEEC 0deg, #F7FAFF 45deg, #D3DEEC 90deg); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.85), 0 1px 2px rgba(16,23,42,0.12); display: flex; align-items: center; justify-content: center">
-<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20V9l9-5 9 5v11"></path><path d="M9 20v-6h6v6"></path></svg>
 </div>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Hoteles y alojamientos</h3>
-<p style="margin: 0; color: #3A4458">Placas en habitación o recepción con la wifi, las normas, la guía de la ciudad o el contacto directo con recepción.</p>
-</article>
+</sc-if>
 </div>
 </section>
-
-<section id="como-funciona" style="background: #10172A; color: #FFFFFF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
-<div class="nx-reveal" style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
-<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #00C1CA">Cómo funciona</p>
-<h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.015em; color: #FFFFFF">Tú atiendes tu negocio. Nosotros, el resto.</h2>
+<section id="contacto" class="nx-wrap" style="padding-top:40px;padding-bottom:96px">
+<div style="position:relative;overflow:hidden;border-radius:8px;background:#10172A;color:#FFFFFF;padding:64px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:40px;align-items:center;box-sizing:border-box">
+<div aria-hidden="true" style="position:absolute;top:-40%;left:-20%;right:-20%;bottom:-40%;background:radial-gradient(35% 50% at 85% 20%,rgba(0,193,202,0.40),rgba(0,193,202,0) 70%),radial-gradient(35% 50% at 15% 90%,rgba(123,121,226,0.38),rgba(123,121,226,0) 70%);animation:nxDrift 9s ease-in-out infinite"></div>
+<div style="position:relative;display:flex;flex-direction:column;gap:16px">
+<p class="nx-mono" style="margin:0;color:#9DB8FF">Contacto · Albacete</p>
+<h2 class="nx-h nx-h-l" style="font-size:clamp(32px,4vw,52px);color:#FFFFFF">¿Te lo enseñamos en tu propio móvil?</h2>
+<p style="margin:0;font-size:18px;color:#C9D2E0">Pasamos por tu local, te hacemos la demo en cinco minutos y te decimos qué te conviene. Sin compromiso.</p>
 </div>
-<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 32px">
-<li class="nx-reveal" style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid #2B3550">
-<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; background: linear-gradient(180deg, #FFFFFF 0%, #A9C2FF 42%, #3F63F5 52%, #C7D8FF 100%); -webkit-background-clip: text; background-clip: text; color: transparent">01</span>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 21px; color: #FFFFFF">Te visitamos</h3>
-<p style="margin: 0; color: #C9D2E0">Vemos tu local y qué quieres conseguir: más reseñas, menos papel, más contactos. Te lo enseñamos en tu propio móvil.</p>
-</li>
-<li class="nx-reveal" style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid #2B3550">
-<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; background: linear-gradient(180deg, #FFFFFF 0%, #A9C2FF 42%, #3F63F5 52%, #C7D8FF 100%); -webkit-background-clip: text; background-clip: text; color: transparent">02</span>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 21px; color: #FFFFFF">Diseñamos con tu marca</h3>
-<p style="margin: 0; color: #C9D2E0">Tarjeta, pegatina o soporte de mesa, con tus colores y tu logo. Apruebas la maqueta antes de fabricar.</p>
-</li>
-<li class="nx-reveal" style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid #2B3550">
-<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; background: linear-gradient(180deg, #FFFFFF 0%, #A9C2FF 42%, #3F63F5 52%, #C7D8FF 100%); -webkit-background-clip: text; background-clip: text; color: transparent">03</span>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 21px; color: #FFFFFF">Lo instalamos y probamos</h3>
-<p style="margin: 0; color: #C9D2E0">Programamos cada chip, lo probamos con iPhone y Android y lo dejamos colocado y funcionando.</p>
-</li>
-<li class="nx-reveal" style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid #2B3550">
-<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; background: linear-gradient(180deg, #FFFFFF 0%, #A9C2FF 42%, #3F63F5 52%, #C7D8FF 100%); -webkit-background-clip: text; background-clip: text; color: transparent">04</span>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 21px; color: #FFFFFF">Lo mantenemos</h3>
-<p style="margin: 0; color: #C9D2E0">¿Cambias de carta o de oferta? Actualizamos el destino sin tocar la tarjeta. Y si necesitas más, repones con un mensaje.</p>
-</li>
-</ol>
-</div>
-</section>
-
-<section id="sectores" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: start">
-<div style="display: flex; flex-direction: column; gap: 14px">
-<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #007EC2">Por qué NEXIA</p>
-<h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.015em; color: #10172A">Cerca, a medida y siempre funcionando</h2>
-<p style="margin: 0; font-size: 18px; color: #3A4458">Las tarjetas NFC se compran en cualquier web. Lo difícil es que alguien las deje bien configuradas, con tu imagen, y responda cuando algo cambia. Eso es NEXIA.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
-<div class="nx-lift nx-reveal"style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 18px; background: #F3F5F8; border: 1px solid #F3F5F8">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; color: #10172A">Estamos en Albacete</h3>
-<p style="margin: 0; font-size: 16px; color: #3A4458">Te visitamos, lo instalamos y, si algo falla, vamos en persona.</p>
-</div>
-<div class="nx-lift nx-reveal"style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 18px; background: #F3F5F8; border: 1px solid #F3F5F8">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; color: #10172A">Diseño a medida</h3>
-<p style="margin: 0; font-size: 16px; color: #3A4458">Nada de tarjetas genéricas: formato, material y diseño según tu negocio.</p>
-</div>
-<div class="nx-lift nx-reveal"style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 18px; background: #F3F5F8; border: 1px solid #F3F5F8">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; color: #10172A">Enlace gestionado</h3>
-<p style="margin: 0; font-size: 16px; color: #3A4458">Tus tarjetas apuntan a un enlace nuestro: cambiamos el destino sin reimprimir.</p>
-</div>
-<div class="nx-lift nx-reveal"style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 18px; background: #F3F5F8; border: 1px solid #F3F5F8">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; color: #10172A">Sin apps</h3>
-<p style="margin: 0; font-size: 16px; color: #3A4458">Tus clientes solo acercan el móvil o escanean el QR. Nada que instalar.</p>
-</div>
-</div>
-</section>
-
-<section id="precios" style="background: #F3F5F8; border-top: 1px solid #E6E9EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
-<div class="nx-reveal" style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
-<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #007EC2">Precios</p>
-<h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.015em; color: #10172A">Empieza con poco y crece cuando quieras</h2>
-<p style="margin: 0; font-size: 18px; color: #3A4458">Elige lo que necesitas. Si dudas, te lo explicamos en tu local, sin compromiso.</p>
-</div>
-<div class="nx-tabs" style="display: flex; flex-direction: column; gap: 32px">
-<input class="nx-tabin" type="radio" name="nxplan" id="nxp1" checked>
-<input class="nx-tabin" type="radio" name="nxplan" id="nxp2">
-<input class="nx-tabin" type="radio" name="nxplan" id="nxp3">
-<div class="nx-tablist" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
-<label class="nx-tab" for="nxp1"><span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; line-height: 1.2">Diseño de tarjetas NFC personalizadas<svg class="nx-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span><span class="nx-tab-sub" style="font-size: 15px; font-weight: 700">Desde 25 €</span></label>
-<label class="nx-tab" for="nxp2"><span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; line-height: 1.2">Creamos tu servicio digital<svg class="nx-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span><span class="nx-tab-sub" style="font-size: 15px; font-weight: 700">Sin precio fijo · a consultar</span></label>
-<label class="nx-tab" for="nxp3"><span style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; line-height: 1.2">Suscripción de mantenimiento<svg class="nx-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span><span class="nx-tab-sub" style="font-size: 15px; font-weight: 700">Desde 9,99 € al mes</span></label>
-</div>
-<div class="nx-panels">
-<div class="nx-panel nx-panel1" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; align-items: stretch">
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">1 tarjeta</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #10172A">25 €</span></p>
-<p style="margin: 0; font-size: 15px; color: #3A4458">Diseño de una tarjeta personalizada con tu marca. Ideal para empezar y probarlo en tu local.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Diseño personalizado con tu logo</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>NFC y QR de respaldo</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Enlace configurado y probado</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #10172A; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px">Elegir este plan</a></div>
-</article>
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Lote de 5</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #10172A">70 €</span><del style="font-size: 20px; font-weight: 600; color: #65738D" title="Precio sin descuento">125 €</del></p>
-<p style="margin: -8px 0 0; font-size: 14px; font-weight: 700; color: #007EC2">14 € por tarjeta · ahorras 55 €</p>
-<p style="margin: 0; font-size: 15px; color: #3A4458">Cinco tarjetas con tu diseño para mostrador, mesas o para repartir.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Diseño personalizado con tu logo</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>NFC y QR de respaldo</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Enlace configurado y probado</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #10172A; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px">Elegir este plan</a></div>
-</article>
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Lote de 10</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #10172A">99 €</span><del style="font-size: 20px; font-weight: 600; color: #65738D" title="Precio sin descuento">225 €</del></p>
-<p style="margin: -8px 0 0; font-size: 14px; font-weight: 700; color: #007EC2">9,90 € por tarjeta · ahorras 126 €</p>
-<p style="margin: 0; font-size: 15px; color: #3A4458">Diez tarjetas con el mismo diseño: la opción para locales con varias mesas o zonas.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Diseño personalizado con tu logo</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>NFC y QR de respaldo</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Enlace configurado y probado</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #10172A; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px">Elegir este plan</a></div>
-</article>
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #10172A; border: 1px solid #10172A">
-<p style="margin: 0; align-self: flex-start; padding: 4px 12px; border-radius: 999px; background: linear-gradient(105deg, #9CCBE8 0%, #F4FBFF 30%, #A9D4EE 55%, #EAF6FC 80%, #9CCBE8 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8); color: #10172A; font-size: 13px; font-weight: 700">Mejor precio por tarjeta</p>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF">Lote de 20</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #FFFFFF">149 €</span><del style="font-size: 20px; font-weight: 600; color: #9FB0CB" title="Precio sin descuento">450 €</del></p>
-<p style="margin: -8px 0 0; font-size: 14px; font-weight: 700; color: #7FC4DD">7,45 € por tarjeta · ahorras 301 €</p>
-<p style="margin: 0; font-size: 15px; color: #C9D2E0">Veinte tarjetas con diseño personalizado para restaurantes, hoteles y comercios grandes.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #E6ECF5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FC4DD" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Diseño personalizado con tu logo</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #E6ECF5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FC4DD" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>NFC y QR de respaldo</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #E6ECF5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FC4DD" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Enlace configurado y probado</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #FFFFFF; color: #10172A; text-decoration: none; font-weight: 700; font-size: 16px">Elegir este plan</a></div>
-</article>
-</div>
-<div class="nx-panel nx-panel2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: stretch">
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Carta digital</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #10172A">A consultar</span></p>
-<p style="margin: 0; font-size: 15px; color: #3A4458">Tu carta al acercar el móvil a la mesa, con alérgenos y actualizable sin reimprimir.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Diseño de la carta con tu marca</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Tarjetas o soportes de mesa con NFC y QR</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Cambios de precios y platos cuando quieras</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #10172A; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px">Pedir presupuesto</a></div>
-</article>
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Habitaciones de hotel</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #10172A">A consultar</span></p>
-<p style="margin: 0; font-size: 15px; color: #3A4458">Una tarjeta en cada habitación: el huésped acerca el móvil y se conecta solo al wifi del hotel.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Conexión automática al wifi</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Android: acercando el móvil · iPhone: con el QR de la misma tarjeta</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>También normas, guía de la ciudad o contacto con recepción</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #10172A; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px">Pedir presupuesto</a></div>
-</article>
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #10172A; border: 1px solid #10172A">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF">Tu servicio a medida</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #FFFFFF">Sin precio fijo</span></p>
-<p style="margin: 0; font-size: 15px; color: #C9D2E0">El precio depende del volumen y de lo que necesites. Te preparamos un presupuesto cerrado, sin compromiso.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Cuéntanos tu idea y la estudiamos</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Presupuesto cerrado tras hablar contigo</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Diseño, instalación y pruebas incluidos</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #FFFFFF; color: #10172A; text-decoration: none; font-weight: 700; font-size: 16px">Cuéntanos tu caso</a></div>
-</article>
-</div>
-<div class="nx-panel nx-panel3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: stretch">
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Básico</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #10172A">9,99 €</span><span style="font-size: 18px; font-weight: 600; color: #3A4458"> /mes</span></p>
-<p style="margin: 0; font-size: 15px; color: #3A4458">Para que todo siga funcionando: repasamos tus chips cada mes en tu local.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Revisión presencial mensual de todos tus chips</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #65738D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65738D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg><span>No incluye modificaciones</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #65738D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65738D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg><span>No incluye cambios de diseño</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #65738D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65738D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg><span>No incluye seguro ni recambio de fallos</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #10172A; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px">Elegir este plan</a></div>
-</article>
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E1E6EE">
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #10172A">Medio</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #10172A">14,99 €</span><span style="font-size: 18px; font-weight: 600; color: #3A4458"> /mes</span></p>
-<p style="margin: 0; font-size: 15px; color: #3A4458">Además del repaso, mantenemos al día el contenido de tus tarjetas.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Revisión presencial mensual de todos tus chips</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Modificaciones de diseño</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #2A3347"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007EC2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Cambios de URL y actualizaciones</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #65738D"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65738D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg><span>No incluye seguro ni recambio de fallos</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #10172A; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px">Elegir este plan</a></div>
-</article>
-<article class="nx-lift" style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 22px; background: #10172A; border: 1px solid #10172A">
-<p style="margin: 0; align-self: flex-start; padding: 4px 12px; border-radius: 999px; background: linear-gradient(105deg, #9CCBE8 0%, #F4FBFF 30%, #A9D4EE 55%, #EAF6FC 80%, #9CCBE8 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8); color: #10172A; font-size: 13px; font-weight: 700">El más completo</p>
-<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF">Total</h3>
-<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px"><span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 38px; line-height: 1; color: #FFFFFF">24,99 €</span><span style="font-size: 18px; font-weight: 600; color: #C9D2E0"> /mes</span></p>
-<p style="margin: 0; font-size: 15px; color: #C9D2E0">Todo incluido: tú no te preocupas de nada, ni siquiera si una tarjeta falla.</p>
-<ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; align-items: flex-start; gap: 10px; color: #E6ECF5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FC4DD" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Revisión presencial mensual de todos tus chips</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #E6ECF5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FC4DD" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Modificaciones de diseño</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #E6ECF5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FC4DD" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Cambios de URL y actualizaciones</span></li><li style="display: flex; align-items: flex-start; gap: 10px; color: #E6ECF5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FC4DD" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><path d="M20 6 9 17l-5-5"></path></svg><span>Seguro ante fallos y recambio incluido</span></li></ul>
-<div style="margin-top: auto; padding-top: 4px; display: flex; flex-direction: column"><a class="nx-btn" href="#contacto" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #FFFFFF; color: #10172A; text-decoration: none; font-weight: 700; font-size: 16px">Elegir este plan</a></div>
-</article>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section id="preguntas" style="max-width: 880px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 32px">
-<div style="display: flex; flex-direction: column; gap: 14px">
-<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #007EC2">Preguntas frecuentes</p>
-<h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 44px); line-height: 1.08; letter-spacing: -0.015em; color: #10172A">Lo que suelen preguntarnos</h2>
-</div>
-<div style="display: flex; flex-direction: column; border-top: 1px solid #E1E6EE">
-<details style="border-bottom: 1px solid #E1E6EE; padding: 20px 0">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; color: #10172A">¿Mis clientes necesitan instalar una app?<span class="faq-plus" style="font-size: 28px; font-weight: 500; color: #007EC2">+</span></summary>
-<p style="margin: 12px 0 0; color: #3A4458">No. Basta con acercar el móvil a la tarjeta o escanear el código QR. Se abre directamente en el navegador.</p>
-</details>
-<details style="border-bottom: 1px solid #E1E6EE; padding: 20px 0">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; color: #10172A">¿Funciona con todos los móviles?<span class="faq-plus" style="font-size: 28px; font-weight: 500; color: #007EC2">+</span></summary>
-<p style="margin: 12px 0 0; color: #3A4458">Funciona con los iPhone recientes y con los Android que tienen NFC. Para el resto, cada soporte lleva también un código QR.</p>
-</details>
-<details style="border-bottom: 1px solid #E1E6EE; padding: 20px 0">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; color: #10172A">¿Qué pasa si cambio mi carta o mi web?<span class="faq-plus" style="font-size: 28px; font-weight: 500; color: #007EC2">+</span></summary>
-<p style="margin: 12px 0 0; color: #3A4458">Nada: cambiamos el destino del enlace y tus tarjetas siguen funcionando igual, sin reimprimir.</p>
-</details>
-<details style="border-bottom: 1px solid #E1E6EE; padding: 20px 0">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; color: #10172A">¿Cuánto tardáis en entregarlo?<span class="faq-plus" style="font-size: 28px; font-weight: 500; color: #007EC2">+</span></summary>
-<p style="margin: 12px 0 0; color: #3A4458">[PLAZO]. Las tarjetas estándar pueden estar listas en días; los diseños a medida dependen de la cantidad y el material.</p>
-</details>
-<details style="border-bottom: 1px solid #E1E6EE; padding: 20px 0">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 19px; color: #10172A">¿Puedo pedir tarjetas para regalar a mis clientes?<span class="faq-plus" style="font-size: 28px; font-weight: 500; color: #007EC2">+</span></summary>
-<p style="margin: 12px 0 0; color: #3A4458">Sí. Hacemos tiradas con tu diseño para repartir en tu local, y puedes reponer cuando se acaben.</p>
-</details>
-</div>
-</section>
-
-<section id="contacto" style="padding: 0 24px 104px">
-<div style="position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto; padding: 64px 48px; border-radius: 28px; background: #10172A; color: #FFFFFF; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; box-sizing: border-box">
-<div aria-hidden="true" style="position: absolute; top: -40%; left: -20%; right: -20%; bottom: -40%; background: radial-gradient(35% 50% at 85% 20%, rgba(0,193,202,0.42), rgba(0,193,202,0) 70%), radial-gradient(35% 50% at 15% 90%, rgba(123,121,226,0.40), rgba(123,121,226,0) 70%); animation: nxDrift 9s ease-in-out infinite"></div>
-<div style="position: relative; display: flex; flex-direction: column; gap: 16px">
-<h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.08; color: #FFFFFF">¿Te lo enseñamos en tu propio móvil?</h2>
-<p style="margin: 0; font-size: 18px; color: #C9D2E0">Pasamos por tu local, te hacemos la demo en cinco minutos y te decimos qué te conviene. Sin compromiso.</p>
-</div>
-<div style="position: relative; display: flex; flex-direction: column; gap: 12px">
-<a class="nx-btn" href="https://wa.me/" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 28px; border-radius: 999px; background: #00C1CA; color: #10172A; text-decoration: none; font-weight: 700; font-size: 18px">
+<div style="position:relative;display:flex;flex-direction:column;gap:14px">
+<a class="nx-btn-light" href="https://wa.me/" style="min-height:56px;font-size:18px">
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"></path></svg>
 Escríbenos por WhatsApp
 </a>
-<p style="margin: 0; text-align: center; font-size: 15px; color: #C9D2E0">[TU WHATSAPP] · <a href="mailto:nexianfcsolutions@gmail.com" style="color: #C9D2E0; text-decoration: underline">nexianfcsolutions@gmail.com</a> · Albacete</p>
+<p style="margin:0;text-align:center;font-size:15px;color:#C9D2E0">[TU WHATSAPP] · <a href="mailto:nexianfcsolutions@gmail.com" style="color:#C9D2E0;text-decoration:underline">nexianfcsolutions@gmail.com</a> · Albacete</p>
 </div>
 </div>
 </section>
-
-<footer style="border-top: 1px solid #E6E9EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; color: #3A4458">
-<div style="display: flex; flex-direction: column; gap: 4px">
-<div style="display: flex; align-items: center; gap: 8px">
-<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: 0.02em; color: #10172A">NEXIA</span>
-<span style="display: block; width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 32% 30%, #FFFFFF 0%, #A9C2FF 28%, #3F63F5 62%, #1A2F9A 100%)"></span>
+<footer style="background:#10172A;color:#C9D2E0;overflow:hidden">
+<div class="nx-wrap" style="padding-top:72px;padding-bottom:0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:40px 32px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<span class="nx-mono" style="color:#9DB8FF">Smart NFC Solutions</span>
+<p style="margin:0;font-size:16px;max-width:300px">Diseñamos, instalamos y mantenemos soluciones NFC para los comercios de Albacete.</p>
+<p class="nx-mono" style="margin:0;color:#9FB0CB">Albacete · 38.9943° N, 1.8585° W</p>
 </div>
-<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #65738D">Smart NFC Solutions · Albacete</span>
-</div>
-<nav aria-label="Legal" style="display: flex; flex-wrap: wrap; gap: 8px 20px">
-<a href="#" style="text-decoration: none">Aviso legal</a>
-<a href="#" style="text-decoration: none">Privacidad</a>
-<a href="#" style="text-decoration: none">Cookies</a>
+<nav aria-label="Páginas" style="display:flex;flex-direction:column;gap:2px;font-size:16px">
+<span class="nx-mono" style="color:#9DB8FF;margin-bottom:6px">Páginas</span>
+<a href="index.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Inicio</a><a href="soluciones.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Soluciones</a><a href="como-funciona.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Cómo funciona</a><a href="precios.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Precios</a><a href="opiniones.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Opiniones</a><a href="opina.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Deja tu opinión</a>
 </nav>
+<div style="display:flex;flex-direction:column;gap:2px;font-size:16px">
+<span class="nx-mono" style="color:#9DB8FF;margin-bottom:6px">Contacto y legal</span>
+<a href="mailto:nexianfcsolutions@gmail.com" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">nexianfcsolutions@gmail.com</a>
+<a href="aviso-legal.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Aviso legal</a>
+<a href="privacidad.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Privacidad</a>
+<a href="cookies.html" style="color:#C9D2E0;text-decoration:none;display:inline-flex;align-items:center;min-height:36px">Cookies</a>
+</div>
+</div>
+<p aria-hidden="true" class="nx-metal-text-light" style="margin:48px 0 0;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(96px,23vw,330px);line-height:0.74;letter-spacing:0.02em;white-space:nowrap;margin-bottom:-0.06em;user-select:none">NEXIA</p>
 </div>
 </footer>
 
-<a class="nx-btn" href="https://wa.me/" aria-label="Escríbenos por WhatsApp" style="position: fixed; right: 20px; bottom: 20px; z-index: 20; width: 60px; height: 60px; border-radius: 50%; background: #10172A; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 28px rgba(16,23,42,0.3)">
-<span aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 60px; height: 60px; border-radius: 50%; border: 2px solid #00C1CA; animation: nxPulse 2.8s ease-out infinite"></span>
+<a class="nx-btn-primary" href="https://wa.me/" aria-label="Escríbenos por WhatsApp" style="position:fixed;right:20px;bottom:20px;z-index:30;width:60px;height:60px;padding:0;border-radius:50%;box-shadow:0 12px 28px rgba(16,23,42,0.3)">
+<span aria-hidden="true" style="position:absolute;top:0;left:0;width:60px;height:60px;border-radius:50%;border:2px solid #00C1CA;animation:nxPulse 2.8s ease-out infinite"></span>
 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"></path></svg>
 </a>
-
 </div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4700}}'>
+class Component extends DCLogic {
+componentDidMount() {
+  try {
+    fetch('opiniones.json', { headers: { Accept: 'application/json' } })
+      .then((r) => (r.ok ? r.json() : []))
+      .then((d) => this.setState({ reviews: Array.isArray(d) ? d : (d && d.opiniones) || [] }))
+      .catch(() => this.setState({ reviews: [] }));
+  } catch (e) {
+    this.setState({ reviews: [] });
+  }
+}
+renderVals() {
+  const st = this.state || {};
+  const raw = Array.isArray(st.reviews) ? st.reviews : [];
+  const valid = raw.filter((r) => r && r.texto && r.nombre);
+  const n = valid.length;
+  const avg = n ? valid.reduce((a, r) => a + (Number(r.estrellas) || 0), 0) / n : 0;
+  const list = valid.slice(0, 3).map((r) => {
+    const s = Math.max(0, Math.min(5, Math.round(Number(r.estrellas) || 0)));
+    let date = '';
+    try { date = r.fecha ? new Date(r.fecha).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' }) : ''; } catch (e) {}
+    return {
+      name: r.nombre,
+      text: r.texto,
+      on: '★'.repeat(s),
+      off: '★'.repeat(5 - s),
+      label: s + ' de 5 estrellas',
+      meta: [r.negocio, date].filter(Boolean).join(' · ')
+    };
+  });
+  return {
+    reviews: list,
+    hasReviews: n > 0,
+    noReviews: n === 0,
+    countText: n + (n === 1 ? ' opinión' : ' opiniones'),
+    avgText: avg.toFixed(1).replace('.', ',')
+  };
+}
+}
+</script>
 </body>
 </html>
