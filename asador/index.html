@@ -228,9 +228,66 @@ a { color: inherit; }
 .firma .esfera { width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 32% 30%, #A8F2F5 0%, #00C1CA 35%, #007EC2 68%, #7B79E2 100%); }
 #aviso { position: fixed; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); max-width: 408px; margin-inline: auto; padding: 14px 16px; background: var(--carbon); color: #fff; font-size: 14px; line-height: 1.4; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); }
 @media (prefers-reduced-motion: no-preference) { .btn { transition: border-color 0.15s, transform 0.1s; } }
+
+/* Escritorio: la misma página, a lo ancho */
+.topnav { display: none; }
+.foto-det { display: flex; flex-direction: column; }
+.foto-info { display: contents; }
+.foto-info > .etiqueta, .foto-info > h2 { order: 1; align-self: flex-start; }
+.foto-det .foto-g { order: 2; }
+.foto-info > * { order: 3; }
+.foto-info > .etiqueta, .foto-info > h2 { order: 1; }
+@media (min-width: 900px) {
+  body { padding-inline: 48px; padding-block: 0 40px; }
+  .app { max-width: 1180px; }
+  .topnav { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 6px; position: sticky; top: 0; z-index: 5; margin-inline: -48px; padding: 6px 48px; background: #fff; border-bottom: 1px solid var(--line); }
+  .topnav a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 16px; text-decoration: none; font: 600 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--text); }
+  .topnav a:hover, .topnav a[aria-current="page"] { color: var(--carbon); box-shadow: inset 0 -2px 0 var(--ochre); }
+  .app > main { padding-top: 28px; }
+  .hero { padding: 72px 24px 64px; gap: 20px; }
+  .hero .logo { width: 140px; height: 140px; }
+  .hero h1 { font-size: 60px; }
+  .hero .lema { font-size: 13px; }
+  .screen h2 { font-size: 52px; margin-top: 10px; }
+  .lead { font-size: 18px; max-width: 70ch; }
+  .texto { max-width: 74ch; font-size: 17px; }
+  .lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+  .lista.vez { grid-template-columns: minmax(0, 420px); }
+  .premio { max-width: 760px; margin-inline: auto; }
+  .provs { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .pilares { flex-direction: row; gap: 14px; }
+  .pilares li { flex: 1; }
+  .chips { gap: 10px; }
+  .filtros { gap: 10px; }
+  .fotos { grid-template-columns: repeat(3, 1fr); gap: 36px 28px; }
+  .fotos a { padding: 18px 0 40px; }
+  .fotos .nm { font-size: 26px; margin-top: 10px; }
+  .fotos .pr { font-size: 16px; }
+  .sec { font-size: 32px; margin-top: 44px; }
+  .carta-lista { column-count: 2; column-gap: 56px; }
+  .carta-lista li { break-inside: avoid; }
+  .carta-lista .n, .carta-lista .p { font-size: 16px; }
+  .carta-lista li.sub-vino { column-span: all; }
+  .buscador { max-width: 560px; }
+  .aviso-al { max-width: 760px; }
+  .foto-det { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; margin-top: 12px; }
+  .foto-info { display: block; }
+  .foto-info > * { order: 0; }
+  .foto-info h2 { margin-top: 8px; }
+  .foto-det .foto-g { margin-top: 0; }
+  .foto-info .lista { grid-template-columns: 1fr; }
+  .mapa { height: 560px; }
+  .cab-detalle { grid-template-columns: auto 1fr; gap: 28px; align-items: center; justify-items: start; }
+  .cab-detalle img.logo { height: 110px; }
+  .det > #detalle > .lista, .det > #detalle > .carta-lista, .det > #detalle > .texto { max-width: 900px; }
+  .bib { max-width: 640px; }
+  .dato { max-width: 760px; }
+  #aviso { max-width: 520px; }
+}
 </style>
 
 <div class="app">
+  <nav class="topnav" aria-label="Principal"><a href="#inicio" data-go="inicio">Inicio</a><a href="#quienes" data-go="quienes">Nosotros</a><a href="#comida" data-go="comida">Carta de comida</a><a href="#vinos" data-go="vinos">Carta de vinos</a><a href="#proveedores" data-go="proveedores">Proveedores</a><a href="#origenes" data-go="origenes">Denominaciones</a><a href="#llegar" data-go="llegar">Cómo llegar</a></nav>
   <main>
     <!-- INICIO -->
     <section class="screen" data-screen="inicio">
@@ -1355,27 +1412,28 @@ function detalle(tipo, id) {
   if (tipo === "foto") {
     var k = parseInt(id, 10); o = FLAT[k]; if (!o) return false;
     cont.appendChild(volverA("comida", "Carta de comida"));
-    cont.appendChild(el("span", "etiqueta", o.cat));
-    cont.appendChild(el("h2", null, o.n));
+    var det = el("div", "foto-det"), inf = el("div", "foto-info");
+    inf.appendChild(el("span", "etiqueta", o.cat));
+    inf.appendChild(el("h2", null, o.n));
     var g = el("img", "foto-g"); g.alt = "Foto de " + o.n; g.referrerPolicy = "origin"; g.decoding = "async";
     var fallo = 0;
     g.onerror = function () { fallo++; if (fallo === 1) this.src = fotoUrl(o, true); else this.style.visibility = "hidden"; };
     g.src = fotoUrl(o);
-    cont.appendChild(g);
+    det.appendChild(g); det.appendChild(inf); cont.appendChild(det);
     var dc = datosCarta(o);
     if (dc) {
-      var ul2 = el("ul", "carta-lista"); ul2.appendChild(itemCarta(dc)); cont.appendChild(ul2);
+      var ul2 = el("ul", "carta-lista"); ul2.appendChild(itemCarta(dc)); inf.appendChild(ul2);
     } else {
-      cont.appendChild(el("p", "nota", "Pregunta a nuestro equipo por el precio y los alérgenos de este plato, o consúltalos en «Precios y alérgenos»."));
+      inf.appendChild(el("p", "nota", "Pregunta a nuestro equipo por el precio y los alérgenos de este plato, o consúltalos en «Precios y alérgenos»."));
     }
-    cont.appendChild(el("p", "nota", "Foto de la web del asador. La presentación y la oferta pueden variar según la temporada."));
+    inf.appendChild(el("p", "nota", "Foto de la web del asador. La presentación y la oferta pueden variar según la temporada."));
     var nav = el("div", "lista");
     if (k > 0) nav.appendChild(fila({ go: "foto/" + (k - 1), icono: '<path d="m15 18-6-6 6-6"/>', titulo: "Anterior", desc: FLAT[k - 1].n }));
     if (k < FLAT.length - 1) nav.appendChild(fila({ go: "foto/" + (k + 1), titulo: "Siguiente", desc: FLAT[k + 1].n }));
-    cont.appendChild(nav);
+    inf.appendChild(nav);
     var l5 = el("div", "lista"); l5.style.marginTop = "10px";
     l5.appendChild(fila({ go: "comida/precios", icono: ICO.escudo, titulo: "Precios y alérgenos", desc: "Toda la carta, con lo que lleva cada plato" }));
-    cont.appendChild(l5);
+    inf.appendChild(l5);
     return true;
   }
   if (tipo === "plato") {
@@ -1607,6 +1665,9 @@ function pintar(ruta) {
   for (var i = 0; i < secciones.length; i++) {
     secciones[i].hidden = secciones[i].getAttribute("data-screen") !== pantalla;
   }
+  var SEC = { detalle: { proveedor: "proveedores", origen: "origenes", foto: "comida", plato: "platos", parking: "llegar" }[partes[0]] || partes[0] };
+  var enl = document.querySelectorAll(".topnav a");
+  for (var q = 0; q < enl.length; q++) enl[q].setAttribute("aria-current", enl[q].getAttribute("data-go") === (pantalla === "detalle" ? SEC.detalle : pantalla) ? "page" : "false");
   if (pantalla === "llegar") mapa();
   if (pantalla === "comida") renderComida(partes[1]);
   if (pantalla === "vinos") { var qv = partes[1] || ""; try { qv = decodeURIComponent(qv); } catch (e) {} renderVinos(qv); }
