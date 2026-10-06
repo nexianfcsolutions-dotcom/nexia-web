@@ -420,6 +420,30 @@ html[data-fondo~="circuito"] .fondo-art .f.f-circuito { opacity: .32; }
 html .fondo-art .f.f-molino { opacity: .07; }
 html[data-fondo~="molino"] .fondo-art .f.f-molino { opacity: .13; }
 
+
+/* v12: fotos de plato con los bordes difuminados (se funden con la página, sin cortes ni migas en las esquinas) y opiniones en carrusel */
+.fotos img, .banda-img img, .foto-g {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 11%, #000 89%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 11%, #000 89%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0, #000 11%, #000 89%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 11%, #000 89%, transparent 100%);
+  mask-composite: intersect;
+}
+.op-g { display: grid; grid-template-columns: 1fr; gap: 0; max-width: 820px; margin: 30px auto 0; }
+.op-g figure { grid-area: 1 / 1; display: flex; flex-direction: column; justify-content: center; opacity: 0; visibility: hidden; transform: translateX(28px); transition: opacity .9s ease, transform .9s ease, visibility 0s linear .9s; }
+.op-g figure.on { opacity: 1; visibility: visible; transform: none; transition: opacity .9s ease, transform .9s ease, visibility 0s; }
+.op-g figure::before { content: "\201C"; display: block; font: 700 64px/0.8 var(--serif); color: #D4AE6E; }
+.op-g blockquote { font-size: 19px; line-height: 1.7; }
+.op-pts { display: flex; justify-content: center; gap: 6px; margin-top: 26px; }
+.op-pts button { width: 44px; height: 44px; padding: 0; background: none; border: 0; cursor: pointer; display: grid; place-items: center; }
+.op-pts button::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #E9D9C2; background: transparent; transition: background .3s, transform .3s; }
+.op-pts button[aria-current="true"]::before { background: #E9D9C2; transform: scale(1.25); }
+@media (min-width: 900px) {
+  .op-g { grid-template-columns: 1fr; gap: 0; max-width: 900px; }
+  .op-g blockquote { font-size: 24px; line-height: 1.65; }
+  .op-g figcaption { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { .op-g figure, .op-g figure.on { transition: none; transform: none; } }
+
 /* Carta con fotos: secciones alternas, como en su web */
 .grupo-carta { margin-top: 44px; }
 .grupo-carta + .grupo-carta { padding-top: 44px; border-top: 1px solid var(--line); }
@@ -546,11 +570,12 @@ html[data-fondo~="molino"] .fondo-art .f.f-molino { opacity: .13; }
       <section class="opiniones" aria-labelledby="op-h">
         <p class="eb">Opiniones</p>
         <h2 class="op-h" id="op-h">Opiniones de nuestros clientes</h2>
-        <div class="op-g">
-          <figure><blockquote>Uno de los restaurantes top de Albacete, muy buenos platos, especialmente en carnes, con un buen servicio. Es también uno de los sitios donde te puedes también fiar de la recomendación en vinos.</blockquote><figcaption translate="no">Antonio Labian</figcaption></figure>
+        <div class="op-g" role="group" aria-roledescription="carrusel" aria-label="Opiniones de nuestros clientes">
+          <figure class="on"><blockquote>Uno de los restaurantes top de Albacete, muy buenos platos, especialmente en carnes, con un buen servicio. Es también uno de los sitios donde te puedes también fiar de la recomendación en vinos.</blockquote><figcaption translate="no">Antonio Labian</figcaption></figure>
           <figure><blockquote>Trato inmejorable, comida excelente y con buen gusto. Un lujo cerca de casa. Y un placer para los sentidos. Recomendable 100%</blockquote><figcaption translate="no">Llanos Campaña Poveda</figcaption></figure>
           <figure><blockquote>Uno de los lugares imprescindibles de la ciudad, sin duda. La profesionalidad es exquisita, tanto en servicio de barra y mesa, como en lo que sale de la cocina.</blockquote><figcaption translate="no">Sheila Escot</figcaption></figure>
         </div>
+        <div class="op-pts" id="op-pts"></div>
       </section>
 
       <section class="recos" aria-labelledby="rc-h">
@@ -2225,6 +2250,31 @@ function dibujaCircuito() {
   var mov = document.getElementById("circ-mov");
   if (mov) mov.setAttribute("path", d); else document.getElementById("circ-coche").style.display = "none";
 }
+
+function iniciarOpiniones() {
+  var g = document.querySelector(".op-g"), pts = document.getElementById("op-pts"); if (!g || !pts) return;
+  var fs = Array.prototype.slice.call(g.querySelectorAll("figure")), bs = [], k = 0, timer = null;
+  var reducir = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function mostrar(n) {
+    k = (n + fs.length) % fs.length;
+    fs.forEach(function (f, i) { f.classList.toggle("on", i === k); f.setAttribute("aria-hidden", i === k ? "false" : "true"); });
+    bs.forEach(function (b, i) { b.setAttribute("aria-current", i === k ? "true" : "false"); });
+  }
+  function parar() { if (timer) { clearInterval(timer); timer = null; } }
+  function arrancar() { if (reducir || timer) return; timer = setInterval(function () { if (!document.hidden) mostrar(k + 1); }, 7000); }
+  fs.forEach(function (f, i) {
+    var b = el("button"); b.type = "button"; b.setAttribute("aria-label", f.querySelector("figcaption").textContent);
+    b.addEventListener("click", function () { mostrar(i); parar(); arrancar(); });
+    bs.push(b); pts.appendChild(b);
+  });
+  var caja = g.parentNode;
+  caja.addEventListener("mouseenter", parar); caja.addEventListener("mouseleave", arrancar);
+  caja.addEventListener("focusin", parar); caja.addEventListener("focusout", arrancar);
+  var x0 = null;
+  g.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  g.addEventListener("touchend", function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) { mostrar(k + (dx < 0 ? 1 : -1)); parar(); arrancar(); } });
+  mostrar(0); arrancar();
+}
 function construirInicio() {
   var ul = document.getElementById("esp-g"); if (!ul) return;
   ["Solomillo de vaca vieja", "Tataky de atún", "Tarta de manzana"].forEach(function (n, j) {
@@ -2242,6 +2292,7 @@ if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").m
 }
 construirBanner();
 construirInicio();
+iniciarOpiniones();
 dibujaCircuito();
 window.addEventListener("resize", dibujaCircuito);
 Array.prototype.forEach.call(document.querySelectorAll("img[data-oculta]"), function (im) { im.onerror = function () { if (this.parentNode) this.parentNode.hidden = true; }; im.src = im.getAttribute("data-oculta"); });
