@@ -284,6 +284,48 @@ a { color: inherit; }
   .dato { max-width: 760px; }
   #aviso { max-width: 520px; }
 }
+
+/* Banner de pie: galería, datos y molino girando */
+html, body { overflow-x: clip; }
+.banner { margin: 48px calc(50% - 50vw) 0; }
+.tira { overflow: hidden; background: #fff; padding: 8px 0 28px; }
+.pista { display: flex; width: max-content; animation: desfile 90s linear infinite; }
+.tira:hover .pista, .tira:focus-within .pista { animation-play-state: paused; }
+.pista img { flex: none; width: 210px; height: 210px; margin-right: 12px; object-fit: cover; display: block; background: #E9E5DD; }
+@keyframes desfile { to { transform: translateX(-50%); } }
+.fondo { position: relative; overflow: hidden; color: #D9D9D9; background: radial-gradient(120% 100% at 50% 0%, #2B2825 0%, #1B1B1B 62%); padding: 52px 24px 44px; }
+.molino { position: absolute; left: 50%; top: 50%; width: min(820px, 170vw); height: auto; transform: translate(-50%, -50%); color: #E9D9C2; opacity: .14; pointer-events: none; }
+.cuerpo { position: relative; max-width: 1180px; margin: 0 auto; display: grid; gap: 38px; }
+.cuerpo h4 { margin: 0 0 12px; font: 700 12px/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: #fff; }
+.cuerpo p, .cuerpo li { margin: 0; font-size: 14px; line-height: 1.7; }
+.cuerpo ul { list-style: none; margin: 0; padding: 0; }
+.cuerpo a { color: inherit; text-decoration: none; }
+.cuerpo a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.b-marca { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+.b-marca img { display: block; height: 92px; width: auto; }
+.b-lema { margin-top: 14px !important; font: 600 11px/1.3 var(--sans) !important; letter-spacing: .22em; text-transform: uppercase; color: #E9D9C2; }
+.b-tel { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: #fff; }
+.cuerpo h4.b-hora { margin-top: 22px; }
+.b-horas li { display: flex; justify-content: space-between; gap: 18px; max-width: 260px; }
+.b-nav a, .b-legal a { display: inline-flex; align-items: center; min-height: 36px; letter-spacing: .1em; text-transform: uppercase; font-size: 12px; }
+.b-legal a { text-transform: none; letter-spacing: 0; font-size: 14px; }
+.b-redes { display: flex; gap: 6px; margin-top: 14px; }
+.b-redes a { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.28); color: #fff; }
+.b-redes a:hover { border-color: #E9D9C2; text-decoration: none; }
+.b-acc { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.b-acc a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border: 1px solid #E9D9C2; color: #fff; font: 700 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+.b-acc a:hover { background: #E9D9C2; color: #1B1B1B; text-decoration: none; }
+@media (min-width: 900px) {
+  .tira { padding: 12px 0 44px; }
+  .pista img { width: 300px; height: 300px; margin-right: 16px; }
+  .fondo { padding: 84px 48px 72px; }
+  .cuerpo { grid-template-columns: 1.15fr 1fr .8fr 1fr; gap: 48px; }
+  .molino { left: 74%; width: min(900px, 90vw); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pista { animation: none; }
+  .tira { overflow-x: auto; }
+}
 </style>
 
 <div class="app">
@@ -383,8 +425,8 @@ a { color: inherit; }
         <a class="btn" href="#trabajamos" data-go="trabajamos"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span><span class="txt"><span class="t">Cómo trabajamos</span><span class="d">Materia prima y trato cercano</span></span><span class="fin" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></a>
       </div>
       <div class="bib">
-        <img data-oculta="https://asadorconcepcion.com/wp-content/uploads/2021/06/Bib-Gourmand-MICHELIN.png" alt="Distintivo Bib Gourmand de la Guía MICHELIN" width="84" height="64">
-        <p><b>Bib Gourmand · Guía MICHELIN</b>Reconocimiento de la guía a la buena cocina a precio moderado.</p>
+        <img data-oculta="https://asadorconcepcion.com/wp-content/uploads/2021/06/Bib-Gourmand-MICHELIN.png" alt="Distintivo MICHELIN 2021" width="84" height="64">
+        <p><b>Guía MICHELIN · 2021</b>Distintivo que el asador luce en su web.</p>
       </div>
       <div class="dato">
         <p class="eyebrow">Tercer premio · septiembre de 2026</p>
@@ -627,6 +669,59 @@ a { color: inherit; }
       <p class="nota">Cuenta lo que de verdad pensaste. Gracias por tomarte el tiempo.</p>
     </section>
   </main>
+
+    <section class="banner" aria-label="Asador Concepción">
+    <div class="tira"><div class="pista" id="pista"></div></div>
+    <div class="fondo">
+      <svg class="molino" viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <defs>
+            <g id="aspa">
+              <path d="M0 -4 V-156"/>
+              <path d="M5 -28 L36 -38 L36 -148 L5 -150"/>
+              <path d="M5 -56 L36 -66 M5 -84 L36 -93 M5 -112 L36 -120 M5 -28 L36 -148 M5 -150 L36 -66"/>
+              <path d="M20 -33 V-149"/>
+            </g>
+          </defs>
+          <path d="M200 170 V394"/>
+          <path d="M200 170 L126 334"/>
+          <path d="M158 218 H242"/>
+          <path d="M200 296 L170 394 M200 296 L230 394"/>
+          <g transform="translate(200 170)">
+            <g id="aspas">
+              <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="48s" repeatCount="indefinite"/>
+              <use href="#aspa"/>
+              <use href="#aspa" transform="rotate(90)"/>
+              <use href="#aspa" transform="rotate(180)"/>
+              <use href="#aspa" transform="rotate(270)"/>
+              <circle r="6" fill="#1B1B1B"/>
+            </g>
+          </g>
+        </svg>
+      <div class="cuerpo">
+        <div>
+          <div class="b-marca" id="b-marca"></div>
+          <p class="b-lema">Cocina manchega conceptual</p>
+          <div class="b-acc" id="b-acc"></div>
+        </div>
+        <div>
+          <h4>Dónde estamos</h4>
+          <p id="b-dir"></p>
+          <a class="b-tel" id="b-tel" href="#"></a>
+          <h4 class="b-hora">Horario de verano</h4>
+          <ul class="b-horas" id="b-hora"></ul>
+        </div>
+        <div>
+          <h4>Así somos</h4>
+          <ul class="b-nav" id="b-nav"></ul>
+        </div>
+        <div>
+          <h4>Información</h4>
+          <ul class="b-legal" id="b-legal"></ul>
+          <div class="b-redes" id="b-redes"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <p class="pie-aviso"><a href="#aviso" data-go="aviso">Aviso y privacidad</a></p>
   <footer class="firma">
@@ -1052,6 +1147,29 @@ var CLIENTE = {
   maps: "https://www.google.com/maps/search/?api=1&query=Asador+Concepci%C3%B3n%2C+Concepci%C3%B3n+5%2C+Albacete&query_place_id=ChIJ9a4DXr9fZg0RWnS2pzGDDwk",
   tel: "tel:+34967524350"
 };
+
+
+/* Datos del banner de pie (de la web del asador) */
+CLIENTE.direccion = "C/ Concepción, 5. Albacete";
+CLIENTE.horario = [["Lunes", "Cerrado"], ["Martes a sábado", "20:45 a 23:00"], ["Domingo", "Cerrado"]];
+CLIENTE.web = "https://asadorconcepcion.com";
+CLIENTE.legal = [
+  ["Aviso legal", "https://asadorconcepcion.com/aviso-legal/"],
+  ["Política de privacidad", "https://asadorconcepcion.com/politica-de-privacidad/"],
+  ["Política de cookies", "https://asadorconcepcion.com/politica-de-cookies/"]
+];
+CLIENTE.redes = [
+  { n: "Facebook", u: "https://www.facebook.com/asadorconcepcion/", d: '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>' },
+  { n: "Instagram", u: "https://www.instagram.com/asadorconcepcion/", d: '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>' },
+  { n: "Twitter", u: "https://twitter.com/asadorco?lang=es", d: '<path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>' }
+];
+CLIENTE.logoBlanco = "https://asadorconcepcion.com/wp-content/uploads/2017/03/Logo-blanco1.png";
+CLIENTE.michelin = "https://asadorconcepcion.com/wp-content/uploads/2021/06/Bib-Gourmand-MICHELIN.png";
+var GALERIA = [
+  ["1-entrada", "Entrada del asador"], ["2-barra", "La barra"], ["3-mesas-exterior", "Mesas junto a la entrada"], ["4-interior-reservado", "Salón reservado"],
+  ["5-interior-reservado-detalles", "Detalles del salón reservado"], ["6-salon", "El salón"], ["7-bodega", "La bodega"], ["8-ventanal", "El ventanal"],
+  ["9-exterior", "Exterior del asador"], ["1-bodega", "Bodega"]
+];
 
 var ASADOR = { nombre: "Asador Concepción", lat: 38.99441, lng: -1.85519, placeId: "ChIJ9a4DXr9fZg0RWnS2pzGDDwk" };
 
@@ -1644,6 +1762,39 @@ function mapa() {
   PARKINGS.forEach(function (p, i) { lista.appendChild(fila({ go: "parking/" + p.id, num: "P" + (i + 1), titulo: p.nombre, desc: textoDist(p) })); });
 }
 
+
+/* ---------- banner de pie ---------- */
+function construirBanner() {
+  var reducir = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reducir) { var an = document.querySelector(".molino animateTransform"); if (an && an.parentNode) an.parentNode.removeChild(an); }
+  var pista = document.getElementById("pista");
+  for (var v = 0; v < (reducir ? 1 : 2); v++) {
+    GALERIA.forEach(function (g) {
+      var im = imgSegura(FOTOS + "2022/09/" + g[0] + "-550x550.jpg", v ? "" : g[1], null, function () { this.style.display = "none"; });
+      if (v) im.setAttribute("aria-hidden", "true");
+      pista.appendChild(im);
+    });
+  }
+  var m = document.getElementById("b-marca");
+  m.appendChild(imgSegura(CLIENTE.logoBlanco, "Asador Concepción", null, function () { this.style.display = "none"; }));
+  m.appendChild(imgSegura(CLIENTE.michelin, "Distintivo MICHELIN 2021", null, function () { this.style.display = "none"; }));
+  document.getElementById("b-dir").textContent = CLIENTE.direccion;
+  var tel = document.getElementById("b-tel"); tel.href = CLIENTE.tel; tel.textContent = CLIENTE.tel.replace("tel:", "").replace(/^\+34(\d{3})(\d{2})(\d{2})(\d{2})$/, "+34 $1 $2 $3 $4");
+  var h = document.getElementById("b-hora");
+  CLIENTE.horario.forEach(function (x) { var li = el("li"); li.appendChild(el("span", null, x[0])); li.appendChild(el("span", null, x[1])); h.appendChild(li); });
+  var nav = document.getElementById("b-nav");
+  [["inicio", "Inicio"], ["quienes", "Quiénes somos"], ["comida", "Carta de comida"], ["vinos", "Carta de vinos"], ["proveedores", "Proveedores"], ["origenes", "Denominaciones"], ["llegar", "Cómo llegar"], ["resena", "Reseña"]].forEach(function (x) {
+    var li = el("li"), a = el("a", null, x[1]); a.href = "#" + x[0]; a.setAttribute("data-go", x[0]); li.appendChild(a); nav.appendChild(li);
+  });
+  var lg = document.getElementById("b-legal");
+  CLIENTE.legal.forEach(function (x) { var li = el("li"), a = el("a", null, x[0]); a.href = x[1]; a.target = "_blank"; a.rel = "noopener"; li.appendChild(a); lg.appendChild(li); });
+  var rd = document.getElementById("b-redes");
+  CLIENTE.redes.forEach(function (x) { var a = el("a"); a.href = x.u; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("aria-label", x.n); a.innerHTML = svg(x.d, 20); rd.appendChild(a); });
+  var ac = document.getElementById("b-acc");
+  var a1 = el("a", null, "Llamar"); a1.href = CLIENTE.tel; ac.appendChild(a1);
+  var a2 = el("a", null, "Cómo llegar"); a2.href = "#llegar"; a2.setAttribute("data-go", "llegar"); ac.appendChild(a2);
+}
+
 /* ---------- navegación ---------- */
 function pendiente() {
   var e = document.getElementById("aviso");
@@ -1709,6 +1860,7 @@ window.addEventListener("hashchange", function () { pintar(location.hash.replace
 window.addEventListener("resize", function () { if (!document.querySelector("[data-screen='llegar']").hidden) mapa(); });
 
 enlaces();
+construirBanner();
 Array.prototype.forEach.call(document.querySelectorAll("img[data-oculta]"), function (im) { im.onerror = function () { if (this.parentNode) this.parentNode.hidden = true; }; im.src = im.getAttribute("data-oculta"); });
 listaPlatos();
 listaProveedores();
