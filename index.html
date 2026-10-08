@@ -188,6 +188,89 @@ section[id]{scroll-margin-top:84px}
 .nxs-rows > *{animation:nxsRow 6s ease-out infinite}
 .nxs-rows > *:nth-child(2){animation-delay:.25s}.nxs-rows > *:nth-child(3){animation-delay:.5s}.nxs-rows > *:nth-child(4){animation-delay:.75s}
 }
+
+/* nxq: cuestionario pop-up */
+@keyframes nxqOpen{from{opacity:0}to{opacity:1}}
+@keyframes nxqIn{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+@keyframes nxqDraw{to{stroke-dashoffset:0}}
+@keyframes nxqPop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.08);opacity:1}100%{transform:scale(1)}}
+.nxq-ov{position:fixed;top:0;right:0;bottom:0;left:0;z-index:100;background:#10172A;color:#fff;overflow:auto;overscroll-behavior:contain;animation:nxqOpen .35s ease both;font-family:'DM Sans',system-ui,sans-serif}
+.nxq-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.12);z-index:3}
+.nxq-bar span{display:block;height:100%;background:linear-gradient(90deg,#3F63F5,#00C1CA);border-radius:0 4px 4px 0;transition:width .55s cubic-bezier(.2,.8,.2,1)}
+.nxq-shell{position:relative;min-height:100%;display:flex;flex-direction:column;box-sizing:border-box}
+.nxq-top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:28px clamp(20px,4vw,48px) 0}
+.nxq-brand{display:inline-flex;align-items:center;gap:10px}
+.nxq-x{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,transform .2s ease}
+.nxq-x:hover{background:rgba(255,255,255,.16);transform:rotate(90deg)}
+.nxq-main{position:relative;z-index:2;flex:1;display:flex;align-items:center;justify-content:center;padding:32px clamp(20px,4vw,48px) 120px}
+.nxq-step{width:100%;max-width:720px;display:flex;flex-direction:column;gap:22px;animation:nxqIn .55s cubic-bezier(.2,.8,.2,1) both;margin:0}
+.nxq-num{margin:0;display:flex;align-items:center;gap:10px;font-family:'DM Mono',ui-monospace,monospace;font-size:14px;letter-spacing:.08em;color:#00C1CA}
+.nxq-h{font-size:clamp(28px,4.2vw,46px);line-height:1.1;color:#FFFFFF;margin:0}
+.nxq-sub{margin:-6px 0 0;font-size:18px;color:#C9D2E0;max-width:620px}
+.nxq-in{width:100%;box-sizing:border-box;background:transparent;border:0;border-bottom:2px solid rgba(255,255,255,.35);border-radius:0;color:#fff;font-family:'DM Sans',system-ui,sans-serif;font-size:clamp(22px,3vw,30px);padding:8px 0 12px;transition:border-color .2s ease}
+.nxq-in::placeholder{color:rgba(255,255,255,.42)}
+.nxq-in:focus{outline:none;border-bottom-color:#00C1CA}
+textarea.nxq-in{resize:none;line-height:1.35}
+.nxq-opts{display:flex;flex-direction:column;gap:10px;max-width:520px}
+.nxq-opt{display:flex;align-items:center;gap:14px;width:100%;min-height:54px;padding:10px 16px;border-radius:10px;border-style:solid;border-width:1.5px;color:#fff;font:inherit;font-size:18px;text-align:left;cursor:pointer;box-sizing:border-box;transition:transform .2s ease,background .2s ease,border-color .2s ease}
+.nxq-opt:hover{transform:translateX(5px)}
+.nxq-opt:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.nxq-key{flex-shrink:0;width:28px;height:28px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;font-family:'DM Mono',ui-monospace,monospace;font-size:13px;font-weight:500;transition:background .2s ease,color .2s ease}
+.nxq-lab{flex:1}
+.nxq-tick{flex-shrink:0;transition:opacity .2s ease,transform .25s ease}
+.nxq-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:6px}
+.nxq-ok{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;border:0;background:#FFFFFF;color:#10172A;font:inherit;font-weight:700;font-size:17px;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.nxq-ok:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,193,202,.35)}
+.nxq-ok:focus-visible{outline:2px solid #00C1CA;outline-offset:3px}
+.nxq-hint{font-size:14px;color:#9FB0CB}
+.nxq-hint b{font-weight:700;color:#C9D2E0}
+.nxq-err{margin:0;font-size:16px;color:#FFA3AB;font-weight:500}
+.nxq-back{position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,36px);z-index:4;width:48px;height:48px;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease}
+.nxq-back:hover{background:rgba(255,255,255,.2)}
+.nxq-check{display:flex;align-items:flex-start;gap:14px;width:100%;max-width:620px;padding:16px;border-radius:10px;border-style:solid;border-width:1.5px;background:rgba(255,255,255,.06);color:#fff;font:inherit;font-size:18px;text-align:left;cursor:pointer;box-sizing:border-box}
+.nxq-check:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.nxq-box{flex-shrink:0;width:26px;height:26px;border-radius:7px;border:1.5px solid rgba(255,255,255,.5);display:inline-flex;align-items:center;justify-content:center;margin-top:1px;transition:background .2s ease}
+.nxq-link{color:#9DB8FF;text-decoration:underline}
+.nxq-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.nxq-done{width:100%;max-width:640px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;animation:nxqIn .6s cubic-bezier(.2,.8,.2,1) both}
+.nxq-okc{animation:nxqPop .6s ease .15s both}
+.nxq-okc path{stroke-dasharray:40;stroke-dashoffset:40;animation:nxqDraw .6s ease .55s forwards}
+@media (hover:none){.nxq-hint{display:none}}
+@media (prefers-reduced-motion:reduce){.nxq-ov,.nxq-step,.nxq-done,.nxq-okc,.nxq-okc path{animation:none !important}.nxq-okc path{stroke-dashoffset:0}.nxq-opt,.nxq-ok,.nxq-x,.nxq-bar span{transition:none !important}.nxq-opt:hover,.nxq-ok:hover,.nxq-x:hover{transform:none !important}}
+
+/* nxq: botón grande del hero */
+@keyframes nxqSpin{to{--nx-a:360deg}}
+@keyframes nxqGlow{0%,100%{box-shadow:0 18px 44px rgba(35,71,220,.28)}50%{box-shadow:0 22px 58px rgba(0,193,202,.42)}}
+.nxq-big{position:relative;display:flex;align-items:center;gap:18px;width:100%;max-width:560px;box-sizing:border-box;padding:20px 22px 20px 24px;border:2px solid transparent;border-radius:20px;background:linear-gradient(#10172A,#10172A) padding-box,linear-gradient(135deg,#3F63F5,#00C1CA,#7B79E2) border-box;color:#fff;font-family:inherit;text-align:left;cursor:pointer;box-shadow:0 18px 44px rgba(35,71,220,.28);transition:transform .25s ease}
+.nxq-big:hover{transform:translateY(-3px) scale(1.012)}
+.nxq-big:focus-visible{outline:3px solid #00C1CA;outline-offset:4px}
+.nxq-big-go{flex-shrink:0;width:60px;height:60px;border-radius:50%;background:#FFFFFF;color:#10172A;display:inline-flex;align-items:center;justify-content:center;transition:transform .25s ease}
+.nxq-big:hover .nxq-big-go{transform:translateX(5px)}
+@media (prefers-reduced-motion:no-preference){
+.nxq-big{background:linear-gradient(#10172A,#10172A) padding-box,conic-gradient(from var(--nx-a),#3F63F5,#00C1CA,#7B79E2,#3F63F5) border-box;animation:nxqSpin 5s linear infinite,nxqGlow 3.2s ease-in-out infinite}
+.nxq-big-go{animation:nxFloat 2.6s ease-in-out infinite}
+}
+@media (max-width:480px){.nxq-big{padding:16px 16px 16px 18px;gap:12px}.nxq-big-go{width:50px;height:50px}}
+
+/* nx-mob: móvil primero (la mayoría de visitas llegan por NFC desde el móvil) */
+.nx-page{overflow-x:clip}
+@media (max-width:640px){
+header>.nx-wrap{flex-wrap:nowrap !important;gap:10px !important;padding-left:16px !important;padding-right:16px !important;padding-top:8px !important;padding-bottom:8px !important}
+header>.nx-wrap>a:first-child{flex:0 0 auto}
+header>.nx-wrap>a:first-child>span:first-child{font-size:22px !important}
+header nav[aria-label="Principal"]{flex:1 1 0;min-width:0;flex-wrap:nowrap !important;overflow-x:auto;gap:4px 18px !important;font-size:14px !important;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px}
+header nav[aria-label="Principal"]::-webkit-scrollbar{display:none}
+header nav[aria-label="Principal"]>*{flex:0 0 auto;white-space:nowrap}
+header nav[aria-label="Principal"] .nx-btn-primary{order:-1;min-height:40px !important;padding:0 14px !important;font-size:14px !important}
+.nx-wrap{padding-left:20px;padding-right:20px}
+#contacto>div{padding:40px 22px !important}
+.nxs-float{scale:.74;transform-origin:top right;padding:14px}
+.nxs-float[style*="right:"]{right:0 !important}
+.nxs-float[style*="left:"]{left:0 !important;transform-origin:bottom left}
+.nxs-badge{font-size:12px;padding:7px 12px}
+.nxs-badge[style*="left:"]{left:0 !important}
+.nxs-xm{display:none !important}
+}
 </style>
 </helmet>
 <div class="nx-page">
@@ -198,7 +281,7 @@ section[id]{scroll-margin-top:84px}
 <span class="nx-sphere" style="width:11px;height:11px"></span>
 </a>
 <nav aria-label="Principal" style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 26px;font-size:15px;font-weight:600">
-<a class="nx-nav" href="soluciones.html">Soluciones</a><a class="nx-nav" href="como-funciona.html">Cómo funciona</a><a class="nx-nav" href="precios.html">Precios</a><a class="nx-nav" href="opiniones.html">Opiniones</a><a class="nx-btn-primary" href="#contacto" style="min-height:44px;padding:0 20px;font-size:15px">Pide una demo</a>
+<a class="nx-nav" href="soluciones.html">Soluciones</a><a class="nx-nav" href="como-funciona.html">Cómo funciona</a><a class="nx-nav" href="precios.html">Precios</a><a class="nx-nav" href="opiniones.html">Opiniones</a><button type="button" class="nx-btn-primary" onClick="{{ openQ }}" style="min-height:44px;padding:0 20px;font-size:15px;border:0;cursor:pointer;font-family:inherit">Pide una demo</button>
 </nav>
 </div>
 </header>
@@ -210,12 +293,13 @@ section[id]{scroll-margin-top:84px}
 <h1 class="nx-h nx-h-dark" style="font-size:clamp(42px,5.6vw,76px);animation:nxUp 0.7s ease 0.1s both">Tu negocio, <span class="nx-metal-text">a un toque</span> del móvil.</h1>
 <p style="margin:0;font-size:20px;max-width:540px;color:#3A4458;animation:nxUp 0.7s ease 0.2s both">Diseñamos, instalamos y mantenemos tarjetas y soportes NFC con tu marca. Tus clientes acercan el móvil y dejan una reseña, ven tu carta o te escriben por WhatsApp. Sin apps y sin complicaciones.</p>
 <div style="display:flex;flex-wrap:wrap;gap:12px;animation:nxUp 0.7s ease 0.3s both">
-<a class="nx-btn-primary" href="#contacto">Pide una demo gratis</a>
-<a class="nx-link" href="precios.html" style="padding:0 6px">Ver precios <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+<a class="nx-btn-primary" href="precios.html">Ver precios</a>
+<a class="nx-link" href="soluciones.html" style="padding:0 6px">Ver soluciones <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 </div>
 <p class="nx-mono" style="margin:0;animation:nxUp 0.7s ease 0.4s both">Funciona en iPhone y Android · Sin apps</p>
+<button type="button" class="nxq-big" onClick="{{ openQ }}" style="animation-delay:0s"><span style="flex:1;display:flex;flex-direction:column;gap:6px"><span class="nx-mono" style="color:#00C1CA;font-size:12px">Sin compromiso · menos de 2 minutos</span><span class="nx-h nx-h-l" style="font-size:clamp(26px,3.2vw,36px);line-height:1.05;color:#FFFFFF">Configura el tuyo gratis</span><span style="font-size:16px;color:#C9D2E0">Cuéntanos tu negocio y te preparamos una propuesta a medida.</span></span><span class="nxq-big-go" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></button>
 </div>
-<div style="position:relative;padding:8px 8% 8px 0"><div class="nxs-photo" style="max-width:480px"><span class="nxs-halo" aria-hidden="true"></span><div class="nxs-blob"><img src="img/resena-clinica.jpg" alt="Una paciente acerca el móvil a una tarjeta NFC en la recepción de una clínica y le aparece la pantalla para dejar una reseña" fetchpriority="high"></div><span class="nxs-ping" aria-hidden="true" style="left:61%;top:57%"><span></span><span></span><span></span></span><div class="nxs-float" style="right:-7%;top:-4%;width:210px"><span class="nx-mono" style="font-size:10px">Tu negocio</span><span class="nx-h" style="font-size:21px;line-height:1.05">¿Qué tal ha ido tu visita?</span><span aria-hidden="true" style="display:flex;gap:3px;color:#F5B301;font-size:22px;line-height:1">★★★★★</span><span style="display:block;height:46px;border:1px solid #D5DBE5;border-radius:8px;background:#F4F6F9"></span><span style="display:flex;align-items:center;justify-content:center;min-height:40px;border-radius:999px;background:#10172A;color:#FFFFFF;font-weight:700;font-size:14px">Enviar reseña</span></div><span class="nxs-badge" style="left:-4%;bottom:9%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FE0B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>Reseña en dos toques</span></div></div>
+<div style="position:relative;padding:8px 8% 8px 0"><div class="nxs-photo" style="max-width:480px"><span class="nxs-halo" aria-hidden="true"></span><div class="nxs-blob"><img src="img/resena-clinica.jpg" alt="Una paciente acerca el móvil a una tarjeta NFC en la recepción de una clínica y le aparece la pantalla para dejar una reseña" fetchpriority="high"></div><span class="nxs-ping" aria-hidden="true" style="left:61%;top:57%"><span></span><span></span><span></span></span><div class="nxs-float" style="right:-7%;top:-4%;width:210px"><span class="nx-mono" style="font-size:10px">Tu negocio</span><span class="nx-h" style="font-size:21px;line-height:1.05">¿Qué tal ha ido tu visita?</span><span aria-hidden="true" style="display:flex;gap:3px;color:#F5B301;font-size:22px;line-height:1">★★★★★</span><span class="nxs-xm" style="display:block;height:46px;border:1px solid #D5DBE5;border-radius:8px;background:#F4F6F9"></span><span class="nxs-xm" style="display:flex;align-items:center;justify-content:center;min-height:40px;border-radius:999px;background:#10172A;color:#FFFFFF;font-weight:700;font-size:14px">Enviar reseña</span></div><span class="nxs-badge" style="left:-4%;bottom:9%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FE0B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>Reseña en dos toques</span></div></div>
 </div>
 </section>
 <section style="background:#EAEEF4;border-top:1px solid #C9D0DB;border-bottom:1px solid #C9D0DB">
@@ -269,7 +353,7 @@ section[id]{scroll-margin-top:84px}
 </section>
 <section class="nx-wrap" style="padding-top:104px;padding-bottom:104px;display:flex;flex-direction:column;gap:48px">
 <div class="nx-reveal" style="display:flex;flex-direction:column;gap:16px"><p class="nx-mono" style="margin:0">Precios</p><h2 class="nx-h" style="font-size:clamp(32px,4vw,52px);color:#10172A">Todo a medida: tú decides, el precio se adapta</h2></div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:32px"><div class="nx-reveal" style="display:flex;flex-direction:column;gap:10px;padding:8px 0 8px 28px;border-left:2px solid #10172A"><span class="nx-mono">Tarjeta personalizada</span><span class="nx-h" style="font-size:clamp(40px,5vw,68px)">24,99 €</span><span style="font-size:16px;color:#3A4458">Desde, según tu diseño. Para probarlo en tu local.</span></div><div class="nx-reveal" style="display:flex;flex-direction:column;gap:10px;padding:8px 0 8px 28px;border-left:2px solid #10172A"><span class="nx-mono">Pedido a medida</span><span class="nx-h" style="font-size:clamp(40px,5vw,68px)">159,99 €</span><span style="font-size:16px;color:#3A4458">Desde. Quedamos en persona y valoramos opciones según lo que necesites.</span></div><div class="nx-reveal" style="display:flex;flex-direction:column;gap:10px;padding:8px 0 8px 28px;border-left:2px solid #10172A"><span class="nx-mono">Mantenimiento</span><span class="nx-h" style="font-size:clamp(40px,5vw,68px)">14,99 € <span style="font-size:20px;font-weight:600;color:#55627A">/ mes</span></span><span style="font-size:16px;color:#3A4458">Revisión mensual presencial de tus chips. Con sustitución de tarjetas rotas, 19,99 €.</span></div></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:32px"><div class="nx-reveal" style="display:flex;flex-direction:column;gap:10px;padding:8px 0 8px 28px;border-left:2px solid #10172A"><span class="nx-mono">Tarjeta personalizada</span><span class="nx-h" style="font-size:clamp(40px,5vw,68px)">24,99 €</span><span style="font-size:16px;color:#3A4458">Desde, según tu diseño. Para probarlo en tu local.</span></div><div class="nx-reveal" style="display:flex;flex-direction:column;gap:10px;padding:8px 0 8px 28px;border-left:2px solid #10172A"><span class="nx-mono">Pedido a medida</span><span class="nx-h" style="font-size:clamp(40px,5vw,68px)">159,99 €</span><span style="font-size:16px;color:#3A4458">Desde. Depende de las horas de diseño, el material y el chip, y las funcionalidades que necesites.</span></div><div class="nx-reveal" style="display:flex;flex-direction:column;gap:10px;padding:8px 0 8px 28px;border-left:2px solid #10172A"><span class="nx-mono">Mantenimiento</span><span class="nx-h" style="font-size:clamp(40px,5vw,68px)">14,99 € <span style="font-size:20px;font-weight:600;color:#55627A">/ mes</span></span><span style="font-size:16px;color:#3A4458">Revisión mensual presencial de tus chips. Con sustitución de tarjetas rotas, 19,99 €.</span></div></div>
 <a class="nx-link" href="precios.html" style="align-self:flex-start">Ver todos los precios <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 </section>
 
@@ -282,8 +366,9 @@ section[id]{scroll-margin-top:84px}
 <p style="margin:0;font-size:18px;color:#C9D2E0">Pasamos por tu local, te hacemos la demo en cinco minutos y te decimos qué te conviene. Sin compromiso.</p>
 </div>
 <div style="position:relative;display:flex;flex-direction:column;gap:14px">
-<a class="nx-btn-light" href="https://wa.me/" style="min-height:56px;font-size:18px">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"></path></svg>
+<button type="button" class="nx-btn-light" onClick="{{ openQ }}" style="min-height:56px;font-size:18px;border:0;cursor:pointer;font-family:inherit">Cuéntanos qué necesitas <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button>
+<a class="nx-btn-light" href="https://wa.me/" style="min-height:56px;font-size:18px;background:transparent;color:#FFFFFF;border:1.5px solid rgba(255,255,255,0.4)">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"></path></svg>
 Escríbenos por WhatsApp
 </a>
 <p style="margin:0;text-align:center;font-size:15px;color:#C9D2E0">[TU WHATSAPP] · <a href="mailto:nexianfcsolutions@gmail.com" style="color:#C9D2E0;text-decoration:underline">nexianfcsolutions@gmail.com</a> · Albacete</p>
@@ -315,6 +400,7 @@ Escríbenos por WhatsApp
 </div>
 </footer>
 
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}"><div id="nxq" class="nxq-ov" role="dialog" aria-modal="true" aria-label="Cuéntanos qué necesitas"><div class="nxq-bar" aria-hidden="true"><span style="width:{{ pct }}"></span></div><div class="nxq-shell"><div aria-hidden="true" style="position:absolute;top:-30%;left:-20%;right:-20%;bottom:-30%;background:radial-gradient(35% 45% at 88% 12%,rgba(0,193,202,0.30),rgba(0,193,202,0) 70%),radial-gradient(35% 45% at 8% 92%,rgba(123,121,226,0.30),rgba(123,121,226,0) 70%);animation:nxDrift 11s ease-in-out infinite;pointer-events:none"></div><div class="nxq-top"><span class="nxq-brand"><span class="nx-sphere" aria-hidden="true" style="width:22px;height:22px"></span><span class="nx-mono" style="color:#FFFFFF">NEXIA</span></span><span style="display:inline-flex;align-items:center;gap:16px"><sc-if value="{{ showCount }}" hint-placeholder-val="{{ false }}"><span class="nx-mono" style="color:#9FB0CB" aria-live="polite">{{ countText }}</span></sc-if><button type="button" class="nxq-x" aria-label="Cerrar el cuestionario" onClick="{{ close }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button></span></div><div class="nxq-main"><sc-if value="{{ qW }}" hint-placeholder-val="{{ false }}"><div class="nxq-step" style="gap:26px"><p class="nx-mono" style="margin:0;color:#9DB8FF">Cuéntanos tu negocio · NEXIA</p><h2 id="nxq-tw" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF;font-size:clamp(36px,6vw,72px)">Cuéntanos qué necesitas</h2><p class="nxq-sub" style="margin:0;font-size:20px">Diez preguntas cortas, menos de dos minutos. Con tus respuestas te preparamos una propuesta a tu medida.</p><div class="nxq-actions"><button type="button" data-first class="nxq-ok" onClick="{{ start }}">Empezar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><p class="nxq-hint" style="display:block;margin:0;max-width:560px">Tus respuestas llegan solo a NEXIA y se usan para contactar contigo. Más información en la <a class="nxq-link" href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p></div></sc-if><sc-if value="{{ q0 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>1</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t0" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">¿Cómo se llama tu negocio?</h2><input data-first class="nxq-in" type="text" name="v" placeholder="Escribe el nombre aquí…" autocomplete="organization" aria-labelledby="nxq-t0" maxlength="120"><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ q1 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>2</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t1" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ t1 }}</h2><p class="nxq-sub">Cuéntanoslo con tus palabras, sin prisas.</p><textarea data-first class="nxq-in" name="v" rows="3" placeholder="Somos una cafetería en el centro…" aria-labelledby="nxq-t1" maxlength="800">{{ v.actividad }}</textarea><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">Ctrl + <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ q2 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>3</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t2" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">¿Qué te interesa de NEXIA?</h2><p class="nxq-sub">Elige todas las que quieras.</p><div class="nxq-opts" role="group" aria-labelledby="nxq-t2"><button type="button" class="nxq-opt" role="checkbox" aria-checked="{{ o.interes0.aria }}" onClick="{{ o.interes0.pick }}" style="border-color:{{ o.interes0.bd }};background:{{ o.interes0.bg }}"><span class="nxq-key" style="background:{{ o.interes0.lb }};color:{{ o.interes0.lc }}">A</span><span class="nxq-lab">Reseñas en Google</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.interes0.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="checkbox" aria-checked="{{ o.interes1.aria }}" onClick="{{ o.interes1.pick }}" style="border-color:{{ o.interes1.bd }};background:{{ o.interes1.bg }}"><span class="nxq-key" style="background:{{ o.interes1.lb }};color:{{ o.interes1.lc }}">B</span><span class="nxq-lab">Carta digital para mesas</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.interes1.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="checkbox" aria-checked="{{ o.interes2.aria }}" onClick="{{ o.interes2.pick }}" style="border-color:{{ o.interes2.bd }};background:{{ o.interes2.bg }}"><span class="nxq-key" style="background:{{ o.interes2.lb }};color:{{ o.interes2.lc }}">C</span><span class="nxq-lab">Tarjeta de visita inteligente</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.interes2.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="checkbox" aria-checked="{{ o.interes3.aria }}" onClick="{{ o.interes3.pick }}" style="border-color:{{ o.interes3.bd }};background:{{ o.interes3.bg }}"><span class="nxq-key" style="background:{{ o.interes3.lb }};color:{{ o.interes3.lc }}">D</span><span class="nxq-lab">Información para hoteles</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.interes3.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="checkbox" aria-checked="{{ o.interes4.aria }}" onClick="{{ o.interes4.pick }}" style="border-color:{{ o.interes4.bd }};background:{{ o.interes4.bg }}"><span class="nxq-key" style="background:{{ o.interes4.lb }};color:{{ o.interes4.lc }}">E</span><span class="nxq-lab">Otro</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.interes4.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button></div><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">o pulsa la letra de la opción</span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ q3 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>4</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t3" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">¿Qué te gustaría conseguir?</h2><p class="nxq-sub">Opcional. Por ejemplo: más reseñas, mesas sin cartas de papel, una tarjeta que se actualice sola…</p><textarea data-first class="nxq-in" name="v" rows="3" placeholder="Escribe aquí lo que tengas en mente…" aria-labelledby="nxq-t3" maxlength="800">{{ v.objetivo }}</textarea><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">Ctrl + <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ q4 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>5</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t4" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">¿Usas ya algo parecido?</h2><p class="nxq-sub">Opcional.</p><div class="nxq-opts" role="radiogroup" aria-labelledby="nxq-t4"><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.usa0.aria }}" onClick="{{ o.usa0.pick }}" style="border-color:{{ o.usa0.bd }};background:{{ o.usa0.bg }}"><span class="nxq-key" style="background:{{ o.usa0.lb }};color:{{ o.usa0.lc }}">A</span><span class="nxq-lab">No</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.usa0.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.usa1.aria }}" onClick="{{ o.usa1.pick }}" style="border-color:{{ o.usa1.bd }};background:{{ o.usa1.bg }}"><span class="nxq-key" style="background:{{ o.usa1.lb }};color:{{ o.usa1.lc }}">B</span><span class="nxq-lab">Sí, códigos QR</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.usa1.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.usa2.aria }}" onClick="{{ o.usa2.pick }}" style="border-color:{{ o.usa2.bd }};background:{{ o.usa2.bg }}"><span class="nxq-key" style="background:{{ o.usa2.lb }};color:{{ o.usa2.lc }}">C</span><span class="nxq-lab">Sí, NFC</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.usa2.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.usa3.aria }}" onClick="{{ o.usa3.pick }}" style="border-color:{{ o.usa3.bd }};background:{{ o.usa3.bg }}"><span class="nxq-key" style="background:{{ o.usa3.lb }};color:{{ o.usa3.lc }}">D</span><span class="nxq-lab">No lo sé</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.usa3.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button></div><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">o pulsa la letra de la opción</span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ q5 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>6</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t5" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">¿Cuántos locales tienes?</h2><p class="nxq-sub">Opcional.</p><div class="nxq-opts" role="radiogroup" aria-labelledby="nxq-t5"><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.locales0.aria }}" onClick="{{ o.locales0.pick }}" style="border-color:{{ o.locales0.bd }};background:{{ o.locales0.bg }}"><span class="nxq-key" style="background:{{ o.locales0.lb }};color:{{ o.locales0.lc }}">A</span><span class="nxq-lab">1</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.locales0.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.locales1.aria }}" onClick="{{ o.locales1.pick }}" style="border-color:{{ o.locales1.bd }};background:{{ o.locales1.bg }}"><span class="nxq-key" style="background:{{ o.locales1.lb }};color:{{ o.locales1.lc }}">B</span><span class="nxq-lab">2 o 3</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.locales1.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.locales2.aria }}" onClick="{{ o.locales2.pick }}" style="border-color:{{ o.locales2.bd }};background:{{ o.locales2.bg }}"><span class="nxq-key" style="background:{{ o.locales2.lb }};color:{{ o.locales2.lc }}">C</span><span class="nxq-lab">4 o más</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.locales2.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button></div><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">o pulsa la letra de la opción</span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ q6 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>7</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t6" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">¿Cómo prefieres que te contactemos?</h2><div class="nxq-opts" role="radiogroup" aria-labelledby="nxq-t6"><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.contacto0.aria }}" onClick="{{ o.contacto0.pick }}" style="border-color:{{ o.contacto0.bd }};background:{{ o.contacto0.bg }}"><span class="nxq-key" style="background:{{ o.contacto0.lb }};color:{{ o.contacto0.lc }}">A</span><span class="nxq-lab">WhatsApp</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.contacto0.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.contacto1.aria }}" onClick="{{ o.contacto1.pick }}" style="border-color:{{ o.contacto1.bd }};background:{{ o.contacto1.bg }}"><span class="nxq-key" style="background:{{ o.contacto1.lb }};color:{{ o.contacto1.lc }}">B</span><span class="nxq-lab">Correo electrónico</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.contacto1.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><button type="button" class="nxq-opt" role="radio" aria-checked="{{ o.contacto2.aria }}" onClick="{{ o.contacto2.pick }}" style="border-color:{{ o.contacto2.bd }};background:{{ o.contacto2.bg }}"><span class="nxq-key" style="background:{{ o.contacto2.lb }};color:{{ o.contacto2.lc }}">C</span><span class="nxq-lab">Llamada</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.contacto2.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button></div><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">o pulsa la letra de la opción</span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ q7 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>8</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t7" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">¿Cómo te llamas?</h2><input data-first class="nxq-in" type="text" name="v" placeholder="Tu nombre" autocomplete="given-name" aria-labelledby="nxq-t7" maxlength="120"><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ q8 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>9</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t8" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ t8 }}</h2><input data-first class="nxq-in" type="text" name="v" placeholder="{{ ph8 }}" autocomplete="off" aria-labelledby="nxq-t8" maxlength="120"><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ q9 }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>10</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t9" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">Último paso: tu permiso</h2><p class="nxq-sub">Para poder escribirte necesitamos que lo aceptes.</p><button type="button" class="nxq-check" role="checkbox" aria-checked="{{ o.consent.aria }}" onClick="{{ toggleConsent }}" style="border-color:{{ o.consent.bd }}"><span class="nxq-box" style="background:{{ o.consent.lb }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.consent.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span>Acepto que NEXIA use estos datos para contactar conmigo sobre mi consulta.</span></button><p class="nxq-hint" style="display:block;margin:0;max-width:620px">Responsable: Carlos Sánchez Cifuentes. Puedes retirar tu consentimiento cuando quieras. Más información en la <a class="nxq-link" href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p><input class="nxq-hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true"><div class="nxq-actions"><button type="submit" class="nxq-ok">{{ sendLabel }} </button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qDone }}" hint-placeholder-val="{{ false }}"><div class="nxq-done" role="status"><span class="nxq-okc" style="width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#3F63F5,#00C1CA);display:inline-flex;align-items:center;justify-content:center"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><h2 class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ doneTitle }}</h2><p class="nxq-sub" style="margin:0;font-size:20px">{{ doneText }}</p><div class="nxq-actions"><button type="button" class="nxq-ok" onClick="{{ close }}">Cerrar</button><a class="nxq-link" href="precios.html" style="font-weight:700">Ver precios</a></div></div></sc-if></div><sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}"><button type="button" class="nxq-back" aria-label="Pregunta anterior" onClick="{{ back }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"></path></svg></button></sc-if></div></div></sc-if>
 <a class="nx-btn-primary" href="https://wa.me/" aria-label="Escríbenos por WhatsApp" style="position:fixed;right:20px;bottom:20px;z-index:30;width:60px;height:60px;padding:0;border-radius:50%;box-shadow:0 12px 28px rgba(16,23,42,0.3)">
 <span aria-hidden="true" style="position:absolute;top:0;left:0;width:60px;height:60px;border-radius:50%;border:2px solid #00C1CA;animation:nxPulse 2.8s ease-out infinite"></span>
 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"></path></svg>
@@ -325,6 +411,27 @@ Escríbenos por WhatsApp
 class Component extends DCLogic {
 componentDidMount() {
   try {
+    this._kd = (ev) => {
+      const st = this.state || {};
+      if (!st.open) return;
+      if (ev.key === 'Escape') { this.qClose(); return; }
+      const t = (ev.composedPath && ev.composedPath()[0]) || ev.target;
+      const tag = t && t.tagName ? t.tagName : '';
+      if ((ev.ctrlKey || ev.metaKey) && ev.key === 'Enter' && tag === 'TEXTAREA') {
+        ev.preventDefault();
+        if (t.form && t.form.requestSubmit) t.form.requestSubmit();
+        return;
+      }
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || ev.ctrlKey || ev.metaKey || ev.altKey) return;
+      const d = this.qDefs()[st.step];
+      if (d && d.opts && ev.key && ev.key.length === 1) {
+        const j = ev.key.toLowerCase().charCodeAt(0) - 97;
+        if (j >= 0 && j < d.opts.length) { ev.preventDefault(); this.qPick(d.k, d.opts[j]); }
+      }
+    };
+    document.addEventListener('keydown', this._kd);
+  } catch (e) {}
+  try {
     fetch('opiniones.json', { headers: { Accept: 'application/json' } })
       .then((r) => (r.ok ? r.json() : []))
       .then((d) => this.setState({ reviews: Array.isArray(d) ? d : (d && d.opiniones) || [] }))
@@ -332,6 +439,210 @@ componentDidMount() {
   } catch (e) {
     this.setState({ reviews: [] });
   }
+}
+qDefs() {
+  return [
+    { k: 'negocio', t: 'text', req: true, lab: 'Nombre del negocio' },
+    { k: 'actividad', t: 'long', req: true, lab: 'A qué se dedica' },
+    { k: 'interes', t: 'multi', req: true, lab: 'Qué le interesa de NEXIA', opts: ['Reseñas en Google', 'Carta digital para mesas', 'Tarjeta de visita inteligente', 'Información para hoteles', 'Otro'] },
+    { k: 'objetivo', t: 'long', req: false, lab: 'Qué le gustaría conseguir' },
+    { k: 'usa', t: 'single', req: false, lab: 'Usa ya algo parecido', opts: ['No', 'Sí, códigos QR', 'Sí, NFC', 'No lo sé'] },
+    { k: 'locales', t: 'single', req: false, lab: 'Cuántos locales tiene', opts: ['1', '2 o 3', '4 o más'] },
+    { k: 'contacto', t: 'single', req: true, lab: 'Cómo prefiere que le contactemos', opts: ['WhatsApp', 'Correo electrónico', 'Llamada'] },
+    { k: 'nombre', t: 'text', req: true, lab: 'Nombre de la persona de contacto' },
+    { k: 'dato', t: 'text', req: true, lab: 'Teléfono o correo electrónico' },
+    { k: 'consent', t: 'consent', req: true, lab: 'Consentimiento' }
+  ];
+}
+qFocus(ms) {
+  setTimeout(() => {
+    try {
+      const r = this._root || document;
+      const el = r.querySelector('#nxq [data-first]');
+      if (el) {
+        const st = this.state || {};
+        const d = this.qDefs()[st.step];
+        const prev = d && st.ans ? st.ans[d.k] : '';
+        if (!el.value && typeof prev === 'string' && prev) el.value = prev;
+      }
+      if (el && el.focus) el.focus();
+    } catch (e) {}
+  }, ms || 420);
+}
+qOpen(e) {
+  try { if (e && e.preventDefault) e.preventDefault(); } catch (x) {}
+  try { if (e && e.currentTarget && e.currentTarget.getRootNode) this._root = e.currentTarget.getRootNode(); } catch (x) {}
+  this.setState({ open: true, step: -1, err: '', status: 'idle' });
+  this.qFocus(150);
+}
+qStart() { this.setState({ step: 0, err: '' }); this.qFocus(); }
+qClose() {
+  const st = this.state || {};
+  if (st.step === 10) this.setState({ open: false, step: -1, ans: {}, err: '', status: 'idle' });
+  else this.setState({ open: false });
+}
+qBack() {
+  const st = this.state || {};
+  if (st.step > 0 && st.step < 10) { this.setState({ step: st.step - 1, err: '' }); this.qFocus(); }
+  else if (st.step === 0) this.setState({ step: -1, err: '' });
+  if (st.step === 0) this.qFocus();
+}
+qValidContact(v) {
+  const mail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  const digits = v.replace(/[\s.\-()+]/g, '');
+  const tel = /^\d{9,15}$/.test(digits);
+  return mail || tel;
+}
+qPick(k, lab) {
+  const st = this.state || {};
+  const defs = this.qDefs();
+  const qi = defs.findIndex((d) => d.k === k);
+  if (qi < 0 || st.step !== qi) return;
+  const d = defs[qi];
+  const ans = Object.assign({}, st.ans || {});
+  if (d.t === 'multi') {
+    const cur = Array.isArray(ans[k]) ? ans[k].slice() : [];
+    const at = cur.indexOf(lab);
+    if (at > -1) cur.splice(at, 1); else cur.push(lab);
+    ans[k] = cur;
+    this.setState({ ans: ans, err: '' });
+  } else {
+    ans[k] = lab;
+    this.setState({ ans: ans, err: '' });
+    setTimeout(() => {
+      const now = this.state || {};
+      if (now.open && now.step === qi) { this.setState({ step: qi + 1, err: '' }); this.qFocus(); }
+    }, 360);
+  }
+}
+qToggleConsent() {
+  const st = this.state || {};
+  const ans = Object.assign({}, st.ans || {});
+  ans.consent = !ans.consent;
+  this.setState({ ans: ans, err: '' });
+}
+qNext(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  const st = this.state || {};
+  const step = st.step;
+  const d = this.qDefs()[step];
+  if (!d) return;
+  const ans = Object.assign({}, st.ans || {});
+  const f = (e && (e.currentTarget || e.target)) || null;
+  if (f && f.elements && f.elements.web && f.elements.web.value) return;
+  let err = '';
+  if (d.t === 'text' || d.t === 'long') {
+    const el = f && f.elements ? f.elements.v : null;
+    const v = el && el.value ? String(el.value).trim() : '';
+    ans[d.k] = v;
+    if (d.req && !v) err = 'Este campo es obligatorio.';
+    else if (d.k === 'dato' && !this.qValidContact(v)) err = 'Escribe un teléfono (9 cifras) o un correo válido.';
+  } else if (d.t === 'multi') {
+    if (d.req && !(Array.isArray(ans[d.k]) && ans[d.k].length)) err = 'Elige al menos una opción.';
+  } else if (d.t === 'single') {
+    if (d.req && !ans[d.k]) err = 'Elige una opción para continuar.';
+  } else if (d.t === 'consent') {
+    if (!ans.consent) err = 'Necesitamos tu permiso para poder contactar contigo.';
+  }
+  if (err) { this.setState({ ans: ans, err: err }); return; }
+  if (step === 9) { this.qSend(ans); return; }
+  this.setState({ ans: ans, err: '', step: step + 1 });
+  this.qFocus();
+}
+qSend(ans) {
+  // Para recibir los cuestionarios en un servicio de formularios (Formspree, Web3Forms...),
+  // pega aquí su dirección. Mientras esté vacío, se abre el correo del cliente con las respuestas escritas.
+  const ENDPOINT = '';
+  const MAIL = 'nexianfcsolutions@gmail.com';
+  const defs = this.qDefs();
+  const data = { origen: 'Web NEXIA · Cuéntanos qué necesitas', fecha: new Date().toISOString().slice(0, 10) };
+  let body = '';
+  defs.slice(0, 9).forEach((d) => {
+    const v = ans[d.k];
+    const t = Array.isArray(v) ? v.join(', ') : (v || '—');
+    data[d.lab] = t;
+    body += d.lab + ': ' + t + '\n';
+  });
+  data['Consentimiento'] = 'Acepta que NEXIA use estos datos para contactar con él/ella sobre su consulta.';
+  body += '\nAcepto que NEXIA use estos datos para contactar conmigo sobre mi consulta.';
+  if (ENDPOINT) {
+    this.setState({ ans: ans, status: 'sending', err: '' });
+    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
+      .then((r) => this.setState(r.ok ? { status: 'ok', step: 10 } : { status: 'error', err: 'No hemos podido enviarlo. Inténtalo de nuevo o escríbenos a nexianfcsolutions@gmail.com.' }))
+      .catch(() => this.setState({ status: 'error', err: 'No hemos podido enviarlo. Inténtalo de nuevo o escríbenos a nexianfcsolutions@gmail.com.' }));
+  } else {
+    this.setState({ ans: ans, status: 'mail', step: 10, err: '' });
+    try { window.location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Cuestionario web · ' + (ans.negocio || 'nuevo contacto')) + '&body=' + encodeURIComponent(body); } catch (x) {}
+  }
+}
+qVals() {
+  const st = this.state || {};
+  const defs = this.qDefs();
+  const step = typeof st.step === 'number' ? st.step : -1;
+  const ans = st.ans || {};
+  const o = {};
+  defs.forEach((d) => {
+    if (!d.opts) return;
+    d.opts.forEach((lab, j) => {
+      const on = d.t === 'multi' ? (Array.isArray(ans[d.k]) && ans[d.k].indexOf(lab) > -1) : ans[d.k] === lab;
+      o[d.k + j] = {
+        bg: on ? 'rgba(0,193,202,0.18)' : 'rgba(255,255,255,0.06)',
+        bd: on ? '#00C1CA' : 'rgba(255,255,255,0.24)',
+        lb: on ? '#00C1CA' : 'rgba(255,255,255,0.12)',
+        lc: on ? '#10172A' : '#C9D2E0',
+        ck: on ? '1' : '0',
+        aria: on ? 'true' : 'false',
+        pick: () => this.qPick(d.k, lab)
+      };
+    });
+  });
+  const cOn = !!ans.consent;
+  o.consent = { bd: cOn ? '#00C1CA' : 'rgba(255,255,255,0.24)', lb: cOn ? '#00C1CA' : 'transparent', ck: cOn ? '1' : '0', aria: cOn ? 'true' : 'false' };
+  const first = String(ans.nombre || '').trim().split(' ')[0];
+  const pref = ans.contacto;
+  let t8 = first ? first + ', ¿a qué teléfono te escribimos?' : '¿Cuál es tu teléfono o correo?';
+  let ph8 = '600 000 000';
+  if (pref === 'Correo electrónico') { t8 = first ? first + ', ¿a qué correo te escribimos?' : '¿Cuál es tu correo electrónico?'; ph8 = 'nombre@correo.com'; }
+  else if (pref === 'Llamada') { t8 = first ? first + ', ¿a qué teléfono te llamamos?' : '¿A qué teléfono te llamamos?'; }
+  else if (pref === 'WhatsApp') { t8 = first ? first + ', ¿cuál es tu WhatsApp?' : '¿Cuál es tu WhatsApp?'; }
+  const v = {};
+  defs.forEach((d) => { v[d.k] = typeof ans[d.k] === 'string' ? ans[d.k] : ''; });
+  const done = step === 10;
+  const nm = first ? ', ' + first : '';
+  const mailMode = st.status === 'mail';
+  const how = pref === 'Correo electrónico' ? 'por correo' : (pref === 'Llamada' ? 'por teléfono' : (pref === 'WhatsApp' ? 'por WhatsApp' : 'lo antes posible'));
+  const out = {
+    open: !!st.open,
+    qW: step === -1,
+    qDone: done,
+    showBack: step >= 0 && step < 10,
+    showCount: step >= 0 && step < 10,
+    countText: (step + 1) + ' / 10',
+    pct: (done ? 100 : Math.max(0, step) * 10) + '%',
+    hasErr: !!st.err,
+    err: st.err || '',
+    sendLabel: st.status === 'sending' ? 'Enviando…' : 'Enviar',
+    t1: ans.negocio ? '¿A qué se dedica ' + ans.negocio + '?' : '¿A qué se dedica tu negocio?',
+    t8: t8,
+    t8s: t8,
+    ph8: ph8,
+    v: v,
+    o: o,
+    start: () => this.qStart(),
+    close: () => this.qClose(),
+    back: () => this.qBack(),
+    next: (e) => this.qNext(e),
+    toggleConsent: () => this.qToggleConsent(),
+    openQ: (e) => this.qOpen(e),
+    doneTitle: '¡Gracias' + nm + '!',
+    doneText: mailMode
+      ? 'Se ha abierto tu correo con las respuestas ya escritas: solo te queda pulsar enviar. Si no se ha abierto, escríbenos a nexianfcsolutions@gmail.com y te atendemos igual.'
+      : 'Hemos recibido tu consulta. Te contactaremos ' + how + ' para ver qué te conviene.'
+  };
+  for (let i = 0; i < 10; i++) out['q' + i] = step === i;
+  // título de la pregunta 9 (índice 8) = t8; alias t{i} para las que usan holes
+  out.t8 = t8;
+  return out;
 }
 renderVals() {
   const st = this.state || {};
@@ -352,13 +663,13 @@ renderVals() {
       meta: [r.negocio, date].filter(Boolean).join(' · ')
     };
   });
-  return {
+  return Object.assign({
     reviews: list,
     hasReviews: n > 0,
     noReviews: n === 0,
     countText: n + (n === 1 ? ' opinión' : ' opiniones'),
     avgText: avg.toFixed(1).replace('.', ',')
-  };
+  }, this.qVals());
 }
 }
 </script>
