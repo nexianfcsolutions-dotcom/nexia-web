@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Prueba de pagos · NEXIA</title>
+<style>
+:root{--bg:#f4f6fa;--surface:#fff;--fg:#10172a;--muted:#5a6781;--line:#dde2ec;--accent:#007ec2;--accent-fg:#fff;--soft:#e3f2fb;--warn-bg:#fff4dc;--warn-fg:#6b4a00;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1020;--surface:#131b30;--fg:#e8ecf5;--muted:#9aa6bf;--line:#26314d;--accent:#3fb1ee;--accent-fg:#06121f;--soft:#12304a;--warn-bg:#3a2e0e;--warn-fg:#f3d58a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:32px clamp(16px,4vw,32px) 56px}
+main{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3,p{margin:0}h1{font-size:clamp(28px,5vw,40px);line-height:1.15}h2{font-size:20px}
+.eyebrow{font:12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header,section{display:flex;flex-direction:column;gap:12px}
+header p,.note{color:var(--muted);max-width:66ch;font-size:14px}
+.banner{background:var(--warn-bg);color:var(--warn-fg);padding:12px 14px;border-radius:8px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.plan p{color:var(--muted);font-size:14px;flex:1}
+.price{font-size:28px;font-weight:700}.price small{font-size:14px;font-weight:400;color:var(--muted)}
+.methods{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.btn{display:inline-block;text-align:center;background:var(--accent);color:var(--accent-fg);text-decoration:none;font-weight:600;padding:12px 16px;border-radius:8px}
+.btn:focus-visible,button:focus-visible{outline:3px solid #00a3ad;outline-offset:2px}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line)}tr:last-child td{border-bottom:0}
+th{font:11px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.num{font:14px ui-monospace,Menlo,Consolas,monospace;white-space:nowrap}
+.copy{font:inherit;font-size:12px;background:var(--soft);color:var(--accent);border:0;border-radius:6px;padding:6px 10px;cursor:pointer;font-weight:600}
+ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}input{margin-top:4px;accent-color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+<header>
+<span class="eyebrow">NEXIA · Smart NFC Solutions</span>
+<h1>Prueba de pagos</h1>
+<p>Abre cada enlace de cobro de Stripe y comprueba que funciona antes de ponerlo en la web. Todo está en modo prueba: no se cobra dinero real.</p>
+<div class="banner">Página interna, no pública. Usa solo las tarjetas de la tabla de abajo: una tarjeta real será rechazada.</div>
+</header>
+
+<section aria-labelledby="enlaces">
+<h2 id="enlaces">Enlaces de cobro</h2>
+<div class="grid">
+<article class="plan"><h3>Revisión mensual</h3><div class="price">14,99 € <small>/mes + IVA</small></div><p>Revisión presencial mensual de tus tarjetas y soluciones NFC.</p><div class="methods">Tarjeta · PayPal</div><a class="btn" href="https://buy.stripe.com/test_28EcN47bhc6McbU2sOgA800" target="_blank" rel="noopener">Probar suscripción</a></article>
+<article class="plan"><h3>Revisión + reposición</h3><div class="price">19,99 € <small>/mes + IVA</small></div><p>Revisión mensual y sustitución de tarjetas con errores o rotas.</p><div class="methods">Tarjeta · PayPal</div><a class="btn" href="https://buy.stripe.com/test_fZufZg9jpb2I8ZIgjEgA801" target="_blank" rel="noopener">Probar suscripción</a></article>
+<article class="plan"><h3>Pedido a medida</h3><div class="price">Importe libre <small>+ IVA</small></div><p>El cliente escribe el importe de su presupuesto (entre 50 € y 3.000 €) y su número de presupuesto.</p><div class="methods">Tarjeta · PayPal · Bizum</div><a class="btn" href="https://buy.stripe.com/test_dRm7sK67dgn2dfY9VggA802" target="_blank" rel="noopener">Probar pedido</a></article>
+</div>
+<p class="note">Bizum y PayPal solo aparecerán al pagar cuando estén activados en el panel de Stripe. Bizum no admite suscripciones.</p>
+</section>
+
+<section aria-labelledby="tarjetas">
+<h2 id="tarjetas">Tarjetas de prueba</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Resultado</th><th>Número</th><th></th></tr></thead>
+<tbody>
+<tr><td>Pago correcto</td><td class="num">4242 4242 4242 4242</td><td><button class="copy" data-copy="4242424242424242">Copiar</button></td></tr>
+<tr><td>Pide verificación del banco (3D Secure)</td><td class="num">4000 0025 0000 3155</td><td><button class="copy" data-copy="4000002500003155">Copiar</button></td></tr>
+<tr><td>Rechazada por saldo insuficiente</td><td class="num">4000 0000 0000 9995</td><td><button class="copy" data-copy="4000000000009995">Copiar</button></td></tr>
+</tbody></table></div>
+<p class="note">En las tres: cualquier fecha de caducidad futura (por ejemplo 12/34), cualquier CVC de 3 cifras y cualquier nombre. En la dirección de facturación elige España.</p>
+</section>
+
+<section aria-labelledby="checks">
+<h2 id="checks">Qué comprobar</h2>
+<ul>
+<li><label><input type="checkbox"> El producto, el precio y el periodo (por mes) son los correctos.</label></li>
+<li><label><input type="checkbox"> Al escribir una dirección de España, el IVA del 21 % aparece como línea aparte y el total sube (14,99 € pasa a unos 18,14 €).</label></li>
+<li><label><input type="checkbox"> El pedido a medida pide el número de presupuesto y deja escribir el importe.</label></li>
+<li><label><input type="checkbox"> Tras pagar sale el mensaje de agradecimiento de NEXIA.</label></li>
+<li><label><input type="checkbox"> El pago aparece en Stripe, en Pagos y en Suscripciones, con el nombre del cliente.</label></li>
+<li><label><input type="checkbox"> La tarjeta rechazada muestra un error claro y no crea el pago.</label></li>
+</ul>
+</section>
+
+<section aria-labelledby="centimo">
+<h2 id="centimo">Sobre el pago de 1 céntimo</h2>
+<p class="note">Stripe no admite cobros de menos de 0,50 € en euros, así que 1 céntimo no es posible. En modo prueba da igual el importe, porque no se mueve dinero. Un pago real de prueba (por ejemplo 0,50 €) solo se podrá hacer en modo real, con el alta de autónomo y el NIF.</p>
+</section>
+</main>
+<script>
+document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-copy');var t=b.textContent;var done=function(){b.textContent='Copiado';setTimeout(function(){b.textContent=t},1400)};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(done,function(){b.textContent=v})}else{b.textContent=v}})});
+</script>
+</body>
+</html>
