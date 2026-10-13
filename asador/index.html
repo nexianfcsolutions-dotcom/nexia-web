@@ -206,7 +206,7 @@ a { color: inherit; }
 .ficha-precio .v { font: 700 26px/1.2 var(--serif); color: var(--carbon); }
 .ficha-contiene { margin: 0 0 6px; font: 600 13px/1.3 var(--sans); color: var(--text); }
 .foto-info .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-/* Vídeos de ambiente (asador/video/): se reproducen mudos y en bucle; con «reducir movimiento» o ahorro de datos solo se ve la imagen fija. */
+/* Vídeos de ambiente (asador/video/): se reproducen mudos y en bucle; con ahorro de datos solo se ve la imagen fija. */
 .hero.hero-foto { position: relative; overflow: hidden; }
 .clip-bg { position: absolute; inset: 0; width: 100%; height: 100%; place-self: stretch; z-index: 0; }
 .hero.hero-foto > .clip-bg { position: absolute; }
@@ -2605,7 +2605,8 @@ function fondoEscena(p) { document.documentElement.setAttribute("data-fondo", ES
 /* ---------- vídeos de ambiente ---------- */
 var CLIPS = { hero: ["video/hero", "video/hero.jpg"], sala: ["video/sala", "video/sala.jpg"], vinos: ["video/vinos", "video/vinos.jpg"], fachada: ["video/fachada", "video/fachada.jpg"] };
 var SIN_MOVIMIENTO = false;
-try { SIN_MOVIMIENTO = !!((window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) || (navigator.connection && navigator.connection.saveData)); } catch (e) {}
+/* Solo se omite el vídeo con «ahorro de datos». El ajuste «reducir movimiento» no lo desactiva: son clips lentos, mudos y con botón de pausa siempre visible. */
+try { SIN_MOVIMIENTO = !!(navigator.connection && navigator.connection.saveData); } catch (e) {}
 var ICO_PAUSA = '<path d="M9 5v14M15 5v14"/>', ICO_PLAY = '<path d="M8 5l11 7-11 7z"/>';
 function activarClips(pantalla) {
   var vs = document.querySelectorAll("video[data-ambiente]");
