@@ -557,13 +557,17 @@ qPrice(ans) {
   const open = !qty || !ans.diseno || ans.diseno === 'ayuda' || (portal && !level) || level === 'completo';
   const extrasText = ex.map((x) => '+' + f(x[0]) + ' por unidad (' + x[1] + ')').join(' · ');
   if (ex.length) ex.forEach((x) => lines.push([x[1].charAt(0).toUpperCase() + x[1].slice(1) + ' (+' + f(x[0]) + ' × ' + n + ')', f(r2(x[0] * n))]));
+
+  // Formatos que se cobran online. El servidor de pagos (Netlify) debe tener el precio de placa y soporte desplegado (nexia-pagos d23df70) antes de añadir 'placa' y 'soporte' aquí.
+  const PAGO_ONLINE = ['tarjeta'];
   let note;
   if (!qty) note = spec + 'El precio va cambiando según avanzas. Los extras se suman por unidad.';
   else if (level === 'completo') note = spec + 'El portal completo se presupuesta contigo: el precio mostrado es un mínimo.';
   else if (ans.diseno === 'ayuda') note = spec + 'Si el diseño lo hacemos nosotros, se suman 15 €.';
+  else if (PAGO_ONLINE.indexOf(ans.formato) < 0) note = spec + 'Te confirmamos el pedido y el plazo antes de empezar. No pagas nada ahora.';
   else note = spec + 'Pedido de precio fijo: puedes pagarlo al terminar. Te confirmamos el plazo antes de empezar.';
   const showTotal = !!qty && ex.length > 0;
-  const canPay = !open && !!qty && ans.ndis !== '2' && ans.ndis !== '3';
+  const canPay = !open && !!qty && ans.ndis !== '2' && ans.ndis !== '3' && PAGO_ONLINE.indexOf(ans.formato) > -1;
   const iva = r2(total * 0.21);
   if (canPay) { lines.push(['Total sin IVA', f(total)]); lines.push(['IVA (21 %)', f(iva)]); lines.push(['Total a pagar', f(r2(total + iva))]); }
   return {
