@@ -495,8 +495,6 @@ vidReady(e) {
   try {
     const v = e.currentTarget;
     v.muted = true;
-    const rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (rm) { v.pause(); this.setState({ vidPaused: true }); return; }
     const pr = v.play();
     if (pr && pr.catch) pr.catch(() => this.setState({ vidPaused: true }));
   } catch (x) {}
