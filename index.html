@@ -302,6 +302,28 @@ header nav[aria-label="Principal"] .nx-btn-primary{order:-1;min-height:40px !imp
 <div style="position:relative;padding:8px 8% 8px 0"><div class="nxs-photo" style="max-width:480px"><span class="nxs-halo" aria-hidden="true"></span><div class="nxs-blob"><img src="img/resena-clinica.jpg" alt="Una paciente acerca el móvil a una tarjeta NFC en la recepción de una clínica y le aparece la pantalla para dejar una reseña" fetchpriority="high"></div><span class="nxs-ping" aria-hidden="true" style="left:61%;top:57%"><span></span><span></span><span></span></span><div class="nxs-float" style="right:-7%;top:-4%;width:210px"><span class="nx-mono" style="font-size:10px">Tu negocio</span><span class="nx-h" style="font-size:21px;line-height:1.05">¿Qué tal ha ido tu visita?</span><span aria-hidden="true" style="display:flex;gap:3px;color:#F5B301;font-size:22px;line-height:1">★★★★★</span><span class="nxs-xm" style="display:block;height:46px;border:1px solid #D5DBE5;border-radius:8px;background:#F4F6F9"></span><span class="nxs-xm" style="display:flex;align-items:center;justify-content:center;min-height:40px;border-radius:999px;background:#10172A;color:#FFFFFF;font-weight:700;font-size:14px">Enviar reseña</span></div><span class="nxs-badge" style="left:-4%;bottom:9%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FE0B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>Reseña en dos toques</span></div></div>
 </div>
 </section>
+<section id="demo" style="background:#10172A;color:#FFFFFF;position:relative;overflow:hidden">
+<div aria-hidden="true" style="position:absolute;top:-40%;left:-20%;right:-20%;bottom:-40%;background:radial-gradient(30% 40% at 85% 50%,rgba(0,193,202,0.22),rgba(0,193,202,0) 70%),radial-gradient(28% 36% at 8% 90%,rgba(123,121,226,0.18),rgba(123,121,226,0) 70%);animation:nxDrift 12s ease-in-out infinite"></div>
+<div class="nx-wrap" style="position:relative;padding-top:88px;padding-bottom:88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:56px;align-items:center">
+<div class="nx-reveal" style="display:flex;flex-direction:column;gap:24px">
+<p class="nx-mono" style="color:#9DB8FF;margin:0">Así de fácil</p>
+<h2 class="nx-h nx-h-l" style="font-size:clamp(32px,4vw,52px);color:#FFFFFF">Acercas el móvil y aparece tu negocio.</h2>
+<p style="margin:0;font-size:19px;max-width:520px;color:#C9D2E0">Tu cliente no descarga nada ni escanea nada. Apoya el móvil en la tarjeta y se abre tu pantalla, con lo que tú quieras que vea.</p>
+<ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px"><li style="display:flex;gap:12px;align-items:flex-start;font-size:18px;color:#E6EBF5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FE0B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:3px"><path d="m5 12 5 5 9-10"></path></svg><span>Pide cita o reserva en un toque</span></li><li style="display:flex;gap:12px;align-items:flex-start;font-size:18px;color:#E6EBF5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FE0B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:3px"><path d="m5 12 5 5 9-10"></path></svg><span>Te escribe por WhatsApp sin buscar tu número</span></li><li style="display:flex;gap:12px;align-items:flex-start;font-size:18px;color:#E6EBF5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FE0B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:3px"><path d="m5 12 5 5 9-10"></path></svg><span>Ve tu web, cómo llegar y te deja una reseña</span></li></ul>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-top:4px">
+<a class="nx-btn-light" href="precios.html">Ver precios</a>
+<a class="nx-link nx-link-dark" href="soluciones.html" style="padding:0 6px">Ver soluciones <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+</div>
+</div>
+<div class="nx-reveal" style="position:relative;justify-self:center;width:min(340px,100%)">
+<video src="img/nexia-tap.mp4" poster="img/nexia-tap-poster.jpg" autoplay muted loop playsinline preload="auto" width="540" height="960" onLoadedData="{{ vidReady }}" aria-label="Demostración: al acercar el móvil a una tarjeta NFC de NEXIA se abre la pantalla del negocio con accesos para pedir cita, escribir por WhatsApp, ver la web, cómo llegar y dejar una reseña" style="display:block;width:100%;height:auto;aspect-ratio:9/16;border-radius:28px;background:#0B1124;border:1px solid #2B3550;box-shadow:0 30px 80px rgba(0,0,0,0.45)"></video>
+<button type="button" onClick="{{ vidToggle }}" aria-label="{{ vidLabel }}" style="position:absolute;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.35);background:rgba(16,23,42,0.78);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
+<sc-if value="{{ vidPlaying }}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg></sc-if>
+<sc-if value="{{ vidPaused }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"></path></svg></sc-if>
+</button>
+</div>
+</div>
+</section>
 <section style="background:#EAEEF4;border-top:1px solid #C9D0DB;border-bottom:1px solid #C9D0DB">
 <div class="nx-wrap" style="padding-top:72px;padding-bottom:80px;display:flex;flex-direction:column;gap:40px">
 <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
@@ -469,6 +491,25 @@ qFocus(ms) {
     } catch (e) {}
   }, ms || 420);
 }
+vidReady(e) {
+  try {
+    const v = e.currentTarget;
+    v.muted = true;
+    const rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (rm) { v.pause(); this.setState({ vidPaused: true }); return; }
+    const pr = v.play();
+    if (pr && pr.catch) pr.catch(() => this.setState({ vidPaused: true }));
+  } catch (x) {}
+}
+vidToggle(e) {
+  try {
+    const box = e.currentTarget.parentElement;
+    const v = box && box.querySelector('video');
+    if (!v) return;
+    if (v.paused) { v.muted = true; const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); this.setState({ vidPaused: false }); }
+    else { v.pause(); this.setState({ vidPaused: true }); }
+  } catch (x) {}
+}
 qOpen(e) {
   try { if (e && e.preventDefault) e.preventDefault(); } catch (x) {}
   try { if (e && e.currentTarget && e.currentTarget.getRootNode) this._root = e.currentTarget.getRootNode(); } catch (x) {}
@@ -634,6 +675,11 @@ qVals() {
     next: (e) => this.qNext(e),
     toggleConsent: () => this.qToggleConsent(),
     openQ: (e) => this.qOpen(e),
+    vidReady: (e) => this.vidReady(e),
+    vidToggle: (e) => this.vidToggle(e),
+    vidPaused: !!(this.state || {}).vidPaused,
+    vidPlaying: !(this.state || {}).vidPaused,
+    vidLabel: (this.state || {}).vidPaused ? 'Reproducir vídeo' : 'Pausar vídeo',
     doneTitle: '¡Gracias' + nm + '!',
     doneText: mailMode
       ? 'Se ha abierto tu correo con las respuestas ya escritas: solo te queda pulsar enviar. Si no se ha abierto, escríbenos a nexianfcsolutions@gmail.com y te atendemos igual.'
