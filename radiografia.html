@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEXIA · Radiografía de tu negocio</title>
+<meta name="description" content="Haz el test en 2 minutos y descubre qué necesita tu negocio para crecer: tres mejoras en orden y cómo comprobar que funcionan.">
+<meta name="theme-color" content="#10172A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237B79E2'/%3E%3Cstop offset='.55' stop-color='%2300C1CA'/%3E%3Cstop offset='1' stop-color='%23007EC2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
+<meta property="og:title" content="NEXIA · Radiografía de tu negocio">
+<meta property="og:description" content="Haz el test en 2 minutos y descubre qué necesita tu negocio para crecer: tres mejoras en orden y cómo comprobar que funcionan.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Concepto: test de una pregunta por pantalla, pensado para el móvil.
+   Marca NEXIA: azul marino, pizarra, degradado cian-azul-violeta solo en la barra de avance y en el punto del logo. */
+:root{
+  --bg:#F2F5FA;
+  --surface:#FFFFFF;
+  --surface-2:#E6ECF5;
+  --ink:#10172A;
+  --muted:#4F5B73;
+  --line:#D3DBE8;
+  --accent:#0069A8;
+  --on-accent:#FFFFFF;
+  --accent-soft:#DDEBF7;
+  --grad:linear-gradient(90deg,#00C1CA 0%,#007EC2 50%,#7B79E2 100%);
+  --f-display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10172A;
+    --surface:#18213B;
+    --surface-2:#222D4D;
+    --ink:#EAF0FA;
+    --muted:#A6B2CB;
+    --line:#2C3860;
+    --accent:#3CC5E8;
+    --on-accent:#08111F;
+    --accent-soft:#17304A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10172A;
+  --surface:#18213B;
+  --surface-2:#222D4D;
+  --ink:#EAF0FA;
+  --muted:#A6B2CB;
+  --line:#2C3860;
+  --accent:#3CC5E8;
+  --on-accent:#08111F;
+  --accent-soft:#17304A;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-block:20px 36px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+.app{max-width:560px;margin-inline:auto}
+button,input,textarea{font-family:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:14px}
+.mark{font:700 20px/1 var(--f-display);letter-spacing:.06em;color:var(--ink);text-decoration:none}
+.dot{display:inline-block;width:.3em;height:.3em;border-radius:50%;margin-left:.12em;background:linear-gradient(135deg,#00C1CA,#007EC2,#7B79E2)}
+.count{font:500 13px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.progress{height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.progress>span{display:block;height:100%;width:0;background:var(--grad);transition:width .35s ease}
+
+.stage{padding-top:28px;min-width:0}
+.enter{animation:in .22s ease-out both}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes grow{from{width:0}}
+
+.eyebrow{font:500 12px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;text-wrap:balance;margin:0;line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(30px,8vw,40px)}
+h2{font-size:clamp(25px,6.6vw,32px)}
+h3{font-size:21px;line-height:1.2}
+h1:focus,h2:focus{outline:none}
+.lead{font-size:18px;color:var(--muted);margin:16px 0 0}
+.hint{color:var(--muted);margin:10px 0 0}
+.fine{font-size:14px;color:var(--muted);margin:14px 0 0}
+.alt{margin:18px 0 0}
+a{color:var(--accent);font-weight:600}
+
+.blocks{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--line)}
+.blocks li{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.blocks b{font:500 13px/1.6 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.meta{font:400 13px var(--f-mono);color:var(--muted);margin:22px 0 14px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;font:600 17px/1.2 var(--f-body);text-decoration:none;border-radius:12px;padding:14px 22px;min-height:52px;border:1.5px solid transparent;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.primary:disabled{opacity:.4;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.block{width:100%}
+
+.opts{display:grid;gap:10px;margin-top:24px}
+.opt{position:relative;display:flex;gap:14px;align-items:center;padding:15px 16px;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;cursor:pointer;min-height:58px;transition:border-color .15s,background .15s}
+.opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.opt:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:2px}
+.ind{flex:none;width:22px;height:22px;border:2px solid var(--muted);border-radius:50%;display:grid;place-items:center;transition:background .15s,border-color .15s}
+.ind::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--on-accent);transform:scale(0);transition:transform .12s}
+.opt.multi .ind{border-radius:6px}
+.opt.multi .ind::after{width:6px;height:11px;border:solid var(--on-accent);border-width:0 2.5px 2.5px 0;border-radius:0;background:none;margin-top:-2px;transform:rotate(45deg) scale(0)}
+.opt.on{border-color:var(--accent);background:var(--accent-soft)}
+.opt.on .ind{border-color:var(--accent);background:var(--accent)}
+.opt.on .ind::after{transform:scale(1)}
+.opt.multi.on .ind::after{transform:rotate(45deg) scale(1)}
+.txt{min-width:0;font-weight:500;font-size:17px;line-height:1.35}
+
+.bar{position:sticky;bottom:0;display:flex;gap:10px;margin-top:22px;padding:14px 0 calc(14px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--bg) 80%,transparent)}
+.bar .primary{flex:1}
+.bar .ghost{flex:none}
+
+/* Resultado */
+.gauges{display:grid;gap:20px;margin-top:28px}
+.gauge .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.gauge .name{font:700 19px var(--f-display);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.gauge .lvl{font:500 13px var(--f-mono);letter-spacing:.03em;white-space:nowrap}
+.chip{font:500 11px/1 var(--f-mono);letter-spacing:.04em;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:4px 8px}
+.track{position:relative;height:12px;margin-top:8px;border-radius:8px;background:var(--surface-2);overflow:hidden}
+.fill{position:absolute;left:0;top:0;bottom:0;width:var(--p);border-radius:8px;background:var(--accent);animation:grow .6s ease-out both}
+.track::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(33.33% - 1px),var(--bg) calc(33.33% - 1px) calc(33.33% + 1px),transparent calc(33.33% + 1px) calc(66.66% - 1px),var(--bg) calc(66.66% - 1px) calc(66.66% + 1px),transparent calc(66.66% + 1px))}
+.gauge .desc{color:var(--muted);font-size:15px;margin:6px 0 0}
+.scale{font:400 12px/1.5 var(--f-mono);color:var(--muted);margin:16px 0 0}
+
+.note{margin-top:24px;padding:16px;border-radius:14px;background:var(--surface-2)}
+.note b{display:block;margin-bottom:4px}
+.note p{margin:0}
+
+.sec-title{margin-top:40px}
+.sec-sub{color:var(--muted);margin:8px 0 0}
+.picks{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:16px}
+.pick{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:12px;min-width:0}
+.pick p{margin:0}
+.ph{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pn{font:700 30px/1 var(--f-display);color:var(--accent);min-width:1ch}
+.tag{font:500 12px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--surface-2);border-radius:6px;padding:6px 8px}
+.eff{font:400 12px/1.3 var(--f-mono);color:var(--muted);margin-left:auto}
+.lab{display:block;font:500 11px/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+
+.next{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.next p{margin:12px 0 0}
+.flab{display:block;font-weight:600;margin:22px 0 8px}
+.field{width:100%;font-size:17px;padding:14px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.next .btn.block{margin-top:14px}
+.status{min-height:1.5em;color:var(--accent);font-weight:600}
+.addr{font:500 15px var(--f-mono);user-select:all;word-break:break-all}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.row2 .btn{padding-inline:12px;font-size:16px}
+details{margin-top:18px}
+summary{cursor:pointer;font-weight:600}
+textarea.field{margin-top:10px;font:400 13px/1.5 var(--f-mono);background:var(--surface-2);resize:vertical;min-height:180px}
+.foot{margin-top:36px;font:400 12px var(--f-mono);color:var(--muted);letter-spacing:.06em}
+
+@media (max-width:380px){
+  .blocks li{grid-template-columns:1fr;gap:2px}
+  .eff{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .enter,.fill{animation:none}
+  .progress>span,.opt,.ind,.ind::after{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <a class="mark" href="https://nexianfc.com/" aria-label="NEXIA, ir al inicio">NEXIA<i class="dot"></i></a>
+    <span class="count" id="count"></span>
+  </header>
+  <div class="progress" id="pbar" role="progressbar" aria-label="Avance del test" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="prog"></span></div>
+  <main class="stage" id="stage"></main>
+  <footer class="foot">NEXIA Smart Solutions</footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+var N=12, MAIL='nexianfcsolutions@gmail.com';
+
+var SECTORS={
+  clinica:{label:'Clínica o centro de bienestar',verb:'pedir cita',cita:'cita',citas:'citas',gestionar:'Gestionar citas',recordar:'Recordar las citas a los clientes',agendaTitle:'Citas con recordatorio automático'},
+  restauracion:{label:'Restaurante, bar o cafetería',verb:'reservar mesa',cita:'reserva',citas:'reservas',gestionar:'Gestionar reservas',recordar:'Confirmar o recordar reservas',agendaTitle:'Reservas con confirmación automática'},
+  peluqueria:{label:'Peluquería, barbería o estética',verb:'pedir cita',cita:'cita',citas:'citas',gestionar:'Gestionar citas',recordar:'Recordar las citas a los clientes',agendaTitle:'Citas con recordatorio automático'},
+  comercio:{label:'Comercio o tienda',verb:'hacer un pedido o consulta',cita:'pedido o consulta',citas:'pedidos y consultas',gestionar:'Gestionar pedidos y consultas',recordar:'Avisar a los clientes de que su pedido está listo',agendaTitle:'Pedidos y consultas ordenados en un solo sitio'},
+  otro:{label:'Otro negocio local',verb:'contactar contigo',cita:'consulta',citas:'consultas',gestionar:'Gestionar consultas y citas',recordar:'Recordar citas o plazos a los clientes',agendaTitle:'Citas y consultas ordenadas en un solo sitio'}
+};
+var AREAS={
+  V:{name:'Visibilidad',desc:'Cómo te encuentran y qué ven cuando te buscan'},
+  C:{name:'Clientes',desc:'Cómo un interesado acaba siendo cliente'},
+  R:{name:'Rapidez',desc:'Cuánto tardas y cuánto tiempo te cuesta atender'}
+};
+var LEAD={
+  V:'Aquí se decide si un cliente nuevo te encuentra y qué ve cuando lo hace.',
+  C:'Aquí se decide si el interés se convierte en cliente.',
+  R:'Aquí se decide cuánto tiempo te cuesta atender y cuánto espera tu cliente.'
+};
+var LV=['Por montar','En marcha','Bien asentado'];
+var EFF={1:'bajo',2:'medio',3:'alto'};
+
+function S(a){return SECTORS[a.sector]||SECTORS.otro;}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function has(a,k,v){return Array.isArray(a[k])&&a[k].indexOf(v)>-1;}
+
+var Q=[
+ {id:'sector',type:'one',short:'Tipo de negocio',title:function(){return '¿Qué tipo de negocio tienes?';},hint:'Así adaptamos las palabras y los ejemplos.',
+  opts:function(){return Object.keys(SECTORS).map(function(k){return [k,SECTORS[k].label];});}},
+ {id:'goal',type:'one',short:'Primer objetivo',title:function(){return '¿Qué quieres conseguir primero?';},hint:'Elige lo que más te importa ahora.',
+  opts:function(){return [['encuentren','Que me conozcan y me encuentren más'],['nuevos','Conseguir más clientes nuevos'],['tiempo','Ahorrar tiempo en el día a día'],['imagen','Mejorar la imagen de mi negocio'],['fidelizar','Que mis clientes vuelvan']];}},
+ {id:'found',type:'multi',excl:'nose',short:'Cómo le encuentran hoy',title:function(){return '¿Cómo te encuentran hoy los clientes nuevos?';},hint:'Marca todo lo que pase de verdad, no lo que te gustaría.',
+  opts:function(){return [['boca','Boca a boca y recomendaciones'],['calle','Pasan por delante del local'],['google','Buscándome en Google o en mapas'],['redes','Por redes sociales'],['negocios','Me recomiendan otros negocios'],['nose','No lo sé']];}},
+ {id:'ficha',type:'one',short:'Ficha de Google',title:function(){return 'Si un cliente te busca en Google, ¿qué encuentra?';},hint:'Si puedes, búscate ahora mismo en el móvil. Son 20 segundos.',
+  opts:function(){return [['complete','Mi ficha completa, con fotos y horario al día'],['half','Una ficha a medias o desactualizada'],['none','No tengo ficha de Google'],['unknown','No lo sé, nunca me he buscado']];}},
+ {id:'web',type:'one',short:'Página web',title:function(){return '¿Y tu página web?';},hint:'Ábrela en el móvil y mira si se entiende a la primera.',
+  opts:function(){return [['none','No tengo web'],['old','Tengo, pero está antigua o no se ve bien en el móvil'],['good','Tengo y funciona bien'],['unknown','No sé si funciona']];}},
+ {id:'redes',type:'one',short:'Redes sociales',title:function(){return '¿Cada cuánto publicas en redes?';},hint:'Cuenta lo que haces de verdad, no lo que te gustaría hacer.',
+  opts:function(){return [['none','No uso redes para el negocio'],['rare','Menos de una vez al mes'],['week','Más o menos cada semana'],['multi','Varias veces por semana']];}},
+ {id:'camino',type:'one',short:'Cómo contactan con él',title:function(a){return 'Cuando alguien quiere '+S(a).verb+', ¿qué tiene que hacer?';},hint:'Piensa en un cliente nuevo que no te conoce.',
+  opts:function(){return [['llamar','Llamarme y que yo esté disponible'],['escribir','Escribirme y esperar mi respuesta'],['directo','Pulsar un botón o un enlace directo'],['depende','Depende de cada cliente']];}},
+ {id:'opin',type:'one',short:'Opiniones de clientes',title:function(){return '¿Cómo consigues opiniones de tus clientes?';},hint:'Sin filtrar y sin regalar nada a cambio. Solo facilitar que quien quiera opine.',
+  opts:function(){return [['no','No las pido'],['palabra','Las pido de palabra, de vez en cuando'],['sistema','Tengo un sistema que lo pone fácil']];}},
+ {id:'resp',type:'one',short:'Tiempo de respuesta',title:function(){return '¿Cuánto tardas en contestar a un cliente que te escribe?';},hint:'Una media de lo que ocurre en una semana normal.',
+  opts:function(){return [['ya','Al momento'],['mismo','El mismo día'],['sig','Al día siguiente o más tarde'],['sin','Algunos mensajes se quedan sin respuesta']];}},
+ {id:'tareas',type:'multi',excl:'ninguna',short:'Tareas que se repiten',title:function(){return '¿Qué tareas repites cada semana y te quitan tiempo?';},hint:'Marca todas las que te pesen.',
+  opts:function(a){var s=S(a);return [['responder','Contestar siempre las mismas preguntas'],['citas',s.gestionar],['presu','Hacer presupuestos'],['recordar',s.recordar],['publicar','Publicar en redes'],['carta','Actualizar la carta, las tarifas o los precios'],['ninguna','Ninguna que me pese']];}},
+ {id:'cap',type:'one',short:'Capacidad para más clientes',title:function(){return '¿Podrías atender a más clientes de los que tienes hoy?';},hint:'Si vas lleno, atraer más clientes no es lo primero.',
+  opts:function(){return [['holgura','Sí, con holgura'],['algo','Algo más, sin agobiarme'],['lleno','No, ya voy lleno'],['epoca','Depende de la época']];}},
+ {id:'tiempo',type:'one',short:'Tiempo semanal para mejorar',title:function(){return '¿Cuánto tiempo a la semana puedes dedicar a mejorar esto?';},hint:'Si prefieres que lo hagamos nosotros, elige la primera. Lo tenemos en cuenta.',
+  opts:function(){return [['poco','Casi nada, menos de 1 hora'],['medio','Entre 1 y 3 horas'],['mucho','Más de 3 horas']];}}
+];
+
+/* Mejoras posibles. area: V visibilidad, C clientes, R rapidez. impact y effort de 1 a 3 (effort = esfuerzo del dueño). */
+var ITEMS=[
+ {id:'ficha',area:'V',impact:3,effort:1,
+  need:function(a){var m={none:1,half:.9,unknown:.8,complete:.15};return m[a.ficha]!==undefined?m[a.ficha]:.5;},
+  title:function(){return 'Una ficha de Google completa y al día';},
+  why:function(a){return {none:'No tienes ficha de Google, así que quien te busca en el mapa no te encuentra.',half:'Tu ficha existe pero está a medias o desactualizada, y es lo primero que ve quien te busca.',unknown:'No sabes qué aparece cuando te buscan. Es lo primero que ve un cliente nuevo y lo más rápido de arreglar.',complete:'Tu ficha ya está bien. Solo conviene revisarla cada cierto tiempo.'}[a.ficha];},
+  what:function(s){return 'Creamos o completamos la ficha con horario, categorías, servicios, fotos y un enlace para '+s.verb+'. Tú revisas y apruebas antes de publicar.';},
+  measure:function(){return 'Llamadas, rutas y visitas a la web que muestran las estadísticas de tu ficha, comparando 28 días antes y 28 días después. Tú nos pasas las capturas.';}},
+ {id:'camino',area:'C',impact:3,effort:2,
+  need:function(a){var m={llamar:.9,escribir:.8,directo:.1,depende:.6};return m[a.camino]!==undefined?m[a.camino]:.5;},
+  title:function(a,s){return 'Un camino directo para '+s.verb;},
+  why:function(a){return {llamar:'Hoy el cliente tiene que llamar y encontrarte libre. Quien no puede llamar en ese momento se va.',escribir:'Hoy el cliente escribe y espera. Mientras esperan, algunos acaban eligiendo a otro.',depende:'Cada cliente lo hace de una forma distinta, y así es difícil saber cuántos se pierden.',directo:'Ya tienes un camino directo. Conviene que sea el mismo en la ficha, la web y tus soportes.'}[a.camino];},
+  what:function(){return 'Un único botón o enlace (mensaje, formulario o agenda) que aparece en tu ficha, en tu web y en tus soportes de acceso en un gesto. Tú decides cómo atiendes lo que llega.';},
+  measure:function(a,s){return 'Número de '+s.citas+' nuevas y de mensajes que llegan por ese camino, comparando 28 días antes y después.';}},
+ {id:'opiniones',area:'C',impact:2,effort:1,
+  need:function(a){var m={no:1,palabra:.7,sistema:.1};return m[a.opin]!==undefined?m[a.opin]:.5;},
+  title:function(){return 'Pedir opiniones con dos toques';},
+  why:function(a){return {no:'No pides opiniones. Quien está contento rara vez las deja si nadie se lo pone fácil.',palabra:'Las pides de palabra y se olvidan al salir. Un soporte en el mostrador lo deja a un toque.',sistema:'Ya tienes un sistema. Conviene comprobar que funciona en iPhone y en Android.'}[a.opin];},
+  what:function(){return 'Un soporte con acceso en un gesto, mediante Near Field Communication (NFC), que abre directamente tu ficha para opinar. Sin filtrar y sin regalar nada a cambio: cada cliente opina lo que quiera.';},
+  measure:function(){return 'Opiniones nuevas al mes y valoración media de tu ficha, comparando 28 días antes y después.';}},
+ {id:'web',area:'V',impact:3,effort:2,
+  need:function(a){var m={none:1,old:.8,good:.15,unknown:.5};return m[a.web]!==undefined?m[a.web]:.5;},
+  title:function(){return 'Una página rápida pensada para el móvil';},
+  why:function(a){return {none:'No tienes web. Una página de una pantalla ya basta para que quien te encuentra sepa qué haces y cómo contactar.',old:'Tu web está antigua o no se ve bien en el móvil, y mucha gente te mirará desde ahí.',unknown:'No sabes si tu web funciona. Lo comprobamos en el móvil durante la radiografía.',good:'Tu web funciona. Solo hay que revisar que el botón de contacto se vea bien.'}[a.web];},
+  what:function(s){return 'Una página ligera con lo esencial: qué haces, horario, cómo llegar y un botón para '+s.verb+'. Tú apruebas textos y fotos antes de publicar.';},
+  measure:function(){return 'Contactos que llegan desde la página, que apuntamos contigo, comparando 28 días antes y después.';}},
+ {id:'redes',area:'V',impact:2,effort:3,
+  need:function(a){var m={none:.8,rare:.9,week:.3,multi:.1};return m[a.redes]!==undefined?m[a.redes]:.5;},
+  title:function(){return 'Un calendario de publicaciones que puedas cumplir';},
+  why:function(a){return {none:'No usas redes para el negocio. No hace falta estar en todas, una bien llevada basta.',rare:'Publicas menos de una vez al mes, así que quien entra en tu perfil no ve actividad reciente.',week:'Publicas con cierta regularidad. Se trata de ordenar las ideas y mantener el ritmo.',multi:'Publicas mucho. Lo útil ahora es ver qué publicaciones traen mensajes.'}[a.redes];},
+  what:function(){return 'Dos o tres publicaciones al mes con ideas y borradores hechos con IA a partir de tu negocio real. Tú eliges y apruebas cada una.';},
+  measure:function(){return 'Alcance y mensajes recibidos según las estadísticas de tu red, comparando 28 días antes y después.';}},
+ {id:'imagen',area:'V',impact:2,effort:2,
+  need:function(a){return a.goal==='imagen'?.9:((a.redes==='none'||a.redes==='rare')?.45:.25);},
+  title:function(){return 'Fotos y vídeo reales de tu negocio';},
+  why:function(a){return a.goal==='imagen'?'Has dicho que quieres mejorar tu imagen. Las fotos y los clips cortos son lo que más cambia cómo te ve alguien nuevo.':'Las fotos son lo primero que mira quien te encuentra, y las tuyas pueden mejorar.';},
+  what:function(){return 'Una sesión corta para sacar fotos y clips verticales de tu local y tu trabajo. Los retocamos y usamos IA solo para el acabado, de modo que se enseña lo que existe de verdad. No salen clientes reconocibles sin su permiso.';},
+  measure:function(){return 'Visitas a tu ficha y alcance de las publicaciones con foto o vídeo, frente a las que no los llevan.';}},
+ {id:'respuestas',area:'R',impact:2,effort:1,
+  need:function(a){var t={mismo:.1,sig:.25,sin:.35};return Math.min(1,(has(a,'tareas','responder')?.8:.1)+(t[a.resp]||0));},
+  title:function(){return 'Respuestas preparadas a lo que más te preguntan';},
+  why:function(a){var p=[];if(has(a,'tareas','responder'))p.push('Contestas una y otra vez las mismas preguntas.');if(a.resp==='mismo')p.push('Contestas el mismo día, pero no al momento.');if(a.resp==='sig')p.push('Algunos clientes reciben tu respuesta al día siguiente o más tarde.');if(a.resp==='sin')p.push('Algunos mensajes se quedan sin respuesta.');return p.length?p.join(' '):'Tienes buen ritmo de respuesta. Las respuestas preparadas lo mantienen sin esfuerzo.';},
+  what:function(){return 'Una lista de las diez preguntas más frecuentes con su respuesta lista para copiar, y un mensaje automático fuera de horario. Tú escribes o apruebas cada texto y la IA solo propone el borrador.';},
+  measure:function(){return 'Tiempo medio de respuesta y porcentaje de consultas sin contestar, cronometrados una semana antes y otra después.';}},
+ {id:'citas',area:'R',impact:3,effort:2,
+  need:function(a){var n=(has(a,'tareas','citas')?.7:0)+(has(a,'tareas','recordar')?.5:0);return Math.min(1,n||.1);},
+  title:function(a,s){return s.agendaTitle;},
+  why:function(a,s){var p=[];if(has(a,'tareas','citas'))p.push('Gestionar '+s.citas+' te quita tiempo cada semana.');if(has(a,'tareas','recordar'))p.push('Avisar a los clientes a mano se suma a ese tiempo.');return p.length?p.join(' '):'No lo marcas como una carga, así que no es prioridad ahora.';},
+  what:function(){return 'Una agenda en la que el cliente elige su hueco y recibe un aviso antes de venir. Tú defines las reglas y apruebas las excepciones.';},
+  measure:function(){return 'Horas por semana que dedicas a gestionarlo y huecos que quedan vacíos, anotados una semana antes y otra después.';}},
+ {id:'presupuestos',area:'R',impact:2,effort:1,
+  need:function(a){return has(a,'tareas','presu')?.85:.05;},
+  title:function(){return 'Presupuestos con plantilla';},
+  why:function(){return 'Hacer presupuestos te lleva tiempo cada semana y casi siempre repites los mismos conceptos.';},
+  what:function(){return 'Una plantilla con tus tarifas y condiciones. La IA propone el borrador a partir de lo que pide el cliente y tú lo revisas antes de enviarlo.';},
+  measure:function(){return 'Minutos por presupuesto, cronometrados durante una semana antes y otra después.';}},
+ {id:'carta',area:'R',impact:2,effort:2,
+  need:function(a){return has(a,'tareas','carta')?.85:(a.sector==='restauracion'?.35:.05);},
+  title:function(a){return a.sector==='restauracion'?'Carta digital siempre al día':'Tarifas o catálogo siempre al día';},
+  why:function(a){return has(a,'tareas','carta')?'Actualizar la carta o las tarifas te obliga a reimprimir o a cambiar varios sitios.':'Una carta digital con alérgenos evita reimprimir cada vez que cambia un plato.';},
+  what:function(s,a){return a.sector==='restauracion'?'Una página con tu carta, con alérgenos y varios idiomas si los necesitas. Cambias un precio o un plato sin reimprimir, y la carta se abre en un toque desde la mesa.':'Una página con tus tarifas o tu catálogo que cambias en un momento, sin reimprimir nada.';},
+  measure:function(){return 'Horas al mes que dedicas a actualizar y reimprimir, y preguntas sobre precios que te llegan, anotadas antes y después.';}},
+ {id:'seguimiento',area:'C',impact:2,effort:2,
+  need:function(a){return Math.min(1,(a.resp==='sin'?.7:0)+(a.goal==='fidelizar'?.6:0)||.1);},
+  title:function(){return 'Seguimiento sencillo de contactos y clientes';},
+  why:function(a){var p=[];if(a.resp==='sin')p.push('Algunos mensajes se quedan sin respuesta, y una hoja con cada contacto y su estado lo evita.');if(a.goal==='fidelizar')p.push('Quieres que tus clientes vuelvan. Apuntar qué hicieron y cuándo te permite recordárselo a quien ya es cliente.');return p.join(' ')||'No parece lo más urgente ahora.';},
+  what:function(){return 'Una hoja sencilla donde apuntas cada contacto, qué quería y cuándo toca contestar. Solo se vuelve a escribir a quien ya es cliente o lo ha pedido.';},
+  measure:function(){return 'Contactos sin contestar y clientes que repiten, contados en esa misma hoja cada mes.';}},
+ {id:'oferta',area:'C',impact:3,effort:2,
+  need:function(a){return a.goal==='nuevos'?.85:.15;},
+  title:function(){return 'Una oferta clara para quien aún no te conoce';},
+  why:function(){return 'Quieres más clientes nuevos. Antes de buscar más visibilidad conviene tener una oferta que se entienda en una frase.';},
+  what:function(){return 'Redactamos una propuesta de una frase (qué ofreces, a quién y por qué ahora) y una página de destino con ella. Las campañas locales sencillas vienen después, cuando esto funcione.';},
+  measure:function(){return 'Clientes nuevos al mes y lo que contestan a «¿cómo nos conociste?», que preguntas tú en el primer contacto.';}}
+];
+
+/* Mapa: tres bloques de 0 a 100. Se enseñan como niveles, sin cifras, porque son una estimación. */
+function calc(a){
+  var ficha={complete:85,half:45,none:5,unknown:25}[a.ficha]||0;
+  var web={none:5,old:35,good:85,unknown:30}[a.web]||0;
+  var redes={none:5,rare:25,week:65,multi:90}[a.redes]||0;
+  var V=.4*ficha+.3*web+.3*redes;
+  var f=a.found||[],fc=0;
+  if(f.indexOf('google')>-1)fc+=40;
+  if(f.indexOf('redes')>-1)fc+=25;
+  fc+=Math.min(2,['boca','calle','negocios'].filter(function(x){return f.indexOf(x)>-1;}).length)*10;
+  if(f.length===1&&f[0]==='nose')fc=15;
+  var camino={llamar:25,escribir:40,directo:90,depende:45}[a.camino]||0;
+  var opin={no:10,palabra:45,sistema:90}[a.opin]||0;
+  var C=.25*fc+.4*camino+.35*opin;
+  var resp={ya:90,mismo:60,sig:25,sin:5}[a.resp]||0;
+  var nt=(a.tareas||[]).filter(function(x){return x!=='ninguna';}).length;
+  var tareas=[90,70,50,35,15,15,15][Math.min(nt,6)];
+  var R=.5*resp+.5*tareas;
+  return {V:V,C:C,R:R};
+}
+function lvl(x){return x<34?0:(x<67?1:2);}
+
+function rank(a){
+  var s=S(a);
+  var goalArea={encuentren:'V',nuevos:'C',tiempo:'R'}[a.goal];
+  ITEMS.forEach(function(it){
+    var n=it.need(a);
+    var sc=n*it.impact*(it.effort===1?1.15:(it.effort===3?.85:1));
+    if(goalArea===it.area)sc*=1.3;
+    if(a.goal==='imagen'&&['imagen','web','redes'].indexOf(it.id)>-1)sc*=1.3;
+    if(a.goal==='fidelizar'&&['opiniones','seguimiento'].indexOf(it.id)>-1)sc*=1.3;
+    if(a.cap==='lleno'){
+      if(it.id==='oferta')sc*=.2;
+      if(['web','redes','imagen'].indexOf(it.id)>-1)sc*=.6;
+      if(it.area==='R')sc*=1.2;
+    }
+    if(a.tiempo==='poco'){if(it.effort===3)sc*=.55;else if(it.effort===2)sc*=.85;}
+    it._n=n;it._s=sc;
+  });
+  var sorted=ITEMS.filter(function(it){return it._n*it.impact>=.5;}).sort(function(x,y){return y._s-x._s;});
+  var picks=[],count={V:0,C:0,R:0};
+  sorted.forEach(function(it){if(picks.length<3&&count[it.area]<2){picks.push(it);count[it.area]++;}});
+  return picks;
+}
+
+function optLabel(q,a,v){var o=q.opts(a).filter(function(x){return x[0]===v;})[0];return o?o[1]:v;}
+function answerText(q,a){
+  var v=a[q.id];
+  if(q.type==='multi')return (v||[]).map(function(x){return optLabel(q,a,x);}).join('; ');
+  return v?optLabel(q,a,v):'';
+}
+
+/* Estado y pantallas */
+var stage=document.getElementById('stage'),prog=document.getElementById('prog'),count=document.getElementById('count'),pbar=document.getElementById('pbar');
+var state={i:0,a:{},biz:'',screen:'intro'},timer=null,ptr=false,firstRender=true;
+
+function setProgress(p){prog.style.width=p+'%';pbar.setAttribute('aria-valuenow',String(Math.round(p)));}
+function show(html,sel){
+  stage.innerHTML=html;
+  if(!firstRender){window.scrollTo(0,0);var f=stage.querySelector(sel||'h1,h2');if(f)f.focus({preventScroll:true});}
+  firstRender=false;
+}
+
+function renderIntro(){
+  state.screen='intro';count.textContent='';setProgress(0);
+  show('<section class="enter">'+
+   '<p class="eyebrow">Radiografía de tu negocio</p>'+
+   '<h1 tabindex="-1">Haz el test en 2 minutos y descubre qué necesita tu negocio para crecer</h1>'+
+   '<p class="lead">Contesta '+N+' preguntas desde el móvil. Al final te decimos por dónde empezar, con tres mejoras en orden y la forma de comprobar que funcionan.</p>'+
+   '<ul class="blocks">'+
+    '<li><b>Visibilidad</b><span>Cómo te encuentran y qué ven cuando te buscan.</span></li>'+
+    '<li><b>Clientes</b><span>Cómo un interesado acaba siendo cliente.</span></li>'+
+    '<li><b>Rapidez</b><span>Cuánto tardas y cuánto tiempo te cuesta atender.</span></li>'+
+   '</ul>'+
+   '<p class="meta">'+N+' preguntas · unos 2 minutos · sin datos personales</p>'+
+   '<button class="btn primary block" type="button" id="start">Empezar el test</button>'+
+   '<p class="alt">¿Ya sabes lo que quieres? <a href="https://nexianfc.com/configurar.html" target="_blank" rel="noopener">Configura tu pedido</a></p>'+
+   '<p class="fine">Tus respuestas se quedan en tu móvil mientras haces el test. No se envían ni se guardan.</p>'+
+  '</section>');
+}
+
+function answered(q,a){var v=a[q.id];return q.type==='multi'?(v&&v.length>0):!!v;}
+
+function renderQ(){
+  state.screen='q';
+  var q=Q[state.i],a=state.a,multi=q.type==='multi',sel=a[q.id]||(multi?[]:null);
+  count.textContent=(state.i<9?'0':'')+(state.i+1)+' / '+N;
+  setProgress(state.i/N*100);
+  var opts=q.opts(a).map(function(o){
+    var on=multi?sel.indexOf(o[0])>-1:sel===o[0];
+    return '<label class="opt'+(multi?' multi':'')+(on?' on':'')+'"><input type="'+(multi?'checkbox':'radio')+'" name="q" value="'+o[0]+'"'+(on?' checked':'')+'><span class="ind" aria-hidden="true"></span><span class="txt">'+o[1]+'</span></label>';
+  }).join('');
+  var last=state.i===N-1;
+  show('<section class="enter">'+
+   '<p class="eyebrow">Pregunta '+(state.i+1)+' de '+N+(multi?' · varias respuestas':'')+'</p>'+
+   '<h2 id="qt" tabindex="-1">'+q.title(a)+'</h2>'+
+   '<p class="hint">'+q.hint+'</p>'+
+   '<div class="opts" role="'+(multi?'group':'radiogroup')+'" aria-labelledby="qt">'+opts+'</div>'+
+  '</section>'+
+  '<div class="bar"><button class="btn ghost" type="button" id="back">Atrás</button><button class="btn primary" type="button" id="next"'+(answered(q,a)?'':' disabled')+'>'+(last?'Ver mi resultado':'Continuar')+'</button></div>','h2');
+}
+
+function next(){
+  clearTimeout(timer);
+  if(state.i<N-1){state.i++;renderQ();}else{renderResult();}
+}
+function back(){
+  clearTimeout(timer);
+  if(state.i>0){state.i--;renderQ();}else{renderIntro();}
+}
+
+function summaryText(){
+  var a=state.a,s=S(a),sc=calc(a),picks=rank(a),L=[];
+  L.push('Radiografía de mi negocio · resultado del test');
+  if(state.biz.trim())L.push('Negocio: '+state.biz.trim());
+  L.push('Tipo: '+s.label);
+  L.push('');
+  L.push('Mapa: Visibilidad '+LV[lvl(sc.V)].toLowerCase()+' · Clientes '+LV[lvl(sc.C)].toLowerCase()+' · Rapidez '+LV[lvl(sc.R)].toLowerCase());
+  L.push('');
+  L.push(picks.length?'Mis primeras mejoras:':'Sin mejoras urgentes según el test.');
+  picks.forEach(function(it,k){L.push((k+1)+'. '+it.title(a,s));});
+  L.push('');
+  L.push('Mis respuestas:');
+  Q.forEach(function(q){L.push('- '+q.short+': '+answerText(q,a));});
+  return L.join('\n');
+}
+
+function renderResult(){
+  state.screen='r';count.textContent='';setProgress(100);
+  var a=state.a,s=S(a),sc=calc(a),picks=rank(a);
+  var goalArea={encuentren:'V',nuevos:'C',tiempo:'R'}[a.goal];
+  var low=['V','C','R'].sort(function(x,y){return (sc[x]-sc[y])||((y===goalArea)-(x===goalArea));})[0];
+  var strong=lvl(sc[low])===2;
+  var head=strong?'Tienes una base sólida':'Tu mayor margen está en '+AREAS[low].name.toLowerCase();
+  var lead=strong?'Los tres bloques están bien asentados. Lo útil ahora es medir y mantener.':LEAD[low];
+  var gauges=['V','C','R'].map(function(k){
+    var l=lvl(sc[k]);
+    return '<div class="gauge"><div class="row"><span class="name">'+AREAS[k].name+(k===low&&!strong?'<span class="chip">Más margen</span>':'')+'</span><span class="lvl">'+LV[l]+'</span></div>'+
+      '<div class="track" role="img" aria-label="'+AREAS[k].name+': '+LV[l]+'"><span class="fill" style="--p:'+Math.max(6,Math.round(sc[k]))+'%"></span></div>'+
+      '<p class="desc">'+AREAS[k].desc+'</p></div>';
+  }).join('');
+  var note=a.cap==='lleno'?'<div class="note"><b>Vas lleno, y eso cambia el orden</b><p>Ahora mismo atraer más clientes no es lo primero. Damos prioridad a ahorrar tiempo y a mejorar lo que ya funciona.</p></div>':'';
+  var picksHTML=picks.length?picks.map(function(it,k){
+    return '<li class="pick"><div class="ph"><span class="pn">'+(k+1)+'</span><span class="tag">'+AREAS[it.area].name+'</span><span class="eff">Tu esfuerzo: '+EFF[it.effort]+'</span></div>'+
+      '<h3>'+it.title(a,s)+'</h3>'+
+      '<p><span class="lab">Por qué</span>'+it.why(a,s)+'</p>'+
+      '<p><span class="lab">Qué hacemos</span>'+it.what(s,a)+'</p>'+
+      '<p><span class="lab">Cómo lo medimos</span>'+it.measure(a,s)+'</p></li>';
+  }).join(''):'<li class="pick"><h3>Ninguna mejora urgente</h3><p>Con lo que has contestado no vemos nada que no pueda esperar. Lo más útil es medir los números de partida y revisarlos cada mes.</p></li>';
+
+  show('<section class="enter">'+
+   '<p class="eyebrow">Tu resultado</p>'+
+   '<h2 id="rt" tabindex="-1">'+head+'</h2>'+
+   '<p class="lead">'+lead+'</p>'+
+   '<div class="gauges">'+gauges+'</div>'+
+   '<p class="scale">Escala: por montar · en marcha · bien asentado. Es una estimación con lo que has contestado.</p>'+
+   note+
+   '<h2 class="sec-title" style="font-size:26px">Por dónde empezar</h2>'+
+   '<p class="sec-sub">En este orden. Empezamos por lo que más aporta con menos fricción.</p>'+
+   '<ol class="picks">'+picksHTML+'</ol>'+
+   '<section class="next" aria-labelledby="nt">'+
+    '<h2 id="nt" style="font-size:26px">Del test a la radiografía de 30 minutos</h2>'+
+    '<p>Con las capturas de tu ficha y de tus redes medimos estos tres bloques con datos reales y confirmamos las mejoras. No entramos en tus cuentas: tú nos pasas lo que quieras enseñar.</p>'+
+    '<label class="flab" for="biz">Nombre de tu negocio (opcional)</label>'+
+    '<input class="field" id="biz" type="text" autocomplete="off" maxlength="80" value="">'+
+    '<button class="btn primary block" type="button" id="copy">Copiar mi resumen</button>'+
+    '<p class="status" id="st" role="status"></p>'+
+    '<p>Pégalo en un correo a <span class="addr">'+MAIL+'</span></p>'+
+    '<div class="row2"><button class="btn ghost" type="button" id="copymail">Copiar correo</button><a class="btn ghost" id="mailto" href="#">Abrir mi correo</a></div>'+
+    '<details><summary>Ver el resumen que se copia</summary><textarea class="field" id="sum" readonly rows="12"></textarea></details>'+
+    '<button class="btn ghost block" type="button" id="again">Repetir el test</button>'+
+    '<p class="fine">Es una orientación basada en lo que has contestado. No prometemos posiciones en Google ni ventas: solo medimos lo que puede comprobarse.</p>'+
+    '<p class="alt">¿Ya sabes lo que quieres? <a href="https://nexianfc.com/configurar.html" target="_blank" rel="noopener">Configura tu pedido</a></p>'+
+   '</section>'+
+  '</section>','#rt');
+  document.getElementById('biz').value=state.biz;
+  syncSummary();
+}
+
+function syncSummary(){
+  var t=summaryText();
+  var sum=document.getElementById('sum'),ml=document.getElementById('mailto');
+  if(sum)sum.value=t;
+  if(ml)ml.setAttribute('href','mailto:'+MAIL+'?subject='+encodeURIComponent('Radiografía de mi negocio')+'&body='+encodeURIComponent(t));
+}
+
+function copyText(t){
+  function fallback(){
+    var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');
+    ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);ta.select();
+    var ok=false;try{ok=document.execCommand('copy');}catch(e){}
+    ta.remove();return ok;
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    return navigator.clipboard.writeText(t).then(function(){return true;},function(){return fallback();});
+  }
+  return Promise.resolve(fallback());
+}
+function say(msg){var st=document.getElementById('st');if(st)st.textContent=msg;}
+
+/* Eventos */
+stage.addEventListener('pointerdown',function(){ptr=true;});
+stage.addEventListener('keydown',function(){ptr=false;});
+stage.addEventListener('change',function(e){
+  var el=e.target;if(!el||el.name!=='q')return;
+  var q=Q[state.i],multi=q.type==='multi';
+  if(multi){
+    var boxes=[].slice.call(stage.querySelectorAll('input[name=q]'));
+    if(el.checked&&el.value===q.excl){boxes.forEach(function(b){if(b!==el)b.checked=false;});}
+    else if(el.checked){boxes.forEach(function(b){if(b.value===q.excl)b.checked=false;});}
+    state.a[q.id]=boxes.filter(function(b){return b.checked;}).map(function(b){return b.value;});
+    boxes.forEach(function(b){b.parentNode.classList.toggle('on',b.checked);});
+  }else{
+    state.a[q.id]=el.value;
+    [].slice.call(stage.querySelectorAll('input[name=q]')).forEach(function(b){b.parentNode.classList.toggle('on',b.checked);});
+  }
+  document.getElementById('next').disabled=!answered(q,state.a);
+  if(!multi&&ptr){clearTimeout(timer);timer=setTimeout(next,240);}
+});
+stage.addEventListener('input',function(e){
+  if(e.target&&e.target.id==='biz'){state.biz=e.target.value;syncSummary();}
+});
+stage.addEventListener('click',function(e){
+  var b=e.target.closest?e.target.closest('button'):null;if(!b)return;
+  if(b.id==='start'){state.i=0;renderQ();}
+  else if(b.id==='next'){next();}
+  else if(b.id==='back'){back();}
+  else if(b.id==='again'){state.a={};state.biz='';state.i=0;renderIntro();}
+  else if(b.id==='copy'){
+    copyText(summaryText()).then(function(ok){say(ok?'Resumen copiado. Pégalo en un correo a '+MAIL+'.':'No se ha podido copiar. Abre «Ver el resumen que se copia» y cópialo a mano.');});
+  }
+  else if(b.id==='copymail'){
+    copyText(MAIL).then(function(ok){say(ok?'Correo copiado.':'No se ha podido copiar. Selecciona la dirección y cópiala a mano.');});
+  }
+});
+
+renderIntro();
+})();
+</script>
+</body>
+</html>
