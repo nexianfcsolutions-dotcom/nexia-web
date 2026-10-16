@@ -464,18 +464,83 @@ componentDidMount() {
   }
 }
 qNeeds() { return ['Tarjetas, placas o soportes de mesa', 'Contenido web: página, portal o plataforma', 'Contenido audiovisual: imagen o vídeo', 'Captación, marketing y posicionamiento']; }
-qWebTypes() { return ['Portal básico: una página con botones para que te contacten', 'Portal avanzado: carta, galería, reservas…', 'Web completa a medida, con varias páginas y dominio propio', 'No lo tengo claro, aconsejadme']; }
-qWebIncl(tipo) {
+qSec(ans) {
+  // Detecta el tipo de negocio a partir del nombre y de lo que a qué se dedica, para adaptar las preguntas.
+  ans = ans || {};
+  const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const R = [
+    ['salud', /dental|dentist|odont|ortodon|clinic|medic|salud|fisio|psicolog|podolog|veterin|farmac|optic|quiropr|osteop|nutric|logoped|enfermer|audiolog|ortoped|terapeut|sanitar|consulta medica/],
+    ['restauracion', /restaur|\bbar\b|bares|cafeter|\bcafe\b|asador|pizzer|cervecer|taberna|tapas|bistro|panader|pasteler|heladeri|comida|hosteler|gastro|meson|brasa|hamburgues|cocteler|pub\b/],
+    ['hotel', /hotel|hostal|alojamiento|apartament|casa rural|pension|albergue|hospeder|turistic/],
+    ['belleza', /peluquer|barber|estetic|manicur|unas|\bspa\b|masaje|tatuaj|depilac|maquillaj|belleza|bienestar|gimnasi|crossfit|yoga|pilates|fitness|entrenador|padel/],
+    ['comercio', /tienda|comercio|boutique|floristeri|joyeri|librer|ropa|zapater|ferreter|supermercado|regalos|moda|mueble|juguet|electrodomestic|bazar|estanco|papeler|decoracion|ultramarinos|frutas|carniceri|pescaderi/],
+    ['servicios', /abogad|gestor|asesor|inmobiliar|arquitect|contable|contabilidad|seguros|consultor|academia|autoescuela|taller|mecanic|fotograf|ingenier|reformas|construc|limpieza|electricist|fontaner|notari|despacho|agencia|formacion/]
+  ];
+  // Manda lo que cuenta de su actividad; el nombre solo sirve si la actividad no da pistas.
+  const byAct = R.filter((r) => r[1].test(norm(ans.actividad))).map((r) => r[0]);
+  return byAct.length ? byAct : R.filter((r) => r[1].test(norm(ans.negocio))).map((r) => r[0]);
+}
+qSecKey(ans) { return this.qSec(ans).join('+'); }
+qSecName(ans) {
+  const N = { salud: 'Salud', restauracion: 'Restauración', hotel: 'Hotel o alojamiento', belleza: 'Belleza y bienestar', comercio: 'Comercio', servicios: 'Servicios profesionales' };
+  const k = this.qSec(ans);
+  return k.length ? k.map((x) => N[x]).join(' + ') : 'Sin determinar';
+}
+qPickBySec(ans, map, general) {
+  // Une las opciones de todos los sectores detectados (sin repetir) y deja «Otro» siempre al final.
+  const k = this.qSec(ans);
+  const lists = k.length ? k.map((x) => map[x] || general) : [general];
+  const out = [];
+  lists.forEach((l) => l.forEach((o) => { if (out.indexOf(o) < 0 && o !== 'Otro' && o !== 'Otra cosa' && o !== 'Otro uso') out.push(o); }));
+  return out;
+}
+qEx(ans) {
+  const k = this.qSec(ans)[0];
+  const E = {
+    salud: 'más pacientes, citas sin llamadas, una web clara, un vídeo que explique un tratamiento…',
+    restauracion: 'más reservas, una carta clara, más reseñas, un vídeo para redes…',
+    hotel: 'más reservas directas, información clara para los huéspedes, más reseñas…',
+    belleza: 'más citas, mostrar tus trabajos, más reseñas, un vídeo para redes…',
+    comercio: 'más visitas a la tienda, mostrar el catálogo, más reseñas, un vídeo para redes…',
+    servicios: 'más consultas, presentar tus servicios con claridad, una web clara…'
+  };
+  return E[k] || 'más clientes, citas sin llamadas, una web clara, un vídeo para redes…';
+}
+qWebTypes(ans) {
+  const k = this.qSec(ans)[0];
+  const X = { salud: 'tratamientos, equipo, citas…', restauracion: 'carta, galería, reservas…', hotel: 'habitaciones, información, reservas…', belleza: 'servicios, galería, citas…', comercio: 'catálogo, ofertas, galería…', servicios: 'servicios, casos, citas…' };
+  return ['Portal básico: una página con botones para que te contacten', 'Portal avanzado: ' + (X[k] || 'contenido, galería, reservas…'), 'Web completa a medida, con varias páginas y dominio propio', 'No lo tengo claro, aconsejadme'];
+}
+qWebIncl(tipo, ans) {
   const basic = ['Botón de llamada', 'WhatsApp', 'Cómo llegar y horarios', 'Reseña en Google', 'Mi web', 'Mis redes sociales', 'Pedir cita o reservar'];
-  const full = ['Carta o catálogo con fotos', 'Alérgenos', 'Varios idiomas', 'Galería de fotos', 'Reservas o citas', 'Ofertas y novedades', 'Reseñas de clientes', 'Información práctica', 'Dirección web propia'];
-  return (this.qWebTypes().indexOf(tipo) === 0 ? basic : full).concat(['Otra cosa']);
+  const full = this.qPickBySec(ans, {
+    salud: ['Tratamientos y servicios con fotos', 'Presentación del equipo', 'Pedir cita online', 'Información y cuidados para pacientes', 'Galería de fotos de la clínica', 'Reseñas de pacientes', 'Novedades', 'Información práctica', 'Varios idiomas', 'Dirección web propia'],
+    restauracion: ['Carta o catálogo con fotos', 'Alérgenos', 'Varios idiomas', 'Galería de fotos', 'Reservas', 'Ofertas y novedades', 'Reseñas de clientes', 'Información práctica', 'Dirección web propia'],
+    hotel: ['Información del hotel y de la zona', 'Habitaciones y servicios con fotos', 'Reservas directas', 'Varios idiomas', 'Galería de fotos', 'Ofertas y novedades', 'Reseñas de huéspedes', 'Información práctica', 'Dirección web propia'],
+    belleza: ['Servicios y tarifas con fotos', 'Reservar cita online', 'Galería de trabajos', 'Presentación del equipo', 'Ofertas y novedades', 'Reseñas de clientes', 'Información práctica', 'Varios idiomas', 'Dirección web propia'],
+    comercio: ['Catálogo de productos con fotos', 'Tienda online o pedidos', 'Ofertas y novedades', 'Galería de fotos', 'Reseñas de clientes', 'Información práctica', 'Varios idiomas', 'Dirección web propia'],
+    servicios: ['Presentación de servicios', 'Casos o trabajos realizados', 'Presentación del equipo', 'Pedir cita o presupuesto', 'Reseñas de clientes', 'Información práctica', 'Varios idiomas', 'Dirección web propia']
+  }, ['Catálogo o servicios con fotos', 'Galería de fotos', 'Reservas o citas', 'Ofertas y novedades', 'Reseñas de clientes', 'Información práctica', 'Varios idiomas', 'Dirección web propia']);
+  return (this.qWebTypes(ans).indexOf(tipo) === 0 ? basic : full).concat(['Otra cosa']);
 }
 qMedia() { return ['Imagen', 'Vídeo', 'Imagen y vídeo']; }
-qUses(medio) {
-  const img = ['Imagen de un producto nuevo', 'Fotos de platos, productos o servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Enseñar algo a mis clientes'];
-  const vid = ['Enseñar a mis clientes cómo es un producto, servicio o proyecto', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar un producto nuevo', 'Presentar mi negocio'];
+qUses(medio, ans) {
+  const GI = ['Imagen de un producto o servicio nuevo', 'Fotos de productos o servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Enseñar algo a mis clientes'];
+  const GV = ['Enseñar a mis clientes cómo es un producto, servicio o proyecto', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar un producto o servicio nuevo', 'Presentar mi negocio'];
+  const img = this.qPickBySec(ans, {
+    salud: ['Fotos de la clínica y del equipo', 'Imágenes de tratamientos y servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Material informativo para pacientes'],
+    restauracion: ['Fotos de platos y del establecimiento', 'Imagen de un plato o producto nuevo', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Cartelería y menús'],
+    hotel: ['Fotos de habitaciones y zonas comunes', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Material informativo para huéspedes'],
+    belleza: ['Fotos de trabajos y servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Imagen de un servicio nuevo']
+  }, GI);
+  const vid = this.qPickBySec(ans, {
+    salud: ['Explicar un tratamiento o servicio a los pacientes', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar la clínica y al equipo', 'Cuidados y consejos para pacientes'],
+    restauracion: ['Promoción para mis redes (reel o anuncio)', 'Presentar un plato o producto nuevo', 'Animación para mi web', 'Presentar mi negocio'],
+    hotel: ['Presentar el hotel y la zona', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Enseñar los servicios a los huéspedes'],
+    belleza: ['Enseñar un servicio o tratamiento', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar mi negocio']
+  }, GV);
   const i = this.qMedia().indexOf(medio);
-  return (i === 0 ? img : (i === 1 ? vid : vid.concat(img))).concat(['Otro uso']);
+  return (i === 0 ? img : (i === 1 ? vid : vid.concat(img.filter((o) => vid.indexOf(o) < 0)))).concat(['Otro uso']);
 }
 qSteps(ans) {
   ans = ans || {};
@@ -485,24 +550,31 @@ qSteps(ans) {
   const S = [
     { k: 'need', t: 'single', req: true, lab: 'Qué necesita', title: '¿Qué necesitas?', sub: 'Elige lo que mejor encaja con tu caso. Si necesitas varias cosas, empieza por la principal y lo hablamos.', opts: needs },
     { k: 'negocio', t: 'text', req: true, lab: 'Nombre del negocio', title: '¿Cómo se llama tu negocio?', ph: 'Escribe el nombre aquí…', ac: 'organization' },
-    { k: 'actividad', t: 'long', req: true, lab: 'A qué se dedica', title: ans.negocio ? '¿A qué se dedica ' + ans.negocio + '?' : '¿A qué se dedica tu negocio?', sub: 'Descríbelo con tus propias palabras.', ph: 'Somos una cafetería en el centro…' }
+    { k: 'actividad', t: 'long', req: true, lab: 'A qué se dedica', title: ans.negocio ? '¿A qué se dedica ' + ans.negocio + '?' : '¿A qué se dedica tu negocio?', sub: 'Descríbelo con tus propias palabras. Con eso adaptamos las siguientes preguntas a tu caso.', ph: 'Por ejemplo: clínica dental, restaurante, hotel, tienda de ropa…' }
   ];
   if (b === 0) {
-    S.push({ k: 'interes', t: 'multi', req: true, lab: 'Qué le interesa de NEXIA', title: '¿Qué te interesa de NEXIA?', sub: 'Elige todas las que quieras.', opts: ['Reseñas en Google', 'Carta digital para mesas', 'Tarjeta de visita inteligente', 'Información para hoteles', 'Otro'] });
-    S.push({ k: 'objetivo', t: 'long', req: false, lab: 'Qué le gustaría conseguir', title: '¿Qué te gustaría conseguir?', sub: 'Opcional. Por ejemplo: más clientes, citas sin llamadas, una web clara, un vídeo para redes…', ph: 'Escribe aquí lo que tengas en mente…' });
+    S.push({ k: 'interes', t: 'multi', req: true, lab: 'Qué le interesa de NEXIA', title: '¿Qué te interesa de NEXIA?', sub: 'Elige todas las que quieras.', opts: this.qPickBySec(ans, {
+      salud: ['Reseñas en Google', 'Pedir cita o contactar con el centro', 'Tarjeta de visita inteligente para el equipo', 'Información de tratamientos y cuidados posteriores', 'Presentar al equipo y los servicios'],
+      restauracion: ['Carta digital para mesas', 'Reseñas en Google', 'Reservas de mesa', 'Menú del día y ofertas', 'Tarjeta de visita inteligente', 'Que te sigan en redes sociales'],
+      hotel: ['Información del hotel y de la zona', 'Reseñas en Google', 'Reservas directas', 'Wifi, servicios y horarios para los huéspedes', 'Tarjeta de visita inteligente'],
+      belleza: ['Pedir cita o reservar', 'Reseñas en Google', 'Servicios y tarifas', 'Tarjeta de visita inteligente', 'Que te sigan en redes sociales'],
+      comercio: ['Reseñas en Google', 'Catálogo, ofertas y novedades', 'Información de producto', 'Cómo llegar y horarios', 'Tarjeta de visita inteligente', 'Que te sigan en redes sociales'],
+      servicios: ['Tarjeta de visita inteligente', 'Reseñas en Google', 'Pedir cita o contactar', 'Presentar servicios y casos']
+    }, ['Reseñas en Google', 'Tarjeta de visita inteligente', 'Pedir cita o contactar', 'Información de tu negocio, horarios y cómo llegar', 'Carta, catálogo o servicios']).concat(['Otro']) });
+    S.push({ k: 'objetivo', t: 'long', req: false, lab: 'Qué le gustaría conseguir', title: '¿Qué te gustaría conseguir?', sub: 'Opcional. Por ejemplo: ' + this.qEx(ans), ph: 'Escribe aquí lo que tengas en mente…' });
     S.push({ k: 'usa', t: 'single', req: false, lab: 'Usa ya algo parecido', title: '¿Usas ya algo parecido?', sub: 'Opcional.', opts: ['No', 'Sí, códigos QR', 'Sí, NFC', 'No lo sé'] });
-    S.push({ k: 'locales', t: 'single', req: false, lab: 'Cuántos locales tiene', title: '¿Cuántos locales tienes?', sub: 'Opcional.', opts: ['1', '2 o 3', '4 o más'] });
+    S.push({ k: 'locales', t: 'single', req: false, lab: 'Cuántas sedes o establecimientos tiene', title: '¿Cuántas sedes o establecimientos tienes?', sub: 'Opcional.', opts: ['1', '2 o 3', '4 o más'] });
   } else if (b === 1) {
-    S.push({ k: 'tipoWeb', t: 'single', req: true, lab: 'Tipo de página o portal', title: '¿Qué tipo de página o portal necesitas?', sub: 'Si dudas, elige la última opción y te aconsejamos.', opts: this.qWebTypes() });
-    S.push({ k: 'incluir', t: 'multi', req: true, lab: 'Qué debe incluir', title: '¿Qué quieres que incluya?', sub: 'Elige todo lo que te interese. Lo ajustamos contigo después.', opts: this.qWebIncl(ans.tipoWeb) });
+    S.push({ k: 'tipoWeb', t: 'single', req: true, lab: 'Tipo de página o portal', title: '¿Qué tipo de página o portal necesitas?', sub: 'Si dudas, elige la última opción y te aconsejamos.', opts: this.qWebTypes(ans) });
+    S.push({ k: 'incluir', t: 'multi', req: true, lab: 'Qué debe incluir', title: '¿Qué quieres que incluya?', sub: 'Elige todo lo que te interese. Lo ajustamos contigo después.', opts: this.qWebIncl(ans.tipoWeb, ans) });
     S.push({ k: 'objetivo', t: 'long', req: false, lab: 'Algo más que quiera contarnos', title: '¿Algo más que quieras contarnos?', sub: 'Opcional. Por ejemplo: una web que ya tengas, ejemplos que te gusten o plazos.', ph: 'Escribe aquí lo que tengas en mente…' });
   } else if (b === 2) {
     S.push({ k: 'medio', t: 'single', req: true, lab: 'Imagen o vídeo', title: '¿Necesitas imagen, vídeo o ambos?', opts: this.qMedia() });
-    S.push({ k: 'uso', t: 'multi', req: true, lab: 'Para qué lo necesita', title: '¿Para qué lo necesitas?', sub: 'Elige todo lo que corresponda.', opts: this.qUses(ans.medio) });
+    S.push({ k: 'uso', t: 'multi', req: true, lab: 'Para qué lo necesita', title: '¿Para qué lo necesitas?', sub: 'Elige todo lo que corresponda.', opts: this.qUses(ans.medio, ans) });
     S.push({ k: 'objetivo', t: 'long', req: false, lab: 'La idea', title: 'Cuéntanos la idea', sub: 'Opcional. Qué quieres enseñar, a quién y dónde se va a ver.', ph: 'Escribe aquí lo que tengas en mente…' });
   } else {
-    S.push({ k: 'mejorar', t: 'multi', req: true, lab: 'Qué quiere mejorar', title: '¿Qué te gustaría mejorar?', sub: 'Elige todo lo que corresponda. Con tus respuestas preparamos un estudio de tu caso.', opts: ['Que me encuentren más (Google, mapas, redes)', 'Conseguir más clientes y consultas', 'Atender más rápido y automatizar tareas', 'Mejorar mi imagen y mis redes sociales', 'No lo tengo claro, quiero una radiografía de mi negocio'] });
-    S.push({ k: 'objetivo', t: 'long', req: false, lab: 'Qué le gustaría conseguir', title: '¿Qué te gustaría conseguir?', sub: 'Opcional. Por ejemplo: más citas, más reservas, que te encuentren en tu zona…', ph: 'Escribe aquí lo que tengas en mente…' });
+    S.push({ k: 'mejorar', t: 'multi', req: true, lab: 'Qué quiere mejorar', title: '¿Qué te gustaría mejorar?', sub: 'Elige todo lo que corresponda. Con tus respuestas preparamos un estudio de tu caso.', opts: ['Que me encuentren más (Google, mapas, redes)', 'Conseguir más ' + ({ salud: 'pacientes y citas', restauracion: 'clientes y reservas', hotel: 'reservas directas', belleza: 'clientes y citas', comercio: 'clientes y ventas' }[this.qSec(ans)[0]] || 'clientes y consultas'), 'Atender más rápido y automatizar tareas', 'Mejorar mi imagen y mis redes sociales', 'No lo tengo claro, quiero una radiografía de mi negocio'] });
+    S.push({ k: 'objetivo', t: 'long', req: false, lab: 'Qué le gustaría conseguir', title: '¿Qué te gustaría conseguir?', sub: 'Opcional. Por ejemplo: ' + this.qEx(ans), ph: 'Escribe aquí lo que tengas en mente…' });
   }
   S.push({ k: 'nombre', t: 'text', req: true, lab: 'Nombre de la persona de contacto', title: '¿Cómo te llamas?', ph: 'Tu nombre', ac: 'given-name' });
   S.push({ k: 'dato', t: 'text', req: true, lab: 'Correo electrónico', title: first ? first + ', ¿a qué correo te escribimos?' : '¿Cuál es tu correo electrónico?', ph: 'nombre@correo.com', ac: 'email', im: 'email' });
@@ -601,6 +673,7 @@ qNext(e) {
     const el = f && f.elements ? f.elements.v : null;
     const v = el && el.value ? String(el.value).trim() : '';
     ans[d.k] = v;
+    if ((d.k === 'actividad' || d.k === 'negocio') && this.qSecKey(ans) !== this.qSecKey(st.ans || {})) ['interes', 'tipoWeb', 'incluir', 'uso', 'mejorar'].forEach((x) => { delete ans[x]; });
     if (d.req && !v) err = 'Este campo es obligatorio.';
     else if (d.k === 'dato' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) err = 'Escribe un correo electrónico válido.';
   } else if (d.t === 'multi') {
@@ -630,6 +703,8 @@ qSend(ans) {
     data[d.lab] = t;
     body += d.lab + ': ' + t + '\n';
   });
+  data['Sector detectado'] = this.qSecName(ans);
+  body += 'Sector detectado: ' + this.qSecName(ans) + '\n';
   data['Consentimiento'] = 'Acepta que NEXIA use estos datos para contactar con él/ella sobre su consulta.';
   body += '\nAcepto que NEXIA use estos datos para contactar conmigo sobre mi consulta.';
   const tag = ['Tarjetas y soportes', 'Contenido web', 'Audiovisual', 'Captación y marketing'][Math.max(0, this.qNeeds().indexOf(ans.need))];
