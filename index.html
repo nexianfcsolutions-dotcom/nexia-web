@@ -464,56 +464,21 @@ componentDidMount() {
   }
 }
 qNeeds() { return ['Tarjetas, placas o soportes de mesa', 'Contenido web: página, portal o plataforma', 'Contenido audiovisual: imagen o vídeo', 'Captación, marketing y posicionamiento']; }
+qSecs() {
+  return [['salud', 'Clínica dental'], ['salud', 'Otra clínica o consulta de salud'], ['restauracion', 'Restaurante, bar o cafetería'], ['hotel', 'Hotel, hostal o alojamiento'], ['belleza', 'Peluquería, estética o bienestar'], ['comercio', 'Comercio o tienda'], ['servicios', 'Servicios profesionales'], ['otro', 'Otro tipo de negocio']];
+}
 qSec(ans) {
-  // Detecta el tipo de negocio a partir del nombre y de lo que a qué se dedica, para adaptar las preguntas.
-  ans = ans || {};
-  const norm = (x) => String(x || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-  const R = [
-    ['salud', /dental|dentist|odont|ortodon|clinic|medic|salud|fisio|psicolog|podolog|veterin|farmac|optic|quiropr|osteop|nutric|logoped|enfermer|audiolog|ortoped|terapeut|sanitar|consulta medica/],
-    ['restauracion', /restaur|\bbar\b|bares|cafeter|\bcafe\b|asador|pizzer|cervecer|taberna|tapas|bistro|panader|pasteler|heladeri|comida|hosteler|gastro|meson|brasa|hamburgues|cocteler|pub\b/],
-    ['hotel', /hotel|hostal|alojamiento|apartament|casa rural|pension|albergue|hospeder|turistic/],
-    ['belleza', /peluquer|barber|estetic|manicur|unas|\bspa\b|masaje|tatuaj|depilac|maquillaj|belleza|bienestar|gimnasi|crossfit|yoga|pilates|fitness|entrenador|padel/],
-    ['comercio', /tienda|comercio|boutique|floristeri|joyeri|librer|ropa|zapater|ferreter|supermercado|regalos|moda|mueble|juguet|electrodomestic|bazar|estanco|papeler|decoracion|ultramarinos|frutas|carniceri|pescaderi/],
-    ['servicios', /abogad|gestor|asesor|inmobiliar|arquitect|contable|contabilidad|seguros|consultor|academia|autoescuela|taller|mecanic|fotograf|ingenier|reformas|construc|limpieza|electricist|fontaner|notari|despacho|agencia|formacion/]
-  ];
-  // Manda lo que cuenta de su actividad; el nombre solo sirve si la actividad no da pistas.
-  const byAct = R.filter((r) => r[1].test(norm(ans.actividad))).map((r) => r[0]);
-  return byAct.length ? byAct : R.filter((r) => r[1].test(norm(ans.negocio))).map((r) => r[0]);
+  const e = this.qSecs().filter((x) => x[1] === (ans || {}).sector)[0];
+  return e ? e[0] : '';
 }
-qSecKey(ans) { return this.qSec(ans).join('+'); }
-qSecName(ans) {
-  const N = { salud: 'Salud', restauracion: 'Restauración', hotel: 'Hotel o alojamiento', belleza: 'Belleza y bienestar', comercio: 'Comercio', servicios: 'Servicios profesionales' };
-  const k = this.qSec(ans);
-  return k.length ? k.map((x) => N[x]).join(' + ') : 'Sin determinar';
-}
-qPickBySec(ans, map, general) {
-  // Une las opciones de todos los sectores detectados (sin repetir) y deja «Otro» siempre al final.
-  const k = this.qSec(ans);
-  const lists = k.length ? k.map((x) => map[x] || general) : [general];
-  const out = [];
-  lists.forEach((l) => l.forEach((o) => { if (out.indexOf(o) < 0 && o !== 'Otro' && o !== 'Otra cosa' && o !== 'Otro uso') out.push(o); }));
-  return out;
-}
-qEx(ans) {
-  const k = this.qSec(ans)[0];
-  const E = {
-    salud: 'más pacientes, citas sin llamadas, una web clara, un vídeo que explique un tratamiento…',
-    restauracion: 'más reservas, una carta clara, más reseñas, un vídeo para redes…',
-    hotel: 'más reservas directas, información clara para los huéspedes, más reseñas…',
-    belleza: 'más citas, mostrar tus trabajos, más reseñas, un vídeo para redes…',
-    comercio: 'más visitas a la tienda, mostrar el catálogo, más reseñas, un vídeo para redes…',
-    servicios: 'más consultas, presentar tus servicios con claridad, una web clara…'
-  };
-  return E[k] || 'más clientes, citas sin llamadas, una web clara, un vídeo para redes…';
-}
+qBy(ans, map, general) { return map[this.qSec(ans)] || general; }
 qWebTypes(ans) {
-  const k = this.qSec(ans)[0];
   const X = { salud: 'tratamientos, equipo, citas…', restauracion: 'carta, galería, reservas…', hotel: 'habitaciones, información, reservas…', belleza: 'servicios, galería, citas…', comercio: 'catálogo, ofertas, galería…', servicios: 'servicios, casos, citas…' };
-  return ['Portal básico: una página con botones para que te contacten', 'Portal avanzado: ' + (X[k] || 'contenido, galería, reservas…'), 'Web completa a medida, con varias páginas y dominio propio', 'No lo tengo claro, aconsejadme'];
+  return ['Portal básico: una página con botones para que te contacten', 'Portal avanzado: ' + (X[this.qSec(ans)] || 'contenido, galería, reservas…'), 'Web completa a medida, con varias páginas y dominio propio', 'No lo tengo claro, aconsejadme'];
 }
 qWebIncl(tipo, ans) {
   const basic = ['Botón de llamada', 'WhatsApp', 'Cómo llegar y horarios', 'Reseña en Google', 'Mi web', 'Mis redes sociales', 'Pedir cita o reservar'];
-  const full = this.qPickBySec(ans, {
+  const full = this.qBy(ans, {
     salud: ['Tratamientos y servicios con fotos', 'Presentación del equipo', 'Pedir cita online', 'Información y cuidados para pacientes', 'Galería de fotos de la clínica', 'Reseñas de pacientes', 'Novedades', 'Información práctica', 'Varios idiomas', 'Dirección web propia'],
     restauracion: ['Carta o catálogo con fotos', 'Alérgenos', 'Varios idiomas', 'Galería de fotos', 'Reservas', 'Ofertas y novedades', 'Reseñas de clientes', 'Información práctica', 'Dirección web propia'],
     hotel: ['Información del hotel y de la zona', 'Habitaciones y servicios con fotos', 'Reservas directas', 'Varios idiomas', 'Galería de fotos', 'Ofertas y novedades', 'Reseñas de huéspedes', 'Información práctica', 'Dirección web propia'],
@@ -524,58 +489,104 @@ qWebIncl(tipo, ans) {
   return (this.qWebTypes(ans).indexOf(tipo) === 0 ? basic : full).concat(['Otra cosa']);
 }
 qMedia() { return ['Imagen', 'Vídeo', 'Imagen y vídeo']; }
-qUses(medio, ans) {
+qUsesAv(kind, ans) {
   const GI = ['Imagen de un producto o servicio nuevo', 'Fotos de productos o servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Enseñar algo a mis clientes'];
   const GV = ['Enseñar a mis clientes cómo es un producto, servicio o proyecto', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar un producto o servicio nuevo', 'Presentar mi negocio'];
-  const img = this.qPickBySec(ans, {
-    salud: ['Fotos de la clínica y del equipo', 'Imágenes de tratamientos y servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Material informativo para pacientes'],
-    restauracion: ['Fotos de platos y del establecimiento', 'Imagen de un plato o producto nuevo', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Cartelería y menús'],
-    hotel: ['Fotos de habitaciones y zonas comunes', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Material informativo para huéspedes'],
-    belleza: ['Fotos de trabajos y servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Imagen de un servicio nuevo']
-  }, GI);
-  const vid = this.qPickBySec(ans, {
+  if (kind === 'img') {
+    return this.qBy(ans, {
+      salud: ['Fotos de la clínica y del equipo', 'Imágenes de tratamientos y servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Material informativo para pacientes'],
+      restauracion: ['Fotos de platos y del establecimiento', 'Imagen de un plato o producto nuevo', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Cartelería y menús'],
+      hotel: ['Fotos de habitaciones y zonas comunes', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Material informativo para huéspedes'],
+      belleza: ['Fotos de trabajos y servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Imagen de un servicio nuevo']
+    }, GI).concat(['Otro uso']);
+  }
+  return this.qBy(ans, {
     salud: ['Explicar un tratamiento o servicio a los pacientes', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar la clínica y al equipo', 'Cuidados y consejos para pacientes'],
     restauracion: ['Promoción para mis redes (reel o anuncio)', 'Presentar un plato o producto nuevo', 'Animación para mi web', 'Presentar mi negocio'],
     hotel: ['Presentar el hotel y la zona', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Enseñar los servicios a los huéspedes'],
     belleza: ['Enseñar un servicio o tratamiento', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar mi negocio']
-  }, GV);
-  const i = this.qMedia().indexOf(medio);
-  return (i === 0 ? img : (i === 1 ? vid : vid.concat(img.filter((o) => vid.indexOf(o) < 0)))).concat(['Otro uso']);
+  }, GV).concat(['Otro uso']);
+}
+qUseCat() {
+  // Cada objetivo principal de las tarjetas tiene su propia pregunta de detalle.
+  return {
+    resenas: { l: 'Reseñas en Google', f: { t: 'single', lab: 'Dónde la colocaría', title: '¿Dónde la colocarías?', opts: ['En el mostrador o la recepción', 'En cada mesa o puesto', 'Se entrega en mano', 'En la entrada o el escaparate'] } },
+    carta: { l: 'Carta digital para mesas', f: { t: 'single', lab: 'Cómo es su carta', title: '¿Cómo es tu carta?', opts: ['Es fija, con pocos cambios', 'Cambia cada día (menú del día)', 'La tengo en PDF o en una web', 'Todavía no la tengo en digital'] } },
+    cita: { l: 'Pedir cita o reservar', ls: { salud: 'Pedir cita o contactar con el centro', restauracion: 'Reservas de mesa', hotel: 'Reservas directas', servicios: 'Pedir cita o contactar' }, f: { t: 'single', lab: 'Cómo gestiona hoy las citas o reservas', title: '¿Cómo gestionas hoy las citas o reservas?', opts: ['Por teléfono', 'Por WhatsApp', 'Con una agenda o programa online', 'Todavía no las gestiono'] } },
+    ofertas: { l: 'Catálogo, ofertas y novedades', ls: { restauracion: 'Menú del día y ofertas' }, f: { t: 'multi', lab: 'Qué quiere enseñar', title: '¿Qué quieres enseñar?', sub: 'Elige todo lo que corresponda.', opts: ['Menú del día', 'Ofertas y promociones', 'Novedades', 'Catálogo completo'] } },
+    visita: { l: 'Tarjeta de visita inteligente', ls: { salud: 'Tarjeta de visita inteligente para el equipo' }, f: { t: 'single', lab: 'Para quién sería', title: '¿Para quién sería?', opts: ['Solo para mí', 'Para varias personas del equipo', 'Todavía no lo sé'] } },
+    redes: { l: 'Que te sigan en redes sociales', f: { t: 'multi', lab: 'Qué redes usa', title: '¿Qué redes usas?', sub: 'Elige todas las que quieras.', opts: ['Instagram', 'TikTok', 'Facebook', 'YouTube', 'Todavía ninguna'] } },
+    cuidados: { l: 'Información de tratamientos y cuidados posteriores', f: { t: 'multi', lab: 'Qué información daría', title: '¿Qué información darías al paciente?', sub: 'Elige todo lo que corresponda.', opts: ['Cuidados después de un tratamiento', 'Explicación de los tratamientos', 'Preguntas frecuentes', 'Instrucciones antes de la cita'] } },
+    equipo: { l: 'Presentar al equipo y los servicios', ls: { servicios: 'Presentar servicios y casos', belleza: 'Servicios y tarifas' }, f: { t: 'multi', lab: 'Qué quiere presentar', title: '¿Qué quieres presentar?', sub: 'Elige todo lo que corresponda.', opts: ['Al equipo', 'Los servicios', 'Casos o trabajos realizados', 'Las tarifas'] } },
+    infoHotel: { l: 'Información para los huéspedes', f: { t: 'multi', lab: 'Qué información daría', title: '¿Qué información darías?', sub: 'Elige todo lo que corresponda.', opts: ['Wifi y servicios', 'Horarios (desayuno, recepción)', 'Qué ver y hacer en la zona', 'Normas y contacto'] } },
+    producto: { l: 'Información de producto', f: { t: 'single', lab: 'Dónde iría', title: '¿Dónde iría?', opts: ['En el propio producto o su etiqueta', 'En el mostrador', 'En el escaparate'] } },
+    llegar: { l: 'Cómo llegar, horarios y contacto', f: { t: 'single', lab: 'Qué debe mostrar', title: '¿Qué debe mostrar?', opts: ['Cómo llegar y horarios', 'Teléfono y WhatsApp', 'Todo junto'] } }
+  };
+}
+qUseList(ans) {
+  const sec = this.qSec(ans);
+  const cat = this.qUseCat();
+  const ids = { salud: ['resenas', 'cita', 'visita', 'cuidados', 'equipo'], restauracion: ['carta', 'resenas', 'cita', 'ofertas', 'visita', 'redes'], hotel: ['infoHotel', 'resenas', 'cita', 'visita'], belleza: ['cita', 'resenas', 'equipo', 'visita', 'redes'], comercio: ['resenas', 'ofertas', 'producto', 'llegar', 'visita', 'redes'], servicios: ['visita', 'resenas', 'cita', 'equipo'] }[sec] || ['resenas', 'visita', 'cita', 'llegar', 'ofertas'];
+  return ids.map((id) => ({ id: id, label: (cat[id].ls && cat[id].ls[sec]) || cat[id].l }));
 }
 qSteps(ans) {
   ans = ans || {};
   const first = String(ans.nombre || '').trim().split(' ')[0];
   const needs = this.qNeeds();
   const b = Math.max(0, needs.indexOf(ans.need));
-  const S = [
-    { k: 'need', t: 'single', req: true, lab: 'Qué necesita', title: '¿Qué necesitas?', sub: 'Elige lo que mejor encaja con tu caso. Si necesitas varias cosas, empieza por la principal y lo hablamos.', opts: needs },
-    { k: 'negocio', t: 'text', req: true, lab: 'Nombre del negocio', title: '¿Cómo se llama tu negocio?', ph: 'Escribe el nombre aquí…', ac: 'organization' },
-    { k: 'actividad', t: 'long', req: true, lab: 'A qué se dedica', title: ans.negocio ? '¿A qué se dedica ' + ans.negocio + '?' : '¿A qué se dedica tu negocio?', sub: 'Descríbelo con tus propias palabras. Con eso adaptamos las siguientes preguntas a tu caso.', ph: 'Por ejemplo: clínica dental, restaurante, hotel, tienda de ropa…' }
-  ];
+  const sec = this.qSec(ans);
+  const S = [];
+  S.push({ k: 'need', t: 'single', req: true, lab: 'Qué necesita', title: '¿Qué necesitas?', sub: 'Elige lo que mejor encaja con tu caso. Si necesitas varias cosas, empieza por la principal y lo hablamos.', opts: needs });
+  S.push({ k: 'sector', t: 'single', req: true, lab: 'Tipo de negocio', title: '¿Qué tipo de negocio tienes?', sub: 'Así te mostramos solo opciones que encajan con tu caso.', opts: this.qSecs().map((x) => x[1]) });
+  if (sec === 'otro') S.push({ k: 'sectorOtro', t: 'long', req: true, lab: 'A qué se dedica', title: '¿A qué se dedica tu negocio?', sub: 'Descríbelo con tus propias palabras.', ph: 'Por ejemplo: taller de carpintería…' });
+  const follow = (k, f) => S.push({ k: k, t: f.t, req: true, lab: f.lab, title: f.title, sub: f.sub || '', opts: f.opts });
   if (b === 0) {
-    S.push({ k: 'interes', t: 'multi', req: true, lab: 'Qué le interesa de NEXIA', title: '¿Qué te interesa de NEXIA?', sub: 'Elige todas las que quieras.', opts: this.qPickBySec(ans, {
-      salud: ['Reseñas en Google', 'Pedir cita o contactar con el centro', 'Tarjeta de visita inteligente para el equipo', 'Información de tratamientos y cuidados posteriores', 'Presentar al equipo y los servicios'],
-      restauracion: ['Carta digital para mesas', 'Reseñas en Google', 'Reservas de mesa', 'Menú del día y ofertas', 'Tarjeta de visita inteligente', 'Que te sigan en redes sociales'],
-      hotel: ['Información del hotel y de la zona', 'Reseñas en Google', 'Reservas directas', 'Wifi, servicios y horarios para los huéspedes', 'Tarjeta de visita inteligente'],
-      belleza: ['Pedir cita o reservar', 'Reseñas en Google', 'Servicios y tarifas', 'Tarjeta de visita inteligente', 'Que te sigan en redes sociales'],
-      comercio: ['Reseñas en Google', 'Catálogo, ofertas y novedades', 'Información de producto', 'Cómo llegar y horarios', 'Tarjeta de visita inteligente', 'Que te sigan en redes sociales'],
-      servicios: ['Tarjeta de visita inteligente', 'Reseñas en Google', 'Pedir cita o contactar', 'Presentar servicios y casos']
-    }, ['Reseñas en Google', 'Tarjeta de visita inteligente', 'Pedir cita o contactar', 'Información de tu negocio, horarios y cómo llegar', 'Carta, catálogo o servicios']).concat(['Otro']) });
-    S.push({ k: 'objetivo', t: 'long', req: false, lab: 'Qué le gustaría conseguir', title: '¿Qué te gustaría conseguir?', sub: 'Opcional. Por ejemplo: ' + this.qEx(ans), ph: 'Escribe aquí lo que tengas en mente…' });
-    S.push({ k: 'usa', t: 'single', req: false, lab: 'Usa ya algo parecido', title: '¿Usas ya algo parecido?', sub: 'Opcional.', opts: ['No', 'Sí, códigos QR', 'Sí, NFC', 'No lo sé'] });
-    S.push({ k: 'locales', t: 'single', req: false, lab: 'Cuántas sedes o establecimientos tiene', title: '¿Cuántas sedes o establecimientos tienes?', sub: 'Opcional.', opts: ['1', '2 o 3', '4 o más'] });
+    const U = this.qUseList(ans);
+    S.push({ k: 'uso', t: 'single', req: true, lab: 'Lo principal que quiere conseguir', title: '¿Qué es lo principal que quieres conseguir?', sub: 'Si quieres varias cosas, empieza por la principal y lo hablamos.', opts: U.map((x) => x.label).concat(['Otra cosa']) });
+    const u = U.filter((x) => x.label === ans.uso)[0];
+    if (ans.uso === 'Otra cosa') S.push({ k: 'usoOtro', t: 'long', req: true, lab: 'Qué le gustaría conseguir', title: 'Cuéntanos qué te gustaría conseguir', ph: 'Escribe aquí lo que tengas en mente…' });
+    else if (u) follow('detalle', this.qUseCat()[u.id].f);
+    if (!u || u.id !== 'visita') S.push({ k: 'formato', t: 'single', req: true, lab: 'Formato', title: '¿En qué formato lo imaginas?', sub: 'La placa y la tarjeta cuestan lo mismo; el soporte de mostrador, el doble por unidad.', opts: ['Tarjeta', 'Placa cuadrada para mesa o mostrador', 'Soporte de mostrador', 'No lo sé, aconsejadme'] });
+    S.push({ k: 'cantidad', t: 'single', req: true, lab: 'Cuántas unidades', title: '¿Cuántas unidades necesitas?', sub: 'Cuantas más pides, menos cuesta cada una.', opts: ['De 1 a 5', 'De 6 a 25', 'De 26 a 50', 'Más de 50', 'No lo sé todavía'] });
+    S.push({ k: 'usa', t: 'single', req: true, lab: 'Usa ya algo parecido', title: '¿Usas ya algo parecido?', opts: ['No', 'Sí, códigos QR', 'Sí, tarjetas o placas NFC', 'No lo sé'] });
+    if (ans.usa === 'Sí, códigos QR') follow('usaQR', { t: 'single', lab: 'Qué le gustaría cambiar de los QR', title: '¿Qué te gustaría mejorar de los códigos QR?', opts: ['Que sea más cómodo para el cliente', 'Que se vea más cuidado', 'Que no se estropeen ni se pierdan', 'Poder cambiar el enlace sin reimprimir'] });
+    else if (ans.usa === 'Sí, tarjetas o placas NFC') follow('usaNFC', { t: 'single', lab: 'Qué le gustaría mejorar', title: '¿Qué te gustaría mejorar?', opts: ['El diseño', 'Que sea más fácil de usar', 'Lo que se ve al acercar el móvil', 'Nada, solo repetir el pedido'] });
   } else if (b === 1) {
     S.push({ k: 'tipoWeb', t: 'single', req: true, lab: 'Tipo de página o portal', title: '¿Qué tipo de página o portal necesitas?', sub: 'Si dudas, elige la última opción y te aconsejamos.', opts: this.qWebTypes(ans) });
-    S.push({ k: 'incluir', t: 'multi', req: true, lab: 'Qué debe incluir', title: '¿Qué quieres que incluya?', sub: 'Elige todo lo que te interese. Lo ajustamos contigo después.', opts: this.qWebIncl(ans.tipoWeb, ans) });
-    S.push({ k: 'objetivo', t: 'long', req: false, lab: 'Algo más que quiera contarnos', title: '¿Algo más que quieras contarnos?', sub: 'Opcional. Por ejemplo: una web que ya tengas, ejemplos que te gusten o plazos.', ph: 'Escribe aquí lo que tengas en mente…' });
+    const ti = this.qWebTypes(ans).indexOf(ans.tipoWeb);
+    if (ti === 3) follow('metaWeb', { t: 'single', lab: 'Qué necesita conseguir con la web', title: '¿Qué necesitas conseguir con la web?', sub: 'Con esto te aconsejamos el nivel que te conviene.', opts: ['Que me encuentren en Google', 'Que me contacten o pidan cita', 'Enseñar lo que hago', 'Vender online', 'Un poco de todo'] });
+    else if (ti >= 0) {
+      if (ti === 2) follow('paginas', { t: 'single', lab: 'Cuántas páginas', title: '¿Cuántas páginas calculas?', opts: ['De 1 a 3', 'De 4 a 8', 'Más de 8', 'No lo sé'] });
+      S.push({ k: 'incluir', t: 'multi', req: true, lab: ti === 0 ? 'Botones que quiere' : 'Qué debe incluir', title: ti === 0 ? '¿Qué botones quieres?' : '¿Qué quieres que incluya?', sub: 'Elige todo lo que te interese. Lo ajustamos contigo después.', opts: this.qWebIncl(ans.tipoWeb, ans) });
+    }
+    S.push({ k: 'tieneWeb', t: 'single', req: true, lab: 'Tiene web', title: '¿Tienes ya una web?', opts: ['No, no tengo', 'Sí, quiero renovarla', 'Sí, solo quiero añadir algo'] });
+    if (ans.tieneWeb && ans.tieneWeb.indexOf('Sí') === 0) S.push({ k: 'webActual', t: 'text', req: false, lab: 'Su web actual', title: '¿Cuál es su dirección?', sub: 'Opcional.', ph: 'www.minegocio.com' });
+    S.push({ k: 'material', t: 'single', req: true, lab: 'Material que tiene', title: '¿Tienes logo, fotos y textos?', opts: ['Tengo todo', 'Tengo una parte', 'Necesito ayuda con todo'] });
   } else if (b === 2) {
     S.push({ k: 'medio', t: 'single', req: true, lab: 'Imagen o vídeo', title: '¿Necesitas imagen, vídeo o ambos?', opts: this.qMedia() });
-    S.push({ k: 'uso', t: 'multi', req: true, lab: 'Para qué lo necesita', title: '¿Para qué lo necesitas?', sub: 'Elige todo lo que corresponda.', opts: this.qUses(ans.medio, ans) });
-    S.push({ k: 'objetivo', t: 'long', req: false, lab: 'La idea', title: 'Cuéntanos la idea', sub: 'Opcional. Qué quieres enseñar, a quién y dónde se va a ver.', ph: 'Escribe aquí lo que tengas en mente…' });
+    const mi = this.qMedia().indexOf(ans.medio);
+    if (mi === 0 || mi === 2) {
+      S.push({ k: 'usoImg', t: 'multi', req: true, lab: 'Para qué necesita la imagen', title: '¿Para qué necesitas la imagen?', sub: 'Elige todo lo que corresponda.', opts: this.qUsesAv('img', ans) });
+      S.push({ k: 'nImg', t: 'single', req: true, lab: 'Cuántas imágenes', title: '¿Cuántas imágenes necesitas?', opts: ['De 1 a 5', 'De 6 a 15', 'Más de 15', 'No lo sé'] });
+    }
+    if (mi === 1 || mi === 2) {
+      S.push({ k: 'usoVid', t: 'multi', req: true, lab: 'Para qué necesita el vídeo', title: '¿Para qué necesitas el vídeo?', sub: 'Elige todo lo que corresponda.', opts: this.qUsesAv('vid', ans) });
+      S.push({ k: 'nVid', t: 'single', req: true, lab: 'Cuántos vídeos', title: '¿Cuántos vídeos necesitas?', sub: 'Pack de 5 vídeos: 80 €. Pack de 10 vídeos: 150 €. Sin IVA.', opts: ['1 vídeo', 'Pack de 5 vídeos', 'Pack de 10 vídeos', 'Más de 10', 'No lo sé'] });
+      S.push({ k: 'dondeVid', t: 'multi', req: true, lab: 'Dónde se publicará', title: '¿Dónde se va a ver?', sub: 'Elige todo lo que corresponda.', opts: ['Instagram o TikTok', 'Mi web', 'Anuncios de pago', 'Una pantalla en mi negocio', 'Todavía no lo sé'] });
+    }
+    if (mi >= 0) S.push({ k: 'materialAv', t: 'single', req: true, lab: 'Material que tiene', title: '¿Tienes ya fotos o vídeos propios?', opts: ['Sí, tengo material', 'Tengo algo', 'No, hay que crearlo todo'] });
   } else {
-    S.push({ k: 'mejorar', t: 'multi', req: true, lab: 'Qué quiere mejorar', title: '¿Qué te gustaría mejorar?', sub: 'Elige todo lo que corresponda. Con tus respuestas preparamos un estudio de tu caso.', opts: ['Que me encuentren más (Google, mapas, redes)', 'Conseguir más ' + ({ salud: 'pacientes y citas', restauracion: 'clientes y reservas', hotel: 'reservas directas', belleza: 'clientes y citas', comercio: 'clientes y ventas' }[this.qSec(ans)[0]] || 'clientes y consultas'), 'Atender más rápido y automatizar tareas', 'Mejorar mi imagen y mis redes sociales', 'No lo tengo claro, quiero una radiografía de mi negocio'] });
-    S.push({ k: 'objetivo', t: 'long', req: false, lab: 'Qué le gustaría conseguir', title: '¿Qué te gustaría conseguir?', sub: 'Opcional. Por ejemplo: ' + this.qEx(ans), ph: 'Escribe aquí lo que tengas en mente…' });
+    const cl = { salud: 'pacientes y citas', restauracion: 'clientes y reservas', hotel: 'reservas directas', belleza: 'clientes y citas', comercio: 'clientes y ventas' }[sec] || 'clientes y consultas';
+    const M = ['Que me encuentren más (Google, mapas, redes)', 'Conseguir más ' + cl, 'Atender más rápido y automatizar tareas', 'Mejorar mi imagen y mis redes sociales', 'No lo tengo claro, quiero una radiografía de mi negocio'];
+    S.push({ k: 'mejorar', t: 'single', req: true, lab: 'Lo principal que quiere mejorar', title: '¿Qué es lo principal que quieres mejorar?', sub: 'Con tus respuestas preparamos un estudio de tu caso.', opts: M });
+    const mj = M.indexOf(ans.mejorar);
+    if (mj === 0) follow('mejDonde', { t: 'multi', lab: 'Dónde quiere aparecer', title: '¿Dónde quieres que te encuentren?', sub: 'Elige todo lo que corresponda.', opts: ['Google y Google Maps', 'Instagram', 'TikTok', 'Directorios y portales', 'No lo sé'] });
+    else if (mj === 1) follow('mejComo', { t: 'multi', lab: 'Cómo le llegan hoy', title: '¿Cómo te llegan hoy?', sub: 'Elige todo lo que corresponda.', opts: ['Por recomendación', 'Por redes sociales', 'Por Google', 'Por publicidad', 'Pasan por la puerta'] });
+    else if (mj === 2) follow('mejTarea', { t: 'multi', lab: 'Qué tareas le quitan tiempo', title: '¿Qué tareas te quitan más tiempo?', sub: 'Elige todo lo que corresponda.', opts: ['Responder mensajes', 'Gestionar citas o reservas', 'Pedir reseñas', 'Enviar recordatorios', 'Presupuestos y facturas'] });
+    else if (mj === 3) follow('mejImagen', { t: 'single', lab: 'Qué necesita de imagen y redes', title: '¿Qué necesitas?', opts: ['Renovar mi imagen de marca', 'Contenido para mis redes', 'Las dos cosas', 'No lo sé'] });
   }
+  S.push({ k: 'coment', t: 'long', req: false, lab: 'Algo más que quiera contarnos', title: '¿Algo más que quieras contarnos?', sub: 'Opcional.', ph: 'Escribe aquí lo que tengas en mente…' });
+  S.push({ k: 'negocio', t: 'text', req: true, lab: 'Nombre del negocio', title: '¿Cómo se llama tu negocio?', ph: 'Escribe el nombre aquí…', ac: 'organization' });
   S.push({ k: 'nombre', t: 'text', req: true, lab: 'Nombre de la persona de contacto', title: '¿Cómo te llamas?', ph: 'Tu nombre', ac: 'given-name' });
   S.push({ k: 'dato', t: 'text', req: true, lab: 'Correo electrónico', title: first ? first + ', ¿a qué correo te escribimos?' : '¿Cuál es tu correo electrónico?', ph: 'nombre@correo.com', ac: 'email', im: 'email' });
   S.push({ k: 'consent', t: 'consent', req: true, lab: 'Consentimiento', title: 'Último paso: tu permiso' });
@@ -644,7 +655,7 @@ qPick(k, lab) {
     ans[k] = cur;
     this.setState({ ans: ans, err: '' });
   } else {
-    if (ans[k] !== lab) { if (k === 'tipoWeb') delete ans.incluir; if (k === 'medio') delete ans.uso; }
+    if (ans[k] !== lab) { const KEEP = ['negocio', 'nombre', 'dato', 'coment', 'consent'].concat(k === 'need' ? ['sector', 'sectorOtro'] : []); steps.slice(qi + 1).forEach((x) => { if (KEEP.indexOf(x.k) < 0) delete ans[x.k]; }); }
     ans[k] = lab;
     this.setState({ ans: ans, err: '' });
     setTimeout(() => {
@@ -673,7 +684,6 @@ qNext(e) {
     const el = f && f.elements ? f.elements.v : null;
     const v = el && el.value ? String(el.value).trim() : '';
     ans[d.k] = v;
-    if ((d.k === 'actividad' || d.k === 'negocio') && this.qSecKey(ans) !== this.qSecKey(st.ans || {})) ['interes', 'tipoWeb', 'incluir', 'uso', 'mejorar'].forEach((x) => { delete ans[x]; });
     if (d.req && !v) err = 'Este campo es obligatorio.';
     else if (d.k === 'dato' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) err = 'Escribe un correo electrónico válido.';
   } else if (d.t === 'multi') {
@@ -703,8 +713,6 @@ qSend(ans) {
     data[d.lab] = t;
     body += d.lab + ': ' + t + '\n';
   });
-  data['Sector detectado'] = this.qSecName(ans);
-  body += 'Sector detectado: ' + this.qSecName(ans) + '\n';
   data['Consentimiento'] = 'Acepta que NEXIA use estos datos para contactar con él/ella sobre su consulta.';
   body += '\nAcepto que NEXIA use estos datos para contactar conmigo sobre mi consulta.';
   const tag = ['Tarjetas y soportes', 'Contenido web', 'Audiovisual', 'Captación y marketing'][Math.max(0, this.qNeeds().indexOf(ans.need))];
