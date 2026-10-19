@@ -552,7 +552,7 @@ qPrice(ans) {
   const extrasText = ex.map((x) => '+' + f(x[0]) + ' por unidad (' + x[1] + ')').join(' · ');
   if (ex.length) ex.forEach((x) => lines.push([x[1].charAt(0).toUpperCase() + x[1].slice(1) + ' (+' + f(x[0]) + ' × ' + n + ')', f(r2(x[0] * n))]));
 
-  // Formatos que se cobran online. El servidor de pagos (Netlify) debe tener el precio de placa y soporte desplegado (nexia-pagos d23df70) antes de añadir 'placa' y 'soporte' aquí.
+  // Formatos que se cobran online. El servidor de pagos (Cloudflare) ya calcula placa y soporte: para cobrarlos online basta con añadir 'placa' y 'soporte' aquí.
   const PAGO_ONLINE = ['tarjeta'];
   let note;
   if (!qty) note = spec + 'El precio va cambiando según avanzas. Los extras se suman por unidad.';
@@ -655,12 +655,12 @@ qSend(ans, seq) {
     .catch(() => this.setState({ status: 'error', err: fail }));
 }
 qPagosUrl() {
-  // Dirección de la función de pagos (Netlify). Si el servidor contesta que el pago online no está activado, se usa el envío por correo.
+  // Dirección del servidor de pagos (Cloudflare Workers). Si el servidor contesta que el pago online no está activado, se usa el envío por correo.
   // Mientras esté vacía, «Ir a pagar» solo guarda el pedido (se envía a NEXIA) y avisa al cliente de que el pago online se está activando.
-  return this._sinPago ? '' : 'https://nexia-pagos.netlify.app/api/crear-pago';
+  return this._sinPago ? '' : 'https://nexia-pagos.nexianfcsolutions.workers.dev/api/crear-pago';
 }
 qPay(ans) {
-  // PAGO. La web NO calcula ni envía el importe: manda el pedido a la función de pagos (Netlify), que RECALCULA el precio,
+  // PAGO. La web NO calcula ni envía el importe: manda el pedido al servidor de pagos (Cloudflare), que RECALCULA el precio,
   // crea el pago en Stripe y devuelve la dirección de pago. El pedido solo llega a NEXIA cuando el cliente ha pagado.
   const PAGOS = this.qPagosUrl();
   const fail = 'No hemos podido preparar el pago. Inténtalo de nuevo en un momento o escríbenos a nexianfcsolutions@gmail.com.';

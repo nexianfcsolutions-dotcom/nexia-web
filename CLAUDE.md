@@ -15,7 +15,7 @@ Web estática de NEXIA (tarjetas, placas y soportes NFC, portales web y vídeo p
 - Tras cambiar `precios.js`: en `nexia-pagos`, `npm run sync-precios && npm test`, y publicar web y pagos.
 - Precios psicológicos: los lotes se definen por su **total** (`P.lotes`, p. ej. 10 tarjetas = 29,99 €); `P.total(n, formato)` da el importe y `P.porUnidad` el precio por unidad que se muestra (redondeado hacia abajo).
 - Promoción de primera compra (`P.promoDiseno`): diseño de NEXIA gratis en pedidos de 2 o más unidades. La web la muestra siempre; el servidor de pagos la aplica solo si ese correo o teléfono no ha pagado antes. El aviso emergente está en `promo.js` (se apaga solo con `activa: false`).
-- Cobro online: `PAGO_ONLINE` en `configurar.html` (ahora solo `tarjeta`). Los pagos van a `https://nexia-pagos.netlify.app/api/crear-pago`; los pedidos sin pago fijo se envían por FormSubmit a nexianfcsolutions@gmail.com.
+- Cobro online: `PAGO_ONLINE` en `configurar.html` (ahora solo `tarjeta`). Los pagos van al servidor de Cloudflare `https://nexia-pagos.nexianfcsolutions.workers.dev/api/crear-pago` (repo nexia-pagos); los pedidos sin pago fijo se envían por FormSubmit a nexianfcsolutions@gmail.com.
 
 ## Otras carpetas
 - `asador/`, `dentalup/`, `reproalba/`: demos para clientes (no forman parte de la web de NEXIA; `asador/` pesa ~6 MB con vídeos).
