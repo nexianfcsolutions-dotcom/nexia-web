@@ -20,7 +20,7 @@ Web estática de NEXIA (tarjetas, placas y soportes NFC, portales web y vídeo p
 ## Otras carpetas
 - `asador/`, `dentalup/`, `reproalba/`: demos para clientes (no forman parte de la web de NEXIA; `asador/` pesa ~6 MB con vídeos).
 - `pago-prueba/`: página interna de prueba del pago.
-- Pie: todas las páginas llevan la barra «© 2026 NEXIA Solution… · SIRET En trámite»; si cambia, hay que cambiarla en todas.
+- Pie: todas las páginas llevan la barra «© 2026 NEXIA Solution… · NIF en trámite»; si cambia, hay que cambiarla en todas.
 - `opiniones.json`: opiniones que muestra `opiniones.html` (ahora vacío).
 
 ## Cómo trabajar aquí
