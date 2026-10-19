@@ -10,7 +10,7 @@ Web estática de NEXIA (tarjetas, placas y soportes NFC, portales web y vídeo p
 
 ## Precios (importante: es dinero)
 - **La única tabla de precios es `precios.js`** (sin IVA). La usan `configurar.html` (`qPrice`), `precios.html` (`pCalc`/`renderVals`) y el servidor de pagos (`nexia-pagos/lib/precios.cjs`, copia exacta).
-- No escribas importes a mano en la lógica de las páginas: usa `window.NEXIA_PRECIOS` (`P.unidad(n, formato)`, `P.fmt`, `P.diseno`, …).
+- No escribas importes a mano en la lógica de las páginas: usa `window.NEXIA_PRECIOS` (`P.total(n, formato)`, `P.porUnidad`, `P.fmt`, `P.diseno`, …).
 - `precios.html` también tiene precios escritos en el texto (tabla de lotes, extras, portales). Si cambia la tabla, hay que actualizarlos; el test de `nexia-pagos` avisa si no coinciden.
 - Tras cambiar `precios.js`: en `nexia-pagos`, `npm run sync-precios && npm test`, y publicar web y pagos.
 - Precios psicológicos: los lotes se definen por su **total** (`P.lotes`, p. ej. 10 tarjetas = 29,99 €); `P.total(n, formato)` da el importe y `P.porUnidad` el precio por unidad que se muestra (redondeado hacia abajo).
