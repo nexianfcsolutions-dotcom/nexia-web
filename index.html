@@ -235,6 +235,24 @@ textarea.nxq-in{resize:none;line-height:1.35}
 .nxq-done{width:100%;max-width:640px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;animation:nxqIn .6s cubic-bezier(.2,.8,.2,1) both}
 .nxq-okc{animation:nxqPop .6s ease .15s both}
 .nxq-okc path{stroke-dasharray:40;stroke-dashoffset:40;animation:nxqDraw .6s ease .55s forwards}
+.nxq-gs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.nxq-g{position:relative;padding:16px;border-radius:14px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);display:flex;flex-direction:column;gap:8px}
+.nxq-gt{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:18px}
+.nxq-lv{font-family:'DM Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.06em;color:#9DB8FF;text-transform:uppercase}
+.nxq-gb{height:8px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden}
+.nxq-gb span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#3F63F5,#00C1CA);transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.nxq-g p{margin:0;font-size:15px;color:#C9D2E0}
+.nxq-chip{align-self:flex-start;padding:3px 10px;border-radius:99px;background:#00C1CA;color:#10172A;font-size:12px;font-weight:700}
+.nxq-note{margin:0;padding:12px 16px;border-radius:10px;border:1px solid rgba(0,193,202,.5);background:rgba(0,193,202,.1);font-size:16px;color:#E4EAF5}
+.nxq-pks{display:flex;flex-direction:column;gap:12px}
+.nxq-pk{padding:18px;border-radius:14px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);display:flex;flex-direction:column;gap:8px}
+.nxq-pk p{margin:0;font-size:16px;line-height:1.45;color:#D7DEEA}
+.nxq-pk p b{color:#FFFFFF}
+.nxq-pkh{display:flex;align-items:center;gap:14px}
+.nxq-pn{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#3F63F5,#00C1CA);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:#fff}
+.nxq-pt{font-family:'DM Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.06em;color:#9DB8FF;text-transform:uppercase}
+.nxq-pti{margin:0;font-size:clamp(19px,2.4vw,24px);line-height:1.15;color:#fff;font-family:'Archivo',sans-serif;font-weight:800}
+.nxq-ghost{min-height:52px;padding:0 22px;border-radius:999px;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
 @media (hover:none){.nxq-hint{display:none}}
 @media (prefers-reduced-motion:reduce){.nxq-ov,.nxq-step,.nxq-done,.nxq-okc,.nxq-okc path{animation:none !important}.nxq-okc path{stroke-dashoffset:0}.nxq-opt,.nxq-ok,.nxq-x,.nxq-bar span{transition:none !important}.nxq-opt:hover,.nxq-ok:hover,.nxq-x:hover{transform:none !important}}
 
@@ -297,7 +315,7 @@ header nav[aria-label="Principal"] .nx-btn-primary{order:-1;min-height:40px !imp
 <a class="nx-link" href="soluciones.html" style="padding:0 6px">Ver soluciones <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
 </div>
 <p class="nx-mono" style="margin:0;animation:nxUp 0.7s ease 0.4s both">Compatible con iPhone y Android · Sin aplicaciones</p>
-<a class="nxq-big" href="#cuestionario" onClick="{{ openQ }}" style="text-decoration:none"><span style="flex:1;display:flex;flex-direction:column;gap:6px"><span class="nx-mono" style="color:#00C1CA;font-size:12px">Sin compromiso · dos minutos</span><span class="nx-h nx-h-l" style="font-size:clamp(26px,3.2vw,36px);line-height:1.05;color:#FFFFFF">Solicita tu propuesta</span><span style="font-size:16px;color:#C9D2E0">Cuéntanos tu actividad y preparamos una propuesta adaptada a tu negocio.</span></span><span class="nxq-big-go" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></a>
+<a class="nxq-big" href="#cuestionario" onClick="{{ openQ }}" style="text-decoration:none"><span style="flex:1;display:flex;flex-direction:column;gap:6px"><span class="nx-mono" style="color:#00C1CA;font-size:12px">Radiografía gratuita · dos minutos</span><span class="nx-h nx-h-l" style="font-size:clamp(26px,3.2vw,36px);line-height:1.05;color:#FFFFFF">Encuentra lo que necesitas y tu solución</span><span style="font-size:16px;color:#C9D2E0">Doce preguntas y ves en qué punto está tu negocio y qué mejorar primero.</span></span><span class="nxq-big-go" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></a>
 </div>
 <div style="position:relative;padding:8px 8% 8px 0"><div class="nxs-photo" style="max-width:480px"><span class="nxs-halo" aria-hidden="true"></span><div class="nxs-blob"><img src="img/resena-clinica.jpg" alt="Una paciente acerca el móvil a una tarjeta en la recepción de una clínica y le aparece la pantalla para dejar una reseña" fetchpriority="high"></div><span class="nxs-ping" aria-hidden="true" style="left:61%;top:57%"><span></span><span></span><span></span></span><div class="nxs-float" style="right:-7%;top:-4%;width:210px"><span class="nx-mono" style="font-size:10px">Tu negocio</span><span class="nx-h" style="font-size:21px;line-height:1.05">¿Qué tal ha ido tu visita?</span><span aria-hidden="true" style="display:flex;gap:3px;color:#F5B301;font-size:22px;line-height:1">★★★★★</span><span class="nxs-xm" style="display:block;height:46px;border:1px solid #D5DBE5;border-radius:8px;background:#F4F6F9"></span><span class="nxs-xm" style="display:flex;align-items:center;justify-content:center;min-height:40px;border-radius:999px;background:#10172A;color:#FFFFFF;font-weight:700;font-size:14px">Enviar reseña</span></div><span class="nxs-badge" style="left:-4%;bottom:9%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FE0B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>Reseña en dos toques</span></div></div>
 </div>
@@ -389,7 +407,7 @@ header nav[aria-label="Principal"] .nx-btn-primary{order:-1;min-height:40px !imp
 <p style="margin:0;font-size:18px;color:#C9D2E0">Te hacemos una demostración de cinco minutos con tu propio móvil y te orientamos sobre la solución más adecuada para tu negocio. Sin compromiso.</p>
 </div>
 <div style="position:relative;display:flex;flex-direction:column;gap:14px">
-<button type="button" class="nx-btn-light" onClick="{{ openQ }}" style="min-height:56px;font-size:18px;border:0;cursor:pointer;font-family:inherit">Cuéntanos qué necesitas <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button>
+<button type="button" class="nx-btn-light" onClick="{{ openQ }}" style="min-height:56px;font-size:18px;border:0;cursor:pointer;font-family:inherit">Encuentra lo que necesitas <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button>
 <a class="nx-btn-light" href="mailto:nexianfcsolutions@gmail.com" style="min-height:56px;font-size:18px;background:transparent;color:#FFFFFF;border:1.5px solid rgba(255,255,255,0.4)">
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"></path></svg>
 Escríbenos por correo
@@ -423,7 +441,7 @@ Escríbenos por correo
 </div>
 </footer>
 
-<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}"><div id="nxq" class="nxq-ov" role="dialog" aria-modal="true" aria-label="Cuéntanos qué necesitas"><div class="nxq-bar" aria-hidden="true"><span style="width:{{ pct }}"></span></div><div class="nxq-shell"><div aria-hidden="true" style="position:absolute;top:-30%;left:-20%;right:-20%;bottom:-30%;background:radial-gradient(35% 45% at 88% 12%,rgba(0,193,202,0.30),rgba(0,193,202,0) 70%),radial-gradient(35% 45% at 8% 92%,rgba(123,121,226,0.30),rgba(123,121,226,0) 70%);animation:nxDrift 11s ease-in-out infinite;pointer-events:none"></div><div class="nxq-top"><span class="nxq-brand"><span class="nx-sphere" aria-hidden="true" style="width:22px;height:22px"></span><span class="nx-mono" style="color:#FFFFFF">NEXIA</span></span><span style="display:inline-flex;align-items:center;gap:16px"><sc-if value="{{ showCount }}" hint-placeholder-val="{{ false }}"><span class="nx-mono" style="color:#9FB0CB" aria-live="polite">{{ countText }}</span></sc-if><button type="button" class="nxq-x" aria-label="Cerrar el cuestionario" onClick="{{ close }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button></span></div><div class="nxq-main"><sc-if value="{{ qW }}" hint-placeholder-val="{{ false }}"><div class="nxq-step" style="gap:26px"><p class="nx-mono" style="margin:0;color:#9DB8FF">Cuéntanos tu negocio · NEXIA</p><h2 id="nxq-tw" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF;font-size:clamp(36px,6vw,72px)">Cuéntanos qué necesitas</h2><p class="nxq-sub" style="margin:0;font-size:20px">Unas pocas preguntas cortas, menos de dos minutos. Con tus respuestas te preparamos una propuesta a tu medida.</p><div class="nxq-actions"><button type="button" data-first class="nxq-ok" onClick="{{ start }}">Empezar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><p class="nxq-hint" style="display:block;margin:0;max-width:560px">Tus respuestas llegan solo a NEXIA y se usan para contactar contigo. Más información en la <a class="nxq-link" href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p></div></sc-if><sc-if value="{{ qTextA }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><input data-first class="nxq-in" type="text" name="v" placeholder="{{ qPh }}" autocomplete="{{ qAc }}" inputmode="{{ qIm }}" aria-labelledby="nxq-t" maxlength="120"><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qLongA }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><textarea data-first class="nxq-in" name="v" rows="3" placeholder="{{ qPh }}" aria-labelledby="nxq-t" maxlength="800"></textarea><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">Ctrl + <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qChoiceA }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><div class="nxq-opts" role="{{ qGrp }}" aria-labelledby="nxq-t"><sc-for list="{{ qOpts }}" as="op" hint-placeholder-count="4"><button type="button" class="nxq-opt" role="{{ op.role }}" aria-checked="{{ op.aria }}" onClick="{{ op.pick }}" style="border-color:{{ op.bd }};background:{{ op.bg }}"><span class="nxq-key" style="background:{{ op.lb }};color:{{ op.lc }}">{{ op.key }}</span><span class="nxq-lab">{{ op.label }}</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ op.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button></sc-for></div><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">o pulsa la letra de la opción</span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qTextB }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><input data-first class="nxq-in" type="text" name="v" placeholder="{{ qPh }}" autocomplete="{{ qAc }}" inputmode="{{ qIm }}" aria-labelledby="nxq-t" maxlength="120"><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qLongB }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><textarea data-first class="nxq-in" name="v" rows="3" placeholder="{{ qPh }}" aria-labelledby="nxq-t" maxlength="800"></textarea><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">Ctrl + <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qChoiceB }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><div class="nxq-opts" role="{{ qGrp }}" aria-labelledby="nxq-t"><sc-for list="{{ qOpts }}" as="op" hint-placeholder-count="4"><button type="button" class="nxq-opt" role="{{ op.role }}" aria-checked="{{ op.aria }}" onClick="{{ op.pick }}" style="border-color:{{ op.bd }};background:{{ op.bg }}"><span class="nxq-key" style="background:{{ op.lb }};color:{{ op.lc }}">{{ op.key }}</span><span class="nxq-lab">{{ op.label }}</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ op.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button></sc-for></div><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">o pulsa la letra de la opción</span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qConsent }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">Último paso: tu permiso</h2><p class="nxq-sub">Para poder escribirte necesitamos que lo aceptes.</p><button type="button" class="nxq-check" role="checkbox" aria-checked="{{ o.consent.aria }}" onClick="{{ toggleConsent }}" style="border-color:{{ o.consent.bd }}"><span class="nxq-box" style="background:{{ o.consent.lb }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.consent.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span>Acepto que NEXIA use estos datos para contactar conmigo sobre mi consulta.</span></button><p class="nxq-hint" style="display:block;margin:0;max-width:620px">Responsable: Carlos Sánchez Cifuentes. Puedes retirar tu consentimiento cuando quieras. Más información en la <a class="nxq-link" href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p><input class="nxq-hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true"><div class="nxq-actions"><button type="submit" class="nxq-ok">{{ sendLabel }} </button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qDone }}" hint-placeholder-val="{{ false }}"><div class="nxq-done" role="status"><span class="nxq-okc" style="width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#3F63F5,#00C1CA);display:inline-flex;align-items:center;justify-content:center"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><h2 class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ doneTitle }}</h2><p class="nxq-sub" style="margin:0;font-size:20px">{{ doneText }}</p><div class="nxq-actions"><button type="button" class="nxq-ok" onClick="{{ close }}">Cerrar</button><a class="nxq-link" href="precios.html" style="font-weight:700">Ver precios</a></div></div></sc-if></div><sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}"><button type="button" class="nxq-back" aria-label="Pregunta anterior" onClick="{{ back }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 6-6 6 6 6"></path></svg><span>Atrás</span></button></sc-if></div></div></sc-if>
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}"><div id="nxq" class="nxq-ov" role="dialog" aria-modal="true" aria-label="Radiografía de tu negocio"><div class="nxq-bar" aria-hidden="true"><span style="width:{{ pct }}"></span></div><div class="nxq-shell"><div aria-hidden="true" style="position:absolute;top:-30%;left:-20%;right:-20%;bottom:-30%;background:radial-gradient(35% 45% at 88% 12%,rgba(0,193,202,0.30),rgba(0,193,202,0) 70%),radial-gradient(35% 45% at 8% 92%,rgba(123,121,226,0.30),rgba(123,121,226,0) 70%);animation:nxDrift 11s ease-in-out infinite;pointer-events:none"></div><div class="nxq-top"><span class="nxq-brand"><span class="nx-sphere" aria-hidden="true" style="width:22px;height:22px"></span><span class="nx-mono" style="color:#FFFFFF">NEXIA</span></span><span style="display:inline-flex;align-items:center;gap:16px"><sc-if value="{{ showCount }}" hint-placeholder-val="{{ false }}"><span class="nx-mono" style="color:#9FB0CB" aria-live="polite">{{ countText }}</span></sc-if><button type="button" class="nxq-x" aria-label="Cerrar el cuestionario" onClick="{{ close }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button></span></div><div class="nxq-main"><sc-if value="{{ qW }}" hint-placeholder-val="{{ false }}"><div class="nxq-step" style="gap:26px"><p class="nx-mono" style="margin:0;color:#9DB8FF">Radiografía de tu negocio · NEXIA</p><h2 id="nxq-tw" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF;font-size:clamp(32px,5vw,60px)">Encuentra lo que necesitas y tu solución</h2><p class="nxq-sub" style="margin:0;font-size:20px">Doce preguntas cortas, unos dos minutos. Al terminar ves en qué punto está tu negocio en visibilidad, clientes y rapidez, y las tres mejoras que más te convienen.</p><div class="nxq-actions"><button type="button" data-first class="nxq-ok" onClick="{{ start }}">Empezar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><p class="nxq-hint" style="display:block;margin:0;max-width:560px">Tus respuestas llegan solo a NEXIA y se usan para contactar contigo. Más información en la <a class="nxq-link" href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p></div></sc-if><sc-if value="{{ qTextA }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><input data-first class="nxq-in" type="text" name="v" placeholder="{{ qPh }}" autocomplete="{{ qAc }}" inputmode="{{ qIm }}" aria-labelledby="nxq-t" maxlength="120"><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qLongA }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><textarea data-first class="nxq-in" name="v" rows="3" placeholder="{{ qPh }}" aria-labelledby="nxq-t" maxlength="800"></textarea><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">Ctrl + <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qChoiceA }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><div class="nxq-opts" role="{{ qGrp }}" aria-labelledby="nxq-t"><sc-for list="{{ qOpts }}" as="op" hint-placeholder-count="4"><button type="button" class="nxq-opt" role="{{ op.role }}" aria-checked="{{ op.aria }}" onClick="{{ op.pick }}" style="border-color:{{ op.bd }};background:{{ op.bg }}"><span class="nxq-key" style="background:{{ op.lb }};color:{{ op.lc }}">{{ op.key }}</span><span class="nxq-lab">{{ op.label }}</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ op.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button></sc-for></div><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">o pulsa la letra de la opción</span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qTextB }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><input data-first class="nxq-in" type="text" name="v" placeholder="{{ qPh }}" autocomplete="{{ qAc }}" inputmode="{{ qIm }}" aria-labelledby="nxq-t" maxlength="120"><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qLongB }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><textarea data-first class="nxq-in" name="v" rows="3" placeholder="{{ qPh }}" aria-labelledby="nxq-t" maxlength="800"></textarea><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">Ctrl + <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qChoiceB }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ qTitle }}</h2><sc-if value="{{ qHasSub }}" hint-placeholder-val="{{ false }}"><p class="nxq-sub">{{ qSub }}</p></sc-if><div class="nxq-opts" role="{{ qGrp }}" aria-labelledby="nxq-t"><sc-for list="{{ qOpts }}" as="op" hint-placeholder-count="4"><button type="button" class="nxq-opt" role="{{ op.role }}" aria-checked="{{ op.aria }}" onClick="{{ op.pick }}" style="border-color:{{ op.bd }};background:{{ op.bg }}"><span class="nxq-key" style="background:{{ op.lb }};color:{{ op.lc }}">{{ op.key }}</span><span class="nxq-lab">{{ op.label }}</span><svg class="nxq-tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ op.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button></sc-for></div><div class="nxq-actions"><button type="submit" class="nxq-ok">OK <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></button><span class="nxq-hint">o pulsa la letra de la opción</span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qResult }}" hint-placeholder-val="{{ false }}"><div class="nxq-step nxq-res" style="gap:22px;max-width:860px"><p class="nx-mono" style="margin:0;color:#9DB8FF">Tu radiografía · NEXIA</p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ rHead }}</h2><p class="nxq-sub" style="margin:0">{{ rLead }}</p><div class="nxq-gs"><sc-for list="{{ rGauges }}" as="g" hint-placeholder-count="3"><div class="nxq-g" role="group" aria-label="{{ g.aria }}"><div class="nxq-gt"><b>{{ g.name }}</b><span class="nxq-lv">{{ g.lvl }}</span></div><div class="nxq-gb"><span style="width:{{ g.w }}"></span></div><p>{{ g.desc }}</p><span class="nxq-chip" style="display:{{ g.chipDisp }}">Mayor margen</span></div></sc-for></div><sc-if value="{{ rNote }}" hint-placeholder-val="{{ false }}"><p class="nxq-note">Has dicho que ya vas lleno. Por eso hemos dado menos peso a atraer más clientes y más a ganar tiempo.</p></sc-if><sc-if value="{{ rHasPicks }}" hint-placeholder-val="{{ true }}"><p class="nx-mono" style="margin:6px 0 0;color:#00C1CA">Tus mejoras, por orden de prioridad</p><div class="nxq-pks"><sc-for list="{{ rPicks }}" as="p" hint-placeholder-count="3"><article class="nxq-pk"><div class="nxq-pkh"><span class="nxq-pn">{{ p.n }}</span><div style="display:flex;flex-direction:column;gap:2px"><span class="nxq-pt">{{ p.tag }} · {{ p.eff }}</span><h3 class="nxq-pti">{{ p.title }}</h3></div></div><p><b>Por qué.</b> {{ p.why }}</p><p><b>Qué hacemos.</b> {{ p.what }}</p><p><b>Cómo lo medimos.</b> {{ p.measure }}</p></article></sc-for></div></sc-if><sc-if value="{{ rNoPicks }}" hint-placeholder-val="{{ false }}"><p class="nxq-note">No vemos mejoras urgentes con lo que nos has contado. En la radiografía de 30 minutos lo comprobamos con tu negocio delante.</p></sc-if><div class="nxq-actions"><button type="button" data-first class="nxq-ok" onClick="{{ resNext }}">Quiero la radiografía de 30 minutos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button><button type="button" class="nxq-ghost" onClick="{{ resRestart }}">Repetir el test</button></div><p class="nxq-hint" style="display:block;margin:0;max-width:620px">Es una orientación a partir de lo que nos has contado, no una promesa de resultados. En la radiografía lo revisamos con tu negocio delante. ¿Ya sabes lo que quieres? <a class="nxq-link" href="configurar.html">Configura tu pedido</a>.</p></div></sc-if><sc-if value="{{ qConsent }}" hint-placeholder-val="{{ false }}"><form class="nxq-step" onSubmit="{{ next }}" novalidate><p class="nxq-num"><span>{{ qNum }}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></p><h2 id="nxq-t" class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">Último paso: tu permiso</h2><p class="nxq-sub">Para poder escribirte necesitamos que lo aceptes.</p><button type="button" class="nxq-check" role="checkbox" aria-checked="{{ o.consent.aria }}" onClick="{{ toggleConsent }}" style="border-color:{{ o.consent.bd }}"><span class="nxq-box" style="background:{{ o.consent.lb }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:{{ o.consent.ck }}"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span>Acepto que NEXIA use estos datos para contactar conmigo sobre mi consulta.</span></button><p class="nxq-hint" style="display:block;margin:0;max-width:620px">Responsable: Carlos Sánchez Cifuentes. Puedes retirar tu consentimiento cuando quieras. Más información en la <a class="nxq-link" href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p><input class="nxq-hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true"><div class="nxq-actions"><button type="submit" class="nxq-ok">{{ sendLabel }} </button><span class="nxq-hint">pulsa <b>Enter ↵</b></span></div><sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="nxq-err" role="alert">{{ err }}</p></sc-if></form></sc-if><sc-if value="{{ qDone }}" hint-placeholder-val="{{ false }}"><div class="nxq-done" role="status"><span class="nxq-okc" style="width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#3F63F5,#00C1CA);display:inline-flex;align-items:center;justify-content:center"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><h2 class="nx-h nx-h-l nxq-h" style="color:#FFFFFF">{{ doneTitle }}</h2><p class="nxq-sub" style="margin:0;font-size:20px">{{ doneText }}</p><div class="nxq-actions"><button type="button" class="nxq-ok" onClick="{{ close }}">Cerrar</button><a class="nxq-link" href="precios.html" style="font-weight:700">Ver precios</a></div></div></sc-if></div><sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}"><button type="button" class="nxq-back" aria-label="Pregunta anterior" onClick="{{ back }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 6-6 6 6 6"></path></svg><span>Atrás</span></button></sc-if></div></div></sc-if>
 <a class="nx-btn-primary" href="mailto:nexianfcsolutions@gmail.com" aria-label="Escríbenos por correo electrónico" style="position:fixed;right:20px;bottom:20px;z-index:30;width:60px;height:60px;padding:0;border-radius:50%;box-shadow:0 12px 28px rgba(16,23,42,0.3)">
 <span aria-hidden="true" style="position:absolute;top:0;left:0;width:60px;height:60px;border-radius:50%;border:2px solid #00C1CA;animation:nxPulse 2.8s ease-out infinite"></span>
 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C1CA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"></path></svg>
@@ -463,150 +481,225 @@ componentDidMount() {
     this.setState({ reviews: [] });
   }
 }
-qNeeds() { return ['Tarjetas, placas o soportes de mesa', 'Contenido web: página, portal o plataforma', 'Contenido audiovisual: imagen o vídeo', 'Captación, marketing y posicionamiento']; }
-qSecs() {
-  return [['salud', 'Clínica dental'], ['salud', 'Otra clínica o consulta de salud'], ['restauracion', 'Restaurante, bar o cafetería'], ['hotel', 'Hotel, hostal o alojamiento'], ['belleza', 'Peluquería, estética o bienestar'], ['comercio', 'Comercio o tienda'], ['servicios', 'Servicios profesionales'], ['otro', 'Otro tipo de negocio']];
-}
 qSel(ans, k) {
   const v = (ans || {})[k];
   return Array.isArray(v) ? v : (v ? [v] : []);
 }
-qSecKeys(ans) {
-  const out = [];
-  this.qSel(ans, 'sector').forEach((lab) => { const e = this.qSecs().filter((x) => x[1] === lab)[0]; if (e && out.indexOf(e[0]) < 0) out.push(e[0]); });
-  return out;
+qRad() {
+  const SECTORS = {
+    clinica: { label: 'Clínica o centro de bienestar', verb: 'pedir cita', cita: 'cita', citas: 'citas', gestionar: 'Gestionar citas', recordar: 'Recordar las citas a los clientes', agendaTitle: 'Citas con recordatorio automático' },
+    restauracion: { label: 'Restaurante, bar o cafetería', verb: 'reservar mesa', cita: 'reserva', citas: 'reservas', gestionar: 'Gestionar reservas', recordar: 'Confirmar o recordar reservas', agendaTitle: 'Reservas con confirmación automática' },
+    peluqueria: { label: 'Peluquería, barbería o estética', verb: 'pedir cita', cita: 'cita', citas: 'citas', gestionar: 'Gestionar citas', recordar: 'Recordar las citas a los clientes', agendaTitle: 'Citas con recordatorio automático' },
+    comercio: { label: 'Comercio o tienda', verb: 'hacer un pedido o consulta', cita: 'pedido o consulta', citas: 'pedidos y consultas', gestionar: 'Gestionar pedidos y consultas', recordar: 'Avisar a los clientes de que su pedido está listo', agendaTitle: 'Pedidos y consultas ordenados en un solo sitio' },
+    otro: { label: 'Otro negocio local', verb: 'contactar contigo', cita: 'consulta', citas: 'consultas', gestionar: 'Gestionar consultas y citas', recordar: 'Recordar citas o plazos a los clientes', agendaTitle: 'Citas y consultas ordenadas en un solo sitio' }
+  };
+  const AREAS = {
+    V: { name: 'Visibilidad', desc: 'Cómo te encuentran y qué ven cuando te buscan' },
+    C: { name: 'Clientes', desc: 'Cómo un interesado acaba siendo cliente' },
+    R: { name: 'Rapidez', desc: 'Cuánto tardas y cuánto tiempo te cuesta atender' }
+  };
+  const LEAD = {
+    V: 'Aquí se decide si un cliente nuevo te encuentra y qué ve cuando lo hace.',
+    C: 'Aquí se decide si el interés se convierte en cliente.',
+    R: 'Aquí se decide cuánto tiempo te cuesta atender y cuánto espera tu cliente.'
+  };
+  const LV = ['Por montar', 'En marcha', 'Bien asentado'];
+  const EFF = { 1: 'bajo', 2: 'medio', 3: 'alto' };
+  const S = (a) => SECTORS[a.sector] || SECTORS.otro;
+  const has = (a, k, v) => Array.isArray(a[k]) && a[k].indexOf(v) > -1;
+  const Q = [
+    { id: 'sector', type: 'one', short: 'Tipo de negocio', title: () => '¿Qué tipo de negocio tienes?', hint: 'Así adaptamos las palabras y los ejemplos.',
+      opts: () => Object.keys(SECTORS).map((k) => [k, SECTORS[k].label]) },
+    { id: 'goal', type: 'one', short: 'Primer objetivo', title: () => '¿Qué quieres conseguir primero?', hint: 'Elige lo que más te importa ahora.',
+      opts: () => [['encuentren', 'Que me conozcan y me encuentren más'], ['nuevos', 'Conseguir más clientes nuevos'], ['tiempo', 'Ahorrar tiempo en el día a día'], ['imagen', 'Mejorar la imagen de mi negocio'], ['fidelizar', 'Que mis clientes vuelvan']] },
+    { id: 'found', type: 'multi', excl: 'nose', short: 'Cómo te encuentran hoy', title: () => '¿Cómo te encuentran hoy los clientes nuevos?', hint: 'Marca todo lo que pase de verdad, no lo que te gustaría.',
+      opts: () => [['boca', 'Boca a boca y recomendaciones'], ['calle', 'Pasan por delante del local'], ['google', 'Buscándome en Google o en mapas'], ['redes', 'Por redes sociales'], ['negocios', 'Me recomiendan otros negocios'], ['nose', 'No lo sé']] },
+    { id: 'ficha', type: 'one', short: 'Ficha de Google', title: () => 'Si un cliente te busca en Google, ¿qué encuentra?', hint: 'Si puedes, búscate ahora mismo en el móvil. Son 20 segundos.',
+      opts: () => [['complete', 'Mi ficha completa, con fotos y horario al día'], ['half', 'Una ficha a medias o desactualizada'], ['none', 'No tengo ficha de Google'], ['unknown', 'No lo sé, nunca me he buscado']] },
+    { id: 'web', type: 'one', short: 'Página web', title: () => '¿Y tu página web?', hint: 'Ábrela en el móvil y mira si se entiende a la primera.',
+      opts: () => [['none', 'No tengo web'], ['old', 'Tengo, pero está antigua o no se ve bien en el móvil'], ['good', 'Tengo y funciona bien'], ['unknown', 'No sé si funciona']] },
+    { id: 'redes', type: 'one', short: 'Redes sociales', title: () => '¿Cada cuánto publicas en redes?', hint: 'Cuenta lo que haces de verdad, no lo que te gustaría hacer.',
+      opts: () => [['none', 'No uso redes para el negocio'], ['rare', 'Menos de una vez al mes'], ['week', 'Más o menos cada semana'], ['multi', 'Varias veces por semana']] },
+    { id: 'camino', type: 'one', short: 'Cómo contactan contigo', title: (a) => 'Cuando alguien quiere ' + S(a).verb + ', ¿qué tiene que hacer?', hint: 'Piensa en un cliente nuevo que no te conoce.',
+      opts: () => [['llamar', 'Llamarme y que yo esté disponible'], ['escribir', 'Escribirme y esperar mi respuesta'], ['directo', 'Pulsar un botón o un enlace directo'], ['depende', 'Depende de cada cliente']] },
+    { id: 'opin', type: 'one', short: 'Opiniones de clientes', title: () => '¿Cómo consigues opiniones de tus clientes?', hint: 'Sin filtrar y sin regalar nada a cambio. Solo facilitar que quien quiera opine.',
+      opts: () => [['no', 'No las pido'], ['palabra', 'Las pido de palabra, de vez en cuando'], ['sistema', 'Tengo un sistema que lo pone fácil']] },
+    { id: 'resp', type: 'one', short: 'Tiempo de respuesta', title: () => '¿Cuánto tardas en contestar a un cliente que te escribe?', hint: 'Una media de lo que ocurre en una semana normal.',
+      opts: () => [['ya', 'Al momento'], ['mismo', 'El mismo día'], ['sig', 'Al día siguiente o más tarde'], ['sin', 'Algunos mensajes se quedan sin respuesta']] },
+    { id: 'tareas', type: 'multi', excl: 'ninguna', short: 'Tareas que se repiten', title: () => '¿Qué tareas repites cada semana y te quitan tiempo?', hint: 'Marca todas las que te pesen.',
+      opts: (a) => { const s = S(a); return [['responder', 'Contestar siempre las mismas preguntas'], ['citas', s.gestionar], ['presu', 'Hacer presupuestos'], ['recordar', s.recordar], ['publicar', 'Publicar en redes'], ['carta', 'Actualizar la carta, las tarifas o los precios'], ['ninguna', 'Ninguna que me pese']]; } },
+    { id: 'cap', type: 'one', short: 'Capacidad para más clientes', title: () => '¿Podrías atender a más clientes de los que tienes hoy?', hint: 'Si vas lleno, atraer más clientes no es lo primero.',
+      opts: () => [['holgura', 'Sí, con holgura'], ['algo', 'Algo más, sin agobiarme'], ['lleno', 'No, ya voy lleno'], ['epoca', 'Depende de la época']] },
+    { id: 'tiempo', type: 'one', short: 'Tiempo semanal para mejorar', title: () => '¿Cuánto tiempo a la semana puedes dedicar a mejorar esto?', hint: 'Si prefieres que lo hagamos nosotros, elige la primera. Lo tenemos en cuenta.',
+      opts: () => [['poco', 'Casi nada, menos de 1 hora'], ['medio', 'Entre 1 y 3 horas'], ['mucho', 'Más de 3 horas']] }
+  ];
+  const ITEMS = [
+    { id: 'ficha', area: 'V', impact: 3, effort: 1,
+      need: (a) => { const m = { none: 1, half: .9, unknown: .8, complete: .15 }; return m[a.ficha] !== undefined ? m[a.ficha] : .5; },
+      title: () => 'Una ficha de Google completa y al día',
+      why: (a) => ({ none: 'No tienes ficha de Google, así que quien te busca en el mapa no te encuentra.', half: 'Tu ficha existe pero está a medias o desactualizada, y es lo primero que ve quien te busca.', unknown: 'No sabes qué aparece cuando te buscan. Es lo primero que ve un cliente nuevo y lo más rápido de arreglar.', complete: 'Tu ficha ya está bien. Solo conviene revisarla cada cierto tiempo.' })[a.ficha],
+      what: (a, s) => 'Creamos o completamos la ficha con horario, categorías, servicios, fotos y un enlace para ' + s.verb + '. Tú revisas y apruebas antes de publicar.',
+      measure: () => 'Llamadas, rutas y visitas a la web que muestran las estadísticas de tu ficha, comparando 28 días antes y 28 días después. Tú nos pasas las capturas.' },
+    { id: 'camino', area: 'C', impact: 3, effort: 2,
+      need: (a) => { const m = { llamar: .9, escribir: .8, directo: .1, depende: .6 }; return m[a.camino] !== undefined ? m[a.camino] : .5; },
+      title: (a, s) => 'Un camino directo para ' + s.verb,
+      why: (a) => ({ llamar: 'Hoy el cliente tiene que llamar y encontrarte libre. Quien no puede llamar en ese momento se va.', escribir: 'Hoy el cliente escribe y espera. Mientras esperan, algunos acaban eligiendo a otro.', depende: 'Cada cliente lo hace de una forma distinta, y así es difícil saber cuántos se pierden.', directo: 'Ya tienes un camino directo. Conviene que sea el mismo en la ficha, la web y tus soportes.' })[a.camino],
+      what: () => 'Un único botón o enlace (mensaje, formulario o agenda) que aparece en tu ficha, en tu web y en tus soportes de acceso en un gesto. Tú decides cómo atiendes lo que llega.',
+      measure: (a, s) => 'Número de ' + s.citas + ' nuevas y de mensajes que llegan por ese camino, comparando 28 días antes y después.' },
+    { id: 'opiniones', area: 'C', impact: 2, effort: 1,
+      need: (a) => { const m = { no: 1, palabra: .7, sistema: .1 }; return m[a.opin] !== undefined ? m[a.opin] : .5; },
+      title: () => 'Pedir opiniones con dos toques',
+      why: (a) => ({ no: 'No pides opiniones. Quien está contento rara vez las deja si nadie se lo pone fácil.', palabra: 'Las pides de palabra y se olvidan al salir. Un soporte en el mostrador lo deja a un toque.', sistema: 'Ya tienes un sistema. Conviene comprobar que funciona en iPhone y en Android.' })[a.opin],
+      what: () => 'Un soporte con acceso en un gesto, mediante Near Field Communication (NFC), que abre directamente tu ficha para opinar. Sin filtrar y sin regalar nada a cambio: cada cliente opina lo que quiera.',
+      measure: () => 'Opiniones nuevas al mes y valoración media de tu ficha, comparando 28 días antes y después.' },
+    { id: 'web', area: 'V', impact: 3, effort: 2,
+      need: (a) => { const m = { none: 1, old: .8, good: .15, unknown: .5 }; return m[a.web] !== undefined ? m[a.web] : .5; },
+      title: () => 'Una página rápida pensada para el móvil',
+      why: (a) => ({ none: 'No tienes web. Una página de una pantalla ya basta para que quien te encuentra sepa qué haces y cómo contactar.', old: 'Tu web está antigua o no se ve bien en el móvil, y mucha gente te mirará desde ahí.', unknown: 'No sabes si tu web funciona. Lo comprobamos en el móvil durante la radiografía.', good: 'Tu web funciona. Solo hay que revisar que el botón de contacto se vea bien.' })[a.web],
+      what: (a, s) => 'Una página ligera con lo esencial: qué haces, horario, cómo llegar y un botón para ' + s.verb + '. Tú apruebas textos y fotos antes de publicar.',
+      measure: () => 'Contactos que llegan desde la página, que apuntamos contigo, comparando 28 días antes y después.' },
+    { id: 'redes', area: 'V', impact: 2, effort: 3,
+      need: (a) => { const m = { none: .8, rare: .9, week: .3, multi: .1 }; return m[a.redes] !== undefined ? m[a.redes] : .5; },
+      title: () => 'Un calendario de publicaciones que puedas cumplir',
+      why: (a) => ({ none: 'No usas redes para el negocio. No hace falta estar en todas, una bien llevada basta.', rare: 'Publicas menos de una vez al mes, así que quien entra en tu perfil no ve actividad reciente.', week: 'Publicas con cierta regularidad. Se trata de ordenar las ideas y mantener el ritmo.', multi: 'Publicas mucho. Lo útil ahora es ver qué publicaciones traen mensajes.' })[a.redes],
+      what: () => 'Dos o tres publicaciones al mes con ideas y borradores hechos con IA a partir de tu negocio real. Tú eliges y apruebas cada una.',
+      measure: () => 'Alcance y mensajes recibidos según las estadísticas de tu red, comparando 28 días antes y después.' },
+    { id: 'imagen', area: 'V', impact: 2, effort: 2,
+      need: (a) => (a.goal === 'imagen' ? .9 : ((a.redes === 'none' || a.redes === 'rare') ? .45 : .25)),
+      title: () => 'Fotos y vídeo reales de tu negocio',
+      why: (a) => (a.goal === 'imagen' ? 'Has dicho que quieres mejorar tu imagen. Las fotos y los clips cortos son lo que más cambia cómo te ve alguien nuevo.' : 'Las fotos son lo primero que mira quien te encuentra, y las tuyas pueden mejorar.'),
+      what: () => 'Una sesión corta para sacar fotos y clips verticales de tu local y tu trabajo. Los retocamos y usamos IA solo para el acabado, de modo que se enseña lo que existe de verdad. No salen clientes reconocibles sin su permiso.',
+      measure: () => 'Visitas a tu ficha y alcance de las publicaciones con foto o vídeo, frente a las que no los llevan.' },
+    { id: 'respuestas', area: 'R', impact: 2, effort: 1,
+      need: (a) => { const t = { mismo: .1, sig: .25, sin: .35 }; return Math.min(1, (has(a, 'tareas', 'responder') ? .8 : .1) + (t[a.resp] || 0)); },
+      title: () => 'Respuestas preparadas a lo que más te preguntan',
+      why: (a) => { const p = []; if (has(a, 'tareas', 'responder')) p.push('Contestas una y otra vez las mismas preguntas.'); if (a.resp === 'mismo') p.push('Contestas el mismo día, pero no al momento.'); if (a.resp === 'sig') p.push('Algunos clientes reciben tu respuesta al día siguiente o más tarde.'); if (a.resp === 'sin') p.push('Algunos mensajes se quedan sin respuesta.'); return p.length ? p.join(' ') : 'Tienes buen ritmo de respuesta. Las respuestas preparadas lo mantienen sin esfuerzo.'; },
+      what: () => 'Una lista de las diez preguntas más frecuentes con su respuesta lista para copiar, y un mensaje automático fuera de horario. Tú escribes o apruebas cada texto y la IA solo propone el borrador.',
+      measure: () => 'Tiempo medio de respuesta y porcentaje de consultas sin contestar, cronometrados una semana antes y otra después.' },
+    { id: 'citas', area: 'R', impact: 3, effort: 2,
+      need: (a) => { const n = (has(a, 'tareas', 'citas') ? .7 : 0) + (has(a, 'tareas', 'recordar') ? .5 : 0); return Math.min(1, n || .1); },
+      title: (a, s) => s.agendaTitle,
+      why: (a, s) => { const p = []; if (has(a, 'tareas', 'citas')) p.push('Gestionar ' + s.citas + ' te quita tiempo cada semana.'); if (has(a, 'tareas', 'recordar')) p.push('Avisar a los clientes a mano se suma a ese tiempo.'); return p.length ? p.join(' ') : 'No lo marcas como una carga, así que no es prioridad ahora.'; },
+      what: () => 'Una agenda en la que el cliente elige su hueco y recibe un aviso antes de venir. Tú defines las reglas y apruebas las excepciones.',
+      measure: () => 'Horas por semana que dedicas a gestionarlo y huecos que quedan vacíos, anotados una semana antes y otra después.' },
+    { id: 'presupuestos', area: 'R', impact: 2, effort: 1,
+      need: (a) => (has(a, 'tareas', 'presu') ? .85 : .05),
+      title: () => 'Presupuestos con plantilla',
+      why: () => 'Hacer presupuestos te lleva tiempo cada semana y casi siempre repites los mismos conceptos.',
+      what: () => 'Una plantilla con tus tarifas y condiciones. La IA propone el borrador a partir de lo que pide el cliente y tú lo revisas antes de enviarlo.',
+      measure: () => 'Minutos por presupuesto, cronometrados durante una semana antes y otra después.' },
+    { id: 'carta', area: 'R', impact: 2, effort: 2,
+      need: (a) => (has(a, 'tareas', 'carta') ? .85 : (a.sector === 'restauracion' ? .35 : .05)),
+      title: (a) => (a.sector === 'restauracion' ? 'Carta digital siempre al día' : 'Tarifas o catálogo siempre al día'),
+      why: (a) => (has(a, 'tareas', 'carta') ? 'Actualizar la carta o las tarifas te obliga a reimprimir o a cambiar varios sitios.' : 'Una carta digital con alérgenos evita reimprimir cada vez que cambia un plato.'),
+      what: (a) => (a.sector === 'restauracion' ? 'Una página con tu carta, con alérgenos y varios idiomas si los necesitas. Cambias un precio o un plato sin reimprimir, y la carta se abre en un toque desde la mesa.' : 'Una página con tus tarifas o tu catálogo que cambias en un momento, sin reimprimir nada.'),
+      measure: () => 'Horas al mes que dedicas a actualizar y reimprimir, y preguntas sobre precios que te llegan, anotadas antes y después.' },
+    { id: 'seguimiento', area: 'C', impact: 2, effort: 2,
+      need: (a) => Math.min(1, ((a.resp === 'sin' ? .7 : 0) + (a.goal === 'fidelizar' ? .6 : 0)) || .1),
+      title: () => 'Seguimiento sencillo de contactos y clientes',
+      why: (a) => { const p = []; if (a.resp === 'sin') p.push('Algunos mensajes se quedan sin respuesta, y una hoja con cada contacto y su estado lo evita.'); if (a.goal === 'fidelizar') p.push('Quieres que tus clientes vuelvan. Apuntar qué hicieron y cuándo te permite recordárselo a quien ya es cliente.'); return p.join(' ') || 'No parece lo más urgente ahora.'; },
+      what: () => 'Una hoja sencilla donde apuntas cada contacto, qué quería y cuándo toca contestar. Solo se vuelve a escribir a quien ya es cliente o lo ha pedido.',
+      measure: () => 'Contactos sin contestar y clientes que repiten, contados en esa misma hoja cada mes.' },
+    { id: 'oferta', area: 'C', impact: 3, effort: 2,
+      need: (a) => (a.goal === 'nuevos' ? .85 : .15),
+      title: () => 'Una oferta clara para quien aún no te conoce',
+      why: () => 'Quieres más clientes nuevos. Antes de buscar más visibilidad conviene tener una oferta que se entienda en una frase.',
+      what: () => 'Redactamos una propuesta de una frase (qué ofreces, a quién y por qué ahora) y una página de destino con ella. Las campañas locales sencillas vienen después, cuando esto funcione.',
+      measure: () => 'Clientes nuevos al mes y lo que contestan a «¿cómo nos conociste?», que preguntas tú en el primer contacto.' }
+  ];
+  const calc = (a) => {
+    const ficha = { complete: 85, half: 45, none: 5, unknown: 25 }[a.ficha] || 0;
+    const web = { none: 5, old: 35, good: 85, unknown: 30 }[a.web] || 0;
+    const redes = { none: 5, rare: 25, week: 65, multi: 90 }[a.redes] || 0;
+    const V = .4 * ficha + .3 * web + .3 * redes;
+    const f = a.found || [];
+    let fc = 0;
+    if (f.indexOf('google') > -1) fc += 40;
+    if (f.indexOf('redes') > -1) fc += 25;
+    fc += Math.min(2, ['boca', 'calle', 'negocios'].filter((x) => f.indexOf(x) > -1).length) * 10;
+    if (f.length === 1 && f[0] === 'nose') fc = 15;
+    const camino = { llamar: 25, escribir: 40, directo: 90, depende: 45 }[a.camino] || 0;
+    const opin = { no: 10, palabra: 45, sistema: 90 }[a.opin] || 0;
+    const C = .25 * fc + .4 * camino + .35 * opin;
+    const resp = { ya: 90, mismo: 60, sig: 25, sin: 5 }[a.resp] || 0;
+    const nt = (a.tareas || []).filter((x) => x !== 'ninguna').length;
+    const tareas = [90, 70, 50, 35, 15, 15, 15][Math.min(nt, 6)];
+    const R = .5 * resp + .5 * tareas;
+    return { V: V, C: C, R: R };
+  };
+  const lvl = (x) => (x < 34 ? 0 : (x < 67 ? 1 : 2));
+  const rank = (a) => {
+    const goalArea = { encuentren: 'V', nuevos: 'C', tiempo: 'R' }[a.goal];
+    ITEMS.forEach((it) => {
+      const n = it.need(a);
+      let sc = n * it.impact * (it.effort === 1 ? 1.15 : (it.effort === 3 ? .85 : 1));
+      if (goalArea === it.area) sc *= 1.3;
+      if (a.goal === 'imagen' && ['imagen', 'web', 'redes'].indexOf(it.id) > -1) sc *= 1.3;
+      if (a.goal === 'fidelizar' && ['opiniones', 'seguimiento'].indexOf(it.id) > -1) sc *= 1.3;
+      if (a.cap === 'lleno') {
+        if (it.id === 'oferta') sc *= .2;
+        if (['web', 'redes', 'imagen'].indexOf(it.id) > -1) sc *= .6;
+        if (it.area === 'R') sc *= 1.2;
+      }
+      if (a.tiempo === 'poco') { if (it.effort === 3) sc *= .55; else if (it.effort === 2) sc *= .85; }
+      it._n = n; it._s = sc;
+    });
+    const sorted = ITEMS.filter((it) => it._n * it.impact >= .5).sort((x, y) => y._s - x._s);
+    const picks = [];
+    const count = { V: 0, C: 0, R: 0 };
+    sorted.forEach((it) => { if (picks.length < 3 && count[it.area] < 2) { picks.push(it); count[it.area]++; } });
+    return picks;
+  };
+  return { SECTORS: SECTORS, AREAS: AREAS, LEAD: LEAD, LV: LV, EFF: EFF, Q: Q, ITEMS: ITEMS, S: S, calc: calc, lvl: lvl, rank: rank };
 }
-qSec(ans) { return this.qSecKeys(ans)[0] || ''; }
-qBy(ans, map, general) {
-  // Une las opciones de todos los tipos de negocio elegidos (sin repetir).
-  const k = this.qSecKeys(ans);
-  const out = [];
-  (k.length ? k : ['']).forEach((x) => (map[x] || general).forEach((o) => { if (out.indexOf(o) < 0) out.push(o); }));
-  return out;
+qEng(ans) {
+  // Pasa las respuestas (etiquetas de las opciones) a los códigos que usa el cálculo.
+  const R = this.qRad();
+  const a = {};
+  R.Q.forEach((q) => {
+    const v = (ans || {})[q.id];
+    if (v === undefined || v === null || v === '') return;
+    const pairs = q.opts(a);
+    const toId = (lab) => { const p = pairs.filter((x) => x[1] === lab)[0]; return p ? p[0] : null; };
+    if (q.type === 'multi') a[q.id] = (Array.isArray(v) ? v : [v]).map(toId).filter((x) => x);
+    else { const id = toId(v); if (id) a[q.id] = id; }
+  });
+  return a;
 }
-qWebTypes(ans) {
-  const X = { salud: 'tratamientos, equipo, citas…', restauracion: 'carta, galería, reservas…', hotel: 'habitaciones, información, reservas…', belleza: 'servicios, galería, citas…', comercio: 'catálogo, ofertas, galería…', servicios: 'servicios, casos, citas…' };
-  return ['Portal básico: una página con botones para que te contacten', 'Portal avanzado: ' + (X[this.qSec(ans)] || 'contenido, galería, reservas…'), 'Web completa a medida, con varias páginas y dominio propio', 'No lo tengo claro, aconsejadme'];
-}
-qWebIncl(tipo, ans) {
-  const basic = ['Botón de llamada', 'WhatsApp', 'Cómo llegar y horarios', 'Reseña en Google', 'Mi web', 'Mis redes sociales', 'Pedir cita o reservar'];
-  const full = this.qBy(ans, {
-    salud: ['Tratamientos y servicios con fotos', 'Presentación del equipo', 'Pedir cita online', 'Información y cuidados para pacientes', 'Galería de fotos de la clínica', 'Reseñas de pacientes', 'Novedades', 'Información práctica', 'Varios idiomas', 'Dirección web propia'],
-    restauracion: ['Carta o catálogo con fotos', 'Alérgenos', 'Varios idiomas', 'Galería de fotos', 'Reservas', 'Ofertas y novedades', 'Reseñas de clientes', 'Información práctica', 'Dirección web propia'],
-    hotel: ['Información del hotel y de la zona', 'Habitaciones y servicios con fotos', 'Reservas directas', 'Varios idiomas', 'Galería de fotos', 'Ofertas y novedades', 'Reseñas de huéspedes', 'Información práctica', 'Dirección web propia'],
-    belleza: ['Servicios y tarifas con fotos', 'Reservar cita online', 'Galería de trabajos', 'Presentación del equipo', 'Ofertas y novedades', 'Reseñas de clientes', 'Información práctica', 'Varios idiomas', 'Dirección web propia'],
-    comercio: ['Catálogo de productos con fotos', 'Tienda online o pedidos', 'Ofertas y novedades', 'Galería de fotos', 'Reseñas de clientes', 'Información práctica', 'Varios idiomas', 'Dirección web propia'],
-    servicios: ['Presentación de servicios', 'Casos o trabajos realizados', 'Presentación del equipo', 'Pedir cita o presupuesto', 'Reseñas de clientes', 'Información práctica', 'Varios idiomas', 'Dirección web propia']
-  }, ['Catálogo o servicios con fotos', 'Galería de fotos', 'Reservas o citas', 'Ofertas y novedades', 'Reseñas de clientes', 'Información práctica', 'Varios idiomas', 'Dirección web propia']);
-  return (this.qWebTypes(ans).indexOf(tipo) === 0 ? basic : full).concat(['Otra cosa']);
-}
-qMedia() { return ['Imagen', 'Vídeo']; }
-qUsesAv(kind, ans) {
-  const GI = ['Imagen de un producto o servicio nuevo', 'Fotos de productos o servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Enseñar algo a mis clientes'];
-  const GV = ['Enseñar a mis clientes cómo es un producto, servicio o proyecto', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar un producto o servicio nuevo', 'Presentar mi negocio'];
-  if (kind === 'img') {
-    return this.qBy(ans, {
-      salud: ['Fotos de la clínica y del equipo', 'Imágenes de tratamientos y servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Material informativo para pacientes'],
-      restauracion: ['Fotos de platos y del establecimiento', 'Imagen de un plato o producto nuevo', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Cartelería y menús'],
-      hotel: ['Fotos de habitaciones y zonas comunes', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Material informativo para huéspedes'],
-      belleza: ['Fotos de trabajos y servicios', 'Publicaciones y carteles para mis redes', 'Imágenes para mi web', 'Imagen de un servicio nuevo']
-    }, GI).concat(['Otro uso']);
-  }
-  return this.qBy(ans, {
-    salud: ['Explicar un tratamiento o servicio a los pacientes', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar la clínica y al equipo', 'Cuidados y consejos para pacientes'],
-    restauracion: ['Promoción para mis redes (reel o anuncio)', 'Presentar un plato o producto nuevo', 'Animación para mi web', 'Presentar mi negocio'],
-    hotel: ['Presentar el hotel y la zona', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Enseñar los servicios a los huéspedes'],
-    belleza: ['Enseñar un servicio o tratamiento', 'Promoción para mis redes (reel o anuncio)', 'Animación para mi web', 'Presentar mi negocio']
-  }, GV).concat(['Otro uso']);
-}
-qUseCat() {
-  // Cada objetivo principal de las tarjetas tiene su propia pregunta de detalle.
+qResultData(ans) {
+  const R = this.qRad();
+  const a = this.qEng(ans);
+  const s = R.S(a);
+  const sc = R.calc(a);
+  const picks = R.rank(a);
+  const goalArea = { encuentren: 'V', nuevos: 'C', tiempo: 'R' }[a.goal];
+  const low = ['V', 'C', 'R'].sort((x, y) => (sc[x] - sc[y]) || ((y === goalArea) - (x === goalArea)))[0];
+  const strong = R.lvl(sc[low]) === 2;
+  const gauges = ['V', 'C', 'R'].map((k) => {
+    const l = R.lvl(sc[k]);
+    return { name: R.AREAS[k].name, lvl: R.LV[l], lvlLow: R.LV[l].toLowerCase(), w: Math.max(6, Math.round(sc[k])) + '%', desc: R.AREAS[k].desc, chipDisp: (k === low && !strong) ? 'inline-block' : 'none', aria: R.AREAS[k].name + ': ' + R.LV[l] };
+  });
   return {
-    resenas: { l: 'Reseñas en Google', f: { t: 'single', lab: 'Dónde la colocaría', title: '¿Dónde la colocarías?', opts: ['En el mostrador o la recepción', 'En cada mesa o puesto', 'Se entrega en mano', 'En la entrada o el escaparate'] } },
-    carta: { l: 'Carta digital para mesas', f: { t: 'single', lab: 'Cómo es su carta', title: '¿Cómo es tu carta?', opts: ['Es fija, con pocos cambios', 'Cambia cada día (menú del día)', 'La tengo en PDF o en una web', 'Todavía no la tengo en digital'] } },
-    cita: { l: 'Pedir cita o reservar', ls: { salud: 'Pedir cita o contactar con el centro', restauracion: 'Reservas de mesa', hotel: 'Reservas directas', servicios: 'Pedir cita o contactar' }, f: { t: 'single', lab: 'Cómo gestiona hoy las citas o reservas', title: '¿Cómo gestionas hoy las citas o reservas?', opts: ['Por teléfono', 'Por WhatsApp', 'Con una agenda o programa online', 'Todavía no las gestiono'] } },
-    ofertas: { l: 'Catálogo, ofertas y novedades', ls: { restauracion: 'Menú del día y ofertas' }, f: { t: 'multi', lab: 'Qué quiere enseñar', title: '¿Qué quieres enseñar?', sub: 'Elige todo lo que corresponda.', opts: ['Menú del día', 'Ofertas y promociones', 'Novedades', 'Catálogo completo'] } },
-    visita: { l: 'Tarjeta de visita inteligente', ls: { salud: 'Tarjeta de visita inteligente para el equipo' }, f: { t: 'single', lab: 'Para quién sería', title: '¿Para quién sería?', opts: ['Solo para mí', 'Para varias personas del equipo', 'Todavía no lo sé'] } },
-    redes: { l: 'Que te sigan en redes sociales', f: { t: 'multi', lab: 'Qué redes usa', title: '¿Qué redes usas?', sub: 'Elige todas las que quieras.', opts: ['Instagram', 'TikTok', 'Facebook', 'YouTube', 'Todavía ninguna'] } },
-    cuidados: { l: 'Información de tratamientos y cuidados posteriores', f: { t: 'multi', lab: 'Qué información daría', title: '¿Qué información darías al paciente?', sub: 'Elige todo lo que corresponda.', opts: ['Cuidados después de un tratamiento', 'Explicación de los tratamientos', 'Preguntas frecuentes', 'Instrucciones antes de la cita'] } },
-    equipo: { l: 'Presentar al equipo y los servicios', ls: { servicios: 'Presentar servicios y casos', belleza: 'Servicios y tarifas' }, f: { t: 'multi', lab: 'Qué quiere presentar', title: '¿Qué quieres presentar?', sub: 'Elige todo lo que corresponda.', opts: ['Al equipo', 'Los servicios', 'Casos o trabajos realizados', 'Las tarifas'] } },
-    infoHotel: { l: 'Información para los huéspedes', f: { t: 'multi', lab: 'Qué información daría', title: '¿Qué información darías?', sub: 'Elige todo lo que corresponda.', opts: ['Wifi y servicios', 'Horarios (desayuno, recepción)', 'Qué ver y hacer en la zona', 'Normas y contacto'] } },
-    producto: { l: 'Información de producto', f: { t: 'single', lab: 'Dónde iría', title: '¿Dónde iría?', opts: ['En el propio producto o su etiqueta', 'En el mostrador', 'En el escaparate'] } },
-    llegar: { l: 'Cómo llegar, horarios y contacto', f: { t: 'single', lab: 'Qué debe mostrar', title: '¿Qué debe mostrar?', opts: ['Cómo llegar y horarios', 'Teléfono y WhatsApp', 'Todo junto'] } }
+    a: a, s: s,
+    head: strong ? 'Tienes una base sólida' : 'Tu mayor margen está en ' + R.AREAS[low].name.toLowerCase(),
+    lead: strong ? 'Los tres bloques están bien asentados. Lo útil ahora es medir y mantener.' : R.LEAD[low],
+    gauges: gauges,
+    note: a.cap === 'lleno',
+    picks: picks.map((it, k) => ({ n: String(k + 1), tag: R.AREAS[it.area].name, eff: 'Tu esfuerzo: ' + R.EFF[it.effort], title: it.title(a, s), why: it.why(a, s), what: it.what(a, s), measure: it.measure(a, s) })),
+    map: gauges.map((g) => g.name + ' ' + g.lvlLow).join(' · ')
   };
 }
-qUseList(ans) {
-  const cat = this.qUseCat();
-  const L = { salud: ['resenas', 'cita', 'visita', 'cuidados', 'equipo'], restauracion: ['carta', 'resenas', 'cita', 'ofertas', 'visita', 'redes'], hotel: ['infoHotel', 'resenas', 'cita', 'visita'], belleza: ['cita', 'resenas', 'equipo', 'visita', 'redes'], comercio: ['resenas', 'ofertas', 'producto', 'llegar', 'visita', 'redes'], servicios: ['visita', 'resenas', 'cita', 'equipo'] };
-  const keys = this.qSecKeys(ans);
-  const out = [];
-  (keys.length ? keys : ['']).forEach((sec) => (L[sec] || ['resenas', 'visita', 'cita', 'llegar', 'ofertas']).forEach((id) => {
-    if (!out.filter((x) => x.id === id).length) out.push({ id: id, label: (cat[id].ls && cat[id].ls[sec]) || cat[id].l });
-  }));
-  return out;
-}
 qSteps(ans) {
-  ans = ans || {};
-  const first = String(ans.nombre || '').trim().split(' ')[0];
-  const needs = this.qNeeds();
-  const sec = this.qSec(ans);
+  const R = this.qRad();
+  const a = this.qEng(ans || {});
   const S = [];
-  const multi = (k, lab, title, sub, opts, req) => S.push({ k: k, t: 'multi', req: req !== false, lab: lab, title: title, sub: sub || 'Elige todas las que quieras.', opts: opts });
-  const follow = (k, f, about) => S.push({ k: k, t: 'multi', req: true, lab: f.lab + (about ? ' (' + about + ')' : ''), title: f.title, sub: (about ? 'Sobre: ' + about + '. ' : '') + (f.sub || 'Elige todas las que quieras.'), opts: f.opts });
-  multi('need', 'Qué necesita', '¿Qué necesitas?', 'Puedes elegir varias. Te preguntamos por cada una.', needs);
-  multi('sector', 'Tipo de negocio', '¿Qué tipo de negocio tienes?', 'Elige el que mejor encaje; si tienes más de uno, marca todos. Así te mostramos solo opciones que encajan con tu caso.', this.qSecs().map((x) => x[1]));
-  if (this.qSel(ans, 'sector').indexOf('Otro tipo de negocio') > -1) S.push({ k: 'sectorOtro', t: 'long', req: true, lab: 'A qué se dedica', title: '¿A qué se dedica tu negocio?', sub: 'Descríbelo con tus propias palabras.', ph: 'Por ejemplo: taller de carpintería…' });
-  let blocks = this.qSel(ans, 'need').map((x) => needs.indexOf(x)).filter((i) => i > -1).sort();
-  if (!blocks.length) blocks = [0];
-  blocks.forEach((b) => {
-    if (b === 0) {
-      const U = this.qUseList(ans);
-      multi('uso', 'Lo que quiere conseguir con las tarjetas', '¿Qué quieres conseguir con las tarjetas o placas?', 'Elige todo lo que te interese.', U.map((x) => x.label).concat(['Otra cosa']));
-      const chosen = U.filter((x) => this.qSel(ans, 'uso').indexOf(x.label) > -1);
-      const cat = this.qUseCat();
-      chosen.forEach((u) => follow('det_' + u.id, cat[u.id].f, chosen.length > 1 ? u.label : ''));
-      if (this.qSel(ans, 'uso').indexOf('Otra cosa') > -1) S.push({ k: 'usoOtro', t: 'long', req: true, lab: 'Qué más le gustaría conseguir', title: 'Cuéntanos qué más te gustaría conseguir', ph: 'Escribe aquí lo que tengas en mente…' });
-      if (!(chosen.length && chosen.every((u) => u.id === 'visita') && this.qSel(ans, 'uso').length === chosen.length)) multi('formato', 'Formato', '¿En qué formato lo imaginas?', 'Puedes elegir varios. La placa y la tarjeta cuestan lo mismo; el soporte de mostrador, el doble por unidad.', ['Tarjeta', 'Placa cuadrada para mesa o mostrador', 'Soporte de mostrador', 'No lo sé, aconsejadme']);
-      multi('cantidad', 'Cuántas unidades', '¿Cuántas unidades necesitas?', 'Cuantas más pides, menos cuesta cada una.', ['De 1 a 5', 'De 6 a 25', 'De 26 a 50', 'Más de 50', 'No lo sé todavía']);
-      multi('usa', 'Usa ya algo parecido', '¿Usas ya algo parecido?', 'Elige todo lo que corresponda.', ['No', 'Sí, códigos QR', 'Sí, tarjetas o placas NFC', 'No lo sé']);
-      if (this.qSel(ans, 'usa').indexOf('Sí, códigos QR') > -1) follow('usaQR', { lab: 'Qué mejoraría de los QR', title: '¿Qué te gustaría mejorar de los códigos QR?', opts: ['Que sea más cómodo para el cliente', 'Que se vea más cuidado', 'Que no se estropeen ni se pierdan', 'Poder cambiar el enlace sin reimprimir'] });
-      if (this.qSel(ans, 'usa').indexOf('Sí, tarjetas o placas NFC') > -1) follow('usaNFC', { lab: 'Qué mejoraría de las NFC', title: '¿Qué te gustaría mejorar de tus tarjetas o placas?', opts: ['El diseño', 'Que sea más fácil de usar', 'Lo que se ve al acercar el móvil', 'Nada, solo repetir el pedido'] });
-    } else if (b === 1) {
-      const T = this.qWebTypes(ans);
-      multi('tipoWeb', 'Tipo de página o portal', '¿Qué tipo de página o portal necesitas?', 'Puedes elegir varios. Si dudas, elige la última opción y te aconsejamos.', T);
-      const ts = this.qSel(ans, 'tipoWeb').map((x) => T.indexOf(x));
-      if (ts.indexOf(0) > -1) S.push({ k: 'inclB', t: 'multi', req: true, lab: 'Botones que quiere', title: '¿Qué botones quieres en el portal básico?', sub: 'Elige todo lo que te interese. Lo ajustamos contigo después.', opts: this.qWebIncl(T[0], ans) });
-      if (ts.indexOf(2) > -1) S.push({ k: 'paginas', t: 'multi', req: true, lab: 'Cuántas páginas', title: '¿Cuántas páginas calculas para la web a medida?', sub: 'Elige la que más se acerque.', opts: ['De 1 a 3', 'De 4 a 8', 'Más de 8', 'No lo sé'] });
-      if (ts.indexOf(1) > -1 || ts.indexOf(2) > -1) S.push({ k: 'inclA', t: 'multi', req: true, lab: 'Qué debe incluir', title: '¿Qué quieres que incluya?', sub: 'Elige todo lo que te interese. Lo ajustamos contigo después.', opts: this.qWebIncl(T[1], ans) });
-      if (ts.indexOf(3) > -1) follow('metaWeb', { lab: 'Qué necesita conseguir con la web', title: '¿Qué necesitas conseguir con la web?', sub: 'Con esto te aconsejamos el nivel que te conviene.', opts: ['Que me encuentren en Google', 'Que me contacten o pidan cita', 'Enseñar lo que hago', 'Vender online', 'Un poco de todo'] });
-      multi('tieneWeb', 'Tiene web', '¿Tienes ya una web?', 'Elige lo que corresponda.', ['No, no tengo', 'Sí, quiero renovarla', 'Sí, solo quiero añadir algo']);
-      if (this.qSel(ans, 'tieneWeb').filter((x) => x.indexOf('Sí') === 0).length) S.push({ k: 'webActual', t: 'text', req: false, lab: 'Su web actual', title: '¿Cuál es su dirección?', sub: 'Opcional.', ph: 'www.minegocio.com' });
-      multi('material', 'Material que tiene', '¿Qué tienes ya preparado?', 'Elige todo lo que tengas.', ['Logotipo', 'Fotos', 'Textos', 'Nada, necesito ayuda con todo']);
-    } else if (b === 2) {
-      multi('medio', 'Imagen o vídeo', '¿Qué necesitas: imagen, vídeo o ambos?', 'Marca las dos si necesitas ambos.', this.qMedia());
-      const md = this.qSel(ans, 'medio');
-      if (md.indexOf('Imagen') > -1) {
-        multi('usoImg', 'Para qué necesita la imagen', '¿Para qué necesitas la imagen?', 'Elige todo lo que corresponda.', this.qUsesAv('img', ans));
-        multi('nImg', 'Cuántas imágenes', '¿Cuántas imágenes necesitas?', 'Elige la que más se acerque.', ['De 1 a 5', 'De 6 a 15', 'Más de 15', 'No lo sé']);
-      }
-      if (md.indexOf('Vídeo') > -1) {
-        multi('usoVid', 'Para qué necesita el vídeo', '¿Para qué necesitas el vídeo?', 'Elige todo lo que corresponda.', this.qUsesAv('vid', ans));
-        multi('nVid', 'Cuántos vídeos', '¿Cuántos vídeos necesitas?', 'Pack de 5 vídeos: 80 €. Pack de 10 vídeos: 150 €. Sin IVA.', ['1 vídeo', 'Pack de 5 vídeos', 'Pack de 10 vídeos', 'Más de 10', 'No lo sé']);
-        multi('dondeVid', 'Dónde se publicará', '¿Dónde se va a ver?', 'Elige todo lo que corresponda.', ['Instagram o TikTok', 'Mi web', 'Anuncios de pago', 'Una pantalla en mi negocio', 'Todavía no lo sé']);
-      }
-      if (md.length) multi('materialAv', 'Material que tiene', '¿Tienes ya fotos o vídeos propios?', 'Elige lo que corresponda.', ['Sí, tengo material', 'Tengo algo', 'No, hay que crearlo todo']);
-    } else {
-      const cl = { salud: 'pacientes y citas', restauracion: 'clientes y reservas', hotel: 'reservas directas', belleza: 'clientes y citas', comercio: 'clientes y ventas' }[sec] || 'clientes y consultas';
-      const M = ['Que me encuentren más (Google, mapas, redes)', 'Conseguir más ' + cl, 'Atender más rápido y automatizar tareas', 'Mejorar mi imagen y mis redes sociales', 'No lo tengo claro, quiero una radiografía de mi negocio'];
-      multi('mejorar', 'Lo que quiere mejorar', '¿Qué quieres mejorar?', 'Elige todo lo que corresponda. Con tus respuestas preparamos un estudio de tu caso.', M);
-      const mj = this.qSel(ans, 'mejorar').map((x) => M.indexOf(x));
-      if (mj.indexOf(0) > -1) follow('mejDonde', { lab: 'Dónde quiere aparecer', title: '¿Dónde quieres que te encuentren?', opts: ['Google y Google Maps', 'Instagram', 'TikTok', 'Directorios y portales', 'No lo sé'] });
-      if (mj.indexOf(1) > -1) follow('mejComo', { lab: 'Cómo le llegan hoy', title: '¿Cómo te llegan hoy los clientes?', opts: ['Por recomendación', 'Por redes sociales', 'Por Google', 'Por publicidad', 'Pasan por la puerta'] });
-      if (mj.indexOf(2) > -1) follow('mejTarea', { lab: 'Qué tareas le quitan tiempo', title: '¿Qué tareas te quitan más tiempo?', opts: ['Responder mensajes', 'Gestionar citas o reservas', 'Pedir reseñas', 'Enviar recordatorios', 'Presupuestos y facturas'] });
-      if (mj.indexOf(3) > -1) follow('mejImagen', { lab: 'Qué necesita de imagen y redes', title: '¿Qué necesitas de imagen y redes?', opts: ['Renovar mi imagen de marca', 'Contenido para mis redes', 'No lo sé'] });
-    }
+  R.Q.forEach((q) => {
+    const pairs = q.opts(a);
+    const ex = q.excl ? (pairs.filter((o) => o[0] === q.excl)[0] || [])[1] : '';
+    S.push({ k: q.id, t: q.type === 'multi' ? 'multi' : 'single', req: true, lab: q.short, title: q.title(a), sub: q.hint, opts: pairs.map((o) => o[1]), excl: ex || '' });
   });
-  S.push({ k: 'coment', t: 'long', req: false, lab: 'Algo más que quiera contarnos', title: '¿Algo más que quieras contarnos?', sub: 'Opcional.', ph: 'Escribe aquí lo que tengas en mente…' });
+  const first = String((ans || {}).nombre || '').trim().split(' ')[0];
+  S.push({ k: 'resultado', t: 'result', req: false, lab: 'Resultado', title: 'Tu resultado' });
   S.push({ k: 'negocio', t: 'text', req: true, lab: 'Nombre del negocio', title: '¿Cómo se llama tu negocio?', ph: 'Escribe el nombre aquí…', ac: 'organization' });
   S.push({ k: 'nombre', t: 'text', req: true, lab: 'Nombre de la persona de contacto', title: '¿Cómo te llamas?', ph: 'Tu nombre', ac: 'given-name' });
   S.push({ k: 'dato', t: 'text', req: true, lab: 'Correo electrónico', title: first ? first + ', ¿a qué correo te escribimos?' : '¿Cuál es tu correo electrónico?', ph: 'nombre@correo.com', ac: 'email', im: 'email' });
@@ -670,12 +763,12 @@ qPick(k, lab) {
   const d = steps[qi];
   const ans = Object.assign({}, st.ans || {});
   if (d.t === 'multi') {
-    const EX = /^(No\b|Nada\b|Todavía (no|ninguna)|Ninguna)/;
+    const isEx = (o) => !!d.excl && o === d.excl;
     let cur = Array.isArray(ans[k]) ? ans[k].slice() : [];
     const at = cur.indexOf(lab);
     if (at > -1) cur.splice(at, 1);
-    else if (EX.test(lab)) cur = [lab];
-    else cur = cur.filter((o) => !EX.test(o)).concat([lab]);
+    else if (isEx(lab)) cur = [lab];
+    else cur = cur.filter((o) => !isEx(o)).concat([lab]);
     ans[k] = cur;
     // Lo que ya no cuelga de lo elegido (otras ramas, opciones que ya no existen) se borra.
     const ns = this.qSteps(ans);
@@ -690,12 +783,22 @@ qPick(k, lab) {
     this.setState({ ans: ans, err: '' });
   } else {
     ans[k] = lab;
+    if (k === 'sector') delete ans.tareas;
     this.setState({ ans: ans, err: '' });
     setTimeout(() => {
       const now = this.state || {};
       if (now.open && now.step === qi) { this.setState({ step: qi + 1, err: '' }); this.qFocus(); }
     }, 360);
   }
+}
+qResNext() {
+  const st = this.state || {};
+  this.setState({ step: (st.step || 0) + 1, err: '' });
+  this.qFocus();
+}
+qResRestart() {
+  this.setState({ ans: {}, step: 0, err: '' });
+  this.qFocus();
 }
 qToggleConsent() {
   const st = this.state || {};
@@ -738,9 +841,17 @@ qSend(ans) {
   const MAIL = 'nexianfcsolutions@gmail.com';
   const steps = this.qSteps(ans);
   const total = steps.length;
-  const data = { origen: 'Web NEXIA · Cuéntanos qué necesitas', fecha: new Date().toISOString().slice(0, 10) };
-  let body = '';
-  steps.filter((d) => d.t !== 'consent').forEach((d) => {
+  const data = { origen: 'Web NEXIA · Radiografía', fecha: new Date().toISOString().slice(0, 10) };
+  const rd = this.qResultData(ans);
+  let body = 'RADIOGRAFÍA DE NEGOCIO\n\nMapa: ' + rd.map + '\n\nTres mejoras prioritarias:\n';
+  data['Mapa'] = rd.map;
+  rd.picks.forEach((p) => {
+    body += p.n + '. ' + p.title + ' (' + p.tag + ' · ' + p.eff.toLowerCase() + ')\n   Por qué: ' + p.why + '\n';
+    data['Mejora ' + p.n] = p.title + ' — ' + p.why;
+  });
+  if (!rd.picks.length) body += '(sin mejoras urgentes)\n';
+  body += '\nRespuestas:\n';
+  steps.filter((d) => d.t !== 'consent' && d.t !== 'result').forEach((d) => {
     const v = ans[d.k];
     const t = Array.isArray(v) ? v.join(', ') : (v || '—');
     data[d.lab] = t;
@@ -748,16 +859,15 @@ qSend(ans) {
   });
   data['Consentimiento'] = 'Acepta que NEXIA use estos datos para contactar con él/ella sobre su consulta.';
   body += '\nAcepto que NEXIA use estos datos para contactar conmigo sobre mi consulta.';
-  const tag = (this.qSel(ans, 'need').map((x) => ['Tarjetas y soportes', 'Contenido web', 'Audiovisual', 'Captación y marketing'][this.qNeeds().indexOf(x)]).filter((x) => x).join(' + ')) || 'Consulta';
-  if (ENDPOINT) {
+    if (ENDPOINT) {
     this.setState({ ans: ans, status: 'sending', err: '' });
     fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
       .then((r) => this.setState(r.ok ? { status: 'ok', step: total } : { status: 'error', err: 'No hemos podido enviarlo. Inténtalo de nuevo o escríbenos a nexianfcsolutions@gmail.com.' }))
       .catch(() => this.setState({ status: 'error', err: 'No hemos podido enviarlo. Inténtalo de nuevo o escríbenos a nexianfcsolutions@gmail.com.' }));
   } else {
     this.setState({ ans: ans, status: 'mail', step: total, err: '' });
-    try { window.__nxqLast = { subject: 'Cuestionario web · ' + tag + ' · ' + (ans.negocio || 'nuevo contacto'), body: body }; } catch (x) {}
-    try { window.location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Cuestionario web · ' + tag + ' · ' + (ans.negocio || 'nuevo contacto')) + '&body=' + encodeURIComponent(body); } catch (x) {}
+    try { window.__nxqLast = { subject: 'Radiografía de negocio · ' + (ans.negocio || 'nuevo contacto'), body: body }; } catch (x) {}
+    try { window.location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Radiografía de negocio · ' + (ans.negocio || 'nuevo contacto')) + '&body=' + encodeURIComponent(body); } catch (x) {}
   }
 }
 qVals() {
@@ -794,11 +904,16 @@ qVals() {
   const cOn = !!ans.consent;
   const kind = cur ? cur.t : '';
   const isChoice = kind === 'single' || kind === 'multi';
+  const nQ = 12;
+  const rr = kind === 'result' ? this.qResultData(ans) : null;
   const out = {
     open: !!st.open,
     qW: step === -1,
     qDone: done,
     qConsent: kind === 'consent',
+    qResult: kind === 'result',
+    rHead: rr ? rr.head : '', rLead: rr ? rr.lead : '', rGauges: rr ? rr.gauges : [], rNote: !!(rr && rr.note), rPicks: rr ? rr.picks : [], rHasPicks: !!(rr && rr.picks.length), rNoPicks: !!(rr && !rr.picks.length),
+    resNext: () => this.qResNext(), resRestart: () => this.qResRestart(),
     qTextA: kind === 'text' && par, qTextB: kind === 'text' && !par,
     qLongA: kind === 'long' && par, qLongB: kind === 'long' && !par,
     qChoiceA: isChoice && par, qChoiceB: isChoice && !par,
@@ -813,8 +928,8 @@ qVals() {
     qOpts: qOpts,
     o: { consent: { bd: cOn ? '#00C1CA' : 'rgba(255,255,255,0.24)', lb: cOn ? '#00C1CA' : 'transparent', ck: cOn ? '1' : '0', aria: cOn ? 'true' : 'false' } },
     showBack: step >= 0 && step < total,
-    showCount: step >= 0 && step < total,
-    countText: step === 0 ? 'Pregunta 1' : (step + 1) + ' / ' + total,
+    showCount: step >= 0 && step < total && kind !== 'result',
+    countText: isChoice ? (step + 1) + ' / ' + nQ : 'Casi listo',
     pct: (done ? 100 : Math.round(Math.max(0, step) * 100 / total)) + '%',
     hasErr: !!st.err,
     err: st.err || '',
@@ -833,7 +948,7 @@ qVals() {
     doneTitle: '¡Gracias' + nm + '!',
     doneText: mailMode
       ? 'Se ha abierto tu correo con las respuestas ya escritas: solo te queda pulsar enviar. Si no se ha abierto, escríbenos a nexianfcsolutions@gmail.com y te atendemos igual.'
-      : 'Hemos recibido tu consulta. Te contactaremos por correo para ver qué te conviene.'
+      : 'Hemos recibido tu radiografía. Te escribiremos por correo para concretar los 30 minutos y revisarla contigo.'
   };
   return out;
 }
