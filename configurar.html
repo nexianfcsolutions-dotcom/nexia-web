@@ -685,13 +685,28 @@ qPay(ans) {
       // 503 = el pago online aún no está activado en el servidor: se guarda el pedido por correo como antes.
       if (x.status === 503 && x.j && /no est[aá] activado/i.test(String(x.j.error || ''))) { this._sinPago = true; this.setState({ status: '' }); this.qSend(ans); return; }
       if (!x.ok || !x.j || !x.j.url) throw new Error('HTTP ' + x.status + ' ' + ((x.j && x.j.error) || 'sin url'));
-      this._oid = x.j.pedido; go(x.j.url);
+      this._oid = x.j.pedido;
+      // Guarda el pedido para mostrar su resumen al volver de Stripe (la página se recarga y pierde lo elegido)
+      try { sessionStorage.setItem('nexia-pedido', JSON.stringify({ oid: x.j.pedido, ans: ans })); } catch (e) { /* sin almacenamiento: el resumen sale vacío */ }
+      go(x.j.url);
     })
     .catch((e) => { let why = ''; try { why = (e && (e.name + ': ' + e.message)) || ''; } catch (x) {} try { console.error('pago', e); } catch (x) {} this.setState({ status: 'error', err: fail + (why ? ' [Detalle técnico: ' + String(why).slice(0, 220) + ']' : '') }); });
 }
+qRestored() {
+  // Al volver de Stripe (?pago=ok&pedido=…) recupera lo que eligió el cliente para el resumen del pedido.
+  if (this._rest !== undefined) return this._rest;
+  let a = null;
+  try {
+    const m = (window.location.search || '').match(/[?&]pago=ok&pedido=([A-Za-z0-9-]+)/);
+    const g = JSON.parse(sessionStorage.getItem('nexia-pedido') || 'null');
+    if (m && g && g.oid === m[1]) a = g.ans;
+  } catch (e) { /* sin almacenamiento */ }
+  this._rest = a;
+  return a;
+}
 renderVals() {
   const st = this.state || {};
-  const ans = st.ans || {};
+  const ans = st.ans || this.qRestored() || {};
   const seq = this.qSeq(ans);
   const sp = this.qSpec();
   const i = Math.min(st.i || 0, seq.length - 1);
