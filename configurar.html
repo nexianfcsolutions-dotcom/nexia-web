@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#10172A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237B79E2'/%3E%3Cstop offset='.55' stop-color='%2300C1CA'/%3E%3Cstop offset='1' stop-color='%23007EC2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
 <title>NEXIA · Configura tu pedido</title>
+<script src="./precios.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -510,31 +511,21 @@ qNext(e) {
   this.qTop();
 }
 qPrice(ans) {
-  // Precios SIN IVA. Mismo modelo que el Excel «NEXIA_Precios_y_reglas» (hoja Parametros).
-  // Precio por tarjeta según unidades (chip estándar incluido); entre dos tramos se interpola, así que cada unidad extra abarata un poco.
-  const PTS = [[1, 5], [5, 4], [10, 3], [25, 2.8], [50, 2.7]];
-  const CHIP = { estandar: 0, pro: 0.2, super: 0.5 };   // suplemento € por unidad sobre el chip estándar
-  const ACRILICO = 0.5, CARAS2 = 1, DISENO = 15, PBASICO = 20, PCOMPLETO = 50;
-  const r2 = (n) => Math.round(n * 100) / 100;
-  const f = (n) => (Number.isInteger(r2(n)) ? String(r2(n)) : r2(n).toFixed(2)).replace('.', ',') + ' €';
-  const unitOf = (n) => {
-    if (n <= PTS[0][0]) return PTS[0][1];
-    for (let k = 1; k < PTS.length; k++) {
-      if (n <= PTS[k][0]) { const a = PTS[k - 1], b = PTS[k]; return r2(a[1] + (b[1] - a[1]) * (n - a[0]) / (b[0] - a[0])); }
-    }
-    return PTS[PTS.length - 1][1];
-  };
+  // Precios SIN IVA: salen de precios.js, la única tabla de precios de NEXIA (la misma que usa el servidor de pagos).
+  const P = window.NEXIA_PRECIOS;
+  const CHIP = P.chip, ACRILICO = P.acrilico, CARAS2 = P.caras2, DISENO = P.diseno, PBASICO = P.portalBasico, PCOMPLETO = P.portalCompleto;
+  const r2 = P.r2, f = P.fmt;
   const portal = ans.path === 'portal';
   const qty = this.qQty(ans);
   let why = '';
   if (ans.formato === 'otro') why = 'Los formatos especiales se presupuestan aparte.';
-  else if (qty && qty > 50) why = 'Más de 50 unidades se presupuesta aparte.';
+  else if (qty && qty > P.maxUnidades) why = 'Más de ' + P.maxUnidades + ' unidades se presupuesta aparte.';
   else if (ans.ndis === '2' || ans.ndis === '3') why = 'Con varios diseños distintos el precio se cierra contigo.';
   const none = { canPay: false, payNet: '', payIva: '', payTot: '', showIva: false, hasExtras: false, extrasText: '', hasTotal: false, totalText: '', lines: [] };
   if (why) return Object.assign({}, none, { label: 'Precio', text: 'A presupuesto', sub: 'Sin compromiso', note: why + ' Te lo confirmamos antes de empezar.' });
   const n = qty || 1;
   const NM = ans.formato === 'soporte' ? ['soporte', 'soportes', 'Soporte'] : (ans.formato === 'placa' ? ['placa', 'placas', 'Placa'] : ['tarjeta', 'tarjetas', 'Tarjeta']);
-  const unit = r2(unitOf(n) * (ans.formato === 'soporte' ? 2 : 1));   // soporte = el doble por unidad que una tarjeta
+  const unit = P.unidad(n, ans.formato);   // soporte = el doble por unidad que una tarjeta
   const cards = r2(n * unit);
   const nexia = ans.diseno === 'nexia';
   const dis = nexia ? DISENO : 0;
@@ -563,12 +554,12 @@ qPrice(ans) {
   let note;
   if (!qty) note = spec + 'El precio va cambiando según avanzas. Los extras se suman por unidad.';
   else if (level === 'completo') note = spec + 'El portal avanzado se presupuesta contigo: el precio mostrado es un mínimo.';
-  else if (ans.diseno === 'ayuda') note = spec + 'Si el diseño lo hacemos nosotros, se suman 15 €.';
+  else if (ans.diseno === 'ayuda') note = spec + 'Si el diseño lo hacemos nosotros, se suman ' + f(DISENO) + '.';
   else if (PAGO_ONLINE.indexOf(ans.formato) < 0) note = spec + 'Te confirmamos el pedido y el plazo antes de empezar. No pagas nada ahora.';
   else note = spec + 'Pedido de precio fijo: puedes pagarlo al terminar. Te confirmamos el plazo antes de empezar.';
   const showTotal = !!qty && ex.length > 0;
   const canPay = !open && !!qty && ans.ndis !== '2' && ans.ndis !== '3' && PAGO_ONLINE.indexOf(ans.formato) > -1;
-  const iva = r2(total * 0.21);
+  const iva = r2(total * P.iva);
   if (canPay) { lines.push(['Total sin IVA', f(total)]); lines.push(['IVA (21 %)', f(iva)]); lines.push(['Total a pagar', f(r2(total + iva))]); }
   return {
     canPay: canPay, payNet: f(total), payIva: f(iva), payTot: f(r2(total + iva)), totalIva: r2(total + iva), netNum: total,

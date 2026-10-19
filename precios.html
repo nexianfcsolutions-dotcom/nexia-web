@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#10172A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237B79E2'/%3E%3Cstop offset='.55' stop-color='%2300C1CA'/%3E%3Cstop offset='1' stop-color='%23007EC2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
 <title>NEXIA · Precios</title>
+<script src="./precios.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -314,23 +315,14 @@ Escríbenos por correo
 class Component extends DCLogic {
 pDef() { return { fmt: 'tarjeta', portal: 'propio', mat: 'pvc', chip: 'estandar', caras: '1', dis: 'propio', cant: '10' }; }
 pCalc(a) {
-  // Precios SIN IVA. Mismo modelo que el Excel «NEXIA_Precios_y_reglas» (hoja Parametros) y que el configurador.
-  // Precio por tarjeta según unidades (chip estándar incluido); entre dos tramos se interpola, así que cada unidad extra abarata un poco.
-  const PTS = [[1, 5], [5, 4], [10, 3], [25, 2.8], [50, 2.7]];
-  const CHIP = { estandar: 0, pro: 0.2, super: 0.5 };   // suplemento € por unidad sobre el chip estándar
-  const ACRILICO = 0.5, CARAS2 = 1, DISENO = 15, PBASICO = 20, PCOMPLETO = 50;
-  const r2 = (x) => Math.round(x * 100) / 100;
-  const unitOf = (q) => {
-    if (q <= PTS[0][0]) return PTS[0][1];
-    for (let k = 1; k < PTS.length; k++) {
-      if (q <= PTS[k][0]) { const p = PTS[k - 1], b = PTS[k]; return r2(p[1] + (b[1] - p[1]) * (q - p[0]) / (b[0] - p[0])); }
-    }
-    return PTS[PTS.length - 1][1];
-  };
+  // Precios SIN IVA: salen de precios.js, la única tabla de precios de NEXIA (la misma que el configurador y el servidor de pagos).
+  const P = window.NEXIA_PRECIOS;
+  const CHIP = P.chip, ACRILICO = P.acrilico, CARAS2 = P.caras2, DISENO = P.diseno, PBASICO = P.portalBasico, PCOMPLETO = P.portalCompleto;
+  const r2 = P.r2;
   let n = Number(a.cant);
   if (a.cant === 'otra') { n = parseInt(a.cantN, 10); if (!(n >= 1)) return { custom: 'vacio' }; }
-  if (n > 50) return { custom: 'cant' };
-  const unit = r2(unitOf(n) * (a.fmt === 'soporte' ? 2 : 1));   // soporte = el doble por unidad que una tarjeta
+  if (n > P.maxUnidades) return { custom: 'cant' };
+  const unit = P.unidad(n, a.fmt);   // soporte = el doble por unidad que una tarjeta
   const cards = r2(n * unit);
   const dis = a.dis === 'nexia' ? DISENO : 0;
   const portal = a.portal === 'basico' ? PBASICO : (a.portal === 'completo' ? PCOMPLETO : 0);
@@ -366,13 +358,13 @@ renderVals() {
     const on = a[k] === v;
     o[k + j] = { bd: on ? '#2347DC' : '#C9D0DB', bg: on ? '#EEF2FF' : '#FFFFFF', ck: on ? '1' : '0', aria: on ? 'true' : 'false', pick: () => this.pPick(k, v) };
   }));
-  const f = (x) => (Number.isInteger(r2(x)) ? String(r2(x)) : r2(x).toFixed(2)).replace('.', ',') + ' €';
-  const r2 = (x) => Math.round(x * 100) / 100;
+  const P = window.NEXIA_PRECIOS;
+  const f = P.fmt, r2 = P.r2;
   const p = this.pCalc(a);
   const out = { o: o, showOtra: a.cant === 'otra', cantInput: (e) => this.cantInput(e) };
   const noE = { e0: { on: false, k: '', v: '' }, e1: { on: false, k: '', v: '' }, e2: { on: false, k: '', v: '' } };
   if (p.custom) {
-    Object.assign(out, noE, { total: p.custom === 'vacio' ? (a.fmt === 'soporte' ? 'Desde 5,40 €' : 'Desde 2,70 €') : 'A presupuesto', showIva: p.custom === 'vacio', hasExtras: false, extrasText: '', hasTotal: false, totalText: '', barLabel: 'Precio',
+    Object.assign(out, noE, { total: p.custom === 'vacio' ? 'Desde ' + f(P.unidad(P.maxUnidades, a.fmt)) : 'A presupuesto', showIva: p.custom === 'vacio', hasExtras: false, extrasText: '', hasTotal: false, totalText: '', barLabel: 'Precio',
       totalSub: p.custom === 'vacio' ? 'por ' + nm[0] + ' · sin IVA' : 'Sin compromiso', hasRows: false, showDis: false, showPortal: false, r1l: '', r1v: '', pl: '', pv: '',
       note: (p.custom === 'vacio' ? 'Escribe cuántas unidades quieres (de 1 a 50) y calculamos el precio al momento.' : 'Para más de 50 unidades cerramos el precio contigo según lo que necesites. Sin compromiso.') });
     return out;
@@ -392,7 +384,7 @@ renderVals() {
     r1l: p.n + ' ' + (p.n === 1 ? nm[0] : nm[1]) + ' × ' + f(p.unit), r1v: f(p.cards),
     showDis: p.dis > 0,
     showPortal: p.portal > 0,
-    pl: adv ? 'Portal avanzado de NEXIA' : 'Portal básico de NEXIA', pv: adv ? 'desde +50 €' : '+20 €',
+    pl: adv ? 'Portal avanzado de NEXIA' : 'Portal básico de NEXIA', pv: adv ? 'desde +' + f(P.portalCompleto) : '+' + f(P.portalBasico),
     note: nm[2] + ' de ' + (a.mat === 'acrilico' ? 'acrílico' : 'PVC') + ', ' + chipTxt + ' y diseño por ' + (a.caras === '2' ? '2 caras' : '1 cara') + '. '
       + (adv ? 'El portal avanzado depende de lo que necesites (carta, fotos, idiomas…). Te damos el importe cerrado antes de empezar.' : 'Incluye el chip programado y probado en iPhone y Android. Te confirmamos el precio y el plazo antes de empezar.')
   });
