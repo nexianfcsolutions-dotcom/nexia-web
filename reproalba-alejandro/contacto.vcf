@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:García;Alejandro;;;
+FN:Alejandro García
+ORG:Reproalba
+TITLE:Representante
+TEL;TYPE=CELL:+34664353866
+EMAIL;TYPE=WORK:alejandropedidosrepro@outlook.es
+TEL;TYPE=WORK:+34967521440
+ADR;TYPE=WORK:;;Pol. Ind. Campollano\, 2ª Avenida\, Parcela 16/17;Albacete;;02007;España
+URL:https://www.reproalba.com/
+END:VCARD
