@@ -49,6 +49,10 @@ body{
 .wrap{max-width:480px;margin-inline:auto;display:grid;gap:18px}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 
+body::before{content:"";position:fixed;left:0;top:0;bottom:0;width:6px;background:var(--red);z-index:1}
+body::after{content:"";position:fixed;left:6px;top:0;bottom:0;width:2px;background:var(--blue)}
+.rule{display:flex;justify-content:center;gap:6px;margin:-6px 0 -4px}
+.rule i{display:block;height:4px;border-radius:2px}
 .brand{display:flex;justify-content:center;padding:6px 0 2px}
 .logo{display:block;width:min(66%,250px);height:auto}
 
@@ -133,6 +137,7 @@ html{background:#fff}</style>
 
   <h1>David Benavent</h1>
   <p class="lead"><b class="role">Técnico Comercial</b>Material escolar, oficina y equipamiento educativo</p>
+  <div class="rule" aria-hidden="true"><i style="width:36px;background:var(--blue)"></i><i style="width:12px;background:var(--red)"></i></div>
 
   <a class="catalog" href="https://www.reproalba.com/catalogos/">
     <div class="top">
