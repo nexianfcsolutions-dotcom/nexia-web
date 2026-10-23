@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Benavent;David;;;
+FN:David Benavent
+ORG:Reproalba
+TITLE:Técnico Comercial
+TEL;TYPE=CELL:+34616125126
+EMAIL;TYPE=WORK:david@reproalba.com
+TEL;TYPE=WORK:+34967521440
+ADR;TYPE=WORK:;;Pol. Ind. Campollano\, 2ª Avenida\, Parcela 16/17;Albacete;;02007;España
+URL:https://www.reproalba.com/
+END:VCARD
