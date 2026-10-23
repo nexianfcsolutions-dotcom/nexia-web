@@ -19,6 +19,7 @@ Web estática de NEXIA (tarjetas, placas y soportes NFC, portales web y vídeo p
 
 ## Otras carpetas
 - `asador/`, `dentalup/`, `reproalba/`: demos para clientes (no forman parte de la web de NEXIA; `asador/` pesa ~6 MB con vídeos).
+- `dentalup/seguro/`: zona privada del seguro dental de Dental Up (enlazada desde su lanzadera). El contenido va **cifrado** en `contenido.js` con una contraseña común para los asegurados; se genera con `node dentalup/seguro/cifrar.mjs /ruta/fuera/del/repo/contenido.html` partiendo de `plantilla-contenido.html`. El texto sin cifrar nunca se sube al repo.
 - `pago-prueba/`: página interna de prueba del pago.
 - Pie: todas las páginas llevan la barra «© 2026 NEXIA Solution… · NIF en trámite»; si cambia, hay que cambiarla en todas.
 - `opiniones.json`: opiniones que muestra `opiniones.html` (ahora vacío).

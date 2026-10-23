@@ -1,3 +1,5 @@
 # GitHub Pages: archivos del repo que no se publican en la web
 exclude:
   - CLAUDE.md
+  - dentalup/seguro/cifrar.mjs
+  - dentalup/seguro/plantilla-contenido.html

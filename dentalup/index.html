@@ -212,6 +212,7 @@ const I = {
   tel:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.2 3.8h3.3l1.6 4-2 1.3a11 11 0 0 0 5.8 5.8l1.3-2 4 1.6v3.3a2 2 0 0 1-2.1 2A15.8 15.8 0 0 1 3.2 5.9a2 2 0 0 1 2-2.1Z"/></svg>',
   pin:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>',
   star:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.6l2.6 5.4 5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.5 9.8l5.9-.8L12 3.6Z"/></svg>',
+  seguro:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2 5 5.8v5.6c0 4.4 3 8.1 7 9.4 4-1.3 7-5 7-9.4V5.8l-7-2.6Z"/><path d="m9 12 2.2 2.2L15.2 10"/></svg>',
   go:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg>'
 };
 
@@ -270,7 +271,9 @@ function estado(){
   const filas = [
     {href:"tel:" + C.telefono, icon:I.tel, lbl:"Llamar", sub:C.telefonoVisible},
     {href:C.mapsUrl, icon:I.pin, lbl:"Cómo llegar", sub:C.direccion + ". Aparca gratis en Villacerrada.", ext:true},
-    {href:C.resenaUrl, icon:I.star, lbl:"Dejar una reseña", sub:"Cuéntanos cómo fue tu visita", ext:true}
+    {href:C.resenaUrl, icon:I.star, lbl:"Dejar una reseña", sub:"Cuéntanos cómo fue tu visita", ext:true},
+    // Zona privada con contraseña (contenido cifrado en seguro/contenido.js)
+    {href:"./seguro/", icon:I.seguro, lbl:"Mi seguro dental", sub:"Zona privada para asegurados"}
   ];
   document.getElementById("lista").innerHTML = filas.map(f =>
     '<li><a class="row" href="' + f.href + '"' + (f.ext ? ' target="_blank" rel="noopener"' : '') + '>' +
